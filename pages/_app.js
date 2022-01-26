@@ -11,7 +11,7 @@ function Matossers({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
       <Component {...pageProps} />
-    </ChakraProvider>
+    </ChakraProvider> 
   )
 }
 
