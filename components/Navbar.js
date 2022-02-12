@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import useTranslation from 'next-translate/useTranslation';
 import { Box, Image, Flex, Link, Button, List, ListItem } from "@chakra-ui/react";
 import NaviconStyles from '../styles/navicon.module.css'
 import { useRouter } from 'next/router'
 
 
 export const Navbar = function (props) {
-    const { t, lang } = useTranslation();
     const [state, setState] = useState(false);
     const router = useRouter()
 
@@ -44,35 +42,28 @@ export const Navbar = function (props) {
                                                 className={(props.page == 'inici') ? "menu-item-active" : "menu-item"}
                                                 href="/"
                                             >
-                                                {t('common:MenuItem0')}
+                                                MenuItem0
                                             </Box>
                                             <Box as={(props.page == 'llibre') ? "span" : "a"} mx="10px"
                                                 className={(props.page == 'llibre') ? "menu-item-active" : "menu-item"}
                                                 href="/llibre"
                                             >
-                                                {t('common:MenuItem1')}
+                                               MenuItem1
                                             </Box>
                                             <Box as={(props.page == 'autor') ? "span" : "a"} mx="10px"
                                                 className={(props.page == 'autor') ? "menu-item-active" : "menu-item"}
                                                 href="/autor"
                                             >
-                                                {t('common:MenuItem2')}
+                                               MenuItem2
                                             </Box>
                                             <Box as={(props.page == 'presentacions') ? "span" : "a"} mx="10px"
                                                 className={(props.page == 'presentacions') ? "menu-item-active" : "menu-item"}
                                                 href="/aprenentatges/#bannerPresentacions"
                                             >
-                                                {t('common:MenuItem3')}
+                                                MenuItem3
                                             </Box>
                                         </Flex>
-                                        {
-                                            (props.page == 'compra') ?
-                                                <></>
-                                                :
-                                                <Box mx={["0", "16px", "16px"]} alignSelf="center">
-                                                    <Button className="button-orange" onClick={() => router.push("/compra")}>{t('common:Compra')}</Button>
-                                                </Box>
-                                        }
+
                                         <Box mt="-3px" display={["block", "none", "none"]} ml={["-20px", "0", "0"]}>
                                             <div display="block" className={NaviconStyles.buttonsContainer} >
                                                 <button className={state ? `${NaviconStyles.linesButton} ${NaviconStyles.x2} ${NaviconStyles.open}` :
@@ -102,7 +93,7 @@ export const Navbar = function (props) {
                             className={(props.page == 'inici') ? "menu-item-active" : "menu-item"}
                             href="/"
                         >
-                            {t('common:MenuItem0')}
+                            MenuItem0
                         </Box>
                     </ListItem>
                     <ListItem my="15px">
@@ -110,7 +101,7 @@ export const Navbar = function (props) {
                             className={(props.page == 'llibre') ? "menu-item-active" : "menu-item"}
                             href="/llibre"
                         >
-                            {t('common:MenuItem1')}
+                            MenuItem1
                         </Box>
                     </ListItem>
                     <ListItem my="15px">
@@ -118,7 +109,7 @@ export const Navbar = function (props) {
                             className={(props.page == 'autor') ? "menu-item-active" : "menu-item"}
                             href="/autor"
                         >
-                            {t('common:MenuItem2')}
+                           MenuItem2
                         </Box>
                     </ListItem>
                     <ListItem my="15px">
@@ -126,7 +117,7 @@ export const Navbar = function (props) {
                             className={(props.page == 'compra') ? "menu-item-active" : "menu-item"}
                             href="/compra"
                         >
-                            {t('common:MenuItem4')}
+                            MenuItem4
                         </Box>
                     </ListItem>
                 </List>
