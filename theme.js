@@ -1,8 +1,8 @@
 import { extendTheme } from "@chakra-ui/react"
 
 const fonts =   {
-  body: "'Inter', sans-serif",
-  heading: "Inter, sans-serif",
+  body: "Oswald, sans-serif",
+  heading: "Oswald, sans-serif",
   mono: "Menlo, monospace",
 }
 
@@ -10,7 +10,7 @@ const breakpoints = ['450px', '769px', '1080px']
 
 const theme = extendTheme({
   colors: {
-    taronja: {500: '#ff6320'}
+    argila: {500: '#663b30'}
   },
   fonts,
   fontWeights: {

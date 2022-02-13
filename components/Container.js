@@ -16,8 +16,8 @@ export const Container = (props) => {
         <meta name="twitter:title" content={props.ogtitle}/>
         <meta property="og:description" content={props.ogdescription}/>
         <meta property="og:site_name" content={props.ogsitename}/>
-        <link rel="icon" type="image/png" href="https://cdn.omnium.cat/wp-content/uploads/2019/06/01054518/omnium_favicon-1.png" sizes="32x32"></link>
-        <link rel="icon" type="image/png" href="https://cdn.omnium.cat/wp-content/uploads/2019/06/01054518/omnium_favicon-1.png" sizes="16x16"></link>
+        <link rel="icon" type="image/png" href="/images/favicon.png" sizes="32x32"></link>
+        <link rel="icon" type="image/png" href="/images/favicon.png" sizes="16x16"></link>
         <title>{props.webtitle}</title>
       </Head>
       <Flex

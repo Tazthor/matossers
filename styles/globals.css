@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.menu-item:hover, .menu-item-active{
+  color:#663b30
+}
