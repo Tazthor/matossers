@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1",
+        "actuacio": "Diada dels X",
+        "motiu": "XXX",
+        "poblacio": "Terrassa",
+        "lloc": "Plaça X",
+        "data_llarga": "diumenge, 20 de març de 2022",
+        "data_curta": "20/03/2022",
+        "hora": "12h",
+        "colles": [
+            "Castellers de Terrassa",
+            "XXXX"
+        ]
+    },
+    {
+        "id": "2",
+        "actuacio": "Diada dels X",
+        "motiu": "XXX",
+        "poblacio": "Terrassa",
+        "lloc": "Plaça X",
+        "data_llarga": "diumenge, 20 de març de 2022",
+        "data_curta": "20/03/2022",
+        "hora": "12h",
+        "colles": [
+            "Castellers de Terrassa",
+            "XXXX"
+        ]
+    }
+]
