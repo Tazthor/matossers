@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, Image, Flex, Link, Button, List, ListItem } from "@chakra-ui/react";
 import NaviconStyles from '../styles/navicon.module.css'
 import { useRouter } from 'next/router'
+import { XXSS } from "./xxss";
 
 
 export const Navbar = function (props) {
@@ -23,7 +24,12 @@ export const Navbar = function (props) {
                                 coses +
                             </Box>
                             <Box>
-                                XXSS
+                                <XXSS
+                                    fb={true}
+                                    tw={true}
+                                    yt={true}
+                                    ig={true}
+                                />
                             </Box>
                         </Flex>
                     </Box>
