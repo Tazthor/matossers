@@ -24,12 +24,7 @@ export const Navbar = function (props) {
                                 coses +
                             </Box>
                             <Box>
-                                <XXSS
-                                    fb={true}
-                                    tw={true}
-                                    yt={true}
-                                    ig={true}
-                                />
+                                <XXSS fb={true} tw={true} yt={true} ig={true}/>
                             </Box>
                         </Flex>
                     </Box>
