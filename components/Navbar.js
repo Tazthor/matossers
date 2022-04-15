@@ -21,17 +21,14 @@ export const Navbar = function (props) {
                     <Box>
                         <Flex justifyContent="flex-end" mb="10px">
                             <Box>
-                                coses +
-                            </Box>
-                            <Box>
-                                <XXSS fb={true} tw={true} yt={true} ig={true}/>
+                                <XXSS fb tw yt ig/>
                             </Box>
                         </Flex>
                     </Box>
-                    <Flex justifyContent="flex-end">
+                    <Flex justifyContent="flex-end" fontSize="medium">
                         <Box as={(props.page == 'quisom') ? "span" : "a"} mx="10px"
                             className={(props.page == 'quisom') ? "menu-item-active" : "menu-item"}
-                            href="/qui-som">
+                            href="/quisom">
                             Qui som
                         </Box>
                         <Box as={(props.page == 'calendari') ? "span" : "a"} mx="10px"
