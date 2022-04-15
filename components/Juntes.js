@@ -1,6 +1,7 @@
 import { Grid, Box, Text, Image } from '@chakra-ui/react'
 import { useState } from 'react'
 import junta from '../public/data/junta.json'
+import Title from './Title'
 
 export const GridCalendari = function (props) {
   return (
@@ -19,7 +20,9 @@ export const GridCalendari = function (props) {
           })
         }
       </Grid>
-      <Text mt="30px">Junta administrativa</Text>
+      <Box mt="30px">
+        <Title text="Junta administrativa"/>
+      </Box>
       <Grid mt="15px" templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} gap={6}>
         {
           junta.map((person, index) => {
@@ -34,7 +37,9 @@ export const GridCalendari = function (props) {
           })
         }
       </Grid>
-      <Text mt="30px">Junta Tècnica</Text>
+      <Box mt="30px">
+        <Title text="Junta tècnica"/>
+      </Box>
       <Grid mt="15px" templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} gap={6}>
         {
           junta.map((person, index) => {
