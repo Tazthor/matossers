@@ -10,7 +10,7 @@ export default function Calendari() {
 
   return (
     <Container>
-      <Navbar page="calendari"/>
+      <Navbar page="quisom"/>
       <Margin desktop="100px" />
       <HeaderPages
         img="/images/home/header.jpg"
