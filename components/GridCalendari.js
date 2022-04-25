@@ -2,6 +2,9 @@ import { Grid, Box, Text } from '@chakra-ui/react'
 import actuacions from '../public/data/actuacions.json'
 
 export const GridCalendari = function (props) {
+  var dateNow = new Date()
+  var dateUTCNow = new Date(dateNow.toUTCString())
+
   return (
     <Box w={["90%", "80%", "75%"]} m="auto">
     Properes
