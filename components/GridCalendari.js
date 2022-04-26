@@ -31,9 +31,9 @@ export const GridCalendari = function (props) {
                   <Box>
                     amb les colles: <br/>
                     {
-                    act.colles.map((colla, i) => {
+                    act.colles.map((colla, i) => 
                       <Box key={i}>{colla}</Box>
-                    })
+                    )
                   }
                   </Box>
                 </Box>
