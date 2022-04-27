@@ -2,6 +2,7 @@ import { Grid, Box, Text, Button, Flex } from '@chakra-ui/react'
 import actuacions from '../public/data/actuacions.json'
 import Margin from './Margin'
 import Title from './Title'
+import { MdPhotoCamera } from 'react-icons/md'
 
 const dateFormat = function (data) {
   const [day, month, year] = data.split('/');
@@ -69,12 +70,13 @@ export const GridCalendari = function () {
                     }
                   </Box>
                   {(act.galeria != '') ?
-                    <Button my="15px" px="20px" w="120px"
-                      borderRadius="21px" borderColor="argila.500" border="1px solid"
+                    <Button my="15px" px="20px"
+                      borderRadius="8px" borderColor="argila.500" border="1px solid"
                       bg="argila.500" color="#fff"
                       fontSize="medium" fontWeight={400}
                       _hover={{ backgroundColor: "transparent", color: 'argila.500' }}
-                      onClick={() => window.open(act.galeria, '_blank')}>Fotografies</Button>
+                      onClick={() => window.open(act.galeria, '_blank')}
+                      rightIcon={<MdPhotoCamera size="20px"/>}>Fotografies</Button>
                     : ''}
 
                 </Box>
