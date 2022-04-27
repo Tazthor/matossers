@@ -10,11 +10,7 @@ const dateFormat = function (data) {
   return (dataFormat)
 }
 
-const properaActuacio = function () {
-
-}
-
-export const GridCalendari = function (props) {
+export const GridCalendari = function () {
   var dateNow = new Date().toISOString()
   return (
     <Box w={["90%", "80%", "75%"]} m="auto">
