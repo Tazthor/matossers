@@ -10,7 +10,9 @@
         "hora": "12h",
         "colles": [
             "Colles del món casteller"
-        ]
+        ],
+        "resultat" : ["pilars de 4"],
+        "galeria" : "https://www.flickr.com/photos/184984575@N03/albums/72177720297964464"
     },
     {
         "id": "2",
@@ -24,7 +26,9 @@
         "colles": [
             "Castellers de Terrassa",
             "Castellers de Badalona"
-        ]
+        ],
+        "resultat" : ["3d6","3d6a","4d6", "p4"],
+        "galeria" : "https://www.flickr.com/photos/184984575@N03/albums/72177720297961087"
     },
     {
         "id": "3",
@@ -38,7 +42,9 @@
         "colles": [
             "Castellers de Sarrià",
             "Castellers del Poble Sec"
-        ]
+        ],
+        "resultat" : ["3d6","3d6a","4d6", "p4"],
+        "galeria" : "https://www.flickr.com/photos/184984575@N03/albums/72177720297961647"
     },
     {
         "id": "4",
@@ -51,7 +57,9 @@
         "hora": "12h",
         "colles": [
             "Castellers de Badalona"
-        ]
+        ],
+        "resultat" : ["3d6","3d6ac","p4"],
+        "galeria" : ""
     },
     {
         "id": "5",
@@ -64,15 +72,17 @@
         "hora": "18:30h",
         "colles": [
             "Castellers de Badalona"
-        ]
+        ],
+        "resultat" : ["3d6","3d6a","2d6", "p4"],
+        "galeria" : ""
     },
     {
         "id": "6",
         "actuacio": "Actuació a Gràcia",
         "motiu": "Diada de la Salut",
         "poblacio": "Gràcia, Barcelona",
-        "lloc": "",
-        "data_llarga": "diumenge, 7 de maig de 2022",
+        "lloc": "Plaça de la Natura (Park Güell)",
+        "data_llarga": "Dissabte, 7 de maig de 2022",
         "data_curta": "7/05/2022",
         "hora": "18",
         "colles": [

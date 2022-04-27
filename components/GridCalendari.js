@@ -1,13 +1,17 @@
-import { Grid, Box, Text } from '@chakra-ui/react'
+import { Grid, Box, Text, Button } from '@chakra-ui/react'
 import actuacions from '../public/data/actuacions.json'
 import Margin from './Margin'
 import Title from './Title'
 
-const DateFormat = function (data) {
+const dateFormat = function (data) {
   const [day, month, year] = data.split('/');
   var dateprov = year + '-' + month + '-' + day
   var dataFormat = new Date(dateprov).toISOString()
   return (dataFormat)
+}
+
+const properaActuacio = function () {
+
 }
 
 export const GridCalendari = function (props) {
@@ -19,22 +23,21 @@ export const GridCalendari = function (props) {
       <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} gap={4}>
         {
           actuacions.map((act, index) => {
-            var data = DateFormat(act.data_curta)
+            var data = dateFormat(act.data_curta)
             if (data >= dateNow) {
               return (
-                <Box key={index}>
-                  <Text fontSize="xl" fontWeight={600} color="argila.500">{act.actuacio}</Text>
+                <Box fontSize="medium" key={index}>
+                  <Text mb="5px" fontSize="xxl" fontWeight={600} color="argila.500">{act.actuacio}</Text>
                   {(act.motiu != '') ? <Text>{act.motiu}</Text> : ''}
-                  {(act.poblacio != '') ? <Text>{act.poblacio}</Text> : ''}
-                  <Text>{act.data_llarga}<br /> a les {act.hora}h</Text>
-                  {(act.lloc != '') ? <Text>{act.lloc}</Text> : ''}
-                  <Box>
-                    amb les colles: <br/>
+                  <Text>{act.data_llarga} a les {act.hora}h</Text>
+                  <Text>{(act.lloc != '') ? act.lloc : ''(act.poblacio != '') ? act.poblacio : ''}</Text>
+                  <Box mt="5px">
+                    amb les colles: <br />
                     {
-                    act.colles.map((colla, i) => 
-                      <Box key={i}>{colla}</Box>
-                    )
-                  }
+                      act.colles.map((colla, i) =>
+                        <Box key={i} ml="15px">{colla}</Box>
+                      )
+                    }
                   </Box>
                 </Box>
               )
@@ -45,21 +48,38 @@ export const GridCalendari = function (props) {
       <Margin desktop="40px" mobile="30px" />
       <Title text="Últimes actuacions"></Title>
       <Margin desktop="40px" mobile="30px" />
-      {/*  <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} gap={4}>
+      <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} gap={4}>
         {
           actuacions.map((act, index2) => {
-            var data = DateFormat(act.data_curta)
+            var data = dateFormat(act.data_curta)
             if (data < dateNow) {
               return (
-                <Box key={index2}>
-                  <Text>{act.actuacio}</Text>
+                <Box fontSize="medium" key={index2}>
+                  <Text mb="5px" fontSize="xxl" fontWeight={600} color="argila.500">{act.actuacio}</Text>
+                  <Text>{act.data_curta}</Text>
+                  <Text> Castells:</Text>
+                  <Box mt="5px" ml="7px">
+                    {
+                      act.resultat.map((castell, i) =>
+                        <Box display="inline" key={i} ml="8px">{castell}</Box>
+                      )
+                    }
+                  </Box>
+                  {(act.galeria != '') ?
+                    <Button my="15px" px="20px" w="120px"
+                      borderRadius="21px" borderColor="argila.500" border="1px solid"
+                      bg="argila.500" color="#fff"
+                      fontSize="medium" fontWeight={300}
+                      _hover={{ backgroundColor: "transparent", color: 'argila.500', fontWeight: '600' }}
+                      onClick={() => window.open(act.galeria, '_blank')}>Fotografies</Button>
+                    : ''}
+
                 </Box>
               )
             }
           })
         }
       </Grid>
-*/}
     </Box>
   )
 }
