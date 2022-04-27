@@ -2,7 +2,6 @@
     {
         "id": "1",
         "actuacio": "Festes Decennals 2021+1",
-        "motiu": "",
         "poblacio": "Valls",
         "lloc": "",
         "data_llarga": "diumenge, 30 de gener de 2022",
@@ -17,7 +16,6 @@
     {
         "id": "2",
         "actuacio": "Actuació a Terrassa",
-        "motiu": "Jornada solidària",
         "poblacio": "Terrassa",
         "lloc": "Plaça de l'Assemblea de Catalunya",
         "data_llarga": "diumenge, 20 de març de 2022",
@@ -33,7 +31,6 @@
     {
         "id": "3",
         "actuacio": "Actuació a Sarrià",
-        "motiu": "",
         "poblacio": "Sarrià, Barcelona",
         "lloc": "Plaça de la vila de Sarrià",
         "data_llarga": "diumenge, 2 d'abril de 2022",
@@ -49,7 +46,6 @@
     {
         "id": "4",
         "actuacio": "Actuació a Montgat",
-        "motiu": "Diada de Sant Jordi",
         "poblacio": "Montgat",
         "lloc": "Plaça de les Mallorquines",
         "data_llarga": "diumenge, 24 d'abril de 2022",
@@ -64,7 +60,6 @@
     {
         "id": "5",
         "actuacio": "Actuació a Martorell",
-        "motiu": "Festes de la Primavera",
         "poblacio": "Martorell",
         "lloc": "Plaça de la Vila",
         "data_llarga": "diumenge, 24 d'abril de 2022",
@@ -79,8 +74,7 @@
     {
         "id": "6",
         "actuacio": "Actuació a Gràcia",
-        "motiu": "Diada de la Salut",
-        "poblacio": "Gràcia, Barcelona",
+        "poblacio": "Barcelona",
         "lloc": "Plaça de la Natura (Park Güell)",
         "data_llarga": "Dissabte, 7 de maig de 2022",
         "data_curta": "7/05/2022",
@@ -88,8 +82,41 @@
         "colles": [
             "Castellers de la Vila de Gràcia",
             "Castellers de la Sagrada Família"
-        ]
+        ],
+        "resultat" : [],
+        "galeria" : ""
+    },
+    {
+        "id": "7",
+        "actuacio": "Actuació a El Prat",
+        "poblacio": "El Prat de Llobregat",
+        "lloc": "",
+        "data_llarga": "Dissabte, 28 de maig de 2022",
+        "data_curta": "28/05/2022",
+        "hora": "18",
+        "colles": [
+            "Castellers de El Prat",
+            "Castellers del Baix Montseny"
+        ],
+        "resultat" : [],
+        "galeria" : ""
+    },
+    {
+        "id": "8",
+        "actuacio": "Festa de la Cirera a El Papiol",
+        "poblacio": "El Papiol",
+        "lloc": "",
+        "data_llarga": "Dissabte, 5 de juny de 2022",
+        "data_curta": "5/06/2022",
+        "hora": "12",
+        "colles": [
+            "Castellers de Sant Feliu"
+        ],
+        "resultat" : [],
+        "galeria" : ""
     }
+
+
 
 
 ]

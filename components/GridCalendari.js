@@ -1,4 +1,4 @@
-import { Grid, Box, Text, Button } from '@chakra-ui/react'
+import { Grid, Box, Text, Button, Flex } from '@chakra-ui/react'
 import actuacions from '../public/data/actuacions.json'
 import Margin from './Margin'
 import Title from './Title'
@@ -26,13 +26,20 @@ export const GridCalendari = function (props) {
             var data = dateFormat(act.data_curta)
             if (data >= dateNow) {
               return (
-                <Box fontSize="medium" key={index}>
-                  <Text mb="5px" fontSize="xxl" fontWeight={600} color="argila.500">{act.actuacio}</Text>
-                  {(act.motiu != '') ? <Text>{act.motiu}</Text> : ''}
-                  <Text>{act.data_llarga} a les {act.hora}h</Text>
-                  <Text>{(act.lloc != '') ? act.lloc : ''(act.poblacio != '') ? act.poblacio : ''}</Text>
-                  <Box mt="5px">
-                    amb les colles: <br />
+                <Box fontSize="medium" key={index} lineHeight="28px">
+                  <Text mb="5px" fontSize="xl" fontWeight={600} color="argila.500">{act.actuacio}</Text>
+                  <Flex>
+                    <Box mr="5px" fontWeight={600}>Data: </Box>
+                    <Box ml="5px"><Text>{act.data_llarga}<br />a les {act.hora}h</Text></Box>
+                  </Flex>
+                  <Flex>
+                    <Box mr="5px" fontWeight={600}>Lloc: </Box>
+                    <Box ml="5px">
+                      <Text>{(act.lloc != '') ? act.lloc : ''}{' '}{(act.poblacio != '') ? act.poblacio : ''}</Text>
+                    </Box>
+                  </Flex>
+                  <Box >
+                    <Text fontWeight={600}>Colles:</Text>
                     {
                       act.colles.map((colla, i) =>
                         <Box key={i} ml="15px">{colla}</Box>
@@ -54,11 +61,11 @@ export const GridCalendari = function (props) {
             var data = dateFormat(act.data_curta)
             if (data < dateNow) {
               return (
-                <Box fontSize="medium" key={index2}>
-                  <Text mb="5px" fontSize="xxl" fontWeight={600} color="argila.500">{act.actuacio}</Text>
+                <Box fontSize="medium" key={index2} lineHeight="28px">
+                  <Text mb="5px" fontSize="xl" fontWeight={600} color="argila.500">{act.actuacio}</Text>
                   <Text>{act.data_curta}</Text>
-                  <Text> Castells:</Text>
-                  <Box mt="5px" ml="7px">
+                  <Text fontWeight={600}> Castells:</Text>
+                  <Box ml="7px">
                     {
                       act.resultat.map((castell, i) =>
                         <Box display="inline" key={i} ml="8px">{castell}</Box>
@@ -69,8 +76,8 @@ export const GridCalendari = function (props) {
                     <Button my="15px" px="20px" w="120px"
                       borderRadius="21px" borderColor="argila.500" border="1px solid"
                       bg="argila.500" color="#fff"
-                      fontSize="medium" fontWeight={300}
-                      _hover={{ backgroundColor: "transparent", color: 'argila.500', fontWeight: '600' }}
+                      fontSize="medium" fontWeight={400}
+                      _hover={{ backgroundColor: "transparent", color: 'argila.500' }}
                       onClick={() => window.open(act.galeria, '_blank')}>Fotografies</Button>
                     : ''}
 

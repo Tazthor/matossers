@@ -1,8 +1,8 @@
 import { extendTheme } from "@chakra-ui/react"
 
 const fonts =   {
-  body: "Oswald, sans-serif",
-  heading: "Oswald, sans-serif",
+  body: "Merriweather+Sans, sans-serif",
+  heading: "Merriweather+Sans, sans-serif",
   mono: "Menlo, monospace",
 }
 
