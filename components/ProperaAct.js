@@ -52,12 +52,12 @@ export const ProperaAct = function (props) {
           </Flex>
           <Box>
             <Text fontWeight={600}>Colles:</Text>
-            {
+{/*             {
             for (let i = 0; i < arrayAct.colles.length; i++) {
               <Box ml="15px">{arrayAct.colles[i]}</Box>
             }
             }
-{/*             {arrayAct.colles.map((colla, i) => (
+            {arrayAct.colles.map((colla, i) => (
               <Box key={i} ml="15px">
                 {colla}
               </Box>
