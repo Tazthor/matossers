@@ -12,7 +12,7 @@ const dateFormat = function (data) {
 export const ProperaAct = function (props) {
   var dateNow = new Date().toISOString();
   const [firstItem, setFirstItem] = useState(true);
-  const [arrayAct, setArrayAct] = useState([]);
+  const [arrayAct, setArrayAct] = useState({});
   return (
     <>
       <Box>
@@ -52,12 +52,17 @@ export const ProperaAct = function (props) {
           </Flex>
           <Box>
             <Text fontWeight={600}>Colles:</Text>
-            {arrayAct.colles.map((colla, i) => (
+            {
+            for (let i = 0; i < arrayAct.colles.length; i++) {
+              <Box ml="15px">{arrayAct.colles[i]}</Box>
+            }
+            }
+{/*             {arrayAct.colles.map((colla, i) => (
               <Box key={i} ml="15px">
                 {colla}
               </Box>
             ))}
-          </Box>
+ */}           </Box>
         </Box>
       </Box>
     </>
