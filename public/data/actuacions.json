@@ -110,7 +110,50 @@
         "data_curta": "5/06/2022",
         "hora": "12",
         "colles": [
-            "Castellers de Sant Feliu"
+            "Castellers de les Roquetes"
+        ],
+        "resultat" : [],
+        "galeria" : ""
+    },
+    {
+        "id": "9",
+        "actuacio": "Diada a l'Hospitalet",
+        "poblacio": "L'Hospitalet de Llobregat",
+        "lloc": "",
+        "data_llarga": "Dissabte, 11 de juny de 2022",
+        "data_curta": "11/06/2022",
+        "hora": "18",
+        "colles": [
+            "Castellers de Vilafranca",
+            "Colla Jove de l'Hospitalet"
+        ],
+        "resultat" : [],
+        "galeria" : ""
+    },
+    {
+        "id": "10",
+        "actuacio": "20è Aniversari",
+        "poblacio": "Molins de Rei",
+        "lloc": "",
+        "data_llarga": "Dissabte, 2 de juliol de 2022",
+        "data_curta": "2/07/2022",
+        "hora": "18",
+        "colles": [
+            "Castellers del Poble Sec"
+        ],
+        "resultat" : [],
+        "galeria" : ""
+    },
+    {
+        "id": "10",
+        "actuacio": "20è Aniversari",
+        "poblacio": "Molins de Rei",
+        "lloc": "",
+        "data_llarga": "Dissabte, 2 de juliol de 2022",
+        "data_curta": "2/07/2022",
+        "hora": "18",
+        "colles": [
+            "Castellers del Poble Sec"
         ],
         "resultat" : [],
         "galeria" : ""
