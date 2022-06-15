@@ -23,8 +23,8 @@ export const GridCalendari = function () {
             var data = dateFormat(act.data_curta)
             if (data >= dateNow) {
               return (
-                <Box fontSize="medium" key={index} lineHeight="28px">
-                  <Text mb="5px" fontSize="xl" fontWeight={600} color="argila.500">{act.actuacio}</Text>
+                <Box fontSize="medium" key={index} lineHeight="28px" my="16px">
+                  <Text mb="5px" fontSize="xl" fontWeight={600}>{act.actuacio}</Text>
                   <Flex>
                     <Box mr="5px" fontWeight={600}>Data: </Box>
                     <Box ml="5px"><Text>{act.data_llarga}<br />a les {act.hora}h</Text></Box>
@@ -58,9 +58,9 @@ export const GridCalendari = function () {
             var data = dateFormat(act.data_curta)
             if (data < dateNow) {
               return (
-                <Box fontSize="medium" key={index2} lineHeight="28px">
-                  <Text mb="5px" fontSize="xl" fontWeight={600} color="argila.500">{act.actuacio}</Text>
-                  <Text>{act.data_curta}</Text>
+                <Box fontSize="medium" key={index2} lineHeight="28px" my="16px">
+                  <Text mb="5px" fontSize="xl" fontWeight={600} >{act.actuacio}</Text>
+                  <Text>{(act.poblacio != '') ? act.poblacio : ''} {act.data_curta}</Text>
                   <Text fontWeight={600}> Castells:</Text>
                   <Box ml="7px">
                     {
@@ -70,10 +70,10 @@ export const GridCalendari = function () {
                     }
                   </Box>
                   {(act.galeria != '') ?
-                    <Button my="15px" px="20px"
+                    <Button my="15px" px="10px"
                       borderRadius="8px" borderColor="argila.500" border="1px solid"
                       bg="argila.500" color="#fff"
-                      fontSize="medium" fontWeight={400}
+                      fontSize="md" fontWeight={400} 
                       _hover={{ backgroundColor: "transparent", color: 'argila.500' }}
                       onClick={() => window.open(act.galeria, '_blank')}
                       rightIcon={<MdPhotoCamera size="20px"/>}>Fotografies</Button>
