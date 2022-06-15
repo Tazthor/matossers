@@ -15,7 +15,7 @@ export const GridCalendari = function () {
   var dateNow = new Date().toISOString()
   return (
     <Box w={["90%", "80%", "75%"]} m="auto">
-      <Title text="Properes actuacions"></Title>
+      <Title header="1" text="Properes actuacions"></Title>
       <Margin desktop="40px" mobile="30px" />
       <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} gap={4}>
         {
@@ -50,7 +50,7 @@ export const GridCalendari = function () {
         }
       </Grid>
       <Margin desktop="40px" mobile="30px" />
-      <Title text="Últimes actuacions"></Title>
+      <Title header="1" text="Últimes actuacions"></Title>
       <Margin desktop="40px" mobile="30px" />
       <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} gap={4}>
         {

@@ -1,12 +1,13 @@
 import React from "react";
 import { Text } from "@chakra-ui/react";
 
-export const Margin = function (props) {
+export const Title = function (props) {
 
     return (
-        <Text fontSize="big" fontWeight={700} color="argila.500">
+        <Text fontWeight={700} color="argila.500" textTransform="uppercase"
+        fontSize={(props.header == "1") && "big" || (props.header == "2") && "xxl"}>
             {props.text}
         </Text>
 )
 }
-export default Margin
+export default Title

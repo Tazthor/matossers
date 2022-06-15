@@ -139,25 +139,43 @@
         "data_curta": "2/07/2022",
         "hora": "18",
         "colles": [
+            "Castellers de Castelldefels",
             "Castellers del Poble Sec"
         ],
         "resultat" : [],
         "galeria" : ""
     },
     {
-        "id": "10",
-        "actuacio": "20è Aniversari",
+        "id": "11",
+        "actuacio": "Festa del Mar",
+        "poblacio": "Sitges",
+        "lloc": "",
+        "data_llarga": "Diumege, 17 de juliol de 2022",
+        "data_curta": "17/07/2022",
+        "hora": "12",
+        "colles": [
+            "Castellers de Castelldefels",
+            "Castellers del Prat",
+            "Colla Jove dels Castellers de Sitges"
+        ],
+        "resultat" : [],
+        "galeria" : ""
+    },
+    {
+        "id": "12",
+        "actuacio": "Festa Major de Castellbisbal",
         "poblacio": "Molins de Rei",
         "lloc": "",
-        "data_llarga": "Dissabte, 2 de juliol de 2022",
-        "data_curta": "2/07/2022",
+        "data_llarga": "Diumege, 21 d'agost de 2022",
+        "data_curta": "21/08/2022",
         "hora": "18",
         "colles": [
-            "Castellers del Poble Sec"
+            "Xicots de Vilafranca"
         ],
         "resultat" : [],
         "galeria" : ""
     }
+
 
 
 

@@ -21,7 +21,7 @@ export const GridCalendari = function (props) {
         }
       </Grid>
       <Box mt="30px">
-        <Title text="Junta administrativa"/>
+        <Title header="1" text="Junta administrativa"/>
       </Box>
       <Grid mt="15px" templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} gap={6}>
         {
@@ -38,7 +38,7 @@ export const GridCalendari = function (props) {
         }
       </Grid>
       <Box mt="30px">
-        <Title text="Junta tècnica"/>
+        <Title header="1" text="Junta tècnica"/>
       </Box>
       <Grid mt="15px" templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} gap={6}>
         {
