@@ -12,16 +12,21 @@ export const Navbar = function (props) {
     return (
         <Box w="100%" position="fixed" bg="#fff" h={["90px", "120px", "120px"]} zIndex="500">
             <Flex w="90%" maxW="2500px" m="auto" >
-                <Box w={["50%","30%","30%"]} mt="27px" onClick={() => router.push("/")} cursor="pointer">
-                    <Image w="170px" ml="35px"
-                        src="/images/logo.png"
-                        alt="Matossers" />
+                <Box w={["60%", "30%", "30%"]} mt="27px" onClick={() => router.push("/")} cursor="pointer">
+                    <Flex w="100%" alignItems="center">
+                        <Box w={["200px","40%","40%"]} mr="2%" mb="20px">
+                            <Image src="/images/logos/logo.png" alt="Matossers" />
+                        </Box>
+                        <Box w={["100px","25%","25%"]} ml="2%" mb="20px">
+                            <Image src="/images/logos/20_logo_vect.svg" alt="Matossers" />
+                        </Box>
+                    </Flex>
                 </Box>
                 <Box w="65%" alignSelf="self-end" mr="5%" display={["none", "block", "block"]}>
                     <Box>
                         <Flex justifyContent="flex-end" mb="10px">
                             <Box>
-                                <XXSS fb tw yt ig/>
+                                <XXSS fb tw yt ig />
                             </Box>
                         </Flex>
                     </Box>
