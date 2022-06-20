@@ -12,7 +12,7 @@ export const Navbar = function (props) {
     return (
         <Box w="100%" position="fixed" bg="#fff" h={["90px", "120px", "120px"]} zIndex="500">
             <Flex w="90%" maxW="2500px" m="auto" >
-                <Box w={["60%", "30%", "30%"]} mt="27px" onClick={() => router.push("/")} cursor="pointer">
+                <Box w={["60%", "30%", "30%"]} mt="20px" onClick={() => router.push("/")} cursor="pointer">
                     <Flex w="100%" alignItems="center">
                         <Box w={["200px","40%","40%"]} mr="2%" mb="20px">
                             <Image src="/images/logos/logo.png" alt="Matossers" />
@@ -22,7 +22,7 @@ export const Navbar = function (props) {
                         </Box>
                     </Flex>
                 </Box>
-                <Box w="65%" alignSelf="self-end" mr="5%" display={["none", "block", "block"]}>
+                <Box w="65%" alignSelf="center" mr="5%" display={["none", "block", "block"]}>
                     <Box>
                         <Flex justifyContent="flex-end" mb="10px">
                             <Box>
