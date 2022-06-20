@@ -4,7 +4,8 @@ import Navbar from "../components/Navbar";
 import HeaderPages from "../components/HeaderPages";
 import ProperaAct from '../components/ProperaAct';
 import { Box, Flex } from '@chakra-ui/react'
-import BannerÇontacte from '../components/BannerContacte';
+import BannerContacte from '../components/BannerContacte';
+import Footer from '../components/Footer';
 
 
 export default function Home() {
@@ -24,11 +25,12 @@ export default function Home() {
         <Box w="48%" ml="2%"><ProperaAct /></Box>
       </Flex>
       <Margin desktop="40px" tablet="50px" mobile="20px" />
-      <BannerÇontacte
+      <BannerContacte
         img="/images/home/contacte.jpg"
         imgMbl=""
         titleVisible={true}
       />
+      <Footer/>
     </Container>
   )
 }
