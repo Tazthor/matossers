@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Flex, Image } from "@chakra-ui/react";
+import { Box, Text, Flex, Image, Button } from "@chakra-ui/react";
 import { XXSS } from "./xxss";
 import { MdOutlinePlace } from "react-icons/md";
 import { BiTime } from "react-icons/bi";
@@ -10,10 +10,10 @@ export const Title = function (props) {
       <Flex w="90%" m="auto" display={["block", "block", "flex"]}>
         <Box w={["100%", "100%", "30%"]} mr={["0", "0", "2%"]}>
           <Flex w="100%" alignItems="center">
-            <Box w={["48%","30%","48%"]} mr="2%">
+            <Box w={["48%", "30%", "48%"]} mr="2%">
               <Image src="/images/logos/logo_blanc.png" alt="Matossers" />
             </Box>
-            <Box w={["30%","20%","30%"]} ml="2%">
+            <Box w={["30%", "20%", "30%"]} ml="2%">
               <Image src="/images/logos/20_blanc_vect.svg" alt="Matossers" />
             </Box>
           </Flex>
@@ -33,22 +33,39 @@ export const Title = function (props) {
           </Box>
           <Box w="90%"><hr /></Box>
           <Box mt="15px">
+            <Button mr="5px" border="1px solid #fff" borderRadius="6px" bg="transparent" color="white"
+            _hover={{bg:"white", color:"argila.500"}} _focus={{boxShadow:"none"}}>
+              Contacta'ns
+            </Button>
+            <Button ml="5px" border="1px solid #fff" borderRadius="6px" bg="transparent" color="white"
+            _hover={{bg:"white", color:"argila.500"}} _focus={{boxShadow:"none"}}>
+              Fes-te'n soci
+            </Button>
+          </Box>
+        </Box>
+        <Box w={["100%", "100%", "30%"]} ml={["0", "0", "2%"]} mt={["30px", "30px", "0"]}>
+          <Box mb="15px">
             <Text fontSize="lg" fontWeight={600}>Segueix-nos</Text>
             <Box mt="10px">
               <XXSS fb tw yt ig />
             </Box>
           </Box>
-        </Box>
-        <Box w={["100%", "100%", "30%"]} ml={["0", "0", "2%"]} mt={["30px", "30px", "0"]}>
-          <Text fontSize="lg" fontWeight={600}>Col·laboren</Text>
-          <Flex w="100%" alignItems="center">
-            <Box w="30%" mr="3%" mb="20px">
-              <Image src="/images/patrocinadors/ajuntament.png" alt="Ajuntament de Molins de Rei" />
-            </Box>
-            <Box w="20%" ml="3%" mb="20px">
-              <Image w="50px" src="https://www.agbar.es/wp-content/uploads/sites/6/2021/05/logo_agbar_white.svg" alt="Aigües de Barcelona" />
-            </Box>
-          </Flex>
+          <Box w="90%"><hr /></Box>
+          <Box mt="15px">
+            <Text fontSize="lg" fontWeight={600}>Col·laboren</Text>
+            <Flex w="100%" alignItems="center">
+              <Box w="30%" mr="3%" mb="20px">
+                <Image src="/images/patrocinadors/ajuntament.png" alt="Ajuntament de Molins de Rei" />
+              </Box>
+              <Box w="16%" mx="3%" mb="20px">
+                <Image src="/images/patrocinadors/estrella.jpg" alt="Ajuntament de Molins de Rei" />
+              </Box>
+
+              <Box w="20%" ml="3%" mb="20px">
+                <Image w="50px" src="https://www.agbar.es/wp-content/uploads/sites/6/2021/05/logo_agbar_white.svg" alt="Aigües de Barcelona" />
+              </Box>
+            </Flex>
+          </Box>
         </Box>
       </Flex>
     </Box>
