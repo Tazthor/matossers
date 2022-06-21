@@ -6,6 +6,7 @@ import ProperaAct from '../components/ProperaAct';
 import { Box, Flex } from '@chakra-ui/react'
 import BannerContacte from '../components/BannerContacte';
 import Footer from '../components/Footer';
+import BlocXarxes from '../components/BlocXarxes';
 
 
 export default function Home() {
@@ -30,6 +31,8 @@ export default function Home() {
         imgMbl=""
         titleVisible={true}
       />
+      <Margin desktop="40px" tablet="50px" mobile="20px" />
+      <BlocXarxes/>
       <Footer/>
     </Container>
   )

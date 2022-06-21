@@ -1,6 +1,6 @@
 import { Box, Text, Flex } from '@chakra-ui/react'
 
-export const BannerÇontacte = function (props) {
+export const BannerContacte = function (props) {
   return (
     <>
       <Box w="100%" maxW="2500px" m="auto" position="relative" h="550px"
@@ -26,7 +26,7 @@ export const BannerÇontacte = function (props) {
     </>
   )
 }
-export default BannerÇontacte
+export default BannerContacte
 
 
 
