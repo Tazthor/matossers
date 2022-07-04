@@ -25,7 +25,7 @@ export const ProperaAct = function (props) {
         <Title header="2" text="Propera actuació" />
       </Box>
             <Box fontSize="medium" lineHeight="28px">
-              <Text mb="5px" fontSize="xl" fontWeight={600} color="argila.500">
+              <Text mb="5px" fontSize="xl" fontWeight={600}>
                 {properaAct.actuacio}
               </Text>
               <Flex>
