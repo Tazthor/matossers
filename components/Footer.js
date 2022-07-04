@@ -62,7 +62,7 @@ export const Title = function (props) {
               </Box>
 
               <Box w="20%" ml="3%" mb="20px">
-                <Image w="50px" src="https://www.agbar.es/wp-content/uploads/sites/6/2021/05/logo_agbar_white.svg" alt="Aigües de Barcelona" />
+                <Image w="50px" src="/images/patrocinadors//logo_agbar_white.svg" alt="Aigües de Barcelona" />
               </Box>
             </Flex>
           </Box>
