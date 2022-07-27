@@ -71,10 +71,10 @@ export const GridCalendari = function () {
                   </Box>
                   {(act.galeria != '') ?
                     <Button my="15px" px="10px"
-                      borderRadius="8px" borderColor="argila.500" border="1px solid"
-                      bg="argila.500" color="#fff"
+                      borderRadius="8px" borderColor="argila" border="1px solid"
+                      bg="argila" color="#fff"
                       fontSize="md" fontWeight={400} 
-                      _hover={{ backgroundColor: "transparent", color: 'argila.500' }}
+                      _hover={{ backgroundColor: "transparent", color: 'argila' }}
                       onClick={() => window.open(act.galeria, '_blank')}
                       rightIcon={<MdPhotoCamera size="20px"/>}>Fotografies</Button>
                     : ''}

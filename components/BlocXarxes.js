@@ -13,13 +13,13 @@ export const BlocXarxes = function (props) {
         maxW="2500px"
         m="auto"
         position="relative"
-        display={["flex", "block", "block"]}
+        display={["block", "block", "flex"]}
       >
         <Box
           w={["100%", "100%", "30%"]}
           mr={["0", "0", "2%"]}
           mb={["20px", "20px", "50px"]}
-          boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
+          boxShadow="0px 0px 6px rgba(0, 0, 0, 0.3)"
         >
           <TwitterTimelineEmbed
             sourceType="profile"

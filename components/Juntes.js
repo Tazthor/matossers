@@ -13,7 +13,7 @@ export const GridCalendari = function (props) {
               return (
                 <Box key={index}>
                   <Image w="100%" src={person.img} alt={person.nom} />
-                  <Text fontSize="xl" fontWeight={600} color="argila.500">{person.carrec}</Text>
+                  <Text fontSize="xl" fontWeight={600} color="argila">{person.carrec}</Text>
                   <Text fontSize="lg">{person.nom}</Text>
                 </Box>
               )
@@ -30,7 +30,7 @@ export const GridCalendari = function (props) {
               return (
                 <Box key={index}>
                   <Image w="100%" src={person.img} alt={person.nom} />
-                  <Text fontSize="xl" fontWeight={600} color="argila.500">{person.carrec}</Text>
+                  <Text fontSize="xl" fontWeight={600} color="argila">{person.carrec}</Text>
                   <Text fontSize="lg">{person.nom}</Text>
                 </Box>
               )
@@ -47,7 +47,7 @@ export const GridCalendari = function (props) {
               return (
                 <Box key={index}>
                   <Image w="100%" src={person.img} alt={person.nom} />
-                  <Text fontSize="xl" fontWeight={600} color="argila.500">{person.carrec}</Text>
+                  <Text fontSize="xl" fontWeight={600} color="argila">{person.carrec}</Text>
                   <Text fontSize="lg">{person.nom}</Text>
                 </Box>
               )

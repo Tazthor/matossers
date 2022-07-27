@@ -10,7 +10,10 @@ const breakpoints = ['450px', '769px', '1080px']
 
 const theme = extendTheme({
   colors: {
-    argila: {500: '#663b30'}
+    blanc: '#fff',
+    negre: '#000',
+    argila: '#663b30',
+    groc: "#f7da65"
   },
   fonts,
   fontWeights: {

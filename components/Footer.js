@@ -6,7 +6,7 @@ import { BiTime } from "react-icons/bi";
 
 export const Title = function (props) {
   return (
-    <Box w="100%" maxW="2500px" m="auto" bg="argila.500" color="#fff" py="50px">
+    <Box w="100%" maxW="2500px" m="auto" bg="argila" color="#fff" py="50px">
       <Flex w="90%" m="auto" display={["block", "block", "flex"]}>
         <Box w={["100%", "100%", "30%"]} mr={["0", "0", "2%"]}>
           <Flex w="100%" alignItems="center">
@@ -34,11 +34,11 @@ export const Title = function (props) {
           <Box w="90%"><hr /></Box>
           <Box mt="15px">
             <Button mr="5px" border="1px solid #fff" borderRadius="6px" bg="transparent" color="white"
-            _hover={{bg:"white", color:"argila.500"}} _focus={{boxShadow:"none"}}>
+            _hover={{bg:"white", color:"argila"}} _focus={{boxShadow:"none"}}>
               Contacta'ns
             </Button>
             <Button ml="5px" border="1px solid #fff" borderRadius="6px" bg="transparent" color="white"
-            _hover={{bg:"white", color:"argila.500"}} _focus={{boxShadow:"none"}}>
+            _hover={{bg:"white", color:"argila"}} _focus={{boxShadow:"none"}}>
               Fes-te'n soci
             </Button>
           </Box>
@@ -62,7 +62,7 @@ export const Title = function (props) {
               </Box>
 
               <Box w="20%" ml="3%" mb="20px">
-                <Image w="50px" src="/images/patrocinadors//logo_agbar_white.svg" alt="Aigües de Barcelona" />
+                <Image w="50px" src="/images/patrocinadors/logo_agbar_white.svg" alt="Aigües de Barcelona" />
               </Box>
             </Flex>
           </Box>

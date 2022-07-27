@@ -24,41 +24,41 @@ export const ProperaAct = function (props) {
       <Box mb="25px">
         <Title header="2" text="Propera actuació" />
       </Box>
-            <Box fontSize="medium" lineHeight="28px">
-              <Text mb="5px" fontSize="xl" fontWeight={600}>
-                {properaAct.actuacio}
-              </Text>
-              <Flex>
-                <Box mr="5px" fontWeight={600}>
-                  Data:{" "}
-                </Box>
-                <Box ml="5px">
-                  <Text>
-                    {properaAct.data_llarga}
-                    <br />a les {properaAct.hora}h
-                  </Text>
-                </Box>
-              </Flex>
-              <Flex>
-                <Box mr="5px" fontWeight={600}>
-                  Lloc:{" "}
-                </Box>
-                <Box ml="5px">
-                  <Text>
-                    {properaAct.lloc != "" ? properaAct.lloc : ""}{" "}
-                    {properaAct.poblacio != "" ? properaAct.poblacio : ""}
-                  </Text>
-                </Box>
-              </Flex>
-              <Box>
-                <Text fontWeight={600}>Colles:</Text>
-                {properaAct.colles.map((colla, i) => (
-                  <Box key={i} ml="15px">
-                    {colla}
-                  </Box>
-                ))}
-              </Box>
+      <Box fontSize="medium" lineHeight="28px">
+        <Text mb="5px" fontSize="xl" fontWeight={600}>
+          {properaAct.actuacio}
+        </Text>
+        <Flex>
+          <Box mr="5px" fontWeight={600}>
+            Data:{" "}
+          </Box>
+          <Box ml="5px">
+            <Text>
+              {properaAct.data_llarga}
+              <br />a les {properaAct.hora}h
+            </Text>
+          </Box>
+        </Flex>
+        <Flex>
+          <Box mr="5px" fontWeight={600}>
+            Lloc:{" "}
+          </Box>
+          <Box ml="5px">
+            <Text>
+              {properaAct.lloc != "" ? properaAct.lloc : ""}{" "}
+              {properaAct.poblacio != "" ? properaAct.poblacio : ""}
+            </Text>
+          </Box>
+        </Flex>
+        <Box>
+          <Text fontWeight={600}>Colles:</Text>
+          {properaAct.colles.map((colla, i) => (
+            <Box key={i} ml="15px">
+              {colla}
             </Box>
+          ))}
+        </Box>
+      </Box>
 
     </>
   );
