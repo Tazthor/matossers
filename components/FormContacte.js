@@ -1,14 +1,78 @@
 import { TwitterTimelineEmbed } from "react-twitter-embed";
-import { Box, Button, Flex, Input, Text, Textarea } from "@chakra-ui/react";
+import { Box, Button, Flex, Input, Text, Textarea, Checkbox, Link } from "@chakra-ui/react";
 import Title from "./Title";
 import { useState } from "react";
 
 export const FormContacte = function (props) {
-  const [nom, setNom] = useState();
-  const [cognom, setCognom] = useState();
-  const [email, setEmail] = useState();
-  const [phone, setPhone] = useState();
-  const [msg, setMsg] = useState();
+  const [nom, setNom] = useState('');
+  const [cognom, setCognom] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [msg, setMsg] = useState('');
+  const [gdpr, setGdpr] = useState(false);
+  const [error, setError] = useState({ isError: false, msgError: '' })
+
+  const openError = function (msg, milisegons) {
+    if (!milisegons) milisegons = 5000
+    setError({ isError: true, msgError: msg })
+    setTimeout(closeError, milisegons)
+  }
+
+  const closeError = function () {
+    setError({ isError: false, msgError: '' })
+  }
+
+  const validateForm = async function () {
+    var errors = []
+    if (nom == '') {
+      errors.push({
+        error: true,
+        message: 'El camp Nom és obligatori',
+      })
+    }
+    if (cognom == '') {
+      errors.push({
+        error: true,
+        message: 'El camp Cognom és obligatori',
+      })
+    }
+    if (email == '') {
+      errors.push({
+        error: true,
+        message: 'El correu electrònic és obligatori',
+      })
+    }
+    if (msg == '') {
+      errors.push({
+        error: true,
+        message: 'No has escrit cap missatge',
+      })
+    }
+    if (errors.length == 0) {
+         if (!gdpr) {
+          return { error: true, message: 'Has d\'acceptar la política de privacitat' }
+        }
+       return { error: false }
+    }
+    else if (errors.length == 1) return errors[0]
+    else
+      return {
+        error: true,
+        message: "Hi ha camps obligatoris buits al formulari",
+      }
+
+  }
+
+  const submit = async function () {
+    var validate = await validateForm()
+    if (!validate.error) {
+      //Envia email
+    }
+    else {
+      openError(validate.message, validate.ref, 3000)
+    }
+
+  }
 
   return (
     <Box w="100%" backgroundColor={(props.negatiu) ? "argila" : '#fff'} borderRadius="21px"
@@ -109,12 +173,24 @@ export const FormContacte = function (props) {
           _focus={{ boxShadow: "none" }}
           onChange={setMsg}
         />
+        <Checkbox
+          colorScheme="red"
+          alignItems="baseline"
+          isChecked={gdpr}
+          onChange={() => setGdpr(!gdpr)}
+          m="25px 0 10px 0" borderColor="argila">
+          Accepto la {' '}
+          <Link href="/privacitat">política de privacitat</Link>
+        </Checkbox>
+
+        {(error.isError) && <Text fontWeight={700} my="30px" color={(props.negatiu) ? "blanc" : "red"}>{error.msgError}</Text>}
       </Box>
       <Button
         w="200px" fontSize="normal" py="20px"
-        border="1px solid" borderColor={(props.negatiu) ? 'blanc' : "argila"} borderRadius="6px" 
+        border="1px solid" borderColor={(props.negatiu) ? 'blanc' : "argila"} borderRadius="6px"
         bg={(props.negatiu) ? "blanc" : "argila"} color={(props.negatiu) ? "negre" : "blanc"}
-        _hover={{ bg: "white", color: "argila" }} _focus={{ boxShadow: "none" }} >
+        _hover={{ bg: "white", color: "argila" }} _focus={{ boxShadow: "none" }}
+        onClick={submit}>
         Envia
       </Button>
 

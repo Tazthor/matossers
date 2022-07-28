@@ -23,7 +23,9 @@ export default function Home() {
       <Margin desktop="40px" tablet="50px" mobile="20px" />
       <Flex w={["90%", "80%", "80%"]} maxW="2000px" m="auto" display={["block", "flex", "flex"]} py="50px">
         <Box w="48%" mr="2%">No se que posar aqui</Box>
-        <Box w="48%" ml="2%"><ProperaAct /></Box>
+        <Box w="48%" ml="2%">
+          <ProperaAct />
+        </Box>
       </Flex>
       <Margin desktop="40px" tablet="50px" mobile="20px" />
       <BannerContacte
