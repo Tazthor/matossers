@@ -175,10 +175,10 @@ export const FormContacte = function (props) {
         />
         <Checkbox
           colorScheme="red"
-          alignItems="baseline"
           isChecked={gdpr}
           onChange={() => setGdpr(!gdpr)}
-          m="25px 0 10px 0" borderColor="argila">
+          m="25px 0 10px 0" borderColor={(props.negatiu) ? "blanc" : "argila"}
+          color={(props.negatiu) ? "blanc" : "negre"}>
           Accepto la {' '}
           <Link href="/privacitat">política de privacitat</Link>
         </Checkbox>

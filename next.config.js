@@ -1,6 +1,6 @@
 module.exports = {
   env: {
-    projectName: 'Matossers',
+    projectName: 'Matossers de Molins de Rei',
     ogurl: 'http://www.matossers.cat',
     ogtitle: 'Matossers de Molins de Rei',
     ogdescription: `Pàgina web de la Colla Castellera Matossers de Molins de Rei`,

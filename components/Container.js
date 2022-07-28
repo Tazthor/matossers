@@ -26,6 +26,8 @@ export const Container = (props) => {
         justifyContent="flex-start"
         backgroundColor="#ffffff"
         color="#000000"
+        maxW="2500px"
+        fontSize={"normal"}
         {...props}
       />
     </>

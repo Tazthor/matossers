@@ -4,7 +4,7 @@ import FormContacte from './FormContacte'
 export const BannerContacte = function (props) {
   return (
     <>
-      <Box w="100%" maxW="2500px" m="auto" position="relative"
+      <Box w="100%" m="auto" position="relative"
         backgroundImage={props.img}
         backgroundPosition="left"
         backgroundSize="cover"
