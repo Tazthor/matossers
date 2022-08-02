@@ -73,7 +73,7 @@
         "id":"12",
         "equip" : "tecnica",
         "carrec":"Equip de canalla",
-        "nom": "Adriana XXX",
+        "nom": "Adriana Segura",
         "img": "/images/junta/adriana.jpg"
     },
     {
@@ -101,7 +101,7 @@
         "id":"15",
         "equip" : "tecnica",
         "carrec":"Equip de pinyes",
-        "nom": "Carlos Fernández XXXX",
+        "nom": "Carlos Fernández",
         "img": "/images/junta/carlos.jpg"
     },
     {

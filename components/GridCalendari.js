@@ -16,7 +16,7 @@ export const GridCalendari = function () {
   return (
     <Box w={["90%", "80%", "75%"]} m="auto">
       <Title header="1" text="Properes actuacions"></Title>
-      <Margin desktop="40px" mobile="30px" />
+      <Margin desktop="40px" mobile="10px" />
       <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} gap={4}>
         {
           actuacions.map((act, index) => {
@@ -50,8 +50,8 @@ export const GridCalendari = function () {
         }
       </Grid>
       <Margin desktop="40px" mobile="30px" />
-      <Title header="1" text="Últimes actuacions"></Title>
-      <Margin desktop="40px" mobile="30px" />
+      <Title header="1" text="Darreres actuacions"></Title>
+      <Margin desktop="40px" mobile="10px" />
       <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} gap={4}>
         {
           actuacions.map((act, index2) => {
@@ -76,7 +76,7 @@ export const GridCalendari = function () {
                       fontSize="md" fontWeight={400} 
                       _hover={{ backgroundColor: "transparent", color: 'argila' }}
                       onClick={() => window.open(act.galeria, '_blank')}
-                      rightIcon={<MdPhotoCamera size="20px"/>}>Fotografies</Button>
+                      leftIcon={<MdPhotoCamera size="20px"/>}>Fotografies</Button>
                     : ''}
 
                 </Box>

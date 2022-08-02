@@ -28,7 +28,7 @@ const theme = extendTheme({
     xs: "10px",
     sm: "12px",
     md: "14px",
-    normal: "18px",
+    normal: "16px",
     medium:"18px",
     lg: "20px",
     xl: "24px",
