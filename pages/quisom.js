@@ -13,9 +13,9 @@ export default function Calendari() {
       <Navbar page="quisom"/>
       <Margin desktop="100px" />
       <HeaderPages
-        img="/images/home/header.jpg"
-        imgMbl="/images/home/headermbl.jpg"
-        titleVisible={true}
+        img="/images/headers/headerquisom.jpg"
+        textVisible={true}
+        text="Qui som?"
       />
       <Margin desktop="40px" tablet="50px" mobile="20px" />
       <Juntes/>

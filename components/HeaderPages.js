@@ -1,25 +1,26 @@
-import { Box, Text, Flex } from '@chakra-ui/react'
+import { Box, Text, Image } from '@chakra-ui/react'
+import Title from '../components/Title'
 
 export const HeaderPages = function (props) {
   return (
     <>
-      <Box w="100%" maxW="2500px" m="auto" position="relative" h="550px"
-        backgroundImage={props.img}
-        backgroundPosition="left"
-        backgroundSize="cover"
-        display={["none", "none", "block"]}>
-        {
-          (props.titleVisible) &&
-          <Box w="100%" m="auto" left="0" right="0" position="absolute" textAlign="left" top={["25%", "10%", "13%"]}>
-            <Flex w="96%" ml="4%">
-              <Box w="50%"> </Box>
-              <Box w="34%">
-                <Text mb="5%" fontSize={["26px", "26px", "30px"]} fontWeight="bold" color="#fff">
-                LEMA
-                </Text>
-              </Box>
-              <Box w="16%"> </Box>
-            </Flex>
+      <Box
+        w="100%"
+        position="relative"
+        maxW="2500px"
+      >
+        <Box w="100%" h="auto">
+          <Image
+            w="100%"
+            h={["300px","auto"]}
+            objectFit="cover"
+            src={props.img}
+            alt="Capçalera"
+          />
+        </Box>
+        {(props.textVisible) &&
+          <Box position="absolute" textAlign="center" top={["30%","40%"]} left="0" right="0" m="auto">
+            <Title header="1" text={props.text} color="blanc"></Title>
           </Box>
         }
       </Box>

@@ -58,8 +58,8 @@ export const Navbar = function (props) {
                         </Box>
                         <Box as={(props.page == 'socis') ? "span" : "a"} mx="10px"
                             className={(props.page == 'socis') ? "menu-item-active" : "menu-item"}
-                            href="/socis">
-                            Socis
+                            href="/fes-te-soci">
+                            Fes-te soci
                         </Box>
                         <Box as={(props.page == 'contacte') ? "span" : "a"} mx="10px"
                             className={(props.page == 'contacte') ? "menu-item-active" : "menu-item"}

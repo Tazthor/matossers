@@ -15,14 +15,12 @@ export default function Calendari() {
       <Navbar page="assajos" />
       <Margin desktop="100px" />
       <HeaderPages
-        img="/images/home/header.jpg"
-        imgMbl="/images/home/headermbl.jpg"
-        titleVisible={true}
+        img="/images/headers/headerassajos.jpg"
+        textVisible={true}
+        text="Assajos"
       />
       <Margin desktop="40px" tablet="50px" mobile="20px" />
       <Box w={["90%", "80%", "75%"]} m="auto">
-        <Title header="1" text="Assajos"></Title>
-        <Margin desktop="20px" mobile="6px"/>
         <Box w="100%">
         <Margin desktop="20px" mobile="6px"/>
           <Title header="2" text="quan assagem?"></Title>

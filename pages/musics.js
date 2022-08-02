@@ -12,12 +12,12 @@ export default function Musics() {
 
   return (
     <Container>
-      <Navbar page="assajos" />
+      <Navbar page="musics" />
       <Margin desktop="100px" />
       <HeaderPages
-        img="/images/home/header.jpg"
-        imgMbl="/images/home/headermbl.jpg"
-        titleVisible={true}
+        img="/images/headers/headermusics.jpg"
+        textVisible={true}
+        text="Músics"
       />
       <Margin desktop="40px" tablet="50px" mobile="20px" />
       <Box w={["90%", "80%", "75%"]} m="auto">
