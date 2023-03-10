@@ -1,0 +1,28 @@
+{
+  "name": "matossers_web",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^1.7.3",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "axios": "^0.27.2",
+    "framer-motion": "^5.5.5",
+    "next": "12.0.7",
+    "react": "17.0.2",
+    "react-alice-carousel": "^2.6.4",
+    "react-cookie-consent": "^8.0.1",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
+    "react-twitter-embed": "^4.0.4"
+  },
+  "devDependencies": {
+    "eslint": "8.5.0",
+    "eslint-config-next": "12.0.7"
+  }
+}

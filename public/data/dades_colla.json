@@ -1,0 +1,59 @@
+[
+    {
+        "id":"1",
+        "label" : "Nom:",
+        "content":"Colla Castellera Matossers de Molins de Rei",
+        "icon": "/images/dades/nom.png"
+    },
+    {
+        "id":"2",
+        "label" : "Any de fundació:",
+        "content":"2002",
+        "icon": "/images/dades/fundacio.png"
+    },
+    {
+        "id":"3",
+        "label" : "Color de camisa:",
+        "content":"Marró argila, com el desaparegut pont de les quinze arcades",
+        "icon": "/images/dades/camisa.png"
+    },
+    {
+        "id":"4",
+        "label" : "Adreça:",
+        "content":"Carrer Jacint Verdaguer, 48. Federació Obrera",
+        "icon": "/images/dades/location.png"
+    },
+    {
+        "id":"5",
+        "label" : "Telèfon:",
+        "content":"669 84 08 67",
+        "icon": "/images/dades/tel.png"
+    },
+    {
+        "id":"6",
+        "label" : "Correu electrònic:",
+        "content":"matossers@matossers.cat",
+        "icon": "/images/dades/email.png"
+    },
+    {
+        "id":"7",
+        "label" : "Millor actuació:",
+        "content":"15a Diada matossera (12/10/2017): Pilar de 4, 3 de 7, 5 de 7, 3 de 7 amb l'agulla, Pilar de 5",
+        "icon": "/images/dades/actuacions.png"
+    },
+    {
+        "id":"8",
+        "label" : "Millors castells:",
+        "content":"5 de 7, 3 de 7 amb l'agulla, 4 de 7 amb l'agulla carregat, 3 de 7, 4 de 7, Pilar de 5",
+        "icon": "/images/dades/castell.png"
+    },
+    {
+        "id":"9",
+        "label" : "Colles padrines:",
+        "content":"Castellers de la Vila de Gràcia, Castellers de Cornellà i Xics de Granollers",
+        "icon": "/images/dades/partner.png"
+    }
+
+
+
+]

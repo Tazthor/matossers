@@ -1,0 +1,13 @@
+import React from "react";
+import { Text } from "@chakra-ui/react";
+
+export const Title = function (props) {
+
+    return (
+        <Text fontWeight={700} color={(props.color) ? props.color : "argila"} textTransform={(props.textTransform)? props.textTransform : "uppercase"}
+        fontSize={[(props.header == "1") && "xxl" || (props.header == "2") && "xl" || (props.header == "3") && "lg", (props.header == "1") && "big" || (props.header == "2") && "xxl" || (props.header == "3") && "lg"]}>
+            {props.text}
+        </Text>
+)
+}
+export default Title

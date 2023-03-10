@@ -1,0 +1,360 @@
+[
+    {
+        "id": "1",
+        "actuacio": "Festes Decennals 2021+1",
+        "poblacio": "Valls",
+        "lloc": "",
+        "data_llarga": "diumenge, 30 de gener de 2022",
+        "data_curta": "30/01/2022",
+        "hora": "12h",
+        "colles": [
+            "Colles del món casteller"
+        ],
+        "resultat": [
+            "pilars de 4"
+        ],
+        "galeria": "https://www.flickr.com/photos/184984575@N03/albums/72177720297964464"
+    },
+    {
+        "id": "2",
+        "actuacio": "Actuació a Terrassa",
+        "poblacio": "Terrassa",
+        "lloc": "Plaça de l'Assemblea de Catalunya",
+        "data_llarga": "diumenge, 20 de març de 2022",
+        "data_curta": "20/03/2022",
+        "hora": "12h",
+        "colles": [
+            "Castellers de Terrassa",
+            "Castellers de Badalona"
+        ],
+        "resultat": [
+            "3d6",
+            "3d6a",
+            "4d6",
+            "p4"
+        ],
+        "galeria": "https://www.flickr.com/photos/184984575@N03/albums/72177720297961087"
+    },
+    {
+        "id": "3",
+        "actuacio": "Actuació a Sarrià",
+        "poblacio": "Sarrià, Barcelona",
+        "lloc": "Plaça de la vila de Sarrià",
+        "data_llarga": "diumenge, 2 d'abril de 2022",
+        "data_curta": "02/04/2022",
+        "hora": "18h",
+        "colles": [
+            "Castellers de Sarrià",
+            "Castellers del Poble Sec"
+        ],
+        "resultat": [
+            "3d6",
+            "3d6a",
+            "4d6",
+            "p4"
+        ],
+        "galeria": "https://www.flickr.com/photos/184984575@N03/albums/72177720297961647"
+    },
+    {
+        "id": "4",
+        "actuacio": "Actuació a Montgat",
+        "poblacio": "Montgat",
+        "lloc": "Plaça de les Mallorquines",
+        "data_llarga": "diumenge, 24 d'abril de 2022",
+        "data_curta": "24/04/2022",
+        "hora": "12h",
+        "colles": [
+            "Castellers de Badalona"
+        ],
+        "resultat": [
+            "3d6",
+            "3d6ac",
+            "p4"
+        ],
+        "galeria": "https://www.flickr.com/photos/184984575@N03/albums/72177720299063150"
+    },
+    {
+        "id": "5",
+        "actuacio": "Actuació a Martorell",
+        "poblacio": "Martorell",
+        "lloc": "Plaça de la Vila",
+        "data_llarga": "diumenge, 24 d'abril de 2022",
+        "data_curta": "24/04/2022",
+        "hora": "18:30h",
+        "colles": [
+            "Castellers de Vilafranca",
+            "Castellers d'Esparraguera"
+        ],
+        "resultat": [
+            "3d6",
+            "3d6a",
+            "2d6",
+            "p4"
+        ],
+        "galeria": "https://www.flickr.com/photos/184984575@N03/albums/72177720299063910"
+    },
+    {
+        "id": "6",
+        "actuacio": "Actuació al Park Güell",
+        "poblacio": "Barcelona",
+        "lloc": "Plaça de la Natura (Park Güell)",
+        "data_llarga": "Dissabte, 7 de maig de 2022",
+        "data_curta": "7/05/2022",
+        "hora": "18",
+        "colles": [
+            "Castellers de la Vila de Gràcia",
+            "Castellers de la Sagrada Família"
+        ],
+        "resultat": [
+            "i3d6",
+            "3d6",
+            "3d6a",
+            "p4"
+        ],
+        "galeria": "https://www.flickr.com/photos/184984575@N03/albums/72177720299068744"
+    },
+    {
+        "id": "7",
+        "actuacio": "Festa Major de Sant Boi",
+        "poblacio": "Sant Boi de Llobregat",
+        "lloc": "",
+        "data_llarga": "Dissabte, 28 de maig de 2022",
+        "data_curta": "28/05/2022",
+        "hora": "18",
+        "colles": [
+            "Castellers de Cornellà",
+            "Colla Jove dels Castellers de Sitges",
+            "Minyons de Terrassa"
+        ],
+        "resultat": [
+            "3d6",
+            "3d6a",
+            "id2d6",
+            "2d6",
+            "p4"
+        ],
+        "galeria": "https://www.flickr.com/photos/184984575@N03/albums/72177720299373922"
+    },
+    {
+        "id": "8",
+        "actuacio": "Actuació a El Prat",
+        "poblacio": "El Prat de Llobregat",
+        "lloc": "",
+        "data_llarga": "Dissabte, 28 de maig de 2022",
+        "data_curta": "28/05/2022",
+        "hora": "18",
+        "colles": [
+            "Castellers de El Prat"
+        ],
+        "resultat": [
+            "id3d6",
+            "3d6",
+            "id2d6",
+            "id2d6",
+            "p4"
+        ],
+        "galeria": "https://www.flickr.com/photos/184984575@N03/albums/72177720299374167"
+    },
+    {
+        "id": "9",
+        "actuacio": "Festa de la Cirera a El Papiol",
+        "poblacio": "El Papiol",
+        "lloc": "",
+        "data_llarga": "Diumenge, 5 de juny de 2022",
+        "data_curta": "5/06/2022",
+        "hora": "12",
+        "colles": [
+            "Castellers de les Roquetes"
+        ],
+        "resultat": [
+            "3d6",
+            "2d6",
+            "3d6a",
+            "p4"
+        ],
+        "galeria": "https://www.flickr.com/photos/184984575@N03/albums/72177720299641767"
+    },
+    {
+        "id": "10",
+        "actuacio": "Plaça de Nou",
+        "poblacio": "L'Hospitalet de Llobregat",
+        "lloc": "",
+        "data_llarga": "Dissabte, 11 de juny de 2022",
+        "data_curta": "11/06/2022",
+        "hora": "18",
+        "colles": [
+            "Castellers de Vilafranca",
+            "Colla Jove de l'Hospitalet"
+        ],
+        "resultat": [
+            "3d6",
+            "3d6a",
+            "4d6",
+            "p4"
+        ],
+        "galeria": "https://www.flickr.com/photos/184984575@N03/albums/72177720300004079"
+    },
+    {
+        "id": "11",
+        "actuacio": "20è Aniversari",
+        "poblacio": "Molins de Rei",
+        "lloc": "",
+        "data_llarga": "Dissabte, 2 de juliol de 2022",
+        "data_curta": "2/07/2022",
+        "hora": "18",
+        "colles": [
+            "Castellers de Castelldefels",
+            "Castellers del Poble Sec"
+        ],
+        "resultat": [
+            "3d7",
+            "4d7",
+            "4d6a",
+            "p5"
+        ],
+        "galeria": "https://www.flickr.com/photos/184984575@N03/albums/72177720300884871"
+    },
+    {
+        "id": "12",
+        "actuacio": "Actuació a Castelldefels",
+        "poblacio": "Castelldefels",
+        "lloc": "",
+        "data_llarga": "Diumege, 17 de juliol de 2022",
+        "data_curta": "17/07/2022",
+        "hora": "12",
+        "colles": [
+            "Castellers de Castelldefels",
+            "Castellers del Prat",
+            "Colla Jove dels Castellers de Sitges"
+        ],
+        "resultat": [
+            "3d6",
+            "2d6",
+            "3d6a",
+            "p4"
+        ],
+        "galeria": "https://www.flickr.com/photos/184984575@N03/albums/72177720300886696"
+    },
+    {
+        "id": "13",
+        "actuacio": "Festa Major de Castellbisbal",
+        "poblacio": "Molins de Rei",
+        "lloc": "",
+        "data_llarga": "Diumege, 21 d'agost de 2022",
+        "data_curta": "21/08/2022",
+        "hora": "18",
+        "colles": [
+            "Castellers de Mediona"
+        ],
+        "resultat": [
+            "3d6",
+            "p4"
+        ],
+        "galeria": "https://www.flickr.com/photos/184984575@N03/albums/72177720301699429"
+    },
+    {
+        "id": "13",
+        "actuacio": "Actuació a Montserrat",
+        "poblacio": "Montserrat",
+        "lloc": "",
+        "data_llarga": "Diumege, 4 de setembre de 2022",
+        "data_curta": "04/09/2022",
+        "hora": "12",
+        "colles": [
+            "Castellers de Sant Feliu de Llobregat",
+            "Castellers de la Sagrada Família",
+            "Xerrics d'Olot"
+        ],
+        "resultat": [
+            "3d6",
+            "p4"
+        ],
+        "galeria": ""
+    },
+    {
+        "id": "14",
+        "actuacio": "Actuació a Horta",
+        "poblacio": "Horta, Barcelona",
+        "lloc": "",
+        "data_llarga": "Diumege, 18 de setembre de 2022",
+        "data_curta": "18/09/2022",
+        "hora": "12",
+        "colles": [
+            "Falcons de Piera"
+        ],
+        "resultat": [],
+        "galeria": ""
+    },
+    {
+        "id": "14",
+        "actuacio": "Festa Major de Vallirana",
+        "poblacio": "Vallirana",
+        "lloc": "",
+        "data_llarga": "Diumege, 18 de setembre de 2022",
+        "data_curta": "18/09/2022",
+        "hora": "17:30",
+        "colles": [],
+        "resultat": [],
+        "galeria": ""
+    },
+    {
+        "id": "15",
+        "actuacio": "Concurset",
+        "poblacio": "Torredembarra",
+        "lloc": "",
+        "data_llarga": "Diumege, 25 de setembre de 2022",
+        "data_curta": "25/09/2022",
+        "hora": "12:00",
+        "colles": [
+            "Colles classificades"
+        ],
+        "resultat": [],
+        "galeria": ""
+    },
+    {
+        "id": "16",
+        "actuacio": "Festa Major de Molins de Rei",
+        "poblacio": "Molins de Rei",
+        "lloc": "",
+        "data_llarga": "Diumege, 9 d'octubre de 2022",
+        "data_curta": "09/10/2022",
+        "hora": "12:00",
+        "colles": [
+            "Castellers de Badalona",
+            "Castellers del Foix"
+        ],
+        "resultat": [],
+        "galeria": ""
+    },
+    {
+        "id": "17",
+        "actuacio": "Trobada de Colles del Baix Llobregat",
+        "poblacio": "Castelldefels",
+        "lloc": "",
+        "data_llarga": "Dissabte, 15 d'octubre de 2022",
+        "data_curta": "15/10/2022",
+        "hora": "18:00",
+        "colles": [
+            "Colles castelleres del Baix Llobregat"
+        ],
+        "resultat": [],
+        "galeria": ""
+    },
+    {
+        "id": "18",
+        "actuacio": "XIX Diada dels Matossers",
+        "poblacio": "Molins de Rei",
+        "lloc": "",
+        "data_llarga": "Diumenge, 6 de novembre de 2022",
+        "data_curta": "06/11/2022",
+        "hora": "12:00",
+        "colles": [
+            "Colla Jove de l'Hospitalet",
+            "Castellers de Sarrià"
+        ],
+        "resultat": [],
+        "galeria": ""
+    }
+
+
+]
