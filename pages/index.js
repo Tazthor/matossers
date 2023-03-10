@@ -13,7 +13,7 @@ export default function Home() {
       <HeaderHome
         img="/images/home/header.jpg"
         imgMbl="/images/home/headermbl.jpg"
-        titleVisible={true}
+        titleVisible={ true }
       />
       <Margin desktop="40px" tablet="50px" mobile="20px" />
       <Footer/>
