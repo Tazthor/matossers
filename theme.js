@@ -6,8 +6,14 @@ const fonts =   {
   mono: "Menlo, monospace",
 }
 
-const breakpoints = ['450px', '769px', '1080px', '1400px']
-
+const breakpoints = {
+  sm: '450px',
+  lw: '600px',
+  md: '769px',
+  lg: '976px',
+  xl: '1080px',
+  xxl: '1440px'
+}
 const theme = extendTheme({
   colors: {
     blanc: '#fff',

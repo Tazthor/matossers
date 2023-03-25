@@ -11,7 +11,7 @@ export const BlocText = function (props) {
       maxWidth="2500px"
     >
       <Box
-        w={["90%", "80%", "75%"]}
+        w={{base:"90%", md:"80%", xl:"75%"}}
         m="auto"
         fontSize={["md", "normal", "normal"]}
         textAlign="left"

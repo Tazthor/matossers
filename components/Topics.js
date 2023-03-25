@@ -9,14 +9,14 @@ import { RiHandHeartLine } from "react-icons/ri"
 export const Topics = function () {
   const router = useRouter();
   return (
-    <Box w={["90%", "80%", "75%"]} m="auto">
+    <Box w={{base:"90%", md:"80%", xl:"75%"}} m="auto">
       <Flex display={["block", "flex", "flex"]}>
         <Flex
           my="30px"
           p="10px 20px"
-          w={["100%","31%","31%"]}
-          mr={["0", "2%", "2%"]}
-          mt={["30px", "0", "0"]}
+          w={{base:"100%", md:"31%"}}
+          mr={{base:"0", md:"2%"}}
+          mt={{base:"30px", md:"0"}}
           border="1px rgba(0, 0, 0, 0.3)"
           boxShadow="0 6px 6px rgba(0, 0, 0, 0.3)"
           cursor="pointer"
@@ -42,9 +42,9 @@ export const Topics = function () {
         <Flex
           my="30px"
           p="10px 20px"
-          w={["100%","30%","30%"]}
-          mx={["0", "2%", "2%"]}
-          mt={["30px", "0", "0"]}
+          w={{base:"100%", md:"30%"}}
+          mx={{base:"0", md:"2%"}}
+          mt={{base:"30px", md:"0"}}
           border="1px rgba(0, 0, 0, 0.3)"
           boxShadow="0 6px 6px rgba(0, 0, 0, 0.3)"
           cursor="pointer"
@@ -71,9 +71,9 @@ export const Topics = function () {
         <Flex
           my="30px"
           p="10px 20px"
-          w={["100%","31%","31%"]}
-          ml={["0", "2%", "2%"]}
-          mt={["30px", "0", "0"]}
+          w={{base:"100%", md:"31%"}}
+          ml={{base:"0", md:"2%"}}
+          mt={{base:"30px", md:"0"}}
           border="1px rgba(0, 0, 0, 0.3)"
           boxShadow="0 6px 6px rgba(0, 0, 0, 0.3)"
           cursor="pointer"

@@ -4,7 +4,7 @@ import Title from "./Title";
 
 export const PolCookies = function (props) {
   return (
-    <Box w={["90%", "80%", "75%"]} m="auto" maxW="2500px">
+    <Box w={{base:"90%", md:"80%", xl:"75%"}} m="auto" maxW="2500px">
       <Title header="1" text="Política de cookies" />
     </Box>
   );

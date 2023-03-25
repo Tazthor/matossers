@@ -6,12 +6,12 @@ import { BiTime } from "react-icons/bi";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-export const Title = function (props) {
+export const Footer = function (props) {
   const router = useRouter();
   return (
     <Box w="100%" maxW="2500px" m="auto" bg="argila" color="#fff" py="50px">
       <Flex w="90%" m="auto" display={["block", "block", "flex"]}>
-        <Box w={["100%", "100%", "30%"]} mr={["0", "0", "2%"]}>
+        <Box w={{base:"100%", md:"30%"}} mr={{base:"0", xl:"2%"}}>
           <Flex w="100%" alignItems="center">
             <Box w={["48%", "30%", "48%"]} mr="2%">
               <Image src="/images/logos/logo_blanc.png" alt="Matossers" />
@@ -22,9 +22,9 @@ export const Title = function (props) {
           </Flex>
         </Box>
         <Box
-          w={["100%", "100%", "30%"]}
-          mx={["0", "0", "3%"]}
-          mt={["30px", "30px", "0"]}
+          w={{base:"100%", md:"30%"}}
+          mx={{base:"0", xl:"3%"}}
+          mt={{base:"30px", xl:"0"}}
         >
           <Box mb="15px">
             <Text fontSize="lg" fontWeight={600}>
@@ -77,9 +77,9 @@ export const Title = function (props) {
           </Box>
         </Box>
         <Box
-          w={["100%", "100%", "30%"]}
-          ml={["0", "0", "2%"]}
-          mt={["30px", "30px", "0"]}
+          w={{base:"100%", md:"30%"}}
+          ml={{base:"0", xl:"2%"}}
+          mt={{base:"30px", xl:"0"}}
         >
           <Box mb="15px">
             <Text fontSize="lg" fontWeight={600}>
@@ -134,4 +134,4 @@ export const Title = function (props) {
     </Box>
   );
 };
-export default Title;
+export default Footer;
