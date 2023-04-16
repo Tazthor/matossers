@@ -25,7 +25,7 @@
         "equip" : "directiva",
         "carrec":"Tresoreria",
         "nom": "Pol Amat",
-        "img": "/images/junta/pol.jpg"
+        "img": "/images/junta/michel.jpg"
     },
     {
         "id":"6",
@@ -46,70 +46,70 @@
         "equip" : "directiva",
         "carrec":"Relacions públiques",
         "nom": "Arnau Raventós",
-        "img": "/images/junta/arnau.jpg"
+        "img": "/images/junta/michel.jpg"
     },
     {
         "id":"10",
         "equip" : "directiva",
         "carrec":"Músics",
         "nom": "Ariadna Fernández",
-        "img": "/images/junta/ariadna.jpg"
+        "img": "/images/junta/michel.jpg"
     },
     {
         "id":"11",
         "equip" : "tecnica",
         "carrec":"Equip de canalla",
         "nom": "Laura Bosch",
-        "img": "/images/junta/laura.jpg"
+        "img": "/images/junta/michel.jpg"
     },
     {
         "id":"12",
         "equip" : "tecnica",
         "carrec":"Equip de canalla",
         "nom": "Adriana Segura",
-        "img": "/images/junta/adriana.jpg"
+        "img": "/images/junta/michel.jpg"
     },
     {
         "id":"5",
         "equip" : "tecnica",
         "carrec":"Equip de canalla",
         "nom": "Octavi Rojas",
-        "img": "/images/junta/octavi.jpg"
+        "img": "/images/junta/michel.jpg"
     },
     {
         "id":"13",
         "equip" : "tecnica",
         "carrec":"Equip de canalla",
         "nom": "Ivet Aregall",
-        "img": "/images/junta/ivet.jpg"
+        "img": "/images/junta/michel.jpg"
     },
     {
         "id":"14",
         "equip" : "tecnica",
         "carrec":"Equip de canalla",
         "nom": "Isabel Toll",
-        "img": "/images/junta/isa.jpg"
+        "img": "/images/junta/michel.jpg"
     },
     {
         "id":"15",
         "equip" : "tecnica",
         "carrec":"Equip de pinyes",
         "nom": "Carlota Riaza",
-        "img": "/images/junta/carlota.jpg"
+        "img": "/images/junta/michel.jpg"
     },
     {
         "id":"16",
         "equip" : "tecnica",
         "carrec":"Equip de pinyes",
         "nom": "Carlos Fernández",
-        "img": "/images/junta/carlos.jpg"
+        "img": "/images/junta/michel.jpg"
     },
     {
         "id":"17",
         "equip" : "tecnica",
         "carrec":"Equip de pinyes",
         "nom": "Jordi Claret",
-        "img": "/images/junta/jordi.jpg"
+        "img": "/images/junta/michel.jpg"
     }
 
 
