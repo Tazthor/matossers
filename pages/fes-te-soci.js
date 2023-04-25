@@ -13,7 +13,7 @@ export default function Musics() {
   return (
     <Container>
       <Navbar page="socis" />
-      <Margin desktop="100px" />
+      <Margin desktop="130px" />
       <HeaderPages
         img="/images/headers/headersocis.jpg"
         textVisible={true}

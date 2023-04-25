@@ -25,16 +25,19 @@ export async function getDataCollection (app, colleccio) {
         // Initialize Cloud Firestore and get a reference to the service
         const db = getFirestore(app);
         const colRef = collection(db, colleccio);
+        const data = []
         try {
             const docsSnap = await getDocs(colRef);
             docsSnap.forEach(doc => {
-                console.log("data:", doc.data());
+                //console.log("data:", doc.data());
                 //console.log(doc.id);
-                return doc.data()
+                data.push(doc.data())
             })
         } catch (error) {
             console.log(error);
         }
+
+        return (data)
 
        // const q = query(collection(db, 'actuacions'));
           

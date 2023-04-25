@@ -37,7 +37,7 @@ export const InfoSocis = function () {
         soci/a ho desitja.
       </Text>
       <Grid
-        templateColumns={["repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(3, 1fr)","repeat(4, 1fr)"]}
+        templateColumns={{base:"repeat(1, 1fr)", md:"repeat(2, 1fr)", xl:"repeat(3, 1fr)", xxl:"repeat(4, 1fr)"}}
         gap={8}
       >
         <Box
@@ -218,7 +218,7 @@ export const InfoSocis = function () {
       </Text>
 
       <Grid
-        templateColumns={["repeat(1, 1fr)", "repeat(1, 1fr)", "repeat(1, 1fr)","repeat(2, 1fr)"]}
+        templateColumns={{base:"repeat(1, 1fr)", md:"repeat(1, 1fr)", xl:"repeat(2, 1fr)"}}
         gap={4}
       >
         <Box
@@ -227,7 +227,7 @@ export const InfoSocis = function () {
           color="blanc"
           p="20px 40px"
           mt="40px"
-          mb={["20px", "20px", "40px"]}
+          mb={{base:"20px", xl:"40px"}}
         >
           <Title
             header="2"
@@ -242,8 +242,8 @@ export const InfoSocis = function () {
             display={["block", "flex", "flex"]}
           >
             <Box
-              w={["100%", "48%", "48%"]}
-              mr={["0", "2%", "2%"]}
+              w={{base:"100%", xl:"48%"}}
+              mr={{base:"0", xl:"2%"}}
               mb={["30px", "0", "0"]}
             >
               <Flex w="100%" alignItems="center">
@@ -273,7 +273,7 @@ export const InfoSocis = function () {
                 </Box>
               </Flex>
             </Box>
-            <Box w={["100%", "48%", "48%"]} ml={["0", "2%", "2%"]}>
+            <Box w={{base:"100%", xl:"48%"}} ml={{base:"0", xl:"2%"}}>
               <Flex w="100%" alignItems="center">
                 <Box w="23%" mr="2%">
                   <Box
@@ -309,8 +309,8 @@ export const InfoSocis = function () {
             display={["block", "flex", "flex"]}
           >
             <Box
-              w={["100%", "48%", "48%"]}
-              mr={["0", "2%", "2%"]}
+              w={{base:"100%", xl:"48%"}}
+              mr={{base:"0", xl:"2%"}}
               mb={["30px", "0", "0"]}
             >
               <Flex w="100%" alignItems="center">
@@ -340,7 +340,7 @@ export const InfoSocis = function () {
                 </Box>
               </Flex>
             </Box>
-            <Box w={["100%", "48%", "48%"]} ml={["0", "2%", "2%"]}>
+            <Box w={{base:"100%", xl:"48%"}} ml={{base:"0", xl:"2%"}}>
               <Flex w="100%" alignItems="center">
                 <Box w="23%" mr="2%">
                   <Box
@@ -375,7 +375,7 @@ export const InfoSocis = function () {
           bg="argila"
           color="blanc"
           p="20px 40px"
-          my={["20px", "20px", "40px"]}
+          my={{base:"20px", xl:"40px"}}
         >
           <Title
             header="2"
@@ -391,8 +391,8 @@ export const InfoSocis = function () {
             display={["block", "flex", "flex"]}
           >
             <Box
-              w={["100%", "48%", "48%"]}
-              mr={["0", "2%", "2%"]}
+              w={{base:"100%", xl:"48%"}}
+              mr={{base:"0", xl:"2%"}}
               mb={["30px", "0", "0"]}
             >
               <Flex w="100%" alignItems="center">
@@ -422,7 +422,7 @@ export const InfoSocis = function () {
                 </Box>
               </Flex>
             </Box>
-            <Box w={["100%", "48%", "48%"]} ml={["0", "2%", "2%"]}>
+            <Box w={{base:"100%", xl:"48%"}} ml={{base:"0", xl:"2%"}}>
               <Flex w="100%" alignItems="center">
                 <Box w="23%" mr="2%">
                   <Box
@@ -458,8 +458,8 @@ export const InfoSocis = function () {
             display={["block", "flex", "flex"]}
           >
             <Box
-              w={["100%", "48%", "48%"]}
-              mr={["0", "2%", "2%"]}
+              w={{base:"100%", xl:"48%"}}
+              mr={{base:"0", xl:"2%"}}
               mb={["30px", "0", "0"]}
             >
               <Flex w="100%" alignItems="center">
