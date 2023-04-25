@@ -11,12 +11,11 @@ import { initApp, getDataCollection } from "../utils/utils";
 export default function Actuacions() {
   const [data, setData] = useState()
   const [app, setApp] = useState()
-  const [dataAct, setDataAct] = useState({})
+  const [dataAct, setDataAct] = useState([])
   const [isLoading, setIsLoading] =  useState(false)
 
   const getData= async (app) => {
     const object = await getDataCollection(app, "actuacions")
-    console.log(object)
     setDataAct(object);
 }
 
@@ -25,9 +24,6 @@ export default function Actuacions() {
     getData(app);
   }, [])
 
-
-  console.log("arriba:" + dataAct.poblacio)
-  
   return (
     <Container>
       <Navbar page="musics" />

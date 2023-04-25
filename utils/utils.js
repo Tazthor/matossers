@@ -29,7 +29,7 @@ export async function getDataCollection (app, colleccio) {
         try {
             const docsSnap = await getDocs(colRef);
             docsSnap.forEach(doc => {
-                //console.log("data:", doc.data());
+                //console.log(doc.data());
                 //console.log(doc.id);
                 data.push(doc.data())
             })
