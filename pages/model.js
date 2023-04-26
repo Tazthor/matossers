@@ -12,11 +12,12 @@ export default function Actuacions() {
   const [data, setData] = useState()
   const [app, setApp] = useState()
   const [dataAct, setDataAct] = useState([])
-  const [isLoading, setIsLoading] =  useState(false)
+  const [isLoading, setIsLoading] =  useState(true)
 
   const getData= async (app) => {
     const object = await getDataCollection(app, "actuacions")
     setDataAct(object);
+    setIsLoading(false)
 }
 
   useEffect(() => {
