@@ -6,7 +6,7 @@ import ActuacioCard from "./ActuacioCard";
 
 export const GridCalendari = function ({ actuacions }) {
   var dateNow = new Date();
-  const [actuacionsSort, setActuacionsSort] = useState([])
+  const [isSorted, setIsSorted] = useState(false)
   const [actuacionsSortInvers, setActuacionsSortInvers] = useState([])
 
   var properaAct = actuacions.find(
@@ -14,10 +14,11 @@ export const GridCalendari = function ({ actuacions }) {
   );
 
   useEffect(() => {
-    setActuacionsSort(actuacions.sort((a,b) => (a.data > b.data) ? 1 : ((b.data > a.data) ? -1 : 0)))
-    setActuacionsSortInvers(actuacions.sort((a,b) => (a.data > b.data) ? -1 : ((b.data > a.data) ? 1 : 0)))
+    actuacions = actuacions.sort((a,b) => (a.data > b.data) ? 1 : ((b.data > a.data) ? -1 : 0))
+    setIsSorted(true)
   },[])
 
+ 
   return (
     <Box w={{ base: "90%", md: "80%", xl: "75%" }} m="auto">
       <Title header="2" text="Properes actuacions"></Title>
@@ -33,7 +34,9 @@ export const GridCalendari = function ({ actuacions }) {
           }}
           gap={4}
         >
-          {actuacionsSort.map((act, index) => {
+          {
+          (isSorted) &&
+          actuacions.map((act, index) => {
             if (act.data.toDate() >= dateNow) {
               return <ActuacioCard key={index} act={act} type="futures" />;
             }
@@ -51,7 +54,9 @@ export const GridCalendari = function ({ actuacions }) {
         }}
         gap={4}
       >
-        {actuacionsSortInvers.map((act, index2) => {
+        {
+                    (isSorted) &&
+        actuacions.map((act, index2) => {
           if (act.data.toDate() < dateNow) {
             return <ActuacioCard key={index2} act={act} type="passades" />;
           }

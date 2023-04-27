@@ -21,8 +21,6 @@ export const ActuacioCard = function ({ act, type }) {
     hour12: false,
   };
 
-  console.log(act.resultat);
-
   return (
     <Box fontSize="medium" lineHeight="28px" my="16px">
       <Text mb="5px" fontSize="xl" fontWeight={600}>
