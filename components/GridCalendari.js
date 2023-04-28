@@ -6,19 +6,19 @@ import ActuacioCard from "./ActuacioCard";
 
 export const GridCalendari = function ({ actuacions }) {
   var dateNow = new Date();
-  const [isSorted, setIsSorted] = useState(false)
-  const [actuacionsSortInvers, setActuacionsSortInvers] = useState([])
+  const [isSorted, setIsSorted] = useState(false);
 
   var properaAct = actuacions.find(
     (actuacio) => actuacio.data.toDate() >= dateNow
   );
 
   useEffect(() => {
-    actuacions = actuacions.sort((a,b) => (a.data > b.data) ? 1 : ((b.data > a.data) ? -1 : 0))
-    setIsSorted(true)
-  },[])
+    actuacions = actuacions.sort((a, b) =>
+      a.data > b.data ? 1 : b.data > a.data ? -1 : 0
+    );
+    setIsSorted(true);
+  }, []);
 
- 
   return (
     <Box w={{ base: "90%", md: "80%", xl: "75%" }} m="auto">
       <Title header="2" text="Properes actuacions"></Title>
@@ -34,13 +34,12 @@ export const GridCalendari = function ({ actuacions }) {
           }}
           gap={4}
         >
-          {
-          (isSorted) &&
-          actuacions.map((act, index) => {
-            if (act.data.toDate() >= dateNow) {
-              return <ActuacioCard key={index} act={act} type="futures" />;
-            }
-          })}
+          {isSorted &&
+            actuacions.map((act, index) => {
+              if (act.data.toDate() >= dateNow) {
+                return <ActuacioCard key={index} act={act} type="futures" />;
+              }
+            })}
         </Grid>
       )}
       <Margin desktop="40px" mobile="30px" />
@@ -54,13 +53,12 @@ export const GridCalendari = function ({ actuacions }) {
         }}
         gap={4}
       >
-        {
-                    (isSorted) &&
-        actuacions.map((act, index2) => {
-          if (act.data.toDate() < dateNow) {
-            return <ActuacioCard key={index2} act={act} type="passades" />;
-          }
-        })}
+        {isSorted &&
+          actuacions.map((act, index2) => {
+            if (act.data.toDate() < dateNow) {
+              return <ActuacioCard key={index2} act={act} type="passades" />;
+            }
+          })}
       </Grid>
     </Box>
   );
