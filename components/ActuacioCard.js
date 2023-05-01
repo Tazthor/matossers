@@ -68,28 +68,32 @@ export const ActuacioCard = function ({ act, type }) {
       )}
       {type == "passades" && (
         <Box>
-          <Text fontWeight={600}>Castells:</Text>
-{/*           {act.resultat.map((castell, i) => {
-            return (
-              (i < act.resultat.length - 2 && (
-                <Box display="inline" key={i}>
-                  {castell},{" "}
-                </Box>
-              )) ||
-              (i < act.resultat.length - 1 && (
-                <Box display="inline" key={i}>
-                  {castell}{" "}
-                </Box>
-              )) ||
-              (i == act.resultat.length - 1 && (
-                <Box display="inline" key={i}>
-                  {" "}
-                  i {castell}
-                </Box>
-              ))
-            );
-          })}
- */}          {act.galeria && (
+          {act.resultat && (
+            <>
+              <Text fontWeight={600}>Castells:</Text>
+              {act.resultat.map((castell, i) => {
+                return (
+                  (i < act.resultat.length - 2 && (
+                    <Box display="inline" key={i}>
+                      {castell},{" "}
+                    </Box>
+                  )) ||
+                  (i < act.resultat.length - 1 && (
+                    <Box display="inline" key={i}>
+                      {castell}{" "}
+                    </Box>
+                  )) ||
+                  (i == act.resultat.length - 1 && (
+                    <Box display="inline" key={i}>
+                      {" "}
+                      i {castell}
+                    </Box>
+                  ))
+                );
+              })}
+            </>
+          )}
+          {act.galeria && (
             <Box>
               <Button
                 my="15px"
