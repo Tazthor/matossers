@@ -69,7 +69,7 @@ export const ActuacioCard = function ({ act, type }) {
       {type == "passades" && (
         <Box>
           <Text fontWeight={600}>Castells:</Text>
-          {act.resultat.map((castell, i) => {
+{/*           {act.resultat.map((castell, i) => {
             return (
               (i < act.resultat.length - 2 && (
                 <Box display="inline" key={i}>
@@ -89,7 +89,7 @@ export const ActuacioCard = function ({ act, type }) {
               ))
             );
           })}
-          {act.galeria && (
+ */}          {act.galeria && (
             <Box>
               <Button
                 my="15px"

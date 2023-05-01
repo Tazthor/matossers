@@ -22,7 +22,7 @@ export default function Calendari() {
 
 
   useEffect(() => {
-    setApp(initApp());
+    if (app== undefined){ setApp(initApp());}
     getData(app);
   }, []);
 
