@@ -25,7 +25,8 @@ export async function loginWithGoogle(app) {
   const googleProvider = new GoogleAuthProvider();
   const auth = getAuth(app);
   const user = {}
-  signInWithPopup(auth, googleProvider)
+  
+  return signInWithPopup(auth, googleProvider)
     .then((result) => {
         user = result.user;   
         return (user) 
