@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Container } from '../components/Container'
 import Margin from '../components/Margin';
 import Navbar from "../components/Navbar";
@@ -5,10 +6,28 @@ import HeaderPages from "../components/HeaderPages";
 import Juntes from '../components/Juntes';
 import Footer from '../components/Footer';
 import DadesColla from '../components/DadesColla';
+import { initApp, getDataCollection } from "../utils/utils";
+import { Spinner } from "@chakra-ui/react";
 
 
 export default function Calendari() {
+  const [app, setApp] = useState();
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
+  const getData = async (app) => {
+    const object = await getDataCollection(app, "dada");
+    setData(object);
+    setIsLoading(false);
+  };
+
+
+  useEffect(() => {
+    if (app== undefined){ setApp(initApp());}
+    getData(app);
+  }, []);
+
+  console.log(data)
   return (
     <Container>
       <Navbar page="quisom"/>
