@@ -29,7 +29,6 @@ export async function loginWithGoogle(app) {
   return signInWithPopup(auth, googleProvider)
     .then((result) => {
         user = result.user;   
-        return (user) 
     })
     .catch((error) => {
       // Handle Errors here.
@@ -75,7 +74,7 @@ export async function getDataCollection(app, colleccio) {
         });*/
 }
 
-/* export async function getDataCollectionUser(app, colleccio, user) {
+ export async function getDataCollectionUser(app, colleccio, user) {
   const db = getFirestore(app);
   const userRef = collection(db, colleccio);
 
@@ -83,4 +82,4 @@ export async function getDataCollection(app, colleccio) {
   const q = query(userRef, where("email", "==", user.email));
   console.log(q)
 }
- */
+ 
