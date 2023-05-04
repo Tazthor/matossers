@@ -7,11 +7,11 @@ export const Login = function () {
   const [app, setApp] = useState();
   const [currentUser, setCurrentUser] = useState(null);
 
-   const getDataUser = async (app, user) => {
+/*    const getDataUser = async (app, user) => {
     const object = await getDataCollectionUser(app, "users", user);
     setCurrentUser(object);
   };
-
+ */
    useEffect(() => {
     if (app == undefined) {
       setApp(initApp());
@@ -23,8 +23,8 @@ export const Login = function () {
     const usuaritemp = await loginWithGoogle(app);
     if (usuaritemp) {
       setUser(usuaritemp);
-      getDataUser(app, user);
-    }
+/*       getDataUser(app, user);
+ */    }
     console.log(currentUser);
 
   };
