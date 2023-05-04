@@ -40,7 +40,6 @@ import { collection, query, getDocs } from "firebase/firestore";
 
 function Matossers({ Component, pageProps }) {
 
-    //getData()
   return (
     <ChakraProvider theme={theme}>
       <Component {...pageProps} />

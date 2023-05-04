@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { collection, doc, getDocs } from "firebase/firestore";
+import { collection, doc, getDocs, query, where } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBGtJC973MQxS5V7ZISBHfjmZICFAxz4g4",
@@ -74,3 +74,13 @@ export async function getDataCollection(app, colleccio) {
           
         });*/
 }
+
+/* export async function getDataCollectionUser(app, colleccio, user) {
+  const db = getFirestore(app);
+  const userRef = collection(db, colleccio);
+
+  // Create a query against the collection.
+  const q = query(userRef, where("email", "==", user.email));
+  console.log(q)
+}
+ */
