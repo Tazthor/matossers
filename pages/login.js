@@ -4,16 +4,19 @@ import {
   Button,
   Flex,
   Input,
-  Stack,
+  Image,
   InputGroup,
   InputLeftElement,
   FormControl,
 } from "@chakra-ui/react";
 import {
-  initApp,
-  loginWithGoogle,
-  getDataCollectionUser,
-} from "../utils/utils";
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure
+} from '@chakra-ui/react'
 import { loginEmailPassword, createAccount } from "../utils/login";
 import { useState, useEffect } from "react";
 import { HiOutlineMail } from "react-icons/hi";
@@ -23,12 +26,14 @@ import { Container } from "../components/Container";
 import Margin from "../components/Margin";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Title from "../components/Title";
 
 export const Login = function () {
   const [signEmailPassword, setSignEmailPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState({ isError: false, msgError: "" });
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   const openError = function (msg) {
     setError({ isError: true, msgError: msg });
@@ -41,7 +46,6 @@ export const Login = function () {
 
   const Login = async function () {
     const response = await loginEmailPassword(email, pass);
-
     if (response.error) {
       if (
         response.error.code == AuthErrorCodes.INVALID_PASSWORD ||
@@ -52,16 +56,18 @@ export const Login = function () {
         openError("Aquest usuari no existeix");
       } else openError(response.error.message);
     }
+    console.log(response)
   };
 
   const CreateUser = async function () {
     const response = await createAccount(email, pass);
-
-    if (response.error) {
-      openError("Hi ha hagut un error");
+    if (response == true) {
+      onOpen();
+    } else if (response.error) {
+      if (response.error.code == AuthErrorCodes.EMAIL_EXISTS) {
+        openError("Aquest usuari ja existeix");
+      } else openError("Hi ha hagut un error");
     }
-
-    console.log(response);
   };
 
   /*   const [user, setUser] = useState(null);
@@ -96,13 +102,16 @@ export const Login = function () {
       <Navbar />
       <Margin desktop="100px" />
       <Box w="100%" bg="argila" py="80px">
-        {(signEmailPassword && (
-          <Box
-            w={{ base: "90%", md: "60%" }}
-            bg="blanc"
-            mx="auto"
-            p="30px 20px"
-          >
+        <Box w="100%" textAlign="center" mb="20px">
+          <Title header="1" text="Login" color="blanc"></Title>
+        </Box>
+        <Box
+          w={{ base: "90%", md: "60%", xl: "30%" }}
+          bg="blanc"
+          mx="auto"
+          p="30px 20px"
+        >
+          {(signEmailPassword && (
             <form action="javascript:void(0);">
               <FormControl isRequired my="10px">
                 <InputGroup>
@@ -140,23 +149,34 @@ export const Login = function () {
               <Button type="submit" mt="30px" onClick={() => Login()}>
                 Inicia sessió
               </Button>
-              <Button type="submit" mt="30px" onClick={() => CreateUser()} disabled>
+              <Button type="submit" mt="30px" onClick={() => CreateUser()}>
                 Donar-se d'alta
               </Button>
             </form>
-          </Box>
-        )) || (
-          <Flex>
-            {/*     <Button mr="20px" onClick={() => Googleclic()}>Google</Button>
-             */}{" "}
-            <Button onClick={() => setSignEmailPassword(true)}>
-              Email/Pwd
-            </Button>
-          </Flex>
-        )}
+          )) || (
+            <Flex>
+              {/*     <Button mr="20px" onClick={() => Googleclic()}>Google</Button>
+               */}{" "}
+              <Button onClick={() => setSignEmailPassword(true)}>
+                Email/Pwd
+              </Button>
+            </Flex>
+          )}
+        </Box>
       </Box>
       <Margin desktop="40px" tablet="50px" mobile="20px" />
       <Footer />
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody>
+            <Box w="90%" py="30px">
+              Correcte!!!
+            </Box>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </Container>
   );
 };
