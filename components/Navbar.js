@@ -10,19 +10,19 @@ export const Navbar = function (props) {
     const router = useRouter()
 
     return (
-        <Box w="100%" position="fixed" bg="#fff" h={["120px", "130px", "130px"]} zIndex="500" pt="20px" borderBottom="1px solid" borderColor="argila">
+        <Box w="100%" position="fixed" bg="#fff" h={{base:"140px", xl:"130px"}} zIndex="500" pt="20px" borderBottom="1px solid" borderColor="argila">
             <Flex w="90%" maxW="2500px" m="auto" >
-                <Box w={["70%", "70%", "30%"]} mt="20px" onClick={() => router.push("/")} cursor="pointer">
+                <Box w={{base:"70%", xl:"30%"}} mt="20px" onClick={() => router.push("/")} cursor="pointer">
                     <Flex w="100%" alignItems="center">
-                        <Box w={["200px", "40%", "40%"]} mr="2%" mb="20px">
+                        <Box w={{base:"200px", xl:"40%"}} mr="2%" mb="20px">
                             <Image src="/images/logos/logo.png" alt="Matossers" maxH="70px" />
                         </Box>
-                        <Box w={["100px", "25%", "25%"]} ml="2%" mb="20px">
+                        <Box w={{base:"100px", xl:"25%"}} ml="2%" mb="20px">
                             <Image src="/images/logos/20_logo_vect.svg" alt="Matossers" maxH="70px" />
                         </Box>
                     </Flex>
                 </Box>
-                <Box w="65%" alignSelf="center" mr="5%" display={["none", "none", "block"]}>
+                <Box w="65%" alignSelf="center" mr="5%" display={{base:"none", xl:"block"}}>
                     <Box>
                         <Flex justifyContent="flex-end" mb="10px">
                             <Box>
@@ -68,7 +68,7 @@ export const Navbar = function (props) {
                         </Box>
                     </Flex>
                 </Box>
-                <Box w="30%" mr="5%" display={["block", "block", "none"]} textAlign="right">
+                <Box w="30%" mr="5%" display={{base:"block", xl:"none"}} textAlign="right">
                     <div display="block" className={NaviconStyles.buttonsContainer}>
                         <button className={state ? `${NaviconStyles.linesButton} ${NaviconStyles.x2} ${NaviconStyles.open}` :
                             `${NaviconStyles.linesButton} ${NaviconStyles.x2}`}
@@ -79,11 +79,11 @@ export const Navbar = function (props) {
                 </Box>
             </Flex>
             <Box
-                display={[(state) ? "block" : "none", (state) ? "block" : "none", "none"]}
+                display={{base:(state) ? "block" : "none", md:(state) ? "block" : "none", xl:"none"}}
                 width="100%"
                 textAlign="left"
                 fontSize="normal"
-                lineHeight={["18px", "22px", "26px"]}
+                lineHeight={{base:"18px", md:"22px", xl:"26px"}}
                 fontWeight="bold"
                 backgroundColor="#fff"
             >
