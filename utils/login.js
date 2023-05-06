@@ -71,7 +71,7 @@ export async function logoOut() {
   return "signOut";
 }
 
-export async function getRoles(email) {
+async function getRoles(email) {
   const userRef = collection(db, "usuaris");
   const data = "";
 

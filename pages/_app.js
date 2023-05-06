@@ -1,8 +1,9 @@
-import '../styles/globals.css'
-import '../styles/fonts.css';
-
-import { ChakraProvider } from '@chakra-ui/react'
-import theme from '../theme'
+import "../styles/globals.css";
+import "../styles/fonts.css";
+import { useState, createContext } from "react";
+import  userContext from "../context/userContext";
+import { ChakraProvider } from "@chakra-ui/react";
+import theme from "../theme";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { firebaseConfig } from "../firebaseConfig";
@@ -37,14 +38,16 @@ import { collection, query, getDocs } from "firebase/firestore";
 
 }*/
 
-
 function Matossers({ Component, pageProps }) {
-
+  const [roleContext, setRoleContext] = useState('default')
+  console.log(roleContext)
   return (
     <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider> 
-  )
+      <userContext.Provider value={{roleContext, setRoleContext}}>
+        <Component {...pageProps} />
+      </userContext.Provider>
+    </ChakraProvider>
+  );
 }
 
-export default Matossers
+export default Matossers;
