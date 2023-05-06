@@ -1,10 +1,11 @@
+import { useState, useEffect, useContext } from "react";
+import userContext from "../context/userContext";
 import {
   Box,
   Text,
   Button,
   Flex,
   Input,
-  Image,
   InputGroup,
   InputLeftElement,
   FormControl,
@@ -18,7 +19,6 @@ import {
   useDisclosure
 } from '@chakra-ui/react'
 import { loginEmailPassword, createAccount } from "../utils/login";
-import { useState, useEffect } from "react";
 import { HiOutlineMail } from "react-icons/hi";
 import { TbPassword } from "react-icons/tb";
 import { AuthErrorCodes } from "firebase/auth";
@@ -27,6 +27,7 @@ import Margin from "../components/Margin";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Title from "../components/Title";
+import {FiCheck} from "react-icons/fi"
 
 export const Login = function () {
   const [signEmailPassword, setSignEmailPassword] = useState(false);
@@ -34,7 +35,8 @@ export const Login = function () {
   const [pass, setPass] = useState("");
   const [error, setError] = useState({ isError: false, msgError: "" });
   const { isOpen, onOpen, onClose } = useDisclosure()
-
+  const context = useContext(userContext);
+console.log(context)
   const openError = function (msg) {
     setError({ isError: true, msgError: msg });
     setTimeout(closeError, 5000);
@@ -56,7 +58,7 @@ export const Login = function () {
         openError("Aquest usuari no existeix");
       } else openError(response.error.message);
     }
-    console.log(response)
+    context.setRoleContext(response)
   };
 
   const CreateUser = async function () {
@@ -134,7 +136,7 @@ export const Login = function () {
                     children={<TbPassword color="gray.300" />}
                   />
                   <Input
-                    placeholder="Contrassenya"
+                    placeholder="Contrassenya" type="password"
                     onChange={(e) => setPass(e.target.value)}
                   />
                 </InputGroup>
@@ -171,8 +173,10 @@ export const Login = function () {
         <ModalContent>
           <ModalCloseButton />
           <ModalBody>
-            <Box w="90%" py="30px">
-              Correcte!!!
+            <Box w="90%" py="30px" textAlign="center">
+              <Flex justifyContent="center"><FiCheck color="green" size="80px"/></Flex>
+              <Text my="20px" fontWeight={600} fontSize="xl" lineHeight="30px">El teu usuari ha estat donat d'alta correctament</Text>
+              <Text lineHeight="20px" fontSize={"medium"}>L'administrador et donarà els permisos corresponents en poc temps</Text>
             </Box>
           </ModalBody>
         </ModalContent>
