@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import userContext from "../context/userContext";
 import { Container } from "../components/Container";
 import Margin from "../components/Margin";
 import Navbar from "../components/Navbar";
@@ -8,9 +10,11 @@ import Footer from "../components/Footer";
 import { Box, Flex, Text, Image, List, ListItem } from "@chakra-ui/react";
 
 export default function Musics() {
+  const context = useContext(userContext);
+
   return (
     <Container>
-      <Navbar page="musics" />
+      <Navbar page="musics" role={context.role}/>
       <Margin desktop="100px" />
       <HeaderPages
         img="/images/headers/headermusics.jpg"

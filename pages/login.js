@@ -36,7 +36,7 @@ export const Login = function () {
   const [error, setError] = useState({ isError: false, msgError: "" });
   const { isOpen, onOpen, onClose } = useDisclosure()
   const context = useContext(userContext);
-console.log(context)
+
   const openError = function (msg) {
     setError({ isError: true, msgError: msg });
     setTimeout(closeError, 5000);
@@ -58,7 +58,7 @@ console.log(context)
         openError("Aquest usuari no existeix");
       } else openError(response.error.message);
     }
-    context.setRoleContext(response)
+    context.setRole(response)
   };
 
   const CreateUser = async function () {
@@ -101,7 +101,7 @@ console.log(context)
  */
   return (
     <Container>
-      <Navbar />
+      <Navbar role={context.role}/>
       <Margin desktop="100px" />
       <Box w="100%" bg="argila" py="80px">
         <Box w="100%" textAlign="center" mb="20px">

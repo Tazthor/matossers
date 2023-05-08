@@ -18,3 +18,10 @@ a {
 .menu-item:hover, .menu-item-active{
   color:#663b30
 }
+
+.anchor {
+  display: block;
+  position: relative;
+  top: -130px;
+  visibility: hidden;
+}

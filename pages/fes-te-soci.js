@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import userContext from "../context/userContext";
 import { Container } from '../components/Container'
 import Margin from '../components/Margin';
 import Navbar from "../components/Navbar";
@@ -8,11 +10,12 @@ import InfoSocis from '../components/InfoSocis';
 import { Box, Flex, Text, Image, List, ListItem } from '@chakra-ui/react'
 
 
-export default function Musics() {
+export default function Socis() {
+  const context = useContext(userContext);
 
   return (
     <Container>
-      <Navbar page="socis" />
+      <Navbar page="socis" role={context.role}/>
       <Margin desktop="130px" />
       <HeaderPages
         img="/images/headers/headersocis.jpg"
