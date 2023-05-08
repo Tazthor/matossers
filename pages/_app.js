@@ -39,11 +39,11 @@ import { collection, query, getDocs } from "firebase/firestore";
 }*/
 
 function Matossers({ Component, pageProps }) {
-  const [roleContext, setRoleContext] = useState('default')
-  console.log(roleContext)
+  const [role, setRole] = useState('default')
+  console.log(role)
   return (
     <ChakraProvider theme={theme}>
-      <userContext.Provider value={{roleContext, setRoleContext}}>
+      <userContext.Provider value={{role, setRole}}>
         <Component {...pageProps} />
       </userContext.Provider>
     </ChakraProvider>

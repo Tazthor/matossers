@@ -12,11 +12,11 @@ export const BannerContacte = function (props) {
         backgroundImage={props.img}
         backgroundPosition="left"
         backgroundSize="cover"
-        display={["none", "none", "block"]}
+        display={{base:"none", xl:"block"}}
       >
         <Box w="100%" mx="auto" my="60px" textAlign="left">
-          <Flex w={["90%", "80%", "75%"]} m="auto">
-            <Box w="48%" mr="2%" color="blanc">
+          <Flex w={{base:"90%", md:"80%", xl:"75%"}} m="auto">
+            <Box w="48%" mr="2%" color="blanc" fontSize={"lg"} pt="30px">
               <Box mb="10px">
                 <Title
                   header="2"
@@ -47,7 +47,7 @@ export const BannerContacte = function (props) {
           </Flex>
         </Box>
       </Box>
-      <Box w="90%" m="auto" display={["block", "block", "none"]}>
+      <Box w="90%" m="auto" display={{base:"block", xl:"none"}}>
         <Box mb="40px" textAlign="center">
           <Box mb="10px">
             <Title

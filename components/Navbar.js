@@ -4,6 +4,7 @@ import NaviconStyles from "../styles/navicon.module.css";
 import { useRouter } from "next/router";
 import { XXSS } from "./xxss";
 import Link from "next/link";
+import { FaRegUserCircle } from "react-icons/fa"
 
 export const Navbar = function (props) {
   const [state, setState] = useState(false);
@@ -133,6 +134,11 @@ export const Navbar = function (props) {
         >
           <Box>
             <Flex justifyContent="flex-end" mb="10px">
+                {
+                    (props.role != "default") ?
+                    <Box>{props.role}</Box>
+                    : <Box mr="20px" onClick={() => router.push("/login")} cursor="pointer"><FaRegUserCircle size="25px"/></Box>
+                }
               <Box>
                 <XXSS fb tw yt ig />
               </Box>

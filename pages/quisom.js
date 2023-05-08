@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useContext } from "react";
+import userContext from "../context/userContext";
 import { Container } from '../components/Container'
 import Margin from '../components/Margin';
 import Navbar from "../components/Navbar";
@@ -14,6 +16,7 @@ export default function Calendari() {
   const [app, setApp] = useState();
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const context = useContext(userContext);
 
   const getData = async (app) => {
     const object = await getDataCollection(app, "dada");
@@ -30,7 +33,7 @@ export default function Calendari() {
   console.log(data)
   return (
     <Container>
-      <Navbar page="quisom"/>
+      <Navbar page="quisom" role={context.role}/>
       <Margin desktop="100px" />
       <HeaderPages
         img="/images/headers/headerquisom.jpg"

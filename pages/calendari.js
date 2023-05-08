@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import userContext from "../context/userContext";
 import { Container } from "../components/Container";
 import Margin from "../components/Margin";
 import Navbar from "../components/Navbar";
@@ -9,6 +10,7 @@ import { initApp, getDataCollection } from "../utils/utils";
 import { Spinner } from "@chakra-ui/react";
 
 export default function Calendari() {
+  const context = useContext(userContext);
   const [app, setApp] = useState();
   const [dataAct, setDataAct] = useState([]);
 
@@ -28,7 +30,7 @@ export default function Calendari() {
 
   return (
     <Container>
-      <Navbar page="calendari" />
+      <Navbar page="calendari" role={context.role}/>
       <Margin desktop="100px" />
       <HeaderPages
         img="/images/headers/headercalendari.jpg"
@@ -44,7 +46,7 @@ export default function Calendari() {
           thickness="4px"
         />
       ) : (
-        <GridCalendari actuacions={dataAct} />
+        <GridCalendari actuacions={dataAct} role={context.role}/>
       )}
       <Margin desktop="80px" mobile="40px" />
       <Footer />

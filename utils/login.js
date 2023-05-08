@@ -34,7 +34,7 @@ export async function loginEmailPassword(email, pass) {
       loginPassword
     );
     const role = await getRoles(userCredential.user.email);
-    if(role == "") {role ="default"}
+    if(role == "") {role ="public"}
     return role;
   } catch (error) {
     return { error: error };
