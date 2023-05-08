@@ -114,9 +114,11 @@ export const Login = function () {
           p="30px 20px"
         >
           {(signEmailPassword && (
+            <>
+            <Text fontWeight={600} fontSize="medium">Introdueix les teves dades</Text>
             <form action="javascript:void(0);">
               <FormControl isRequired my="10px">
-                <InputGroup>
+                <InputGroup borderColor="argila">
                   <InputLeftElement
                     pointerEvents="none"
                     children={<HiOutlineMail color="gray.300" />}
@@ -124,19 +126,21 @@ export const Login = function () {
                   <Input
                     type="email"
                     placeholder="Correu electrònic"
+                    _placeholder={{color: "argila"}}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                   />
                 </InputGroup>
               </FormControl>
               <FormControl isRequired my="10px">
-                <InputGroup>
+                <InputGroup borderColor="argila">
                   <InputLeftElement
                     pointerEvents="none"
                     children={<TbPassword color="gray.300" />}
                   />
                   <Input
                     placeholder="Contrassenya" type="password"
+                    _placeholder={{color: "argila"}}
                     onChange={(e) => setPass(e.target.value)}
                   />
                 </InputGroup>
@@ -148,13 +152,41 @@ export const Login = function () {
                 </Text>
               )}
 
-              <Button type="submit" mt="30px" onClick={() => Login()}>
+              <Button 
+              type="submit" 
+              my="15px"
+              px="10px"
+              borderRadius="8px"
+              borderColor="argila"
+              border="1px solid"
+              bg="argila"
+              color="#fff"
+              fontSize="md"
+              fontWeight={400}
+              _hover={{ backgroundColor: "transparent", color: "argila" }}
+
+              onClick={() => Login()}>
                 Inicia sessió
               </Button>
-              <Button type="submit" mt="30px" onClick={() => CreateUser()}>
+              <Button 
+              type="submit" 
+                my="15px"
+                mx="10px"
+                px="10px"
+                borderRadius="8px"
+                borderColor="argila"
+                border="1px solid"
+                bg="argila"
+                color="#fff"
+                fontSize="md"
+                fontWeight={400}
+                _hover={{ backgroundColor: "transparent", color: "argila" }}
+              onClick={() => CreateUser()}>
                 Donar-se d'alta
               </Button>
             </form>
+            </>
+
           )) || (
             <Flex>
               {/*     <Button mr="20px" onClick={() => Googleclic()}>Google</Button>
