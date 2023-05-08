@@ -30,7 +30,7 @@ export default function Calendari() {
 
   return (
     <Container>
-      <Navbar page="calendari" role={context.role}/>
+      <Navbar page="calendari" role={context.role} setRole={context.setRole}/>
       <Margin desktop="100px" />
       <HeaderPages
         img="/images/headers/headercalendari.jpg"

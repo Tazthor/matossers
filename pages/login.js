@@ -101,7 +101,7 @@ export const Login = function () {
  */
   return (
     <Container>
-      <Navbar role={context.role}/>
+      <Navbar role={context.role} setRole={context.setRole}/>
       <Margin desktop="100px" />
       <Box w="100%" bg="argila" py="80px">
         <Box w="100%" textAlign="center" mb="20px">

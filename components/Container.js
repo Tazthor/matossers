@@ -29,6 +29,7 @@ export const Container = (props) => {
         maxW="2500px"
         m="auto"
         fontSize={"normal"}
+        fontFamily="Merriweather Sans"
         {...props}
       />
     </>

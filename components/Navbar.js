@@ -1,92 +1,125 @@
 import React, { useState } from "react";
-import { Box, Image, Flex, Text, List, ListItem } from "@chakra-ui/react";
+import { Box, Image, Flex, Text, Button } from "@chakra-ui/react";
 import NaviconStyles from "../styles/navicon.module.css";
 import { useRouter } from "next/router";
 import { XXSS } from "./xxss";
 import Link from "next/link";
-import { FaRegUserCircle } from "react-icons/fa"
+import { FaRegUserCircle } from "react-icons/fa";
+import { AiOutlineEye } from "react-icons/ai";
+import { logoOut } from "../utils/login";
 
 export const Navbar = function (props) {
   const [state, setState] = useState(false);
   const router = useRouter();
 
+  const tancaSessio = async function () {
+    const logOut = await logoOut();
+    if (logOut == "signOut") {
+        props.setRole('default')
+    }
+  };
+
   const optionsMenu = () => {
     return (
       <>
         {props.page != "quisom" ? (
-          <Box mx={{base:"0", md:"5px"}} my={{base:"15px", md:"0"}}>
-            <Link mx="10px" className={"menu-item-active"} href="/quisom">
-            Qui som
+          <Box
+            mx={{ base: "0", md: "10px" }}
+            my={{ base: "15px", md: "0" }}
+            className={"menu-item"}
+          >
+            <Link  href="/quisom">
+              Qui som
             </Link>
           </Box>
         ) : (
-          <Box mx={{base:"0", md:"5px"}} my={{base:"15px", md:"0"}}>
-            <Text mx="10px" className={"menu-item"}>
-            Qui som
+          <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
+            <Text  className={"menu-item-active"}>
+              Qui som
             </Text>
           </Box>
         )}
         {props.page != "calendari" ? (
-          <Box mx={{base:"0", md:"5px"}} my={{base:"15px", md:"0"}}>
-            <Link mx="10px" className={"menu-item-active"} href="/calendari">
+          <Box
+            mx={{ base: "0", md: "10px" }}
+            my={{ base: "15px", md: "0" }}
+            className={"menu-item"}
+          >
+            <Link  href="/calendari">
               Calendari
             </Link>
           </Box>
         ) : (
-          <Box mx={{base:"0", md:"5px"}} my={{base:"15px", md:"0"}}>
-            <Text mx="10px" className={"menu-item"}>
+          <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
+            <Text  className={"menu-item-active"}>
               Calendari
             </Text>
           </Box>
         )}
         {props.page != "assajos" ? (
-          <Box mx={{base:"0", md:"5px"}} my={{base:"15px", md:"0"}}>
-            <Link mx="10px" className={"menu-item-active"} href="/assajos">
+          <Box
+            mx={{ base: "0", md: "10px" }}
+            my={{ base: "15px", md: "0" }}
+            className={"menu-item"}
+          >
+            <Link  href="/assajos">
               Assajos
             </Link>
           </Box>
         ) : (
-          <Box mx={{base:"0", md:"5px"}} my={{base:"15px", md:"0"}}>
-            <Text mx="10px" className={"menu-item"}>
+          <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
+            <Text  className={"menu-item-active"}>
               Assajos
             </Text>
           </Box>
         )}
         {props.page != "musics" ? (
-          <Box mx={{base:"0", md:"5px"}} my={{base:"15px", md:"0"}}>
-            <Link mx="10px" className={"menu-item-active"} href="/musics">
+          <Box
+            mx={{ base: "0", md: "10px" }}
+            my={{ base: "15px", md: "0" }}
+            className={"menu-item"}
+          >
+            <Link  href="/musics">
               Músics
             </Link>
           </Box>
         ) : (
-          <Box mx={{base:"0", md:"5px"}} my={{base:"15px", md:"0"}}>
-            <Text mx="10px" className={"menu-item"}>
+          <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
+            <Text  className={"menu-item-active"}>
               Músics
             </Text>
           </Box>
         )}
         {props.page != "socis" ? (
-          <Box mx={{base:"0", md:"5px"}} my={{base:"15px", md:"0"}}>
-            <Link mx="10px" className={"menu-item-active"} href="/fes-te-soci">
+          <Box
+            mx={{ base: "0", md: "10px" }}
+            my={{ base: "15px", md: "0" }}
+            className={"menu-item"}
+          >
+            <Link  href="/fes-te-soci">
               Fes-te'n soci
             </Link>
           </Box>
         ) : (
-          <Box mx={{base:"0", md:"5px"}} my={{base:"15px", md:"0"}}>
-            <Text mx="10px" className={"menu-item"}>
+          <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
+            <Text  className={"menu-item-active"}>
               Fes-te'n soci
             </Text>
           </Box>
         )}
         {props.page != "contacte" ? (
-          <Box mx={{base:"0", md:"5px"}} my={{base:"15px", md:"0"}}>
-            <Link mx="10px" className={"menu-item-active"} href="/#contacte">
+          <Box
+            mx={{ base: "0", md: "15px" }}
+            my={{ base: "15px", md: "0" }}
+            className={"menu-item"}
+          >
+            <Link  href="/#contacte">
               Contacte
             </Link>
           </Box>
         ) : (
-          <Box mx={{base:"0", md:"5px"}} my={{base:"15px", md:"0"}}>
-            <Text mx="10px" className={"menu-item"}>
+          <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
+            <Text  className={"menu-item-active"}>
               Contacte
             </Text>
           </Box>
@@ -133,18 +166,54 @@ export const Navbar = function (props) {
           display={{ base: "none", xl: "block" }}
         >
           <Box>
-            <Flex justifyContent="flex-end" mb="10px">
-                {
-                    (props.role != "default") ?
-                    <Box>{props.role}</Box>
-                    : <Box mr="20px" onClick={() => router.push("/login")} cursor="pointer"><FaRegUserCircle size="25px"/></Box>
-                }
+            <Flex justifyContent="flex-end" mb="10px" alignItems="center">
+              {props.role != "default" ? (
+                <Flex>
+                  <Flex
+                    border="1px solid"
+                    borderColor="argila"
+                    borderRadius="6px"
+                    bg="transparent"
+                    color="argila"
+                    p="2px 10px"
+                    mr="10px"
+                    alignItems="center"
+                  >
+                    <Box mr="10px">
+                      <AiOutlineEye size="25px" />
+                    </Box>{" "}
+                    <Text fontSize={"md"}>{props.role}</Text>
+                  </Flex>
+                  <Button
+                    border="1px solid"
+                    borderColor="argila"
+                    borderRadius="6px"
+                    bg="transparent"
+                    color="argila"
+                    h="30px"
+                    fontWeight={400}
+                    mr="20px"
+                    onClick={() => tancaSessio()
+                    }
+                  >
+                    Surt de la sessió
+                  </Button>
+                </Flex>
+              ) : (
+                <Box
+                  mr="20px"
+                  onClick={() => router.push("/login")}
+                  cursor="pointer"
+                >
+                  <FaRegUserCircle color="#808080" size="25px" />
+                </Box>
+              )}
               <Box>
                 <XXSS fb tw yt ig />
               </Box>
             </Flex>
           </Box>
-          <Flex justifyContent="flex-end" fontSize="medium">
+          <Flex justifyContent="flex-end" fontSize="medium" mt="20px">
             {optionsMenu()}
           </Flex>
         </Box>
