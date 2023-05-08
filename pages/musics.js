@@ -14,7 +14,7 @@ export default function Musics() {
 
   return (
     <Container>
-      <Navbar page="musics" role={context.role}/>
+      <Navbar page="musics" role={context.role} setRole={context.setRole}/>
       <Margin desktop="100px" />
       <HeaderPages
         img="/images/headers/headermusics.jpg"

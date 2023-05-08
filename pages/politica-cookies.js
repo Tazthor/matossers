@@ -12,7 +12,7 @@ export default function PoliticaCookies() {
 
   return (
     <Container>
-      <Navbar role={context.role}/>
+      <Navbar role={context.role} setRole={context.setRole}/>
       <Margin desktop="100px" />
       <HeaderPages
         img="/images/headers/headercalendari.jpg"

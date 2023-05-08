@@ -33,7 +33,7 @@ export default function Calendari() {
   console.log(data)
   return (
     <Container>
-      <Navbar page="quisom" role={context.role}/>
+      <Navbar page="quisom" role={context.role} setRole={context.setRole}/>
       <Margin desktop="100px" />
       <HeaderPages
         img="/images/headers/headerquisom.jpg"

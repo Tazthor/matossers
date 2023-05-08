@@ -15,7 +15,7 @@ export default function Socis() {
 
   return (
     <Container>
-      <Navbar page="socis" role={context.role}/>
+      <Navbar page="socis" role={context.role} setRole={context.setRole}/>
       <Margin desktop="130px" />
       <HeaderPages
         img="/images/headers/headersocis.jpg"
