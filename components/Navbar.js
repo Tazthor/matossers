@@ -136,8 +136,6 @@ export const Navbar = function (props) {
       h={{ base: "140px", xl: "130px" }}
       zIndex="500"
       pt="20px"
-      borderBottom="1px solid"
-      borderColor="argila"
     >
       <Flex w="90%" maxW="2500px" m="auto">
         <Box

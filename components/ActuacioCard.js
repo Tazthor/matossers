@@ -67,7 +67,7 @@ export const ActuacioCard = function ({ act, type }) {
         </Box>
       )}
       {type == "passades" && (
-        <Box>
+        <Box w="90%">
           {act.resultat && (
             <>
               <Text fontWeight={600}>Castells:</Text>

@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <Container>
       <Navbar role={context.role} setRole={context.setRole}/>
-      <Margin desktop="100px" />
+      <Margin desktop="130px" />
       <HeaderHome
         img="/images/home/header.jpg"
         imgMbl="/images/home/headermbl.jpg"
