@@ -18,7 +18,7 @@ import {
   ModalCloseButton,
   useDisclosure
 } from '@chakra-ui/react'
-import { loginEmailPassword, createAccount } from "../utils/login";
+import { loginEmailPassword, createAccount, loginWithGoogle } from "../utils/login";
 import { HiOutlineMail } from "react-icons/hi";
 import { TbPassword } from "react-icons/tb";
 import { AuthErrorCodes } from "firebase/auth";
@@ -60,6 +60,21 @@ export const Login = function () {
     }
     context.setRole(response)
   };
+
+  const LoginGoogle = async function () {
+    const response = await loginWithGoogle(email, pass);
+     if (response.error) {
+      if (
+        response.error.code == AuthErrorCodes.INVALID_PASSWORD ||
+        "wrong-password"
+      ) {
+        openError("La contrassenya és incorrecta. Torna-ho a provar");
+      } else if (response.error.code == "auth/user-not-found") {
+        openError("Aquest usuari no existeix");
+      } else openError(response.error.message);
+    }
+    context.setRole(response)
+   };
 
   const CreateUser = async function () {
     const response = await createAccount(email, pass);
@@ -145,13 +160,11 @@ export const Login = function () {
                   />
                 </InputGroup>
               </FormControl>
-
               {error.isError && (
                 <Text w="100%" mt="15px" color="#ff0000" textAlign="center">
                   {error.msgError}
                 </Text>
               )}
-
               <Button 
               type="submit" 
               my="15px"
@@ -189,8 +202,8 @@ export const Login = function () {
 
           )) || (
             <Flex>
-              {/*     <Button mr="20px" onClick={() => Googleclic()}>Google</Button>
-               */}{" "}
+             <Button mr="20px" onClick={() => LoginGoogle()}>Google</Button>
+               
               <Button onClick={() => setSignEmailPassword(true)}>
                 Email/Pwd
               </Button>
