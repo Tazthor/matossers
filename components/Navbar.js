@@ -168,16 +168,12 @@ export const Navbar = function (props) {
               {props.role != "default" ? (
                 <Flex>
                   <Flex
-                    border="1px solid"
-                    borderColor="argila"
-                    borderRadius="6px"
-                    bg="transparent"
                     color="argila"
                     p="2px 10px"
                     mr="10px"
                     alignItems="center"
                   >
-                    <Box mr="10px">
+                    <Box mr="6px">
                       <AiOutlineEye size="25px" />
                     </Box>{" "}
                     <Text fontSize={"md"}>{props.role}</Text>
@@ -188,7 +184,7 @@ export const Navbar = function (props) {
                     borderRadius="6px"
                     bg="transparent"
                     color="argila"
-                    h="30px"
+                    h="27px"
                     fontWeight={400}
                     mr="20px"
                     onClick={() => tancaSessio()

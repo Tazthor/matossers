@@ -5,9 +5,18 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { collection, query, where, getDocs, doc, setDoc } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  doc,
+  setDoc,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBGtJC973MQxS5V7ZISBHfjmZICFAxz4g4",
@@ -34,7 +43,25 @@ export async function loginEmailPassword(email, pass) {
       loginPassword
     );
     const role = await getRoles(userCredential.user.email);
-    if(role == "") {role ="public"}
+    if (role == "") {
+      role = "public";
+    }
+    return role;
+  } catch (error) {
+    return { error: error };
+  }
+}
+
+export async function loginWithGoogle() {
+  const googleProvider = new GoogleAuthProvider();
+  const user = {};
+
+  try {
+    const userCredential = await signInWithPopup(auth, googleProvider);
+    const role = await getRoles(userCredential.user.email);
+    if (role == "") {
+      role = "public";
+    }
     return role;
   } catch (error) {
     return { error: error };
@@ -83,4 +110,3 @@ async function getRoles(email) {
   });
   return data;
 }
-

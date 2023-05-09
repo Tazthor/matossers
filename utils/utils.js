@@ -20,28 +20,6 @@ export function initApp() {
   return app;
 }
 
-export async function loginWithGoogle(app) {
-  app ? app : initApp();
-  const googleProvider = new GoogleAuthProvider();
-  const auth = getAuth(app);
-  const user = {}
-  
-  return signInWithPopup(auth, googleProvider)
-    .then((result) => {
-        user = result.user;   
-    })
-    .catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.customData.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
-    });
-};
-
 export async function getDataCollection(app, colleccio) {
   // Initialize Cloud Firestore and get a reference to the service
   const db = getFirestore(app);
