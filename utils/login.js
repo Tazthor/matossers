@@ -54,7 +54,6 @@ export async function loginEmailPassword(email, pass) {
 
 export async function loginWithGoogle() {
   const googleProvider = new GoogleAuthProvider();
-  const user = {};
 
   try {
     const userCredential = await signInWithPopup(auth, googleProvider);
@@ -77,6 +76,7 @@ export async function createAccount(email, pass) {
       loginEmail,
       loginPassword
     );
+    //await setUsersCollection(userCredential.user)
     return true;
   } catch (error) {
     return { error: error };
@@ -105,8 +105,18 @@ async function getRoles(email) {
   const q = query(userRef, where("email", "==", email));
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
     data = doc.data().role;
   });
   return data;
+}
+
+async function setUsersCollection (user) {
+    const dbRef = collection(db, "usuaris");
+    data = {
+        email: user.email,
+        role: "public"
+}
+const response = await setDoc(dbRef, data)
+console.log(response)
+
 }
