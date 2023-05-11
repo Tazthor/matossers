@@ -124,6 +124,17 @@ export const Navbar = function (props) {
             </Text>
           </Box>
         )}
+        {(props.role == "casteller" || props.role == "admin" || props.role == "tecnica") &&
+          <Box
+            mx={{ base: "0", md: "15px" }}
+            my={{ base: "15px", md: "0" }}
+            className={"menu-item"}
+          >
+            <Link  href="/recursos">
+              Recursos
+            </Link>
+          </Box>
+        }
       </>
     );
   };
@@ -192,6 +203,22 @@ export const Navbar = function (props) {
                   >
                     Surt de la sessió
                   </Button>
+                  {props.role == "admin" &&
+                  <Button
+                  border="1px solid"
+                  borderColor="argila"
+                  borderRadius="6px"
+                  bg="transparent"
+                  color="argila"
+                  h="27px"
+                  fontWeight={400}
+                  mr="20px"
+                  onClick={() => window.open('https://dev.cms.matossers.cat/', "_blank")
+                  }
+                >
+                  Gestor de continguts
+                </Button>
+                }
                 </Flex>
               ) : (
                 <Box
