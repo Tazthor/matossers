@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { collection, doc, getDocs, query, where } from "firebase/firestore";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBGtJC973MQxS5V7ZISBHfjmZICFAxz4g4",
@@ -37,27 +37,39 @@ export async function getDataCollection(app, colleccio) {
   }
 
   return data;
+}
+export async function getImages(image) {
+  const storage = getStorage();
+  getDownloadURL(ref(storage, image))
+  .then((url) => {
+    console.log(url)
+    return(url)
+/*     // `url` is the download URL for 'images/stars.jpg'
 
-  // const q = query(collection(db, 'actuacions'));
+    // This can be downloaded directly:
+    const xhr = new XMLHttpRequest();
+    xhr.responseType = 'blob';
+    xhr.onload = (event) => {
+      const blob = xhr.response;
+    };
+    xhr.open('GET', url);
+    xhr.send();
 
-  //const querySnapshot = await getDocs(q);
-
-  //const docSnap = await getDocs(q);
-
-  /*        querySnapshot.forEach((doc) => {
-            
-          // doc.data() is never undefined for query doc snapshots
-          console.log(doc.id, " => ", doc.data());
-          
-        });*/
+    // Or inserted into an <img> element
+    const img = document.getElementById('myimg');
+    img.setAttribute('src', url); */
+  })
+  .catch((error) => {
+    console.log(error)
+  });
 }
 
- export async function getDataCollectionUser(app, colleccio, user) {
+/* export async function getDataCollectionUser(app, colleccio, user) {
   const db = getFirestore(app);
   const userRef = collection(db, colleccio);
 
   // Create a query against the collection.
   const q = query(userRef, where("email", "==", user.email));
-  console.log(q)
+  console.log(q);
 }
- 
+ */
