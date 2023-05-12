@@ -3,21 +3,16 @@ import { Grid, Box, Text, Image } from "@chakra-ui/react";
 import Title from "./Title";
 import { getImages } from "../utils/utils";
 
-export const Juntes = function ({ junta }) {
-  async function juntaImages() {
-    await Promise.all(
-      junta.map(async (membre) => {
-        membre.imageURL = getImages(membre.image);
-        console.log(membre.imageURL);
-      })
-    );
-  }
+export const Juntes = function ({ junta }) {  
+  const [isSorted, setIsSorted] = useState(false);
 
   useEffect(() => {
-    juntaImages();
+    junta = junta.sort((a, b) =>
+      a.ordre > b.ordre ? 1 : b.ordre > a.ordre ? -1 : 0
+    );
+    setIsSorted(true);
   }, []);
 
-  console.log(junta);
 
   return (
     <Box w={["90%", "80%", "75%"]} m="auto">
@@ -32,7 +27,7 @@ export const Juntes = function ({ junta }) {
           if (person.equip == "cap" || person.equip == "president")
             return (
               <Box key={index}>
-                <Image w="100%" src={person.image} alt={person.nom} />
+                <Image w="100%" src={person.imageUrl} alt={person.nom} />
                 <Text fontSize="xl" fontWeight={600} color="argila">
                   {person.carrec}
                 </Text>
@@ -50,10 +45,10 @@ export const Juntes = function ({ junta }) {
         gap={6}
       >
         {junta.map((person, index) => {
-          if (person.equip == "directiva")
+          if (person.equip == "administrativa")
             return (
               <Box key={index}>
-                <Image w="100%" src={person.img} alt={person.nom} />
+                <Image w="100%" src={person.imageUrl} alt={person.nom} />
                 <Text fontSize="xl" fontWeight={600} color="argila">
                   {person.carrec}
                 </Text>
@@ -74,7 +69,7 @@ export const Juntes = function ({ junta }) {
           if (person.equip == "tecnica")
             return (
               <Box key={index}>
-                <Image w="100%" src={person.img} alt={person.nom} />
+                <Image w="100%" src={person.imageUrl} alt={person.nom} />
                 <Text fontSize="xl" fontWeight={600} color="argila">
                   {person.carrec}
                 </Text>
