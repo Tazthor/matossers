@@ -11,3 +11,9 @@
   top: -130px;
   visibility: hidden;
 }
+.isParagraph{
+  margin: 30px 0;
+}
+.listnotnumber{
+  list-style-type: none;
+}

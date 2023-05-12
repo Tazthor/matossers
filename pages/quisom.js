@@ -20,17 +20,20 @@ export default function Calendari() {
   const [app, setApp] = useState();
   const [data, setData] = useState([]);
   const [junta, setJunta] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingData, setIsLoadingData] = useState(true);
+  const [isLoadingJuntes, setIsLoadingJuntes] = useState(true);
   const context = useContext(userContext);
 
   const getData = async (app) => {
     const dades = await getDataCollection(app, "dada");
     const dades_def = await transformDataWithIcon(dades);
+    setData(dades_def);
+    setIsLoadingData(false);
+
     const juntes = await getDataCollection(app, "juntes");
     const junta_def = await transformDataWithImages(juntes);
-    setData(dades_def);
     setJunta(junta_def);
-    setIsLoading(false);
+    setIsLoadingJuntes(false);
   };
 
   useEffect(() => {
@@ -50,7 +53,7 @@ export default function Calendari() {
         text="Qui som?"
       />
       <Margin desktop="40px" tablet="50px" mobile="20px" />
-      {isLoading ? (
+      {isLoadingData ? (
         <Spinner
           color="argila"
           size="xl"
@@ -58,12 +61,11 @@ export default function Calendari() {
           thickness="4px"
         />
       ) : (
-        <>
-          <DadesColla dadesColla={data} />
-          <Margin desktop="40px" tablet="50px" mobile="20px" />
-          <Juntes junta={junta} />
-        </>
+        <DadesColla dadesColla={data} />
       )}
+
+      <Margin desktop="40px" tablet="50px" mobile="20px" />
+      {isLoadingJuntes ? <></> : <Juntes junta={junta} />}
 
       <Margin desktop="80px" mobile="40px" />
       <Footer />

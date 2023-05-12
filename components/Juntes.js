@@ -15,12 +15,12 @@ export const Juntes = function ({ junta }) {
 
 
   return (
-    <Box w={["90%", "80%", "75%"]} m="auto">
+    <Box w={{base:"90%", md:"80%", xl:"75%"}} mx="auto">
       <Box mt="30px">
         <Title header="2" text="President i caps de colla" />
       </Box>
       <Grid
-        templateColumns={["repeat(1, 1fr)", "repeat(3, 1fr)", "repeat(3, 1fr)"]}
+        templateColumns={{base:"repeat(2, 1fr)", md:"repeat(3, 1fr)", xl:"repeat(3, 1fr)"}}
         gap={8}
       >
         {junta.map((person, index) => {
@@ -41,7 +41,7 @@ export const Juntes = function ({ junta }) {
       </Box>
       <Grid
         mt="15px"
-        templateColumns={["repeat(2, 1fr)", "repeat(3, 1fr)", "repeat(4, 1fr)"]}
+        templateColumns={{base:"repeat(2, 1fr)", md:"repeat(3, 1fr)", xl:"repeat(4, 1fr)"}}
         gap={6}
       >
         {junta.map((person, index) => {
@@ -62,7 +62,7 @@ export const Juntes = function ({ junta }) {
       </Box>
       <Grid
         mt="15px"
-        templateColumns={["repeat(2, 1fr)", "repeat(3, 1fr)", "repeat(4, 1fr)"]}
+        templateColumns={{base:"repeat(2, 1fr)", md:"repeat(3, 1fr)", xl:"repeat(4, 1fr)"}}
         gap={6}
       >
         {junta.map((person, index) => {
