@@ -11,7 +11,7 @@ export const GridCalendari = function ({ actuacions, properaOnly }) {
   var properaAct = actuacions.find(
     (actuacio) => actuacio.data.toDate() >= dateNow
   );
-  console.log(properaAct);
+  
   useEffect(() => {
     actuacions = actuacions.sort((a, b) =>
       a.data > b.data ? 1 : b.data > a.data ? -1 : 0
