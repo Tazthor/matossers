@@ -27,7 +27,7 @@ export default function Musics() {
         <Flex
           w="100%"
           justifyContent="center"
-          display={["block", "block", "flex"]}
+          display={{base:"block", xl:"flex"}}
         >
           <Box
             w={{ base: "100%", xl: "48%" }}

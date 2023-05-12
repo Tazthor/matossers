@@ -38,12 +38,27 @@ export async function getDataCollection(app, colleccio) {
 
   return data;
 }
+
+export async function transformDataWithImages(data) {
+  for await (var item of data){
+    item.imageUrl = await getImages(item.image)
+  }
+return data
+}
+
+export async function transformDataWithIcon(data) {
+  for await (var item of data){
+    item.iconUrl = await getImages(item.icon)
+  }
+return data
+}
+
 export async function getImages(image) {
   const storage = getStorage();
-  getDownloadURL(ref(storage, image))
+  var urlImage= ""
+  await getDownloadURL(ref(storage, image))
   .then((url) => {
-    console.log(url)
-    return(url)
+    urlImage = url
 /*     // `url` is the download URL for 'images/stars.jpg'
 
     // This can be downloaded directly:
@@ -62,14 +77,5 @@ export async function getImages(image) {
   .catch((error) => {
     console.log(error)
   });
+  return(urlImage)
 }
-
-/* export async function getDataCollectionUser(app, colleccio, user) {
-  const db = getFirestore(app);
-  const userRef = collection(db, colleccio);
-
-  // Create a query against the collection.
-  const q = query(userRef, where("email", "==", user.email));
-  console.log(q);
-}
- */

@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 import { useContext } from "react";
 import userContext from "../context/userContext";
-import { Container } from '../components/Container'
-import Margin from '../components/Margin';
+import { Container } from "../components/Container";
+import Margin from "../components/Margin";
 import Navbar from "../components/Navbar";
 import HeaderPages from "../components/HeaderPages";
-import Juntes from '../components/Juntes';
-import Footer from '../components/Footer';
-import DadesColla from '../components/DadesColla';
-import { initApp, getDataCollection, getImages } from "../utils/utils";
+import Juntes from "../components/Juntes";
+import Footer from "../components/Footer";
+import DadesColla from "../components/DadesColla";
+import {
+  initApp,
+  getDataCollection,
+  transformDataWithImages,
+  transformDataWithIcon,
+} from "../utils/utils";
 import { Spinner } from "@chakra-ui/react";
-
 
 export default function Calendari() {
   const [app, setApp] = useState();
@@ -20,23 +24,25 @@ export default function Calendari() {
   const context = useContext(userContext);
 
   const getData = async (app) => {
-    const object = await getDataCollection(app, "dada");
+    const dades = await getDataCollection(app, "dada");
+    const dades_def = await transformDataWithIcon(dades);
     const juntes = await getDataCollection(app, "juntes");
-
-    setData(object);
-    setJunta(juntes)
+    const junta_def = await transformDataWithImages(juntes);
+    setData(dades_def);
+    setJunta(junta_def);
     setIsLoading(false);
   };
 
   useEffect(() => {
-    if (app== undefined){ setApp(initApp());}
+    if (app == undefined) {
+      setApp(initApp());
+    }
     getData(app);
   }, []);
 
-
   return (
     <Container>
-      <Navbar page="quisom" role={context.role} setRole={context.setRole}/>
+      <Navbar page="quisom" role={context.role} setRole={context.setRole} />
       <Margin desktop="100px" />
       <HeaderPages
         img="/images/headers/headerquisom.jpg"
@@ -44,11 +50,23 @@ export default function Calendari() {
         text="Qui som?"
       />
       <Margin desktop="40px" tablet="50px" mobile="20px" />
-      <DadesColla dades={data}/>
-      <Margin desktop="40px" tablet="50px" mobile="20px" />
-      <Juntes junta={junta}/>
+      {isLoading ? (
+        <Spinner
+          color="argila"
+          size="xl"
+          emptyColor="gray.200"
+          thickness="4px"
+        />
+      ) : (
+        <>
+          <DadesColla dadesColla={data} />
+          <Margin desktop="40px" tablet="50px" mobile="20px" />
+          <Juntes junta={junta} />
+        </>
+      )}
+
       <Margin desktop="80px" mobile="40px" />
       <Footer />
     </Container>
-  )
+  );
 }
