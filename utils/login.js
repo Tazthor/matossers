@@ -70,13 +70,17 @@ export async function loginWithGoogle() {
 export async function createAccount(email, pass) {
   const loginEmail = email;
   const loginPassword = pass;
+  const returnSecureToken = true
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       loginEmail,
-      loginPassword
+      loginPassword,
+      returnSecureToken
     );
-    //await setUsersCollection(userCredential.user)
+    const usuariBd = await setUsersCollection(userCredential.user)
+    console.log("aqui despres", usuariBd)
+
     return true;
   } catch (error) {
     return { error: error };
@@ -110,13 +114,17 @@ async function getRoles(email) {
   return data;
 }
 
-async function setUsersCollection (user) {
-    const dbRef = collection(db, "usuaris");
-    data = {
-        email: user.email,
-        role: "public"
-}
-const response = await setDoc(dbRef, data)
-console.log(response)
-
+async function setUsersCollection(user) {
+  console.log(user)
+  const dbRef = doc(db, "usuaris", user.uid);
+  const data = {
+    email: user.email,
+    role: "public"
+  };
+  try {
+    await setDoc(dbRef, data);
+    return(true)
+  } catch (error) {
+    return { error: error };
+  }
 }

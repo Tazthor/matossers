@@ -9,7 +9,7 @@ import {
   InputGroup,
   InputLeftElement,
   FormControl,
-  Image
+  Image,
 } from "@chakra-ui/react";
 import {
   Modal,
@@ -37,7 +37,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useRouter } from "next/router";
 
 export const Login = function () {
-  const router = useRouter()
+  const router = useRouter();
   const [signEmailPassword, setSignEmailPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
@@ -54,7 +54,7 @@ export const Login = function () {
     setError({ isError: false, msgError: "" });
   };
 
-  const Login = async function () {
+  const Login = async function ({redirect}) {
     const response = await loginEmailPassword(email, pass);
     if (response.error) {
       if (
@@ -62,11 +62,13 @@ export const Login = function () {
         "wrong-password"
       ) {
         openError("La contrassenya és incorrecta. Torna-ho a provar");
-      } else if (response.error.code == "auth/user-not-found") {
+      } else if (response.error.code == AuthErrorCodes.EMAIL_NOT_FOUND) {
         openError("Aquest usuari no existeix");
       } else openError(response.error.message);
+    } else {
+      context.setRole(response);
+      if (redirect) {router.push("/");}
     }
-    context.setRole(response);
   };
 
   const LoginGoogle = async function () {
@@ -80,16 +82,19 @@ export const Login = function () {
       } else if (response.error.code == "auth/user-not-found") {
         openError("Aquest usuari no existeix");
       } else openError(response.error.message);
+    } else {
+      context.setRole(response);
+      router.push("/");
     }
-    context.setRole(response);
-    router.push("/")
   };
 
   const CreateUser = async function () {
     const response = await createAccount(email, pass);
+    console.log("resposta final", response)
     if (response == true) {
       onOpen();
-    } else if (response.error) {
+      Login({redirect: false})
+    } else {
       if (response.error.code == AuthErrorCodes.EMAIL_EXISTS) {
         openError("Aquest usuari ja existeix");
       } else openError("Hi ha hagut un error");
@@ -189,7 +194,7 @@ export const Login = function () {
                   fontSize="md"
                   fontWeight={400}
                   _hover={{ backgroundColor: "transparent", color: "argila" }}
-                  onClick={() => Login()}
+                  onClick={() => Login({redirect: true})}
                 >
                   Inicia sessió
                 </Button>
@@ -214,7 +219,13 @@ export const Login = function () {
             </>
           )) || (
             <Box textAlign="center">
-              <Image mx="auto" mb="20px" w="260px" src="/images/logos/logo.png" alt="Matossers de Molins de Rei"/>
+              <Image
+                mx="auto"
+                mb="20px"
+                w="260px"
+                src="/images/logos/logo.png"
+                alt="Matossers de Molins de Rei"
+              />
               <Box>
                 <Button
                   border="1px solid"
@@ -231,7 +242,11 @@ export const Login = function () {
                   Inicia sessió amb Google
                 </Button>
               </Box>
-              <Box cursor="pointer" onClick={() => setSignEmailPassword(true)} mt="20px">
+              <Box
+                cursor="pointer"
+                onClick={() => setSignEmailPassword(true)}
+                mt="20px"
+              >
                 <Text textDecoration="underline" color="argila">
                   o amb el teu correu electrònic
                 </Text>
@@ -247,7 +262,7 @@ export const Login = function () {
         <ModalContent>
           <ModalCloseButton />
           <ModalBody>
-            <Box w="90%" py="30px" textAlign="center">
+            <Box m="auto" w="90%" py="30px" textAlign="center">
               <Flex justifyContent="center">
                 <FiCheck color="green" size="80px" />
               </Flex>
