@@ -185,7 +185,7 @@ export const Navbar = function (props) {
                     alignItems="center"
                   >
                     <Box mr="6px">
-                      <AiOutlineEye size="25px" />
+                      <AiOutlineEye size="25px"/>
                     </Box>{" "}
                     <Text fontSize={"md"}>{props.role}</Text>
                   </Flex>
@@ -225,8 +225,10 @@ export const Navbar = function (props) {
                   mr="20px"
                   onClick={() => router.push("/login")}
                   cursor="pointer"
+                  color="#808080" 
+                  _hover={{color: "argila"}}
                 >
-                  <FaRegUserCircle color="#808080" size="25px" />
+                  <FaRegUserCircle size="25px" />
                 </Box>
               )}
               <Box>
