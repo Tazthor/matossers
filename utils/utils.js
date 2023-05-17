@@ -39,6 +39,13 @@ export async function getDataCollection(app, colleccio) {
   return data;
 }
 
+export async function transformDataWithDoc(data) {
+  for await (var item of data){
+    item.docUrl = await getImages(item.doc)
+  }
+return data
+}
+
 export async function transformDataWithImages(data) {
   for await (var item of data){
     item.imageUrl = await getImages(item.image)

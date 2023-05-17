@@ -1,7 +1,11 @@
 import { Box, Text, Button, Flex } from "@chakra-ui/react";
 import { MdPhotoCamera } from "react-icons/md";
+import { useContext, useEffect, useState } from "react";
+import userContext from "../context/userContext";
 
 export const ActuacioCard = function ({ act, type }) {
+  const context = useContext(userContext);
+console.log(context)
   const optionsLarge = {
     weekday: "long",
     year: "numeric",
@@ -64,6 +68,27 @@ export const ActuacioCard = function ({ act, type }) {
               {colla}
             </Box>
           ))}
+        </Box>
+      )}
+
+      {type == "futures" && act.llista && (context.role == "casteller" || context.role == "tecnica" || context.role == "admin") && (
+        <Box>
+          <Button
+            w="200px"
+            my="15px"
+            px="10px"
+            borderRadius="8px"
+            borderColor="argila"
+            border="1px solid"
+            bg="argila"
+            color="#fff"
+            fontSize="md"
+            fontWeight={400}
+            _hover={{ backgroundColor: "transparent", color: "argila" }}
+            onClick={() => window.open(act.llista, "_blank")}
+          >
+            Apunta&apos;t
+          </Button>
         </Box>
       )}
       {type == "passades" && (
