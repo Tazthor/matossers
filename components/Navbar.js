@@ -274,6 +274,64 @@ export const Navbar = function (props) {
         backgroundColor="#fff"
         textAlign="center"
       >
+            <Flex  justifyContent="center" mb="10px" alignItems="center">
+              {props.role != "default" ? (
+                <Box  mb="10px" display={{base:"block", md:"flex"}}>
+                  <Flex
+                    color="argila"
+                    p="2px 10px"
+                    mr="10px"
+                    alignItems="center"
+                    justifyContent={"center"}
+                  >
+                    <Box mr="6px">
+                      <AiOutlineEye size="25px"/>
+                    </Box>{" "}
+                    <Text fontSize={"md"}>{props.role}</Text>
+                  </Flex>
+                  <Box my="10px">
+                  <Button
+                    border="1px solid"
+                    borderColor="argila"
+                    borderRadius="6px"
+                    bg="transparent"
+                    color="argila"
+                    h="27px"
+                    mr={{base:"0", md:"10px"}}
+                    fontWeight={400}
+                    onClick={() => tancaSessio()
+                    }
+                  >
+                    Surt de la sessió
+                  </Button>
+                  </Box>
+                  {props.role == "admin" &&
+                  <Box  my="10px"><Button
+                  border="1px solid"
+                  borderColor="argila"
+                  borderRadius="6px"
+                  bg="transparent"
+                  color="argila"
+                  h="27px"
+                  fontWeight={400}
+                  onClick={() => window.open('https://dev.cms.matossers.cat/', "_blank")
+                  }
+                >
+                  Gestor de continguts
+                </Button></Box>
+                }
+                </Box>
+              ) : (
+                <Box
+                  onClick={() => router.push("/login")}
+                  cursor="pointer"
+                  color="#808080" 
+                  _hover={{color: "argila"}}
+                >
+                  <FaRegUserCircle size="25px" />
+                </Box>
+              )}
+            </Flex>
         {optionsMenu()}
       </Box>
     </Box>

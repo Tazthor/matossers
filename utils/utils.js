@@ -15,21 +15,17 @@ const firebaseConfig = {
 };
 
 export function initApp() {
-  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   return app;
 }
 
 export async function getDataCollection(app, colleccio) {
-  // Initialize Cloud Firestore and get a reference to the service
   const db = getFirestore(app);
   const colRef = collection(db, colleccio);
   const data = [];
   try {
     const docsSnap = await getDocs(colRef);
     docsSnap.forEach((doc) => {
-      //console.log(doc.data());
-      //console.log(doc.id);
       data.push(doc.data());
     });
   } catch (error) {
@@ -66,20 +62,6 @@ export async function getImages(image) {
   await getDownloadURL(ref(storage, image))
   .then((url) => {
     urlImage = url
-/*     // `url` is the download URL for 'images/stars.jpg'
-
-    // This can be downloaded directly:
-    const xhr = new XMLHttpRequest();
-    xhr.responseType = 'blob';
-    xhr.onload = (event) => {
-      const blob = xhr.response;
-    };
-    xhr.open('GET', url);
-    xhr.send();
-
-    // Or inserted into an <img> element
-    const img = document.getElementById('myimg');
-    img.setAttribute('src', url); */
   })
   .catch((error) => {
     console.log(error)
