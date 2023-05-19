@@ -1,6 +1,7 @@
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 import { Box, Text, Flex } from "@chakra-ui/react";
 import Title from "./Title";
+import InstagramPanel from "./InstagramPanel";
 
 export const BlocXarxes = function (props) {
   return (
@@ -31,9 +32,12 @@ export const BlocXarxes = function (props) {
           w={["100%", "100%", "30%"]}
           mr={["0", "0", "2%"]}
           mb={["20px", "20px", "0"]}
-        ></Box>
+        >
+          {/* <InstagramPanel/> */}
+        </Box>
       </Flex>
     </>
   );
 };
 export default BlocXarxes;
+
