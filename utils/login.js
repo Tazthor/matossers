@@ -90,9 +90,9 @@ export async function createAccount(email, pass) {
 export async function monitorAuthState() {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log(user);
+      //console.log(user);
     } else {
-      console.log(user);
+      //console.log(user);
     }
   });
 }
