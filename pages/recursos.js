@@ -34,7 +34,6 @@ export default function Recursos() {
     setIsLoading(false);
   };
 
-  console.log(dataRecurs);
 
   useEffect(() => {
     if (context.role == "public" || context.role == "default") {

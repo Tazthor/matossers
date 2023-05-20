@@ -7,7 +7,6 @@ import theme from "../theme";
 
 function Matossers({ Component, pageProps }) {
   const [role, setRole] = useState('default')
-  console.log(role)
   return (
     <ChakraProvider theme={theme}>
       <userContext.Provider value={{role, setRole}}>

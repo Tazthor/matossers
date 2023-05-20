@@ -90,7 +90,6 @@ export const Login = function () {
 
   const CreateUser = async function () {
     const response = await createAccount(email, pass);
-    console.log("resposta final", response)
     if (response == true) {
       onOpen();
       Login({redirect: false})
@@ -114,7 +113,6 @@ export const Login = function () {
   }, []);
 
   const getDataUser = async (app, user) => {
-    console.log(user);
     const object = await getDataCollectionUser(app, "users", user);
 
     setCurrentUser(object);

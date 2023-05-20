@@ -5,7 +5,6 @@ import userContext from "../context/userContext";
 
 export const ActuacioCard = function ({ act, type }) {
   const context = useContext(userContext);
-console.log(context)
   const optionsLarge = {
     weekday: "long",
     year: "numeric",

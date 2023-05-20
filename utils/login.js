@@ -79,7 +79,6 @@ export async function createAccount(email, pass) {
       returnSecureToken
     );
     const usuariBd = await setUsersCollection(userCredential.user)
-    console.log("aqui despres", usuariBd)
 
     return true;
   } catch (error) {
@@ -115,7 +114,6 @@ async function getRoles(email) {
 }
 
 async function setUsersCollection(user) {
-  console.log(user)
   const dbRef = doc(db, "usuaris", user.uid);
   const data = {
     email: user.email,
