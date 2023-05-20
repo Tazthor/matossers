@@ -14,21 +14,13 @@ import Flickr from '../components/Flickr';
 import GridCalendari from "../components/GridCalendari";
 import { initApp, getDataCollection } from "../utils/utils";
 
-export const getStaticProps = async () => {
-  console.log('Hola')
-  const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalinkusername&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_KEY}`;
 
-  const data = await fetch(url);
-  const feed = await data.json();
-
-  return { props: {insfeeds: feed} };
-};
-
-const Home = function ({insfeeds}) {
+export default function Home({feed}) {
   const context = useContext(userContext);
   const [app, setApp] = useState();
   const [dataAct, setDataAct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
   const getData = async (app) => {
     const object = await getDataCollection(app, "actuacions");
     setDataAct(object);
@@ -71,10 +63,17 @@ const Home = function ({insfeeds}) {
         titleVisible={true}
       />
       <Margin desktop="40px" tablet="50px" mobile="20px" />
-      <BlocXarxes insfeeds={insfeeds}/>
+      <BlocXarxes insfeeds={feed}/>
       <Footer />
     </Container>
   );
 }
 
-export default Home;
+/* export const getStaticProps = async () => {
+  const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalinkusername&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_KEY}`;
+
+  const data = await fetch(url);
+  const feed = await data.json();
+
+  return { props: feed };
+}; */

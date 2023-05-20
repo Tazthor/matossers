@@ -17,8 +17,8 @@ export const BlocXarxes = function ({insfeeds}) {
         display={["block", "block", "flex"]}
       >
         <Box
-          w={["100%", "100%", "30%"]}
-          mr={["0", "0", "2%"]}
+          w={["100%", "100%", "50%"]}
+          mx="auto"
           mb={["20px", "20px", "50px"]}
           boxShadow="0px 0px 6px rgba(0, 0, 0, 0.3)"
         >
@@ -28,14 +28,14 @@ export const BlocXarxes = function ({insfeeds}) {
             tweetLimit="1"
           />
         </Box>
-        <Box
+{/*         <Box
           w={["100%", "100%", "30%"]}
           mr={["0", "0", "2%"]}
           mb={["20px", "20px", "0"]}
         >
           <InstagramPanel insfeeds={insfeeds}/>
         </Box>
-      </Flex>
+ */}      </Flex>
     </>
   );
 };
