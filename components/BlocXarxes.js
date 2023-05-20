@@ -3,7 +3,7 @@ import { Box, Text, Flex } from "@chakra-ui/react";
 import Title from "./Title";
 import InstagramPanel from "./InstagramPanel";
 
-export const BlocXarxes = function (props) {
+export const BlocXarxes = function ({insfeeds}) {
   return (
     <>
       <Box mb="45px">
@@ -22,22 +22,21 @@ export const BlocXarxes = function (props) {
           mb={["20px", "20px", "50px"]}
           boxShadow="0px 0px 6px rgba(0, 0, 0, 0.3)"
         >
-            <TwitterTimelineEmbed
-              sourceType="profile"
-              screenName="Matossers"
-              tweetLimit="1"
-            />
+          <TwitterTimelineEmbed
+            sourceType="profile"
+            screenName="Matossers"
+            tweetLimit="1"
+          />
         </Box>
         <Box
           w={["100%", "100%", "30%"]}
           mr={["0", "0", "2%"]}
           mb={["20px", "20px", "0"]}
         >
-          {/* <InstagramPanel/> */}
+          <InstagramPanel insfeeds={insfeeds}/>
         </Box>
       </Flex>
     </>
   );
 };
 export default BlocXarxes;
-
