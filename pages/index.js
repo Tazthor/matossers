@@ -15,7 +15,7 @@ import GridCalendari from "../components/GridCalendari";
 import { initApp, getDataCollection } from "../utils/utils";
 
 
-const Home = ({feed}) => {
+const Home = function ({insfeeds}) {
   const context = useContext(userContext);
   const [app, setApp] = useState();
   const [dataAct, setDataAct] = useState([]);
@@ -63,7 +63,7 @@ const Home = ({feed}) => {
         titleVisible={true}
       />
       <Margin desktop="40px" tablet="50px" mobile="20px" />
-      <BlocXarxes insfeeds={feed}/>
+      <BlocXarxes insfeeds={insfeeds}/>
       <Footer />
     </Container>
   );
@@ -76,5 +76,5 @@ export const getStaticProps = async () => {
   const data = await fetch(url);
   const feed = await data.json();
 
-  return { props: feed };
+  return { props: {insfeeds: feed} };
 };
