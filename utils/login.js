@@ -34,14 +34,8 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 export async function loginEmailPassword(email, pass) {
-  const loginEmail = email;
-  const loginPassword = pass;
   try {
-    const userCredential = await signInWithEmailAndPassword(
-      auth,
-      loginEmail,
-      loginPassword
-    );
+    const userCredential = await signInWithEmailAndPassword(auth, email, pass);
     const role = await getRoles(userCredential.user.email);
     if (role == "") {
       role = "public";
@@ -68,17 +62,15 @@ export async function loginWithGoogle() {
 }
 
 export async function createAccount(email, pass) {
-  const loginEmail = email;
-  const loginPassword = pass;
-  const returnSecureToken = true
+  const returnSecureToken = true;
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
-      loginEmail,
-      loginPassword,
+      email,
+      pass,
       returnSecureToken
     );
-    const usuariBd = await setUsersCollection(userCredential.user)
+    await setUsersCollection(userCredential.user);
 
     return true;
   } catch (error) {
@@ -117,11 +109,11 @@ async function setUsersCollection(user) {
   const dbRef = doc(db, "usuaris", user.uid);
   const data = {
     email: user.email,
-    role: "public"
+    role: "public",
   };
   try {
     await setDoc(dbRef, data);
-    return(true)
+    return true;
   } catch (error) {
     return { error: error };
   }
