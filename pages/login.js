@@ -100,32 +100,6 @@ export const Login = function () {
     }
   };
 
-  /*   const [user, setUser] = useState(null);
-  const [app, setApp] = useState();
-  const [currentUser, setCurrentUser] = useState(null);
-
-
-
-  useEffect(() => {
-    if (app == undefined) {
-      setApp(initApp());
-    }
-  }, []);
-
-  const getDataUser = async (app, user) => {
-    const object = await getDataCollectionUser(app, "users", user);
-
-    setCurrentUser(object);
-  };
-
-  const Googleclic = async () => {
-    const usuaritemp = await loginWithGoogle(app);
-    if (usuaritemp) {
-      setUser(usuaritemp);
-      getDataUser(app, user);
-    }
-  };
- */
   return (
     <Container>
       <Navbar role={context.role} setRole={context.setRole} />
@@ -180,6 +154,7 @@ export const Login = function () {
                     {error.msgError}
                   </Text>
                 )}
+                <Flex justifyContent="center">
                 <Button
                   type="submit"
                   my="15px"
@@ -213,7 +188,9 @@ export const Login = function () {
                 >
                   Donar-se d'alta
                 </Button>
+                </Flex>
               </form>
+              <Box textAlign="center" onClick={() => setSignEmailPassword(false)} cursor="pointer"><Text color="argila" textDecoration="underline">Torna al pas anterior</Text></Box>
             </>
           )) || (
             <Box textAlign="center">
