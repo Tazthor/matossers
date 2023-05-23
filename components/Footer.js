@@ -58,7 +58,7 @@ export const Footer = function (props) {
               color="white"
               _hover={{ bg: "white", color: "argila" }}
               _focus={{ boxShadow: "none" }}
-              onClick={() => router.push("/contacte")}
+              onClick={() => router.push("/#contacte")}
             >
               Contacta'ns
             </Button>
