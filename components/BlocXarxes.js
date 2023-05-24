@@ -28,14 +28,14 @@ export const BlocXarxes = function ({insfeeds}) {
             tweetLimit="1"
           />
         </Box>
-         <Box
+{/*          <Box
           w={["100%", "100%", "30%"]}
           mr={["0", "0", "2%"]}
           mb={["20px", "20px", "0"]}
         >
           <InstagramPanel insfeeds={insfeeds}/>
         </Box>
-       </Flex>
+ */}       </Flex>
     </>
   );
 };
