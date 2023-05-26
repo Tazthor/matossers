@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { collection, doc, getDocs, query, where } from "firebase/firestore";
+import { collection, doc, getDocs, setDoc, Timestamp} from "firebase/firestore";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 const firebaseConfig = {
@@ -67,4 +67,22 @@ export async function getImages(image) {
     console.log(error)
   });
   return(urlImage)
+}
+
+export async function setXatCollection(nom, msg) {
+  const app = initApp()
+  const db = getFirestore(app);
+  var data_= Timestamp.fromDate(new Date())
+  const dbRef = doc(db, "xat", data_.toString());
+  const data = {
+    nom: nom,
+    data: data_,
+    msg: msg,
+  };
+  try {
+    await setDoc(dbRef, data);
+    return true;
+  } catch (error) {
+    return { error: error };
+  }
 }

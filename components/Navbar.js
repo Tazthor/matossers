@@ -7,6 +7,7 @@ import Link from "next/link";
 import { FaRegUserCircle } from "react-icons/fa";
 import { AiOutlineEye } from "react-icons/ai";
 import { logoOut } from "../utils/login";
+import { IoChatbubblesOutline } from "react-icons/io5";
 
 export const Navbar = function (props) {
   const [state, setState] = useState(false);
@@ -15,7 +16,8 @@ export const Navbar = function (props) {
   const tancaSessio = async function () {
     const logOut = await logoOut();
     if (logOut == "signOut") {
-        props.setRole('default')
+      props.setRole("default");
+      router.push("/");
     }
   };
 
@@ -28,15 +30,11 @@ export const Navbar = function (props) {
             my={{ base: "15px", md: "0" }}
             className={"menu-item"}
           >
-            <Link  href="/quisom">
-              Qui som
-            </Link>
+            <Link href="/quisom">Qui som</Link>
           </Box>
         ) : (
           <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
-            <Text  className={"menu-item-active"}>
-              Qui som
-            </Text>
+            <Text className={"menu-item-active"}>Qui som</Text>
           </Box>
         )}
         {props.page != "calendari" ? (
@@ -45,15 +43,11 @@ export const Navbar = function (props) {
             my={{ base: "15px", md: "0" }}
             className={"menu-item"}
           >
-            <Link  href="/calendari">
-              Calendari
-            </Link>
+            <Link href="/calendari">Calendari</Link>
           </Box>
         ) : (
           <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
-            <Text  className={"menu-item-active"}>
-              Calendari
-            </Text>
+            <Text className={"menu-item-active"}>Calendari</Text>
           </Box>
         )}
         {props.page != "assajos" ? (
@@ -62,15 +56,11 @@ export const Navbar = function (props) {
             my={{ base: "15px", md: "0" }}
             className={"menu-item"}
           >
-            <Link  href="/assajos">
-              Assajos
-            </Link>
+            <Link href="/assajos">Assajos</Link>
           </Box>
         ) : (
           <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
-            <Text  className={"menu-item-active"}>
-              Assajos
-            </Text>
+            <Text className={"menu-item-active"}>Assajos</Text>
           </Box>
         )}
         {props.page != "musics" ? (
@@ -79,15 +69,11 @@ export const Navbar = function (props) {
             my={{ base: "15px", md: "0" }}
             className={"menu-item"}
           >
-            <Link  href="/musics">
-              Músics
-            </Link>
+            <Link href="/musics">Músics</Link>
           </Box>
         ) : (
           <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
-            <Text  className={"menu-item-active"}>
-              Músics
-            </Text>
+            <Text className={"menu-item-active"}>Músics</Text>
           </Box>
         )}
         {props.page != "socis" ? (
@@ -96,15 +82,11 @@ export const Navbar = function (props) {
             my={{ base: "15px", md: "0" }}
             className={"menu-item"}
           >
-            <Link  href="/fes-te-soci">
-              Fes-te'n soci
-            </Link>
+            <Link href="/fes-te-soci">Fes-te'n soci</Link>
           </Box>
         ) : (
           <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
-            <Text  className={"menu-item-active"}>
-              Fes-te'n soci
-            </Text>
+            <Text className={"menu-item-active"}>Fes-te'n soci</Text>
           </Box>
         )}
         {props.page != "contacte" ? (
@@ -113,28 +95,35 @@ export const Navbar = function (props) {
             my={{ base: "15px", md: "0" }}
             className={"menu-item"}
           >
-            <Link  href="/#contacte">
-              Contacte
-            </Link>
+            <Link href="/#contacte">Contacte</Link>
           </Box>
         ) : (
           <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
-            <Text  className={"menu-item-active"}>
-              Contacte
-            </Text>
+            <Text className={"menu-item-active"}>Contacte</Text>
           </Box>
         )}
-        {(props.role == "casteller" || props.role == "admin" || props.role == "tecnica") &&
+        {(props.role == "casteller" ||
+          props.role == "admin" ||
+          props.role == "tecnica") && (
+            <>
           <Box
             mx={{ base: "0", md: "15px" }}
             my={{ base: "15px", md: "0" }}
             className={"menu-item"}
           >
-            <Link  href="/recursos">
-              Recursos
-            </Link>
+            <Link href="/recursos">Recursos</Link>
           </Box>
-        }
+          <Box
+            mx={{ base: "0", md: "15px" }}
+            my={{ base: "15px", md: "0" }}
+            className={"menu-item"}
+            display={{base:"block", xl:"none"}}
+          >
+            <Link href="/xat">Xat</Link>
+          </Box>
+
+          </>
+        )}
       </>
     );
   };
@@ -185,7 +174,7 @@ export const Navbar = function (props) {
                     alignItems="center"
                   >
                     <Box mr="6px">
-                      <AiOutlineEye size="25px"/>
+                      <AiOutlineEye size="25px" />
                     </Box>{" "}
                     <Text fontSize={"md"}>{props.role}</Text>
                   </Flex>
@@ -198,35 +187,44 @@ export const Navbar = function (props) {
                     h="27px"
                     fontWeight={400}
                     mr="20px"
-                    onClick={() => tancaSessio()
-                    }
+                    onClick={() => tancaSessio()}
                   >
                     Surt de la sessió
                   </Button>
-                  {props.role == "admin" &&
-                  <Button
-                  border="1px solid"
-                  borderColor="argila"
-                  borderRadius="6px"
-                  bg="transparent"
-                  color="argila"
-                  h="27px"
-                  fontWeight={400}
-                  mr="20px"
-                  onClick={() => window.open('https://dev.cms.matossers.cat/', "_blank")
-                  }
-                >
-                  Gestor de continguts
-                </Button>
-                }
+                  <Box
+                    cursor="pointer"
+                    color="#808080"
+                    _hover={{ color: "argila" }}
+                    mx="6px"
+                    onClick={() => router.push("/xat")}
+                  >
+                    <IoChatbubblesOutline size="25px" />
+                  </Box>{" "}
+                  {props.role == "admin" && (
+                    <Button
+                      border="1px solid"
+                      borderColor="argila"
+                      borderRadius="6px"
+                      bg="transparent"
+                      color="argila"
+                      h="27px"
+                      fontWeight={400}
+                      mx="20px"
+                      onClick={() =>
+                        window.open("https://dev.cms.matossers.cat/", "_blank")
+                      }
+                    >
+                      Gestor de continguts
+                    </Button>
+                  )}
                 </Flex>
               ) : (
                 <Box
                   mr="20px"
                   onClick={() => router.push("/login")}
                   cursor="pointer"
-                  color="#808080" 
-                  _hover={{color: "argila"}}
+                  color="#808080"
+                  _hover={{ color: "argila" }}
                 >
                   <FaRegUserCircle size="25px" />
                 </Box>
@@ -274,22 +272,38 @@ export const Navbar = function (props) {
         backgroundColor="#fff"
         textAlign="center"
       >
-            <Flex  justifyContent="center" mb="10px" alignItems="center">
-              {props.role != "default" ? (
-                <Box  mb="10px" display={{base:"block", md:"flex"}}>
-                  <Flex
-                    color="argila"
-                    p="2px 10px"
-                    mr="10px"
-                    alignItems="center"
-                    justifyContent={"center"}
-                  >
-                    <Box mr="6px">
-                      <AiOutlineEye size="25px"/>
-                    </Box>{" "}
-                    <Text fontSize={"md"}>{props.role}</Text>
-                  </Flex>
-                  <Box my="10px">
+        <Flex justifyContent="center" mb="10px" alignItems="center">
+          {props.role != "default" ? (
+            <Box mb="10px" display={{ base: "block", md: "flex" }}>
+              <Flex
+                color="argila"
+                p="2px 10px"
+                mr="10px"
+                alignItems="center"
+                justifyContent={"center"}
+              >
+                <Box mr="6px">
+                  <AiOutlineEye size="25px" />
+                </Box>{" "}
+                <Text fontSize={"md"}>{props.role}</Text>
+              </Flex>
+              <Box my="10px">
+                <Button
+                  border="1px solid"
+                  borderColor="argila"
+                  borderRadius="6px"
+                  bg="transparent"
+                  color="argila"
+                  h="27px"
+                  mr={{ base: "0", md: "10px" }}
+                  fontWeight={400}
+                  onClick={() => tancaSessio()}
+                >
+                  Surt de la sessió
+                </Button>
+              </Box>
+              {props.role == "admin" && (
+                <Box my="10px">
                   <Button
                     border="1px solid"
                     borderColor="argila"
@@ -297,41 +311,27 @@ export const Navbar = function (props) {
                     bg="transparent"
                     color="argila"
                     h="27px"
-                    mr={{base:"0", md:"10px"}}
                     fontWeight={400}
-                    onClick={() => tancaSessio()
+                    onClick={() =>
+                      window.open("https://dev.cms.matossers.cat/", "_blank")
                     }
                   >
-                    Surt de la sessió
+                    Gestor de continguts
                   </Button>
-                  </Box>
-                  {props.role == "admin" &&
-                  <Box  my="10px"><Button
-                  border="1px solid"
-                  borderColor="argila"
-                  borderRadius="6px"
-                  bg="transparent"
-                  color="argila"
-                  h="27px"
-                  fontWeight={400}
-                  onClick={() => window.open('https://dev.cms.matossers.cat/', "_blank")
-                  }
-                >
-                  Gestor de continguts
-                </Button></Box>
-                }
-                </Box>
-              ) : (
-                <Box
-                  onClick={() => router.push("/login")}
-                  cursor="pointer"
-                  color="#808080" 
-                  _hover={{color: "argila"}}
-                >
-                  <FaRegUserCircle size="25px" />
                 </Box>
               )}
-            </Flex>
+            </Box>
+          ) : (
+            <Box
+              onClick={() => router.push("/login")}
+              cursor="pointer"
+              color="#808080"
+              _hover={{ color: "argila" }}
+            >
+              <FaRegUserCircle size="25px" />
+            </Box>
+          )}
+        </Flex>
         {optionsMenu()}
       </Box>
     </Box>
