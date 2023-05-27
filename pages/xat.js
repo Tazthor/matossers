@@ -83,7 +83,7 @@ export default function Xat() {
       <Navbar page="recursos" role={context.role} setRole={context.setRole} />
       <Margin desktop="100px" />
       <HeaderPages
-        img="/images/headers/headermusics.jpg"
+        img="/images/headers/headerxat.jpg"
         textVisible={true}
         text="Xat"
       />

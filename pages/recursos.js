@@ -61,12 +61,12 @@ export default function Recursos() {
       <Navbar page="recursos" role={context.role} setRole={context.setRole} />
       <Margin desktop="100px" />
       <HeaderPages
-        img="/images/headers/headermusics.jpg"
+        img="/images/headers/headerrecursos.jpg"
         textVisible={true}
-        text="Recursos"
+        text="Recursos i llistes d'assistència"
       />
       <Margin desktop="40px" tablet="50px" mobile="20px" />
-      {(isLoading && !isSorted && (
+      {(isLoading && (
         <Spinner
           color="argila"
           size="xl"
@@ -89,7 +89,7 @@ export default function Recursos() {
                 }}
                 gap={8}
               >
-                {isSorted &&
+                {
                   dataAct.map((act, index) => {
                     if (act.data.toDate() >= new Date() && act.llista) {
                       return (
