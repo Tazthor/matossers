@@ -2,8 +2,57 @@ import { Box, Text, Button, Flex, Image, Grid, Link } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import Title from "./Title";
 
-export const InfoSocis = function () {
+export const InfoSocis = function ({ quotes }) {
   const router = useRouter();
+
+  const CardQuota = (item) => {
+    return (
+      <Box
+        borderRadius="21px"
+        border="3px solid"
+        borderColor="argila"
+        p="20px"
+        textAlign="center"
+      >
+        <Text
+          mb="10px"
+          color="argila"
+          fontSize="xxxl"
+          textTransform="uppercase"
+          fontFamily="Oswald"
+        >
+          {item.tipus}
+        </Text>
+        <Text color="argila">{item.descripcio}</Text>
+        <Text
+          mb="10px"
+          color="argila"
+          fontSize="huge"
+          fontWeight={600}
+          textTransform="uppercase"
+          fontFamily="Oswald"
+        >
+          {item.quota} €
+        </Text>
+        <Button
+          w="200px"
+          fontSize="normal"
+          py="20px"
+          border="1px solid"
+          borderColor="argila"
+          borderRadius="6px"
+          bg="argila"
+          color="blanc"
+          _hover={{ bg: "white", color: "argila" }}
+          _focus={{ boxShadow: "none" }}
+          onClick={() => window.open(item.url)}
+        >
+          Vull fer-me soci {item.tipus}
+        </Button>
+      </Box>
+    );
+  };
+
   return (
     <Box w={["90%", "80%", "75%"]} m="auto">
       <Title header="2" text="Per què tenim socis?"></Title>
@@ -37,188 +86,31 @@ export const InfoSocis = function () {
         soci/a ho desitja.
       </Text>
       <Grid
-        templateColumns={{base:"repeat(1, 1fr)", md:"repeat(2, 1fr)", xl:"repeat(3, 1fr)", xxl:"repeat(4, 1fr)"}}
+        templateColumns={{
+          base: "repeat(1, 1fr)",
+          md: "repeat(2, 1fr)",
+          xl: "repeat(3, 1fr)",
+          xxl: "repeat(4, 1fr)",
+        }}
         gap={8}
       >
-        <Box
-          borderRadius="21px"
-          border="3px solid"
-          borderColor="argila"
-          p="20px"
-          textAlign="center"
-        >
-          <Text
-            mb="10px"
-            color="argila"
-            fontSize="xxxl"
-            textTransform="uppercase"
-            fontFamily="Oswald"
-          >
-            Adult
-          </Text>
-          <Text color="argila">Quota general</Text>
-          <Text
-            mb="10px"
-            color="argila"
-            fontSize="huge"
-            fontWeight={600}
-            textTransform="uppercase"
-            fontFamily="Oswald"
-          >
-            40 €
-          </Text>
-          <Button
-            w="200px"
-            fontSize="normal"
-            py="20px"
-            border="1px solid"
-            borderColor="argila"
-            borderRadius="6px"
-            bg="argila"
-            color="blanc"
-            _hover={{ bg: "white", color: "argila" }}
-            _focus={{ boxShadow: "none" }}
-            onClick={() => router.push("/")}
-          >
-            Vull fer-me soci adult
-          </Button>
-        </Box>
-        <Box
-          borderRadius="21px"
-          border="3px solid"
-          borderColor="argila"
-          p="20px"
-          textAlign="center"
-        >
-          <Text
-            mb="10px"
-            color="argila"
-            fontSize="xxxl"
-            textTransform="uppercase"
-            fontFamily="Oswald"
-          >
-            Familiar
-          </Text>
-          <Text color="argila">Els membres d'una llar</Text>
-          <Text
-            mb="10px"
-            color="argila"
-            fontSize="huge"
-            fontWeight={600}
-            textTransform="uppercase"
-            fontFamily="Oswald"
-          >
-            90 €
-          </Text>
-          <Button
-            w="200px"
-            fontSize="normal"
-            py="20px"
-            border="1px solid"
-            borderColor="argila"
-            borderRadius="6px"
-            bg="argila"
-            color="blanc"
-            _hover={{ bg: "white", color: "argila" }}
-            _focus={{ boxShadow: "none" }}
-            onClick={() => router.push("/")}
-          >
-            Vull fer-me soci familiar
-          </Button>
-        </Box>
-        <Box
-          borderRadius="21px"
-          border="3px solid"
-          borderColor="argila"
-          p="20px"
-          textAlign="center"
-        >
-          <Text
-            mb="10px"
-            color="argila"
-            fontSize="xxxl"
-            textTransform="uppercase"
-            fontFamily="Oswald"
-          >
-            Jovent
-          </Text>
-          <Text color="argila">Fins als 25 anys</Text>
-          <Text
-            mb="10px"
-            color="argila"
-            fontSize="huge"
-            fontWeight={600}
-            textTransform="uppercase"
-            fontFamily="Oswald"
-          >
-            25 €
-          </Text>
-          <Button
-            w="200px"
-            fontSize="normal"
-            py="20px"
-            border="1px solid"
-            borderColor="argila"
-            borderRadius="6px"
-            bg="argila"
-            color="blanc"
-            _hover={{ bg: "white", color: "argila" }}
-            _focus={{ boxShadow: "none" }}
-            onClick={() => router.push("/")}
-          >
-            Vull fer-me soci jovent
-          </Button>
-        </Box>
-        <Box
-          borderRadius="21px"
-          border="3px solid"
-          borderColor="argila"
-          p="20px"
-          textAlign="center"
-        >
-          <Text
-            mb="10px"
-            color="argila"
-            fontSize="xxxl"
-            textTransform="uppercase"
-            fontFamily="Oswald"
-          >
-            Jubilat
-          </Text>
-          <Text color="argila">Segons la situació laboral</Text>
-          <Text
-            mb="10px"
-            color="argila"
-            fontSize="huge"
-            fontWeight={600}
-            textTransform="uppercase"
-            fontFamily="Oswald"
-          >
-            30 €
-          </Text>
-          <Button
-            w="200px"
-            fontSize="normal"
-            py="20px"
-            border="1px solid"
-            borderColor="argila"
-            borderRadius="6px"
-            bg="argila"
-            color="blanc"
-            _hover={{ bg: "white", color: "argila" }}
-            _focus={{ boxShadow: "none" }}
-            onClick={() => router.push("/")}
-          >
-            Vull fer-me soci jubilat
-          </Button>
-        </Box>
+        {quotes.map((quota, i) => {
+          return CardQuota(quota);
+        })}
       </Grid>
       <Text my="20px">
-        Necessites ajuda o més informació? <Link href="/contacte" color="argila">Contacta'ns i resoldre'm els teus dubtes.</Link>
+        Necessites ajuda o més informació?{" "}
+        <Link href="/contacte" color="argila">
+          Contacta'ns i resoldre'm els teus dubtes.
+        </Link>
       </Text>
 
       <Grid
-        templateColumns={{base:"repeat(1, 1fr)", md:"repeat(1, 1fr)", xl:"repeat(2, 1fr)"}}
+        templateColumns={{
+          base: "repeat(1, 1fr)",
+          md: "repeat(1, 1fr)",
+          xl: "repeat(2, 1fr)",
+        }}
         gap={4}
       >
         <Box
@@ -227,7 +119,7 @@ export const InfoSocis = function () {
           color="blanc"
           p="20px 40px"
           mt="40px"
-          mb={{base:"20px", xl:"40px"}}
+          mb={{ base: "20px", xl: "40px" }}
         >
           <Title
             header="2"
@@ -242,8 +134,8 @@ export const InfoSocis = function () {
             display={["block", "flex", "flex"]}
           >
             <Box
-              w={{base:"100%", xl:"48%"}}
-              mr={{base:"0", xl:"2%"}}
+              w={{ base: "100%", xl: "48%" }}
+              mr={{ base: "0", xl: "2%" }}
               mb={["30px", "0", "0"]}
             >
               <Flex w="100%" alignItems="center">
@@ -273,7 +165,7 @@ export const InfoSocis = function () {
                 </Box>
               </Flex>
             </Box>
-            <Box w={{base:"100%", xl:"48%"}} ml={{base:"0", xl:"2%"}}>
+            <Box w={{ base: "100%", xl: "48%" }} ml={{ base: "0", xl: "2%" }}>
               <Flex w="100%" alignItems="center">
                 <Box w="23%" mr="2%">
                   <Box
@@ -309,8 +201,8 @@ export const InfoSocis = function () {
             display={["block", "flex", "flex"]}
           >
             <Box
-              w={{base:"100%", xl:"48%"}}
-              mr={{base:"0", xl:"2%"}}
+              w={{ base: "100%", xl: "48%" }}
+              mr={{ base: "0", xl: "2%" }}
               mb={["30px", "0", "0"]}
             >
               <Flex w="100%" alignItems="center">
@@ -340,7 +232,7 @@ export const InfoSocis = function () {
                 </Box>
               </Flex>
             </Box>
-            <Box w={{base:"100%", xl:"48%"}} ml={{base:"0", xl:"2%"}}>
+            <Box w={{ base: "100%", xl: "48%" }} ml={{ base: "0", xl: "2%" }}>
               <Flex w="100%" alignItems="center">
                 <Box w="23%" mr="2%">
                   <Box
@@ -375,7 +267,7 @@ export const InfoSocis = function () {
           bg="argila"
           color="blanc"
           p="20px 40px"
-          my={{base:"20px", xl:"40px"}}
+          my={{ base: "20px", xl: "40px" }}
         >
           <Title
             header="2"
@@ -391,8 +283,8 @@ export const InfoSocis = function () {
             display={["block", "flex", "flex"]}
           >
             <Box
-              w={{base:"100%", xl:"48%"}}
-              mr={{base:"0", xl:"2%"}}
+              w={{ base: "100%", xl: "48%" }}
+              mr={{ base: "0", xl: "2%" }}
               mb={["30px", "0", "0"]}
             >
               <Flex w="100%" alignItems="center">
@@ -422,7 +314,7 @@ export const InfoSocis = function () {
                 </Box>
               </Flex>
             </Box>
-            <Box w={{base:"100%", xl:"48%"}} ml={{base:"0", xl:"2%"}}>
+            <Box w={{ base: "100%", xl: "48%" }} ml={{ base: "0", xl: "2%" }}>
               <Flex w="100%" alignItems="center">
                 <Box w="23%" mr="2%">
                   <Box
@@ -458,8 +350,8 @@ export const InfoSocis = function () {
             display={["block", "flex", "flex"]}
           >
             <Box
-              w={{base:"100%", xl:"48%"}}
-              mr={{base:"0", xl:"2%"}}
+              w={{ base: "100%", xl: "48%" }}
+              mr={{ base: "0", xl: "2%" }}
               mb={["30px", "0", "0"]}
             >
               <Flex w="100%" alignItems="center">

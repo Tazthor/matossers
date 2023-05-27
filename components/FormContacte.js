@@ -81,11 +81,11 @@ export const FormContacte = function (props) {
       <Box mb="45px">
         <Title header="2" text="Contacta'ns" color={(props.negatiu) ? "blanc" : ["#fff", "#fff", "argila"]}></Title>
       </Box>
-      <Flex display={["block", "block", "flex"]}>
+      <Flex display={{base:"block", xl:"flex"}}>
         <Box
-          w={["100%", "100%", "48%"]}
-          mr={["0", "0", "2%"]}
-          mb={["20px", "20px", "50px"]}
+          w={{base:"100%", xl:"48%"}}
+          mr={{base:"0", xl:"2%"}}
+          mb={{base:"20px", xl:"50px"}}
         >
           <Text fontWeight={600} mb="10px" color={(props.negatiu) ? "groc.mat" : "argila"}>Nom</Text>
           <Input
@@ -101,9 +101,9 @@ export const FormContacte = function (props) {
           />
         </Box>
         <Box
-          w={["100%", "100%", "48%"]}
-          mr={["0", "0", "2%"]}
-          mb={["20px", "20px", "50px"]}
+          w={{base:"100%", xl:"48%"}}
+          mr={{base:"0", xl:"2%"}}
+          mb={{base:"20px", xl:"50px"}}
         >
           <Text fontWeight={600} mb="10px" color={(props.negatiu) ? "groc.mat" : "argila"}>Cognoms</Text>
           <Input
@@ -119,11 +119,11 @@ export const FormContacte = function (props) {
           />
         </Box>
       </Flex>
-      <Flex display={["block", "block", "flex"]}>
+      <Flex display={{base:"block", xl:"flex"}}>
         <Box
-          w={["100%", "100%", "48%"]}
-          mr={["0", "0", "2%"]}
-          mb={["20px", "20px", "50px"]}
+          w={{base:"100%", xl:"48%"}}
+          mr={{base:"0", xl:"2%"}}
+          mb={{base:"20px", xl:"50px"}}
         >
           <Text fontWeight={600} mb="10px" color={(props.negatiu) ? "groc.mat" : "argila"}>Correu electrònic</Text>
           <Input
@@ -139,9 +139,9 @@ export const FormContacte = function (props) {
           />
         </Box>
         <Box
-          w={["100%", "100%", "48%"]}
-          mr={["0", "0", "2%"]}
-          mb={["20px", "20px", "50px"]}
+          w={{base:"100%", xl:"48%"}}
+          mr={{base:"0", xl:"2%"}}
+          mb={{base:"20px", xl:"50px"}}
         >
           <Text fontWeight={600} mb="10px" color={(props.negatiu) ? "groc.mat" : "argila"}>Telèfon de contacte</Text>
           <Input
@@ -159,7 +159,7 @@ export const FormContacte = function (props) {
       </Flex>
       <Box
         w="100%"
-        mr={["0", "0", "2%"]}
+        mr={{base:"0", xl:"2%"}}
         mb={"50px"}
       >
         <Text fontWeight={600} mb="10px" color={(props.negatiu) ? "groc.mat" : "argila"}>Missatge</Text>
