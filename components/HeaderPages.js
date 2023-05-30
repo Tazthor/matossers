@@ -12,14 +12,14 @@ export const HeaderPages = function (props) {
         <Box w="100%" h="auto">
           <Image
             w="100%"
-            h={["300px","auto"]}
+            h={{base:"300px", md:"auto"}}
             objectFit="cover"
             src={props.img}
             alt="Capçalera"
           />
         </Box>
         {(props.textVisible) &&
-          <Box position="absolute" textAlign="center" top={["30%","40%"]} left="0" right="0" m="auto">
+          <Box position="absolute" textAlign="center" top={{base:"30%",md:"40%"}} left="0" right="0" m="auto">
             <Title header="1" text={props.text} color="groc.brillant"></Title>
           </Box>
         }

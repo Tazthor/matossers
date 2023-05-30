@@ -54,7 +54,7 @@ export const InfoSocis = function ({ quotes }) {
   };
 
   return (
-    <Box w={["90%", "80%", "75%"]} m="auto">
+    <Box w={{base:"90%", md:"80%", xl:"75%"}} m="auto">
       <Title header="2" text="Per què tenim socis?"></Title>
       <Text mb="20px">
         Els Matossers de Molins de Rei tenim diferents vies de finançament per
@@ -131,12 +131,12 @@ export const InfoSocis = function ({ quotes }) {
             w="100%"
             mt="20px"
             mb="30px"
-            display={["block", "flex", "flex"]}
+            display={{base:"block", md:"flex"}}
           >
             <Box
               w={{ base: "100%", xl: "48%" }}
               mr={{ base: "0", xl: "2%" }}
-              mb={["30px", "0", "0"]}
+              mb={{base:"30px", md:"0"}}
             >
               <Flex w="100%" alignItems="center">
                 <Box w="23%" mr="2%">
@@ -198,12 +198,12 @@ export const InfoSocis = function ({ quotes }) {
             w="100%"
             mt="20px"
             mb="20px"
-            display={["block", "flex", "flex"]}
+            display={{base:"block", md:"flex"}}
           >
             <Box
               w={{ base: "100%", xl: "48%" }}
               mr={{ base: "0", xl: "2%" }}
-              mb={["30px", "0", "0"]}
+              mb={{base:"30px", md:"0"}}
             >
               <Flex w="100%" alignItems="center">
                 <Box w="23%" mr="2%">
@@ -280,12 +280,12 @@ export const InfoSocis = function ({ quotes }) {
             w="100%"
             mt="20px"
             mb="20px"
-            display={["block", "flex", "flex"]}
+            display={{base:"block", md:"flex"}}
           >
             <Box
               w={{ base: "100%", xl: "48%" }}
               mr={{ base: "0", xl: "2%" }}
-              mb={["30px", "0", "0"]}
+              mb={{base:"30px", md:"0"}}
             >
               <Flex w="100%" alignItems="center">
                 <Box w="23%" mr="2%">
@@ -347,12 +347,12 @@ export const InfoSocis = function ({ quotes }) {
             w="100%"
             mt="20px"
             mb="20px"
-            display={["block", "flex", "flex"]}
+            display={{base:"block", md:"flex"}}
           >
             <Box
               w={{ base: "100%", xl: "48%" }}
               mr={{ base: "0", xl: "2%" }}
-              mb={["30px", "0", "0"]}
+              mb={{base:"30px", md:"0"}}
             >
               <Flex w="100%" alignItems="center">
                 <Box w="23%" mr="2%">

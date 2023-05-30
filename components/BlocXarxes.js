@@ -10,16 +10,16 @@ export const BlocXarxes = function ({insfeeds}) {
         <Title header="1" text="Xarxes"></Title>
       </Box>
       <Flex
-        w={["90%", "80%", "75%"]}
+        w={{base:"90%", md:"80%", xl:"75%"}}
         maxW="2500px"
         m="auto"
         position="relative"
-        display={["block", "block", "flex"]}
+        display={{base:"block", xl:"flex"}}
       >
         <Box
-          w={["100%", "100%", "50%"]}
+          w={{base:"100%", xl:"50%"}}
           mx="auto"
-          mb={["20px", "20px", "50px"]}
+          mb={{base:"20px", xl:"50px"}}
           boxShadow="0px 0px 6px rgba(0, 0, 0, 0.3)"
         >
           <TwitterTimelineEmbed
@@ -29,9 +29,9 @@ export const BlocXarxes = function ({insfeeds}) {
           />
         </Box>
 {/*          <Box
-          w={["100%", "100%", "30%"]}
-          mr={["0", "0", "2%"]}
-          mb={["20px", "20px", "0"]}
+          w={{base:"100%", xl:"30%"}}
+          mr={{base:"0", xl:"2%"}}
+          mb={{base:"20px", xl:"0"}}
         >
           <InstagramPanel insfeeds={insfeeds}/>
         </Box>

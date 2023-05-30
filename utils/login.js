@@ -32,7 +32,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-
 export async function loginEmailPassword(email, pass) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, pass);

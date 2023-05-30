@@ -10,7 +10,7 @@ export const Topics = function () {
   const router = useRouter();
   return (
     <Box w={{base:"90%", md:"80%", xl:"75%"}} m="auto">
-      <Flex display={["block", "flex", "flex"]}>
+      <Flex display={{base:"block", md:"flex"}}>
         <Flex
           my="30px"
           p="10px 20px"

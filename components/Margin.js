@@ -5,9 +5,9 @@ export const Margin = function (props) {
 
     return (
         <Box w="100%"
-        h={[props.mobile ? props.mobile : props.desktop ,
-        props.tablet ? props.tablet : props.desktop,
-        props.desktop]}
+        h={{base:props.mobile ? props.mobile : props.desktop ,
+        md:props.tablet ? props.tablet : props.desktop,
+        xl:props.desktop}}
         backgroundColor={props.bgcolor ? props.bgcolor : '#fff' }>
         </Box>
 )
