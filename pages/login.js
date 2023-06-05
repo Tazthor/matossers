@@ -146,6 +146,7 @@ export const Login = function () {
                       type="password"
                       _placeholder={{ color: "argila" }}
                       onChange={(e) => setPass(e.target.value)}
+                      required
                     />
                   </InputGroup>
                 </FormControl>

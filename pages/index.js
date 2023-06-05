@@ -23,6 +23,9 @@ const Home = function ({insfeeds}) {
 
   const getData = async (app) => {
     const object = await getDataCollection(app, "actuacions");
+    object = object.sort((a, b) =>
+      a.data > b.data ? 1 : b.data > a.data ? -1 : 0
+    );
     setDataAct(object);
     setIsLoading(false);
   };
@@ -32,6 +35,7 @@ const Home = function ({insfeeds}) {
     if (app== undefined){ setApp(initApp());}
     getData(app);
   }, []);
+  
 
   return (
     <Container>
