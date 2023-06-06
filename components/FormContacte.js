@@ -11,6 +11,15 @@ import {
 import Title from "./Title";
 import Link from "next/link";
 import { useState } from "react";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { FiCheck } from "react-icons/fi";
 
 export const FormContacte = function (props) {
   const [nom, setNom] = useState("");
@@ -20,6 +29,16 @@ export const FormContacte = function (props) {
   const [msg, setMsg] = useState("");
   const [gdpr, setGdpr] = useState(false);
   const [error, setError] = useState({ isError: false, msgError: "" });
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const resetForm = function () {
+    setNom("")
+    setCognom("")
+    setEmail("")
+    setPhone("")
+    setMsg("")
+    setGdpr(false)
+  }
 
   const openError = function (msg, milisegons) {
     if (!milisegons) milisegons = 5000;
@@ -51,6 +70,28 @@ export const FormContacte = function (props) {
         message: "El correu electrònic és obligatori",
       });
     }
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    if (!emailRegex.test(email)) {
+      errors.push({
+        error: true,
+        message: "El correu electrònic no té un format correcte",
+      });
+    }
+    const phoneRegex = /^\+?(6\d{2}|7[1-9]\d{1})\d{6}$/;
+    const phoneRegex2 = /^\+?(7\d{2}|7[1-9]\d{1})\d{6}$/;
+    const phoneRegex3 = /^\+?(9\d{2}|7[1-9]\d{1})\d{6}$/;
+    if (phone != "") {
+      if (
+        !phoneRegex.test(phone) &&
+        !phoneRegex2.test(phone) &&
+        !phoneRegex3.test(phone)
+      ) {
+        errors.push({
+          error: true,
+          message: "El telèfon no té un format correcte",
+        });
+      }
+    }
     if (msg == "") {
       errors.push({
         error: true,
@@ -72,11 +113,13 @@ export const FormContacte = function (props) {
         message: "Hi ha camps obligatoris buits al formulari",
       };
   };
-
+  console.log(nom, cognom, email);
   const submit = async function () {
     var validate = await validateForm();
     if (!validate.error) {
       //Envia email
+      onOpen()
+      resetForm()
     } else {
       openError(validate.message, validate.ref, 3000);
     }
@@ -120,7 +163,8 @@ export const FormContacte = function (props) {
               borderBottom="1px solid"
               borderBottomColor={props.negatiu ? "blanc" : "argila"}
               _focus={{ boxShadow: "none" }}
-              onChange={setNom}
+              onChange={(e) => setNom(e.target.value)}
+              value={nom}
             />
           </Box>
           <Box
@@ -144,7 +188,8 @@ export const FormContacte = function (props) {
               borderBottom="1px solid"
               borderBottomColor={props.negatiu ? "blanc" : "argila"}
               _focus={{ boxShadow: "none" }}
-              onChange={setCognom}
+              onChange={(e) => setCognom(e.target.value)}
+              value={cognom}
             />
           </Box>
         </Flex>
@@ -171,7 +216,8 @@ export const FormContacte = function (props) {
               borderBottom="1px solid"
               borderBottomColor={props.negatiu ? "blanc" : "argila"}
               _focus={{ boxShadow: "none" }}
-              onChange={setEmail}
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
           </Box>
           <Box
@@ -195,7 +241,8 @@ export const FormContacte = function (props) {
               borderBottom="1px solid"
               borderBottomColor={props.negatiu ? "blanc" : "argila"}
               _focus={{ boxShadow: "none" }}
-              onChange={setPhone}
+              onChange={(e) => setPhone(e.target.value)}
+              value={phone}
             />
           </Box>
         </Flex>
@@ -216,7 +263,8 @@ export const FormContacte = function (props) {
             borderBottomColor={props.negatiu ? "blanc" : "argila"}
             color={props.negatiu ? "blanc" : "negre"}
             _focus={{ boxShadow: "none" }}
-            onChange={setMsg}
+            onChange={(e) => setMsg(e.target.value)}
+            value={msg}
           />
           <Checkbox
             colorScheme="red"
@@ -225,6 +273,7 @@ export const FormContacte = function (props) {
             m="25px 0 10px 0"
             borderColor={props.negatiu ? "blanc" : "argila"}
             color={props.negatiu ? "blanc" : "negre"}
+            value={gdpr}
           >
             Accepto la{" "}
             <Link href="/politica-privacitat">
@@ -260,6 +309,26 @@ export const FormContacte = function (props) {
           Envia
         </Button>
       </form>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody>
+            <Box m="auto" w="90%" py="50px" textAlign="center">
+              <Flex justifyContent="center">
+                <FiCheck color="green" size="80px" />
+              </Flex>
+              <Text my="20px" fontWeight={600} fontSize="xl" lineHeight="30px">
+                El teu email ha estat donat enviat correctament
+              </Text>
+              <Text lineHeight="20px" fontSize={"medium"}>
+                Ens posarem en contacte amb tu el més aviat possible
+              </Text>
+            </Box>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+
     </Box>
   );
 };
