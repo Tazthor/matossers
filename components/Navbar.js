@@ -105,23 +105,22 @@ export const Navbar = function (props) {
         {(props.role == "casteller" ||
           props.role == "admin" ||
           props.role == "tecnica") && (
-            <>
-          <Box
-            mx={{ base: "0", md: "15px" }}
-            my={{ base: "15px", md: "0" }}
-            className={"menu-item"}
-          >
-            <Link href="/recursos">Recursos</Link>
-          </Box>
-          <Box
-            mx={{ base: "0", md: "15px" }}
-            my={{ base: "15px", md: "0" }}
-            className={"menu-item"}
-            display={{base:"block", xl:"none"}}
-          >
-            <Link href="/xat">Xat</Link>
-          </Box>
-
+          <>
+            <Box
+              mx={{ base: "0", md: "15px" }}
+              my={{ base: "15px", md: "0" }}
+              className={"menu-item"}
+            >
+              <Link href="/recursos">Recursos</Link>
+            </Box>
+            <Box
+              mx={{ base: "0", md: "15px" }}
+              my={{ base: "15px", md: "0" }}
+              className={"menu-item"}
+              display={{ base: "block", xl: "none" }}
+            >
+              <Link href="/xat">Xat</Link>
+            </Box>
           </>
         )}
       </>
@@ -191,15 +190,17 @@ export const Navbar = function (props) {
                   >
                     Surt de la sessió
                   </Button>
-                  <Box
-                    cursor="pointer"
-                    color="#808080"
-                    _hover={{ color: "argila" }}
-                    mx="6px"
-                    onClick={() => router.push("/xat")}
-                  >
-                    <IoChatbubblesOutline size="25px" />
-                  </Box>{" "}
+                  {props.role != "public" && (
+                    <Box
+                      cursor="pointer"
+                      color="#808080"
+                      _hover={{ color: "argila" }}
+                      mx="6px"
+                      onClick={() => router.push("/xat")}
+                    >
+                      <IoChatbubblesOutline size="25px" />
+                    </Box>
+                  )}
                   {props.role == "admin" && (
                     <Button
                       border="1px solid"
