@@ -104,7 +104,7 @@ export const Navbar = function (props) {
         )}
         {(props.role == "casteller" ||
           props.role == "admin" ||
-          props.role == "tecnica") && (
+          props.role == "junta") && (
           <>
             <Box
               mx={{ base: "0", md: "15px" }}

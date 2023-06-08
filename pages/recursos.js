@@ -122,7 +122,7 @@ export default function Recursos() {
                 })}
               </Grid>
             </Box>
-            {(context.role == "admin" || context.role == "tecnica") && (
+            {(context.role == "admin" || context.role == "junta") && (
               <Box mb="30px">
                 <Box mb="10px">
                   <Title header="2" text="Documents de tècnica"></Title>

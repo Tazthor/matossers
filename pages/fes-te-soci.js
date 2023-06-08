@@ -17,7 +17,7 @@ export default function Socis() {
   const [dataQuota, setDataQuota] = useState([]);
   const [isSorted, setIsSorted] = useState(false);
 
-  const getData = async (app) => {
+  const m = async (app) => {
     const dades = await getDataCollection(app, "socis");
     setDataQuota(dades);
     setIsLoading(false);
@@ -42,8 +42,6 @@ export default function Socis() {
   useEffect(() => {
     sortData();
   }, [dataQuota]);
-
-  console.log(dataQuota);
 
   return (
     <Container>

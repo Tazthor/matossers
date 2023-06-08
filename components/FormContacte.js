@@ -113,7 +113,6 @@ export const FormContacte = function (props) {
         message: "Hi ha camps obligatoris buits al formulari",
       };
   };
-  console.log(nom, cognom, email);
   const submit = async function () {
     var validate = await validateForm();
     if (!validate.error) {
