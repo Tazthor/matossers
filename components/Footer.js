@@ -123,7 +123,7 @@ export const Footer = function (props) {
       </Flex>
       <Box mt="20px" textAlign="center" fontSize="sm">
         Copyright © 2022 Matossers de Molins de Rei. Tots els drets reservats. |{" "}
-        <Link href="/politica-privacitat" textDecoration="underline">
+        <Link href="/politica-privacitat">
           <a style={{ textDecoration: "underline" }}>Política de privacitat</a>
         </Link>{" "}
         |{" "}

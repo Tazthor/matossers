@@ -7,7 +7,7 @@ export const BlocXarxes = function ({insfeeds}) {
   return (
     <>
       <Box mb="45px">
-        <Title header="1" text="Xarxes"></Title>
+        <Title header="1" text="Els nostres tuits"></Title>
       </Box>
       <Flex
         w={{base:"90%", md:"80%", xl:"75%"}}
