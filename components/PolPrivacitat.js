@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const PolPrivacitat = function (props) {
   return (
-    <Box w={{ base: "90%", md: "80%", xl: "75%" }} m="auto" maxW="2500px">
+    <Box w={{ base: "90%", md: "80%", xl: "75%" }} m="auto" maxW="2500px" fontSize="md">
       <Title header="1" text="Política de privacitat" />
       <Text mb="20px">
         El domini web{" "}
