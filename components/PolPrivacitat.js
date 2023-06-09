@@ -34,7 +34,7 @@ export const PolPrivacitat = function (props) {
         La Colla Castellera Matossers de Molins de Rei
       </Text>
       <Text mb="20px">
-        <strong>NIF:</strong> XXXX
+        <strong>NIF:</strong> G62848353
         <br />
         <strong>Adreça postal:</strong> C/ Carrer Jacint Verdaguer, 48.
         Federació Obrera, 08759 Molins de Rei
