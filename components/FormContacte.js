@@ -7,6 +7,7 @@ import {
   Text,
   Textarea,
   Checkbox,
+  Spinner
 } from "@chakra-ui/react";
 import Title from "./Title";
 import Link from "next/link";
@@ -20,6 +21,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { FiCheck } from "react-icons/fi";
+import emailjs from "@emailjs/browser";
 
 export const FormContacte = function (props) {
   const [nom, setNom] = useState("");
@@ -30,6 +32,7 @@ export const FormContacte = function (props) {
   const [gdpr, setGdpr] = useState(false);
   const [error, setError] = useState({ isError: false, msgError: "" });
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isLoading, setIsLoading] = useState(false)
 
   const resetForm = function () {
     setNom("")
@@ -115,10 +118,21 @@ export const FormContacte = function (props) {
   };
   const submit = async function () {
     var validate = await validateForm();
+    var emailParams = {
+      nom,
+      cognom,
+      email,
+      phone,
+      msg
+    }
     if (!validate.error) {
-      //Envia email
+      emailjs.send('service_6wb1ojn', 'template_rvvppa9', emailParams, "uwYpYFAtDFBm8Tr39")
+    .then(function(response) {
       onOpen()
       resetForm()
+    }, function(error) {
+       console.log('FAILED...', error);
+    });
     } else {
       openError(validate.message, validate.ref, 3000);
     }
@@ -151,7 +165,7 @@ export const FormContacte = function (props) {
               mb="10px"
               color={props.negatiu ? "groc.mat" : "argila"}
             >
-              Nom
+              Nom *
             </Text>
             <Input
               w="90%"
@@ -176,7 +190,7 @@ export const FormContacte = function (props) {
               mb="10px"
               color={props.negatiu ? "groc.mat" : "argila"}
             >
-              Cognoms
+              Cognoms *
             </Text>
             <Input
               w="90%"
@@ -203,7 +217,7 @@ export const FormContacte = function (props) {
               mb="10px"
               color={props.negatiu ? "groc.mat" : "argila"}
             >
-              Correu electrònic
+              Correu electrònic *
             </Text>
             <Input
               w="90%"
@@ -229,7 +243,7 @@ export const FormContacte = function (props) {
               mb="10px"
               color={props.negatiu ? "groc.mat" : "argila"}
             >
-              Telèfon de contacte
+              Telèfon 
             </Text>
             <Input
               w="90%"
@@ -251,7 +265,7 @@ export const FormContacte = function (props) {
             mb="10px"
             color={props.negatiu ? "groc.mat" : "argila"}
           >
-            Missatge
+            Missatge *
           </Text>
           <Textarea
             w="95%"
@@ -275,8 +289,8 @@ export const FormContacte = function (props) {
             value={gdpr}
           >
             Accepto la{" "}
-            <Link href="/politica-privacitat">
-              <a style={{ textDecoration: "underline", color: "#663b30" }}>
+            <Link href="/politica-privacitat" color={props.negatiu ? "blanc" :"#663b30"}>
+              <a style={{ textDecoration: "underline" }}>
                 política de privacitat
               </a>
             </Link>
@@ -305,7 +319,7 @@ export const FormContacte = function (props) {
           _focus={{ boxShadow: "none" }}
           onClick={submit}
         >
-          Envia
+          {(isLoading) ? <Spinner/> : "Envia"}
         </Button>
       </form>
       <Modal isOpen={isOpen} onClose={onClose}>
