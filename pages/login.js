@@ -57,6 +57,7 @@ export const Login = function () {
   const Login = async function ({redirect}) {
     const response = await loginEmailPassword(email, pass);
     if (response.error) {
+      console.log(response)
       if (
         response.error.code == AuthErrorCodes.INVALID_PASSWORD ||
         "wrong-password"
@@ -74,10 +75,7 @@ export const Login = function () {
   const LoginGoogle = async function () {
     const response = await loginWithGoogle(email, pass);
     if (response.error) {
-      if (
-        response.error.code == AuthErrorCodes.INVALID_PASSWORD ||
-        "wrong-password"
-      ) {
+      if (response.error.code == AuthErrorCodes.INVALID_PASSWORD) {
         openError("La contrassenya és incorrecta. Torna-ho a provar");
       } else if (response.error.code == "auth/user-not-found") {
         openError("Aquest usuari no existeix");
@@ -94,9 +92,14 @@ export const Login = function () {
       onOpen();
       Login({redirect: false})
     } else {
+      console.log(response)
       if (response.error.code == AuthErrorCodes.EMAIL_EXISTS) {
         openError("Aquest usuari ja existeix");
-      } else openError("Hi ha hagut un error");
+      } 
+      if (response.error.code == AuthErrorCodes.WEAK_PASSWORD) {
+        openError("La contrasenya ha de tenir almneys 6 caràcters")
+      }
+      else openError("Hi ha hagut un error");
     }
   };
 

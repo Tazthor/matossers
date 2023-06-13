@@ -17,7 +17,7 @@ export default function Socis() {
   const [dataQuota, setDataQuota] = useState([]);
   const [isSorted, setIsSorted] = useState(false);
 
-  const m = async (app) => {
+  const getData = async (app) => {
     const dades = await getDataCollection(app, "socis");
     setDataQuota(dades);
     setIsLoading(false);

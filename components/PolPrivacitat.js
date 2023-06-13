@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Flex, Image, List, ListItem } from "@chakra-ui/react";
+import { Box, Text, List, ListItem } from "@chakra-ui/react";
 import Title from "./Title";
 import Link from "next/link";
 

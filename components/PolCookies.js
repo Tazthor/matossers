@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Flex, Image } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import Title from "./Title";
 
 export const PolCookies = function (props) {
