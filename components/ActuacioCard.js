@@ -70,7 +70,7 @@ export const ActuacioCard = function ({ act, type }) {
         </Box>
       )}
 
-      {type == "futures" && act.llista && (context.role == "casteller" || context.role == "tecnica" || context.role == "admin") && (
+      {type == "futures" && act.llista && (context.role == "casteller" || context.role == "junta" || context.role == "admin") && (
         <Box>
           <Button
             w="200px"
