@@ -57,7 +57,6 @@ export const Login = function () {
   const Login = async function ({redirect}) {
     const response = await loginEmailPassword(email, pass);
     if (response.error) {
-      console.log(response)
       if (
         response.error.code == AuthErrorCodes.INVALID_PASSWORD ||
         "wrong-password"
@@ -92,7 +91,6 @@ export const Login = function () {
       onOpen();
       Login({redirect: false})
     } else {
-      console.log(response)
       if (response.error.code == AuthErrorCodes.EMAIL_EXISTS) {
         openError("Aquest usuari ja existeix");
       } 
