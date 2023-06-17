@@ -35,7 +35,6 @@ const db = getFirestore(app);
 export async function loginEmailPassword(email, pass) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, pass);
-    console.log(email, pass)
     const role = await getRoles(userCredential.user.email);
     if (role == "") {
       role = "public";
