@@ -62,7 +62,7 @@ export default function Socis() {
 
   useEffect(() => {
     sortData();
-  }, [dataQuota]);
+  }, [dataQuota, dataQueFarem, dataQueOferim]);
 
   return (
     <Container>
