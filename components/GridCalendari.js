@@ -20,7 +20,7 @@ export const GridCalendari = function ({ actuacions, properaOnly }) {
   }, []);
 
   return (
-    <Box w={{ base: "90%", md: "80%", xl: "75%" }} m="auto">
+    <Box w={{ base: "90%", md: "80%", xl: "100%" }} m="auto">
       <Title header="2" text={(properaOnly) ? "Propera actuació" : "Properes actuacions"}></Title>
       <Margin desktop="40px" mobile="10px" />
       {(properaAct == undefined && (

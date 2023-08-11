@@ -32,6 +32,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+
 export async function loginEmailPassword(email, pass) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, pass);
@@ -47,12 +48,13 @@ export async function loginEmailPassword(email, pass) {
 
 export async function loginWithGoogle() {
   const googleProvider = new GoogleAuthProvider();
-
+  console.log("Hola")
   try {
     const userCredential = await signInWithPopup(auth, googleProvider);
     const role = await getRoles(userCredential.user.email);
     if (role == "") {
       role = "public";
+      await setUsersCollection(userCredential.user);
     }
     return role;
   } catch (error) {

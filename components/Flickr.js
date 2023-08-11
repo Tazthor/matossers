@@ -38,7 +38,7 @@ export const Flickr = function (props) {
   useEffect(() => {
     axios.get(url).then((data) => {
       data.data.photos.photo.map((photo, index) => {
-        fotos.push(getFlickrImageURL(photo, "z"));
+        fotos.push(getFlickrImageURL(photo, "b"));
       });
       setLoaded(true);
     });
@@ -49,12 +49,12 @@ export const Flickr = function (props) {
       slides.push(
         <Box
           w="100%"
-          h="400px"
+          h={{base:"600px", xl:"760px"}}
           m="auto"
           key={index}
           backgroundImage={foto}
           backgroundPosition="center"
-          backgroundSize="contain"
+          backgroundSize="cover"
           backgroundRepeat="no-repeat"
           onDragStart={handleDragStart}
         ></Box>
@@ -73,7 +73,7 @@ export const Flickr = function (props) {
     setActiveIndex(activeIndex != 11 ? activeIndex + 1 : 0);
   const syncActiveIndex = ({ item }) => setActiveIndex(item);
   return (
-    <Box m="auto">
+    <Box m="auto" position="relative">
       {loaded && (
         <>
           <AliceCarousel
@@ -89,7 +89,7 @@ export const Flickr = function (props) {
             onSlideChanged={syncActiveIndex}
             infinite
           />
-          <Flex mt="20px" justifyContent="center">
+          <Flex mt="20px" position="absolute" bottom="20px" w="100%" justifyContent="center">
             <Button
               bg="argila"
               color="blanc"

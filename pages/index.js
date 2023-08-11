@@ -50,16 +50,14 @@ const Home = function ({insfeeds}) {
       <Topics />
       <Margin desktop="40px" tablet="50px" mobile="20px" />
       <BlocText />
-      <Margin desktop="40px" tablet="50px" mobile="20px" />
-      <Flex w={{base:"90%", md:"80%"}} maxW="2000px" m="auto" display={{base:"block", xl:"flex"}} py="50px">
-        <Box w={{base:"100%", xl:"48%"}} mr="2%" mb={{base:"40px", xl:"0"}}>
+      <Flex w="100%" maxW="2000px" m="auto" display={{base:"block", xl:"flex"}} justifyContent="center">
+        <Box w={{base:"100%", xl:"64%"}} mb={{base:"40px", xl:"0"}}>
           <Flickr/>
         </Box>
-        <Box w={{base:"100%", xl:"48%"}} ml="2%" mb={{base:"40px", xl:"0"}}>
+        <Box w={{base:"100%", xl:"360px"}} mb={{base:"40px", xl:"0"}} pt="50px" mx="auto">
           <GridCalendari actuacions={dataAct} properaOnly />
         </Box>
       </Flex>
-      <Margin desktop="40px" tablet="50px" mobile="20px" />
       <Box id="contacte" className="anchor"/>
       <BannerContacte
         img="/images/home/contacte.jpg"

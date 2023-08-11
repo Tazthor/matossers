@@ -25,7 +25,10 @@ export const BlocXarxes = function ({insfeeds}) {
           <TwitterTimelineEmbed
             sourceType="profile"
             screenName="Matossers"
-            tweetLimit="1"
+            tweetLimit={5}
+            options={
+              {height: "500px"}
+            }
           />
         </Box>
 {/*          <Box
