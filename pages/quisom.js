@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar";
 import HeaderPages from "../components/HeaderPages";
 import Juntes from "../components/Juntes";
 import Footer from "../components/Footer";
-import DadesColla from "../components/DadesColla";
+import GridDades from "../components/GridDades";
 import {
   initApp,
   getDataCollection,
@@ -61,7 +61,14 @@ export default function Calendari() {
           thickness="4px"
         />
       ) : (
-        <DadesColla dadesColla={data} />
+        <GridDades
+          titol="La colla"
+          dades={data}
+          hasImage
+          imageName="Camisa"
+          imageUlr="/images/camisa.png"
+          items= {{sm:"1", md:"2", xl:"3"}}
+        />
       )}
 
       <Margin desktop="40px" tablet="50px" mobile="20px" />

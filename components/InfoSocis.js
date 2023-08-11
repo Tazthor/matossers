@@ -2,7 +2,7 @@ import { Box, Text, Button, Flex, Image, Grid, Link } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import Title from "./Title";
 
-export const InfoSocis = function ({ quotes }) {
+export const InfoSocis = function ({ quotes, quefem, queoferim }) {
   const router = useRouter();
 
   const CardQuota = (item) => {
@@ -101,7 +101,7 @@ export const InfoSocis = function ({ quotes }) {
       <Text my="20px">
         Necessites ajuda o més informació?{" "}
         <Link href="/contacte" color="argila">
-          Contacta'ns i resoldre'm els teus dubtes.
+          Contacta'ns i resoldrem els teus dubtes.
         </Link>
       </Text>
 
