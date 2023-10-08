@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Flex, Image } from "@chakra-ui/react";
+import { Box, Text, Flex, Image, Spacer } from "@chakra-ui/react";
 import Title from "./Title";
 
 export const BlocText = function (props) {
@@ -23,7 +23,7 @@ export const BlocText = function (props) {
         ></Title>
 
         <Flex display={{base:"block", xl:"flex"}} mt="10px">
-          <Box w={{base:"100%", xl:"58%"}} mr={{base:"0", xl:"2%"}}>
+          <Box w={{base:"100%", xl:"64%"}} mr={{base:"0", xl:"2%"}}>
             <Text color="blanc" mb="20px">
               Els Matossers de Molins de Rei, som una colla castellera fundada
               l'any 2002 i la nostra raó de ser és alçar castells i promocionar
@@ -38,7 +38,8 @@ export const BlocText = function (props) {
               de Rei.
             </Text>
           </Box>
-          <Box w={{base:"100%",xl:"38%"}} ml={{base:"0", xl:"2%"}} display={{base:"flex", xl:"block"}}>
+          <Spacer/>
+          <Box w={{base:"100%", xl:"28%"}} ml={{base:"0", xl:"2%"}} display={{base:"flex", xl:"block"}}>
             <Image
               src="/images/escut.png"
               alt="Matossers"

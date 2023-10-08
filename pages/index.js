@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import userContext from "../context/userContext";
-import { Flex, Box } from "@chakra-ui/react";
+import { Flex, Box, Spacer } from "@chakra-ui/react";
 import { Container } from "../components/Container";
 import Margin from "../components/Margin";
 import Navbar from "../components/Navbar";
