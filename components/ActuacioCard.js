@@ -70,26 +70,30 @@ export const ActuacioCard = function ({ act, type }) {
         </Box>
       )}
 
-      {type == "futures" && act.llista && (context.role == "casteller" || context.role == "junta" || context.role == "admin") && (
-        <Box>
-          <Button
-            w="200px"
-            my="15px"
-            px="10px"
-            borderRadius="8px"
-            borderColor="argila"
-            border="1px solid"
-            bg="argila"
-            color="#fff"
-            fontSize="md"
-            fontWeight={400}
-            _hover={{ backgroundColor: "transparent", color: "argila" }}
-            onClick={() => window.open(act.llista, "_blank")}
-          >
-            Apunta&apos;t
-          </Button>
-        </Box>
-      )}
+      {type == "futures" &&
+        act.llista &&
+        (context.role == "casteller" ||
+          context.role == "junta" ||
+          context.role == "admin") && (
+          <Box>
+            <Button
+              w="200px"
+              my="15px"
+              px="10px"
+              borderRadius="8px"
+              borderColor="argila"
+              border="1px solid"
+              bg="argila"
+              color="#fff"
+              fontSize="md"
+              fontWeight={400}
+              _hover={{ backgroundColor: "transparent", color: "argila" }}
+              onClick={() => window.open(act.llista, "_blank")}
+            >
+              Apunta&apos;t
+            </Button>
+          </Box>
+        )}
       {type == "passades" && (
         <Box w="90%">
           {act.resultat && (
@@ -107,10 +111,15 @@ export const ActuacioCard = function ({ act, type }) {
                       {castell}{" "}
                     </Box>
                   )) ||
-                  (i == act.resultat.length - 1 && (
+                  (i == act.resultat.length - 1 && act.resultat.length != 1 && (
                     <Box display="inline" key={i}>
                       {" "}
                       i {castell}
+                    </Box>
+                  )) ||
+                  (act.resultat.length == 1 && (
+                    <Box display="inline" key={i}>
+                      {castell}
                     </Box>
                   ))
                 );
