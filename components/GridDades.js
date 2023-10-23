@@ -24,7 +24,7 @@ export const GridDades = function ({
 
   return (
     <Box
-      w="100%"
+    w={{base:"90%", md:"80%", xl:"75%"}}
       mx="auto"
       bg={invert ? "argila" : "blanc"}
       color={invert ? "blanc" : "negre"}
