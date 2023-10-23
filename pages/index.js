@@ -54,7 +54,7 @@ const Home = function ({insfeeds}) {
         <Box w={{base:"100%", xl:"64%"}} mb={{base:"40px", xl:"0"}}>
           <Flickr/>
         </Box>
-        <Box w={{base:"100%", xl:"360px"}} mb={{base:"40px", xl:"0"}} pt="50px" mx="auto">
+        <Box w={{base:"100%", xl:"100%"}} mb={{base:"40px", xl:"0"}} pt="50px" mx="auto">
           <GridCalendari actuacions={dataAct} properaOnly />
         </Box>
       </Flex>
