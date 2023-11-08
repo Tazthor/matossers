@@ -48,7 +48,6 @@ export const Flickr = function (props) {
     fotos.map((foto, index) =>
       slides.push(
         <Box
-          
           h={{base:"600px", xl:"700px"}}
           m="auto"
           key={index}
