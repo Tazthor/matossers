@@ -139,13 +139,6 @@ export const Navbar = function (props) {
             <Box w={{ base: "200px", xl: "40%" }} mr="2%" mb="20px">
               <Image src="/images/logos/logo.png" alt="Matossers" maxH="70px" />
             </Box>
-            <Box w={{ base: "100px", xl: "25%" }} ml="2%" mb="20px">
-              <Image
-                src="/images/logos/20_logo_vect.svg"
-                alt="Matossers"
-                maxH="70px"
-              />
-            </Box>
           </Flex>
         </Box>
         <Box
