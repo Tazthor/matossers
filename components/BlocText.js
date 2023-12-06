@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Flex, Image } from "@chakra-ui/react";
+import { Box, Text, Flex, Image, Spacer } from "@chakra-ui/react";
 import Title from "./Title";
 
 export const BlocText = function (props) {
@@ -7,13 +7,13 @@ export const BlocText = function (props) {
     <Box
       w="100%"
       bg="argila"
-      p={["25px 0", "50px 0", "50px 0"]}
+      p={{base:"25px 0", md:"50px 0"}}
       maxWidth="2500px"
     >
       <Box
-        w={["90%", "80%", "75%"]}
+        w={{base:"90%", md:"80%", xl:"75%"}}
         m="auto"
-        fontSize={["md", "normal", "normal"]}
+        fontSize={{base:"md", md:"normal"}}
         textAlign="left"
       >
         <Title
@@ -22,8 +22,8 @@ export const BlocText = function (props) {
           color="groc.mat"
         ></Title>
 
-        <Flex display={["block", "block", "flex"]} mt="10px">
-          <Box w={["100%","100","58%"]} mr={["0","0","2%"]}>
+        <Flex display={{base:"block", xl:"flex"}} mt="10px">
+          <Box w={{base:"100%", xl:"64%"}} mr={{base:"0", xl:"2%"}}>
             <Text color="blanc" mb="20px">
               Els Matossers de Molins de Rei, som una colla castellera fundada
               l'any 2002 i la nostra raó de ser és alçar castells i promocionar
@@ -38,14 +38,15 @@ export const BlocText = function (props) {
               de Rei.
             </Text>
           </Box>
-          <Box w={["100%","100","38%"]} ml={["0","0","2%"]} display={["flex", "flex", "block"]}>
+          <Spacer/>
+          <Box w={{base:"100%", xl:"28%"}} ml={{base:"0", xl:"2%"}} display={{base:"flex", xl:"block"}}>
             <Image
               src="/images/escut.png"
               alt="Matossers"
               maxH="100px"
-              ml={["auto","auto","auto"]}
-              mr={["2%","2%","auto"]}
-              mt={["0","0","-50px"]}
+              ml="auto"
+              mr={{base:"2%", xl:"auto"}}
+              mt={{base:"0",xl:"-50px"}}
               mb="20px"
             />
             <Text color="blanc" mb="20px">

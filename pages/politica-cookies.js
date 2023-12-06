@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import userContext from "../context/userContext";
 import { Container } from "../components/Container";
 import Margin from "../components/Margin";
 import Navbar from "../components/Navbar";
@@ -6,9 +8,11 @@ import Footer from "../components/Footer";
 import PolCookies from "../components/PolCookies";
 
 export default function PoliticaCookies() {
+  const context = useContext(userContext);
+
   return (
     <Container>
-      <Navbar page="calendari" />
+      <Navbar role={context.role} setRole={context.setRole}/>
       <Margin desktop="100px" />
       <HeaderPages
         img="/images/headers/headercalendari.jpg"
