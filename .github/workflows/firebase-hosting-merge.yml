@@ -22,7 +22,8 @@ jobs:
           echo NEXT_PUBLIC_FIREBASE_messagingSenderId=${{ secrets.NEXT_PUBLIC_FIREBASE_messagingSenderId }} >> .env.local
           echo NEXT_PUBLIC_FIREBASE_appId=${{ secrets.NEXT_PUBLIC_FIREBASE_appId }} >> .env.local
           echo NEXT_PUBLIC_FIREBASE_measurementId=${{ secrets.NEXT_PUBLIC_FIREBASE_measurementId }} >> .env.local
-          echo NEXT_PUBLIC_INSTAGRAM_KEY=${{ secrets.NEXT_PUBLIC_INSTAGRAM_KEY }} >> .env.local
+          cat .env.local
+      - run:
           npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

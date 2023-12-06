@@ -13,6 +13,7 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_appId,
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_measurementId,
 };
+console.log(firebaseConfig);
 
 export function initApp() {
   const app = initializeApp(firebaseConfig);
