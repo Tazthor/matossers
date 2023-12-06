@@ -19,14 +19,14 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBGtJC973MQxS5V7ZISBHfjmZICFAxz4g4",
-  authDomain: "matossers.firebaseapp.com",
-  databaseURL: "https://matossers.firebaseio.com",
-  projectId: "matossers",
-  storageBucket: "matossers.appspot.com",
-  messagingSenderId: "76874283575",
-  appId: "1:76874283575:web:4995df3102552b0dde1db2",
-  measurementId: "G-Y1L5YSPM4B",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_apiKey,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_authDomain,
+  databaseURL: process.env.NEXT_PUBLIC_FIREBASE_databaseURL,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_projectId,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_storageBucket,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_messagingSenderId,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_appId,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_measurementId,
 };
 
 const app = initializeApp(firebaseConfig);

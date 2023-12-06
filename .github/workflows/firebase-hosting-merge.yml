@@ -12,7 +12,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm install
-      - run: npm run build
+      - run:  |
+          touch .env.local
+          echo NEXT_PUBLIC_FIREBASE_apiKey=${{ secrets.NEXT_PUBLIC_FIREBASE_apiKey }} >> .env.local
+          echo NEXT_PUBLIC_FIREBASE_authDomain=${{ secrets.NEXT_PUBLIC_FIREBASE_authDomain }} >> .env.local
+          echo NEXT_PUBLIC_FIREBASE_databaseURL=${{ secrets.NEXT_PUBLIC_FIREBASE_databaseURL }} >> .env.local
+          echo NEXT_PUBLIC_FIREBASE_projectId=${{ secrets.NEXT_PUBLIC_FIREBASE_projectId }} >> .env.local
+          echo NEXT_PUBLIC_FIREBASE_storageBucket=${{ secrets.NEXT_PUBLIC_FIREBASE_storageBucket }} >> .env.local
+          echo NEXT_PUBLIC_FIREBASE_messagingSenderId=${{ secrets.NEXT_PUBLIC_FIREBASE_messagingSenderId }} >> .env.local
+          echo NEXT_PUBLIC_FIREBASE_appId=${{ secrets.NEXT_PUBLIC_FIREBASE_appId }} >> .env.local
+          echo NEXT_PUBLIC_FIREBASE_measurementId=${{ secrets.NEXT_PUBLIC_FIREBASE_measurementId }} >> .env.local
+          echo NEXT_PUBLIC_INSTAGRAM_KEY=${{ secrets.NEXT_PUBLIC_INSTAGRAM_KEY }} >> .env.local
+          npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
