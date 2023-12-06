@@ -45,11 +45,12 @@ export const Flickr = function (props) {
   }, []);
 
   const createItems = function () {
+    console.log(fotos)
     fotos.map((foto, index) =>
       slides.push(
         <Box
           w="100%"
-          h={{base:"600px", xl:"760px"}}
+          h={{base:"600px", xl:"700px"}}
           m="auto"
           key={index}
           backgroundImage={foto}
@@ -79,9 +80,9 @@ export const Flickr = function (props) {
           <AliceCarousel
             mouseTracking
             items={slides}
-            autoHeight={true}
-            autoWidth={true}
-            autoPlay={true}
+            autoHeight={false}
+            autoWidth={false}
+            autoPlay={false}
             autoPlayInterval="2000"
             disableDotsControls
             disableButtonsControls

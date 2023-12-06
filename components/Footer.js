@@ -16,9 +16,6 @@ export const Footer = function (props) {
             <Box w={{base:"48%", md:"30%", xl:"48%"}} mr="2%">
               <Image src="/images/logos/logo_blanc.png" alt="Matossers" />
             </Box>
-            <Box w={{base:"30%", md:"20%", xl:"30%"}} ml="2%">
-              <Image src="/images/logos/20_blanc_vect.svg" alt="Matossers" />
-            </Box>
           </Flex>
         </Box>
         <Box
@@ -109,15 +106,7 @@ export const Footer = function (props) {
                   alt="Ajuntament de Molins de Rei"
                 />
               </Box>
-
-              <Box w="20%" ml="3%" mb="20px">
-                <Image
-                  w="50px"
-                  src="/images/patrocinadors/logo_agbar_white.svg"
-                  alt="Aigües de Barcelona"
-                />
-              </Box>
-            </Flex>
+           </Flex>
           </Box>
         </Box>
       </Flex>
