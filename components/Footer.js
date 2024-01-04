@@ -94,7 +94,7 @@ export const Footer = function (props) {
               </Box>
               <Box w="16%" mx="3%" mb="20px">
                 <Image
-                  src="/images/patrocinadors/estrella.jpg"
+                  src="/images/patrocinadors/estrella_web.jpg"
                   alt="Ajuntament de Molins de Rei"
                 />
               </Box>
