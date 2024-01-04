@@ -12,14 +12,10 @@ export const Footer = function (props) {
     <Box w="100%" maxW="2500px" m="auto" bg="argila" color="#fff" py="50px">
       <Flex w="90%" m="auto" display={{base:"block", lg:"flex"}}>
         <Box w={{base:"100%", lg:"30%"}} mr={{base:"0", xl:"2%"}}>
-          <Flex w="100%" alignItems="center">
-            <Box w={{base:"48%", md:"30%", xl:"48%"}} mr="2%">
-              <Image src="/images/logos/logo_blanc.png" alt="Matossers" />
-            </Box>
-          </Flex>
+              <Image maxW="250px" src="/images/logos/logo_blanc.png" alt="Matossers" />
         </Box>
         <Box
-          w={{base:"100%", lg:"30%"}}
+          w={{base:"100%", lg:"40%"}}
           mx={{base:"0", xl:"3%"}}
           mt={{base:"30px", xl:"0"}}
         >
@@ -43,9 +39,7 @@ export const Footer = function (props) {
               </Text>
             </Flex>
           </Box>
-          <Box w="90%">
-            <hr />
-          </Box>
+          <Box w="90%" borderBottom="1px solid white" />
           <Box mt="15px">
             <Button
               mr="5px"
@@ -86,9 +80,7 @@ export const Footer = function (props) {
               <XXSS fb tw yt ig />
             </Box>
           </Box>
-          <Box w="90%">
-            <hr />
-          </Box>
+          <Box w="90%" borderBottom="1px solid white" />
           <Box mt="15px">
             <Text fontSize="lg" fontWeight={600}>
               Col·laboren
@@ -110,7 +102,8 @@ export const Footer = function (props) {
           </Box>
         </Box>
       </Flex>
-      <Box mt="20px" textAlign="center" fontSize="sm">
+      <Box my="20px" w="40%" borderBottom="1px solid white"  mx="auto"/>
+      <Box textAlign="center" fontSize="sm">
         Copyright © 2022 Matossers de Molins de Rei. Tots els drets reservats. |{" "}
         <Link href="/politica-privacitat">
           <a style={{ textDecoration: "underline" }}>Política de privacitat</a>
