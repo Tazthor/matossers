@@ -17,6 +17,7 @@ export const Title = function (props) {
           (props.header == "2" && "xxl") ||
           (props.header == "3" && "lg"),
       }}
+      textAlign={props.textAlign ? props.textAlign : "left"}
     >
       {props.text}
     </Text>

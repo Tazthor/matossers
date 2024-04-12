@@ -35,7 +35,7 @@ export const InfoMusics = function ({data}) {
           ml={{ base: "0", xl: "2%" }}
           my="30px"
         >
-          <Image src={data.imageUrl} alt="Grallers i tabaleres" />
+          <Image src={data.image} alt="Grallers i tabaleres" />
         </Box>
       </Flex>
     </Box>

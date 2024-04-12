@@ -27,7 +27,7 @@ export const Juntes = function ({ junta }) {
           if (person.equip == "cap" || person.equip == "president")
             return (
               <Box key={index}>
-                <Image w="100%" src={person.imageUrl} alt={person.nom} />
+                <Image w="100%" src={person.image} alt={person.nom} />
                 <Text fontSize="xl" fontWeight={600} color="argila">
                   {person.carrec}
                 </Text>
@@ -48,7 +48,7 @@ export const Juntes = function ({ junta }) {
           if (person.equip == "administrativa")
             return (
               <Box key={index}>
-                <Image w="100%" src={person.imageUrl} alt={person.nom} />
+                <Image w="100%" src={person.image} alt={person.nom} />
                 <Text fontSize="xl" fontWeight={600} color="argila">
                   {person.carrec}
                 </Text>
@@ -69,7 +69,7 @@ export const Juntes = function ({ junta }) {
           if (person.equip == "tecnica")
             return (
               <Box key={index}>
-                <Image w="100%" src={person.imageUrl} alt={person.nom} />
+                <Image w="100%" src={person.image} alt={person.nom} />
                 <Text fontSize="xl" fontWeight={600} color="argila">
                   {person.carrec}
                 </Text>
