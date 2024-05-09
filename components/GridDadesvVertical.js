@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
-import { Flex, Box, Text, Image, Grid } from "@chakra-ui/react";
+import { Flex, Box, Text, Image, Grid, GridItem } from "@chakra-ui/react";
 import Title from "./Title";
 
-export const GridDades = function ({
+export const GridDadesVertical = function ({
   dades,
   titol,
   subtitol,
@@ -28,8 +28,10 @@ export const GridDades = function ({
       mx="auto"
       bg={invert ? "argila" : "blanc"}
       color={invert ? "blanc" : "negre"}
+      textAlign="center"
     >
       <Title
+      textAlign="center"
         header="2"
         text={titol}
         color={invert ? "groc.brillant" : "argila"}
@@ -61,14 +63,16 @@ export const GridDades = function ({
           >
             {dades.map((dada, index) => {
               return (
-                <Flex w="100%" key={index}>
-                  <Box w="15%" mr="25px">
+                <GridItem w="100%" key={index} textAlign="center">
+                  <Flex flexDir="column" justifyContent="center" mb="10px">
                     <Box
-                      w="50px"
-                      h="50px"
+                      w="70px"
+                      h="70px"
                       borderRadius="100%"
                       bg={invert ? "blanc" : "argila"}
                       position="relative"
+                      mx="auto"
+                      mb="10px"
                     >
                       <Image
                         position="absolute"
@@ -76,18 +80,18 @@ export const GridDades = function ({
                         bottom="0"
                         left="0"
                         right="0"
-                        w="30px"
+                        w="50px"
                         m="auto"
                         src={dada.icon}
                         alt={dada.label}
                       />
                     </Box>
-                  </Box>
-                  <Box w="81%" ml="2%">
+                  <Box>
                     <Text fontWeight={600}>{dada.item}</Text>
                     {dada.data != undefined && <Text>{dada.data}</Text>}
                   </Box>
-                </Flex>
+                  </Flex>
+                </GridItem>
               );
             })}
           </Grid>
@@ -96,4 +100,4 @@ export const GridDades = function ({
     </Box>
   );
 };
-export default GridDades;
+export default GridDadesVertical;

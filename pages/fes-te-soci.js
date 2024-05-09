@@ -4,10 +4,8 @@ import { Container } from "../components/Container";
 import Margin from "../components/Margin";
 import Navbar from "../components/Navbar";
 import HeaderPages from "../components/HeaderPages";
-import Title from "../components/Title";
 import Footer from "../components/Footer";
-import GridDades from "../components/GridDades";
-import InfoSocis from "../components/InfoSocis";
+import InfoSocis from "../components/socis/InfoSocis";
 import { Spinner } from "@chakra-ui/react";
 import {
   initApp,
@@ -15,6 +13,7 @@ import {
   transformDataWithIcon,
 } from "../utils/utils";
 import { Flex, Box } from "@chakra-ui/react";
+import GridDadesVertical from "../components/GridDadesvVertical";
 
 export default function Socis() {
   const context = useContext(userContext);
@@ -29,12 +28,10 @@ export default function Socis() {
     const dades = await getDataCollection(app, "socis");
     const dadesQueFarem = await getDataCollection(app, "socisquefarem");
     const dadesQueOferim = await getDataCollection(app, "socisqueoferim");
-    const dadesQueFarem_def = await transformDataWithIcon(dadesQueFarem);
-    const dadesQueOferim_def = await transformDataWithIcon(dadesQueOferim);
 
     setDataQuota(dades);
-    setDataQueFarem(dadesQueFarem_def);
-    setDataQueOferim(dadesQueOferim_def);
+    setDataQueFarem(dadesQueFarem);
+    setDataQueOferim(dadesQueOferim);
     setIsLoading(false);
     sortData();
   };
@@ -83,11 +80,7 @@ export default function Socis() {
         />
       )) || (
         <>
-          <InfoSocis
-            quotes={dataQuota}
-            quefem={dataQueFarem}
-            queoferim={dataQueOferim}
-          />
+          <InfoSocis quotes={dataQuota} />
           <Flex
             w={{ base: "90%", md: "80%", xl: "75%" }}
             display={{ base: "block", md: "flex" }}
@@ -95,37 +88,36 @@ export default function Socis() {
             <Box
               w={{ base: "100%", md: "49%" }}
               mr={{ base: "0", md: "1%" }}
-              mb={{base:"30px", md:"0"}}
+              mb={{ base: "30px", md: "0" }}
               borderRadius="21px"
               bg="argila"
               p="2% 3%"
             >
-            <GridDades
-              titol="Què farem amb la teva aportació?"
-              dades={dataQueFarem}
-              items={{ sm: "1", md: "2", xl: "2" }}
-              majuscules={false}
-              invert
-            />
+              <GridDadesVertical
+                titol="Què farem amb la teva aportació?"
+                dades={dataQueFarem}
+                items={{ sm: "1", md: "2", xl: "2" }}
+                majuscules={false}
+                invert
+              />
             </Box>
             <Box
               w={{ base: "100%", md: "49%" }}
               ml={{ base: "0", md: "1%" }}
-              mb={{base:"30px", md:"0"}}
+              mb={{ base: "30px", md: "0" }}
               borderRadius="21px"
               bg="argila"
               p="2% 3%"
             >
-            <GridDades
-              titol="Què t'oferim?"
-              subtitol="Per ser soci gaudiràs de descomptes en:"
-              dades={dataQueOferim}
-              items={{ sm: "1", md: "2", xl: "2" }}
-              majuscules={false}
-              invert
-            />
+              <GridDadesVertical
+                titol="Què t'oferim?"
+                subtitol="Per ser soci gaudiràs de descomptes en:"
+                dades={dataQueOferim}
+                items={{ sm: "1", md: "2", xl: "2" }}
+                majuscules={false}
+                invert
+              />
             </Box>
-
           </Flex>
         </>
       )}

@@ -26,13 +26,13 @@ export default function Calendari() {
 
   const getData = async (app) => {
     const dades = await getDataCollection(app, "dada");
-    const dades_def = await transformDataWithIcon(dades);
-    setData(dades_def);
+    //const dades_def = await transformDataWithIcon(dades);
+    setData(dades);
     setIsLoadingData(false);
 
     const juntes = await getDataCollection(app, "juntes");
-    const junta_def = await transformDataWithImages(juntes);
-    setJunta(junta_def);
+    //const junta_def = await transformDataWithImages(juntes);
+    setJunta(juntes);
     setIsLoadingJuntes(false);
   };
 

@@ -24,84 +24,76 @@ export const Navbar = function (props) {
   const optionsMenu = () => {
     return (
       <>
-        {props.page != "quisom" ? (
-          <Box
-            mx={{ base: "0", md: "10px" }}
-            my={{ base: "15px", md: "0" }}
-            className={"menu-item"}
-          >
+        <Box
+          mx={{ base: "0", md: "10px" }}
+          my={{ base: "15px", md: "0" }}
+          className={props.page != "quisom" ? "menu-item" : "menu-item-active"}
+        >
+          {props.page != "quisom" ? (
             <Link href="/quisom">Qui som</Link>
-          </Box>
-        ) : (
-          <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
+          ) : (
             <Text className={"menu-item-active"}>Qui som</Text>
-          </Box>
-        )}
-        {props.page != "calendari" ? (
-          <Box
-            mx={{ base: "0", md: "10px" }}
-            my={{ base: "15px", md: "0" }}
-            className={"menu-item"}
-          >
+          )}
+        </Box>
+        <Box
+          mx={{ base: "0", md: "10px" }}
+          my={{ base: "15px", md: "0" }}
+          className={
+            props.page != "calendari" ? "menu-item" : "menu-item-active"
+          }
+        >
+          {props.page != "calendari" ? (
             <Link href="/calendari">Calendari</Link>
-          </Box>
-        ) : (
-          <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
+          ) : (
             <Text className={"menu-item-active"}>Calendari</Text>
-          </Box>
-        )}
-        {props.page != "assajos" ? (
-          <Box
-            mx={{ base: "0", md: "10px" }}
-            my={{ base: "15px", md: "0" }}
-            className={"menu-item"}
-          >
+          )}
+        </Box>
+        <Box
+          mx={{ base: "0", md: "10px" }}
+          my={{ base: "15px", md: "0" }}
+          className={props.page != "assajos" ? "menu-item" : "menu-item-active"}
+        >
+          {props.page != "assajos" ? (
             <Link href="/assajos">Assajos</Link>
-          </Box>
-        ) : (
-          <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
+          ) : (
             <Text className={"menu-item-active"}>Assajos</Text>
-          </Box>
-        )}
-        {props.page != "musics" ? (
-          <Box
-            mx={{ base: "0", md: "10px" }}
-            my={{ base: "15px", md: "0" }}
-            className={"menu-item"}
-          >
+          )}
+        </Box>
+        <Box
+          mx={{ base: "0", md: "10px" }}
+          my={{ base: "15px", md: "0" }}
+          className={props.page != "musics" ? "menu-item" : "menu-item-active"}
+        >
+          {props.page != "musics" ? (
             <Link href="/musics">Músics</Link>
-          </Box>
-        ) : (
-          <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
+          ) : (
             <Text className={"menu-item-active"}>Músics</Text>
-          </Box>
-        )}
-        {props.page != "socis" ? (
-          <Box
-            mx={{ base: "0", md: "10px" }}
-            my={{ base: "15px", md: "0" }}
-            className={"menu-item"}
-          >
+          )}
+        </Box>
+        <Box
+          mx={{ base: "0", md: "10px" }}
+          my={{ base: "15px", md: "0" }}
+          className={props.page != "socis" ? "menu-item" : "menu-item-active"}
+        >
+          {props.page != "socis" ? (
             <Link href="/fes-te-soci">Fes-te'n soci</Link>
-          </Box>
-        ) : (
-          <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
+          ) : (
             <Text className={"menu-item-active"}>Fes-te'n soci</Text>
-          </Box>
-        )}
-        {props.page != "contacte" ? (
-          <Box
-            mx={{ base: "0", md: "15px" }}
-            my={{ base: "15px", md: "0" }}
-            className={"menu-item"}
-          >
+          )}
+        </Box>
+        <Box
+          mx={{ base: "0", md: "15px" }}
+          my={{ base: "15px", md: "0" }}
+          className={
+            props.page != "contacte" ? "menu-item" : "menu-item-active"
+          }
+        >
+          {props.page != "contacte" ? (
             <Link href="/#contacte">Contacte</Link>
-          </Box>
-        ) : (
-          <Box mx={{ base: "0", md: "10px" }} my={{ base: "15px", md: "0" }}>
+          ) : (
             <Text className={"menu-item-active"}>Contacte</Text>
-          </Box>
-        )}
+          )}
+        </Box>
         {(props.role == "casteller" ||
           props.role == "admin" ||
           props.role == "junta") && (
@@ -149,7 +141,7 @@ export const Navbar = function (props) {
         >
           <Box>
             <Flex justifyContent="flex-end" mb="10px" alignItems="center">
-              {props.role != "default" ? (
+   {/*            {props.role != "default" ? (
                 <Flex>
                   <Flex
                     color="argila"
@@ -202,7 +194,7 @@ export const Navbar = function (props) {
                 >
                   <FaRegUserCircle size="25px" />
                 </Box>
-              )}
+              )} */}
               <Box>
                 <XXSS fb tw yt ig />
               </Box>

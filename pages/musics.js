@@ -21,8 +21,7 @@ export default function Musics() {
 
   const getData = async (app) => {
     const dades = await getDataCollection(app, "musics");
-    const dades_def = await transformDataWithImages(dades);
-    setData(dades_def[0]);
+    setData(dades[0]);
     setIsLoading(false);
   };
 
@@ -32,6 +31,7 @@ export default function Musics() {
     }
     getData(app);
   }, []);
+  
   
   return (
     <Container>
