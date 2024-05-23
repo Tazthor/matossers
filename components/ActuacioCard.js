@@ -62,7 +62,8 @@ export const ActuacioCard = function ({ act, type }) {
       {type == "futures" && (
         <Box>
           <Text fontWeight={600}>Colles:</Text>
-          {act.colles.map((colla, i) => (
+          {(act.colles != "" && act.colles!=undefined)
+          && act.colles.map((colla, i) => (
             <Box key={i} ml="15px">
               {colla}
             </Box>
