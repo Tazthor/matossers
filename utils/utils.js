@@ -16,7 +16,6 @@ const firebaseConfig = {
 
 export function initApp() {
   const app = initializeApp(firebaseConfig);
-  console.log(firebaseConfig.storageBucket)
   return app;
 }
 

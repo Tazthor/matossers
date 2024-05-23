@@ -32,7 +32,6 @@ export default function Calendari() {
 
     const juntes = await getDataCollection(app, "juntes");
     //const junta_def = await transformDataWithImages(juntes);
-    console.log(juntes)
     setJunta(juntes);
     setIsLoadingJuntes(false);
   };
