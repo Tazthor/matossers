@@ -332,7 +332,7 @@ export const FormContacte = function (props) {
                 <FiCheck color="green" size="80px" />
               </Flex>
               <Text my="20px" fontWeight={600} fontSize="xl" lineHeight="30px">
-                El teu email ha estat donat enviat correctament
+                El teu correu electrònic ha estat enviat correctament
               </Text>
               <Text lineHeight="20px" fontSize={"medium"}>
                 Ens posarem en contacte amb tu el més aviat possible
