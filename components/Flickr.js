@@ -45,7 +45,6 @@ export const Flickr = function (props) {
   }, []);
 
   const createItems = function () {
-    console.log(fotos)
     fotos.map((foto, index) =>
       slides.push(
         <Box

@@ -1,5 +1,5 @@
 import { TwitterTimelineEmbed } from "react-twitter-embed";
-import { Box, Text, Flex } from "@chakra-ui/react";
+import { Box, Text, Flex, Spacer } from "@chakra-ui/react";
 import Title from "./Title";
 import InstagramPanel from "./InstagramPanel";
 
@@ -7,7 +7,7 @@ export const BlocXarxes = function ({insfeeds}) {
   return (
     <>
       <Box mb="45px">
-        <Title header="1" text="Els nostres tuits"></Title>
+        <Title header="1" text="Xarxes socials"></Title>
       </Box>
       <Flex
         w={{base:"90%", md:"80%", xl:"75%"}}
@@ -15,10 +15,10 @@ export const BlocXarxes = function ({insfeeds}) {
         m="auto"
         position="relative"
         display={{base:"block", xl:"flex"}}
+        mb="40px"
       >
         <Box
-          w={{base:"100%", xl:"50%"}}
-          mx="auto"
+          w={{base:"100%", xl:"40%"}}
           mb={{base:"20px", xl:"50px"}}
           boxShadow="0px 0px 6px rgba(0, 0, 0, 0.3)"
         >
@@ -31,14 +31,15 @@ export const BlocXarxes = function ({insfeeds}) {
             }
           />
         </Box>
-{/*          <Box
-          w={{base:"100%", xl:"30%"}}
-          mr={{base:"0", xl:"2%"}}
+        <Spacer/>
+        <Box
+          w={{base:"100%", xl:"40%"}}
           mb={{base:"20px", xl:"0"}}
+          boxShadow="0px 0px 6px rgba(0, 0, 0, 0.3)"
         >
           <InstagramPanel insfeeds={insfeeds}/>
         </Box>
- */}       </Flex>
+       </Flex>
     </>
   );
 };
