@@ -44,7 +44,7 @@ export const InstagramPanel = function ({ insfeeds }) {
           </Button>
         </Link>
       </Flex>
-      <Grid w="100%" templateColumns={{base:"repeat(1, 1fr)", md:"repeat(2, 1fr)"}}>
+      <Grid w="100%" templateColumns={{base:"repeat(1, 1fr)", md:"repeat(2, 1fr)"}} >
         {insfeeds.data.map((feed, i) => {
           if (i <= 3) {
             return (
