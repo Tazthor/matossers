@@ -27,7 +27,7 @@ export const BlocXarxes = function ({insfeeds}) {
             screenName="Matossers"
             tweetLimit={5}
             options={
-              {height: {base:"50px", md:"500px"}}
+              {height: "500px"}
             }
           />
         </Box>
