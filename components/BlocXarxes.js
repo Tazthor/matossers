@@ -37,7 +37,7 @@ export const BlocXarxes = function ({insfeeds}) {
           mb={{base:"20px", xl:"0"}}
           boxShadow="0px 0px 6px rgba(0, 0, 0, 0.3)"
         >
-          <InstagramPanel insfeeds={insfeeds}/>
+          <InstagramPanel/>
         </Box>
        </Flex>
     </>
