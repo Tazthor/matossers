@@ -18,6 +18,7 @@ const theme = extendTheme({
   colors: {
     blanc: '#fff',
     negre: '#000',
+    marro: {500: '#663b30'},
     argila: '#663b30',
     groc: {
         brillant: "#f8e93b",
