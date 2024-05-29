@@ -7,16 +7,29 @@ import {
   ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
+import axios from "axios";
 
-export const InstagramPanel = function ({ insfeeds }) {
+export const InstagramPanel = function ({}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [currentFeed, setCurrentFeed] = useState({});
-  console.log(insfeeds);
+  const [insfeeds, setInsFeeds] = useState({})
+  const [isLoad, setIsLoad] =  useState(false)
+
+  useEffect(() => {
+    const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalink,username&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_KEY}`;
+
+    axios.get(url).then((data) => {
+      setInsFeeds(data.data)
+      setIsLoad(true)
+    })      
+  }, []);
 
   return (
     <Box>
+      {isLoad &&
+      <>
       <Flex p="10px" alignItems="center" flexDir={{base:"column", md:"row"}}>
         <Flex alignItems="center" mt={{base:"10px", md:"0"}}>
         <Image
@@ -45,7 +58,7 @@ export const InstagramPanel = function ({ insfeeds }) {
         </Link>
       </Flex>
       <Grid w="100%" templateColumns={{base:"repeat(1, 1fr)", md:"repeat(2, 1fr)"}} >
-        {insfeeds.data.map((feed, i) => {
+         {insfeeds.data.map((feed, i) => {
           if (i <= 3) {
             return (
               <Box
@@ -106,6 +119,8 @@ export const InstagramPanel = function ({ insfeeds }) {
           </ModalContent>
         </Modal>
       </Grid>
+      </>
+}
     </Box>
   );
 };

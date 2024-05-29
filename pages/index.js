@@ -15,7 +15,7 @@ import GridCalendari from "../components/GridCalendari";
 import { initApp, getDataCollection } from "../utils/utils";
 
 
-const Home = function ({insfeeds}) {
+const Home = function ({}) {
   const context = useContext(userContext);
   const [app, setApp] = useState();
   const [dataAct, setDataAct] = useState([]);
@@ -31,9 +31,9 @@ const Home = function ({insfeeds}) {
   };
 
 
-  useEffect(() => {
+  useEffect( async () => {
     if (app== undefined){ setApp(initApp());}
-    getData(app);
+    getData(app); 
   }, []);
   
 
@@ -65,18 +65,18 @@ const Home = function ({insfeeds}) {
         titleVisible={true}
       />
       <Margin desktop="40px" tablet="50px" mobile="20px" />
-      <BlocXarxes insfeeds={insfeeds}/>
+       <BlocXarxes/>
       <Footer />
     </Container>
   );
 }
 export default Home;
 
- export const getStaticProps = async () => {
+/*  export const getStaticProps = async () => {
   const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalinkusername&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_KEY}`;
 
   const data = await fetch(url);
   const feed = await data.json();
 
   return { props: {insfeeds: feed} };
-}
+} */
