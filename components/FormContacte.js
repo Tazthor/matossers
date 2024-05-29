@@ -116,6 +116,7 @@ export const FormContacte = function (props) {
         message: "Hi ha camps obligatoris buits al formulari",
       };
   };
+
   const submit = async function () {
     var validate = await validateForm();
     var emailParams = {
@@ -280,11 +281,10 @@ export const FormContacte = function (props) {
             value={msg}
           />
           <Checkbox
-            colorScheme="red"
+            colorScheme={props.negatiu ? "yellow" : "marro"}
             isChecked={gdpr}
             onChange={() => setGdpr(!gdpr)}
             m="25px 0 10px 0"
-            borderColor={props.negatiu ? "blanc" : "argila"}
             color={props.negatiu ? "blanc" : "negre"}
             value={gdpr}
           >
