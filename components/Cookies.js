@@ -13,8 +13,8 @@ export const Cookies = function (props) {
       expires={150}
     >
       <Box w={{base:"90%",md:"80%",xl:"70%"}}>
-      Aquesta web utilitza galetes de tercers perquè tingui una millor experiència d'usuari.
-      Si continua navegant està donant el seu consentiment d'acceptació de les mencionades galetes i l'acceptació de la nostra <Link href="/politica-cookies" color="groc.mat">política de cookies</Link>.
+      Aquesta web utilitza galetes de tercers perquè tingui una millor experiència d&apos;usuari.
+      Si continua navegant està donant el seu consentiment d&apos;acceptació de les mencionades galetes i l&apos;acceptació de la nostra <Link href="/politica-cookies" color="groc.mat">política de cookies</Link>.
       </Box>
     </CookieConsent>
   );

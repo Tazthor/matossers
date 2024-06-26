@@ -32,7 +32,7 @@ export const BlocText = function (props) {
             <Text color="blanc" mb="20px">
               El color de la nostra camisa és marró argila, com el pont de
               Carles III que fins els anys 70 unia les dues ribes del riu
-              Llobregat a l&apos;alçada de Molins de Rei. El nom "Matossers" és una
+              Llobregat a l&apos;alçada de Molins de Rei. El nom &apos;Matossers&apos; és una
               barreja dels mots: matusser com a sinònim de sapastre o maldestre;
               i matoser, habitant de la vila de Matoses, nom primigeni de Molins
               de Rei.

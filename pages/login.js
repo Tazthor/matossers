@@ -54,7 +54,7 @@ export const Login = function () {
     setError({ isError: false, msgError: "" });
   };
 
-  const Login = async function ({redirect}) {
+  const Login = async function ({ redirect }) {
     const response = await loginEmailPassword(email, pass);
     if (response.error) {
       if (
@@ -67,7 +67,9 @@ export const Login = function () {
       } else openError(response.error.message);
     } else {
       context.setRole(response);
-      if (redirect) {router.push("/");}
+      if (redirect) {
+        router.push("/");
+      }
     }
   };
 
@@ -89,15 +91,14 @@ export const Login = function () {
     const response = await createAccount(email, pass);
     if (response == true) {
       onOpen();
-      Login({redirect: false})
+      Login({ redirect: false });
     } else {
       if (response.error.code == AuthErrorCodes.EMAIL_EXISTS) {
         openError("Aquest usuari ja existeix");
-      } 
-      if (response.error.code == AuthErrorCodes.WEAK_PASSWORD) {
-        openError("La contrasenya ha de tenir almneys 6 caràcters")
       }
-      else openError("Hi ha hagut un error");
+      if (response.error.code == AuthErrorCodes.WEAK_PASSWORD) {
+        openError("La contrasenya ha de tenir almneys 6 caràcters");
+      } else openError("Hi ha hagut un error");
     }
   };
 
@@ -123,10 +124,9 @@ export const Login = function () {
               <form action="javascript:void(0);">
                 <FormControl isRequired my="10px">
                   <InputGroup borderColor="argila">
-                    <InputLeftElement
-                      pointerEvents="none"
-                      children={<HiOutlineMail color="gray.300" />}
-                    />
+                    <InputLeftElement pointerEvents="none">
+                      <HiOutlineMail color="gray.300" />
+                    </InputLeftElement>
                     <Input
                       type="email"
                       placeholder="Correu electrònic"
@@ -138,10 +138,9 @@ export const Login = function () {
                 </FormControl>
                 <FormControl isRequired my="10px">
                   <InputGroup borderColor="argila">
-                    <InputLeftElement
-                      pointerEvents="none"
-                      children={<TbPassword color="gray.300" />}
-                    />
+                    <InputLeftElement pointerEvents="none">
+                      <TbPassword color="gray.300" />
+                    </InputLeftElement>
                     <Input
                       placeholder="Contrassenya"
                       type="password"
@@ -157,42 +156,50 @@ export const Login = function () {
                   </Text>
                 )}
                 <Flex justifyContent="center">
-                <Button
-                  type="submit"
-                  my="15px"
-                  px="10px"
-                  borderRadius="8px"
-                  borderColor="argila"
-                  border="1px solid"
-                  bg="argila"
-                  color="#fff"
-                  fontSize="md"
-                  fontWeight={400}
-                  _hover={{ backgroundColor: "transparent", color: "argila" }}
-                  onClick={() => Login({redirect: true})}
-                >
-                  Inicia sessió
-                </Button>
-                <Button
-                  type="submit"
-                  my="15px"
-                  mx="10px"
-                  px="10px"
-                  borderRadius="8px"
-                  borderColor="argila"
-                  border="1px solid"
-                  bg="argila"
-                  color="#fff"
-                  fontSize="md"
-                  fontWeight={400}
-                  _hover={{ backgroundColor: "transparent", color: "argila" }}
-                  onClick={() => CreateUser()}
-                >
-                  Donar-se d&apos;alta
-                </Button>
+                  <Button
+                    type="submit"
+                    my="15px"
+                    px="10px"
+                    borderRadius="8px"
+                    borderColor="argila"
+                    border="1px solid"
+                    bg="argila"
+                    color="#fff"
+                    fontSize="md"
+                    fontWeight={400}
+                    _hover={{ backgroundColor: "transparent", color: "argila" }}
+                    onClick={() => Login({ redirect: true })}
+                  >
+                    Inicia sessió
+                  </Button>
+                  <Button
+                    type="submit"
+                    my="15px"
+                    mx="10px"
+                    px="10px"
+                    borderRadius="8px"
+                    borderColor="argila"
+                    border="1px solid"
+                    bg="argila"
+                    color="#fff"
+                    fontSize="md"
+                    fontWeight={400}
+                    _hover={{ backgroundColor: "transparent", color: "argila" }}
+                    onClick={() => CreateUser()}
+                  >
+                    Donar-se d&apos;alta
+                  </Button>
                 </Flex>
               </form>
-              <Box textAlign="center" onClick={() => setSignEmailPassword(false)} cursor="pointer"><Text color="argila" textDecoration="underline">Torna al pas anterior</Text></Box>
+              <Box
+                textAlign="center"
+                onClick={() => setSignEmailPassword(false)}
+                cursor="pointer"
+              >
+                <Text color="argila" textDecoration="underline">
+                  Torna al pas anterior
+                </Text>
+              </Box>
             </>
           )) || (
             <Box textAlign="center">
