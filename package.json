@@ -27,7 +27,7 @@
     "react-twitter-embed": "^4.0.4"
   },
   "devDependencies": {
-    "eslint": "9.5.0",
+    "eslint": "7.23.0",
     "eslint-config-next": "14.2.4"
   }
 }
