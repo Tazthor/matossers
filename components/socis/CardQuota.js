@@ -1,7 +1,6 @@
 import { Box, Text, Button } from "@chakra-ui/react";
 
 export const CardQuota = function ({ item }) {
-    console.log(item)
   return (
     <Box
       borderRadius="21px"

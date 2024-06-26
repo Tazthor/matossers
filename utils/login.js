@@ -48,7 +48,6 @@ export async function loginEmailPassword(email, pass) {
 
 export async function loginWithGoogle() {
   const googleProvider = new GoogleAuthProvider();
-  console.log("Hola")
   try {
     const userCredential = await signInWithPopup(auth, googleProvider);
     let role = await getRoles(userCredential.user.email);

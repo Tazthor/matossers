@@ -29,25 +29,16 @@ export default function Socis() {
     const dadesQueFarem = await getDataCollection(app, "socisquefarem");
     const dadesQueOferim = await getDataCollection(app, "socisqueoferim");
 
-    setDataQuota(dades);
-    setDataQueFarem(dadesQueFarem);
-    setDataQueOferim(dadesQueOferim);
+    setDataQuota(dades.sort((a, b) =>
+      a.ordre > b.ordre ? 1 : b.ordre > a.ordre ? -1 : 0
+    ));
+    setDataQueFarem(dadesQueFarem.sort((a, b) =>
+      a.ordre > b.ordre ? 1 : b.ordre > a.ordre ? -1 : 0
+    ));
+    setDataQueOferim(dadesQueOferim.sort((a, b) =>
+      a.ordre > b.ordre ? 1 : b.ordre > a.ordre ? -1 : 0
+    ));
     setIsLoading(false);
-    sortData();
-  };
-
-  const sortData = () => {
-    setIsSorted(false);
-    dataQuota = dataQuota.sort((a, b) =>
-      a.ordre > b.ordre ? 1 : b.ordre > a.ordre ? -1 : 0
-    );
-    dataQueFarem = dataQueFarem.sort((a, b) =>
-      a.ordre > b.ordre ? 1 : b.ordre > a.ordre ? -1 : 0
-    );
-    dataQueOferim = dataQueOferim.sort((a, b) =>
-      a.ordre > b.ordre ? 1 : b.ordre > a.ordre ? -1 : 0
-    );
-    setIsSorted(true);
   };
 
   useEffect(() => {
@@ -57,9 +48,6 @@ export default function Socis() {
     getData(app);
   }, []);
 
-  useEffect(() => {
-    sortData();
-  }, [dataQuota, dataQueFarem, dataQueOferim]);
 
   return (
     <Container>

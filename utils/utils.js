@@ -69,7 +69,7 @@ export async function getImages(image) {
   return(urlImage)
 }
 
-export async function setXatCollection(nom, msg) {
+/* export async function setXatCollection(nom, msg) {
   const app = initApp()
   const db = getFirestore(app);
   var data_= Timestamp.fromDate(new Date())
@@ -85,4 +85,4 @@ export async function setXatCollection(nom, msg) {
   } catch (error) {
     return { error: error };
   }
-}
+} */
