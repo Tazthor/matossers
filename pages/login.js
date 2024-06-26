@@ -188,7 +188,7 @@ export const Login = function () {
                   _hover={{ backgroundColor: "transparent", color: "argila" }}
                   onClick={() => CreateUser()}
                 >
-                  Donar-se d'alta
+                  Donar-se d&apos;alta
                 </Button>
                 </Flex>
               </form>
@@ -244,10 +244,10 @@ export const Login = function () {
                 <FiCheck color="green" size="80px" />
               </Flex>
               <Text my="20px" fontWeight={600} fontSize="xl" lineHeight="30px">
-                El teu usuari ha estat donat d'alta correctament
+                El teu usuari ha estat donat d&apos;alta correctament
               </Text>
               <Text lineHeight="20px" fontSize={"medium"}>
-                L'administrador et donarà els permisos corresponents en poc
+                L&apos;administrador et donarà els permisos corresponents en poc
                 temps
               </Text>
             </Box>

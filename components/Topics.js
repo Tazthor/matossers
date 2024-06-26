@@ -32,7 +32,7 @@ export const Topics = function () {
               Consulta el calendari
             </Text>
             <Text my="20px">
-              Totes les actuacions d'aquesta temporada, informació de les properes diades i també els resultats i fotografies de les diades anteriors. No t'ho perdis!
+              Totes les actuacions d&apos;aquesta temporada, informació de les properes diades i també els resultats i fotografies de les diades anteriors. No t&apos;ho perdis!
             </Text>
             <Text color="argila" fontSize="md">
               + Més informació
@@ -61,7 +61,7 @@ export const Topics = function () {
             </Text>
             <Text my="20px">
               Només has de venir a un assaig, dimecres o divendres a les 20h a
-              la Federació Obrera de Molins de Rei. T'hi esperem!
+              la Federació Obrera de Molins de Rei. T&apos;hi esperem!
             </Text>
             <Text color="argila" fontSize="md">
               + Més informació

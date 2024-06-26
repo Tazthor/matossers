@@ -76,9 +76,9 @@ export const Navbar = function (props) {
           className={props.page != "socis" ? "menu-item" : "menu-item-active"}
         >
           {props.page != "socis" ? (
-            <Link href="/fes-te-soci">Fes-te'n soci</Link>
+            <Link href="/fes-te-soci">Fes-te&apos;n soci</Link>
           ) : (
-            <Text className={"menu-item-active"}>Fes-te'n soci</Text>
+            <Text className={"menu-item-active"}>Fes-te&apos;n soci</Text>
           )}
         </Box>
         <Box

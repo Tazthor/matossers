@@ -51,7 +51,7 @@ export const Footer = function (props) {
               _focus={{ boxShadow: "none" }}
               onClick={() => router.push("/#contacte")}
             >
-              Contacta'ns
+              Contacta&apos;ns
             </Button>
             <Button
               ml="5px"
@@ -63,7 +63,7 @@ export const Footer = function (props) {
               _focus={{ boxShadow: "none" }}
               onClick={() => router.push("/fes-te-soci")}
             >
-              Fes-te'n soci
+              Fes-te&apos;n soci
             </Button>
           </Box>
         </Box>

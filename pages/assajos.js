@@ -59,17 +59,17 @@ export default function Calendari() {
               Els Matossers assagem a Molins de Rei, a la Federació Obrera, un
               edifici històric i modernista que data de principis del segle XX,
               aquest edifici va ser construït pels propis veïns de la vila i
-              s'utilitzava com a centre d'esbarjo, sindicat, cooperativa... pels
-              membres de l'associació obrera.
+              s&apos;utilitzava com a centre d&apos;esbarjo, sindicat, cooperativa... pels
+              membres de l&apos;associació obrera.
               <br />
               <br />
-              Durant la dictadura franquista, l'edifici fou confiscat pel règim
+              Durant la dictadura franquista, l&apos;edifici fou confiscat pel règim
               i no fou retornat a la vila fins als anys 80, en molt mal estat de
               conservació.
               <br />
               <br />
-              Actualment, l'edifici ha remodelat tot el seu interior i s'ha
-              convertit en un centre cultural, on s'hi generen vàries
+              Actualment, l&apos;edifici ha remodelat tot el seu interior i s&apos;ha
+              convertit en un centre cultural, on s&apos;hi generen vàries
               activitats, com per exemple la nostra, els castells.
               <br />
               <br />
@@ -77,8 +77,8 @@ export default function Calendari() {
                 La Federació Obrera es troba al Carrer Jacint Verdaguer num. 48.
               </strong>{" "}
               Assagem dos cops per setmana un cop començada la temporada a la
-              primera planta de l'edifici a la Sala d'activitats físiques /
-              Castellòdrom, també disposem d'una sala annexa on hi tenim
+              primera planta de l&apos;edifici a la Sala d&apos;activitats físiques /
+              Castellòdrom, també disposem d&apos;una sala annexa on hi tenim
               guixetes, vestidor i un racó per la canalla.
             </Text>
           </Box>
