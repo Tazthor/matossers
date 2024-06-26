@@ -1,6 +1,6 @@
 import { Box, Text, Button, Flex } from "@chakra-ui/react";
 import { MdPhotoCamera } from "react-icons/md";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import userContext from "../context/userContext";
 
 export const ActuacioCard = function ({ act, type }) {

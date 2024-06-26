@@ -6,14 +6,13 @@ import Margin from "../components/Margin";
 import Navbar from "../components/Navbar";
 import HeaderHome from "../components/HeaderHome";
 import Footer from "../components/Footer";
-import Topics from '../components/Topics';
-import BlocText from '../components/BlocText';
-import BannerContacte from '../components/BannerContacte';
-import BlocXarxes from '../components/BlocXarxes';
-import Flickr from '../components/Flickr';
+import Topics from "../components/Topics";
+import BlocText from "../components/BlocText";
+import BannerContacte from "../components/BannerContacte";
+import BlocXarxes from "../components/BlocXarxes";
+import Flickr from "../components/Flickr";
 import GridCalendari from "../components/GridCalendari";
 import { initApp, getDataCollection } from "../utils/utils";
-
 
 const Home = function ({}) {
   const context = useContext(userContext);
@@ -22,7 +21,7 @@ const Home = function ({}) {
   const [isLoading, setIsLoading] = useState(true);
 
   const getData = async (app) => {
-    const object = await getDataCollection(app, "actuacions");
+    let object = await getDataCollection(app, "actuacions");
     object = object.sort((a, b) =>
       a.data > b.data ? 1 : b.data > a.data ? -1 : 0
     );
@@ -30,16 +29,16 @@ const Home = function ({}) {
     setIsLoading(false);
   };
 
-
-  useEffect( async () => {
-    if (app== undefined){ setApp(initApp());}
-    getData(app); 
+  useEffect(() => {
+    if (app == undefined) {
+      setApp(initApp());
+    }
+    getData(app);
   }, []);
-  
 
   return (
     <Container>
-      <Navbar role={context.role} setRole={context.setRole}/>
+      <Navbar role={context.role} setRole={context.setRole} />
       <Margin desktop="130px" />
       <HeaderHome
         img="/images/home/header.jpg"
@@ -50,26 +49,37 @@ const Home = function ({}) {
       <Topics />
       <Margin desktop="40px" tablet="50px" mobile="20px" />
       <BlocText />
-      <Flex w="100%" maxW="2000px" m="auto" display={{base:"block", xl:"flex"}} justifyContent="center">
-        <Box w={{base:"100%", xl:"64%"}} mb={{base:"40px", xl:"0"}}>
-          <Flickr/>
+      <Flex
+        w="100%"
+        maxW="2000px"
+        m="auto"
+        display={{ base: "block", xl: "flex" }}
+        justifyContent="center"
+      >
+        <Box w={{ base: "100%", xl: "64%" }} mb={{ base: "40px", xl: "0" }}>
+          <Flickr />
         </Box>
-        <Box w={{base:"100%", xl:"100%"}} mb={{base:"40px", xl:"0"}} pt="50px" mx="auto">
-          <GridCalendari actuacions={dataAct} properaOnly />
+        <Box
+          w={{ base: "100%", xl: "100%" }}
+          mb={{ base: "40px", xl: "0" }}
+          pt="50px"
+          mx="auto"
+        >
+          <GridCalendari actuacions={dataAct} properaOnly /> 
         </Box>
       </Flex>
-      <Box id="contacte" className="anchor"/>
+      <Box id="contacte" className="anchor" />
       <BannerContacte
         img="/images/home/contacte.jpg"
         imgMbl=""
         titleVisible={true}
       />
       <Margin desktop="40px" tablet="50px" mobile="20px" />
-       <BlocXarxes/>
+      <BlocXarxes /> 
       <Footer />
     </Container>
   );
-}
+};
 export default Home;
 
 /*  export const getStaticProps = async () => {

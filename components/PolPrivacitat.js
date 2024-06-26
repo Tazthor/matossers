@@ -9,8 +9,8 @@ export const PolPrivacitat = function (props) {
       <Title header="1" text="Política de privacitat" />
       <Text mb="20px">
         El domini web{" "}
-        <Link href="http://www.matossers.cat">
-          <a className="link">www.matossers.cat</a>
+        <Link href="http://www.matossers.cat" className="link">
+          www.matossers.cat
         </Link>{" "}
         és propietat de La Colla Castellera Matossers de Molins de Rei i com a
         responsable del tractament garanteix un nivell adequat i coherent de
@@ -40,13 +40,13 @@ export const PolPrivacitat = function (props) {
         Federació Obrera, 08759 Molins de Rei
         <br />
         <strong>Telèfon:</strong>{" "}
-        <Link href="tel:669840867">
-          <a className="link">669 84 08 67</a>
+        <Link href="tel:669840867" className="link">
+          669 84 08 67
         </Link>
         <br />
         <strong>Correu electrònic:</strong>{" "}
-        <Link href="mailto:matossers@matossers.cat">
-          <a className="link">matossers@matossers.cat</a>
+        <Link href="mailto:matossers@matossers.cat" className="link">
+          matossers@matossers.cat
         </Link>
       </Text>
       <Text fontWeight={600} mb="10px">
@@ -98,8 +98,8 @@ export const PolPrivacitat = function (props) {
       </Text>
       <Text mb="20px">
         Com a usuari del web{" "}
-        <Link href="http://www.matossers.cat">
-          <a className="link">www.matossers.cat</a>
+        <Link href="http://www.matossers.cat" className="link">
+         www.matossers.cat
         </Link>
         , la persona interessada té dret a accedir, rectificar o sol·licitar la
         supressió de les seves dades, quan consideri que ja no són necessàries
@@ -108,15 +108,15 @@ export const PolPrivacitat = function (props) {
         les estrictament necessàries per portar a terme l’exercici de possibles
         reclamacions. Per poder exercir aquests drets s’ha de posar en contacte
         amb La Colla Castellera Matossers de Molins de Rei dirigint-se a{" "}
-        <Link href="mailto:matossers@matossers.cat">
-          <a className="link">matossers@matossers.cat</a>
+        <Link href="mailto:matossers@matossers.cat" className="link">
+          matossers@matossers.cat
         </Link>
       </Text>
       <Text mb="20px">
         Així mateix, en cas de no estar satisfet amb l’atenció de la seva
         sol·licitud de drets, té dret a presentar una reclamació davant {" "}
-        <Link href="http://www.aepd.es">
-          <a className="link">www.aepd.es</a></Link>
+        <Link href="http://www.aepd.es" className="link">
+          www.aepd.es</Link>
       </Text>
     </Box>
   );

@@ -8,17 +8,17 @@ export const Container = (props) => {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-        <meta property="og:type" content={props.ogtype}/>
+        <meta property="og:type" content="website"/>
         <meta property="og:url" content={props.ogurl}/>
-        <meta property="og:title" content={props.ogtitle}/>
-        <meta property="og:image" content={props.ogimage}/>
-        <meta name="twitter:image" content={props.ogimage}/>
-        <meta name="twitter:title" content={props.ogtitle}/>
-        <meta property="og:description" content={props.ogdescription}/>
-        <meta property="og:site_name" content={props.ogsitename}/>
+        <meta property="og:title" content="Colla castellera Matossers de Molins de Rei"/>
+        <meta property="og:image" content={"https://matossers.cat/images/home/header.jpg"}/>
+        <meta name="twitter:image" content="https://matossers.cat/images/home/header.jpg"/>
+        <meta name="twitter:title" content="Colla castellera Matossers de Molins de Rei"/>
+        <meta property="og:description" content="Colla castellera Matossers de Molins de Rei"/>
+        <meta property="og:site_name" content="Colla castellera Matossers de Molins de Rei"/>
         <link rel="icon" type="image/png" href="/images/favicon.png" sizes="32x32"></link>
         <link rel="icon" type="image/png" href="/images/favicon.png" sizes="16x16"></link>
-        <title>{props.webtitle}</title>
+        <title>Matossers de Molins de Rei</title>
       </Head>
       <Flex
         direction="column"
@@ -34,15 +34,4 @@ export const Container = (props) => {
       />
     </>
   )
-}
-
-Container.defaultProps = {
-  webtitle: process.env.projectName,
-  ogtype: "website",
-  ogurl: process.env.ogurl,
-  ogtitle: process.env.ogtitle,
-  ogimage: process.env.ogimage,
-  ogdescription: process.env.ogdescription,
-  ogsitename: process.env.ogsitename,
-
 }

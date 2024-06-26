@@ -36,7 +36,7 @@ const db = getFirestore(app);
 export async function loginEmailPassword(email, pass) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, pass);
-    const role = await getRoles(userCredential.user.email);
+    let role = await getRoles(userCredential.user.email);
     if (role == "") {
       role = "public";
     }
@@ -51,7 +51,7 @@ export async function loginWithGoogle() {
   console.log("Hola")
   try {
     const userCredential = await signInWithPopup(auth, googleProvider);
-    const role = await getRoles(userCredential.user.email);
+    let role = await getRoles(userCredential.user.email);
     if (role == "") {
       role = "public";
       await setUsersCollection(userCredential.user);
@@ -96,7 +96,7 @@ export async function logoOut() {
 
 async function getRoles(email) {
   const userRef = collection(db, "usuaris");
-  const data = "";
+  let data = "";
 
   const q = query(userRef, where("email", "==", email));
   const querySnapshot = await getDocs(q);

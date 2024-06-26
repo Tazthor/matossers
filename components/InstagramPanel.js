@@ -39,7 +39,8 @@ export const InstagramPanel = function ({}) {
           mr="6px"
         />
         <Text fontSize="medium" fontWeight={900}>
-          Darreres publicacions
+          Darreres publicacions<br/>
+          @matossers
         </Text>
         </Flex>
         <Spacer />
