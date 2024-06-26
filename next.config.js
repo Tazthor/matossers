@@ -1,4 +1,5 @@
 module.exports = {
+  output: "export",
   env: {
     projectName: 'Matossers de Molins de Rei',
     ogurl: 'http://www.matossers.cat',
