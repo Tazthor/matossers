@@ -29,7 +29,7 @@ export default function Calendari() {
             <List my="30px" mr={{ base: "0", md: "15px" }}>
               <Title header="3" text="Dimecres" color="negre"></Title>
               <ListItem>
-                <strong>Canalla:</strong> de 20 h a 21 h
+                <strong>Canalla:</strong> de 20 h a 21 h 
               </ListItem>
               <ListItem>
                 <strong>Assaig general:</strong> de 21 h a 22:30 h
