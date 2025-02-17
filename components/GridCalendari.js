@@ -17,7 +17,7 @@ export const GridCalendari = function ({ actuacions, properaOnly }) {
       a.data > b.data ? 1 : b.data > a.data ? -1 : 0
     );
     setIsSorted(true);
-  }, []);
+  }, [actuacions]);
 
   return (
     <Box w={{base:"90%", md:"80%", xl:"75%"}} m="auto">

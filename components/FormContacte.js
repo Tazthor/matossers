@@ -289,10 +289,8 @@ export const FormContacte = function (props) {
             value={gdpr}
           >
             Accepto la{" "}
-            <Link href="/politica-privacitat" color={props.negatiu ? "blanc" :"#663b30"}>
-              <a style={{ textDecoration: "underline" }}>
+            <Link href="/politica-privacitat" color={props.negatiu ? "blanc" :"#663b30"} textDecoration="underline">
                 política de privacitat
-              </a>
             </Link>
           </Checkbox>
 

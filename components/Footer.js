@@ -51,7 +51,7 @@ export const Footer = function (props) {
               _focus={{ boxShadow: "none" }}
               onClick={() => router.push("/#contacte")}
             >
-              Contacta'ns
+              Contacta&apos;ns
             </Button>
             <Button
               ml="5px"
@@ -63,7 +63,7 @@ export const Footer = function (props) {
               _focus={{ boxShadow: "none" }}
               onClick={() => router.push("/fes-te-soci")}
             >
-              Fes-te'n soci
+              Fes-te&apos;n soci
             </Button>
           </Box>
         </Box>
@@ -105,12 +105,12 @@ export const Footer = function (props) {
       <Box my="20px" w="40%" borderBottom="1px solid white"  mx="auto"/>
       <Box textAlign="center" fontSize="sm">
         Copyright © 2022 Matossers de Molins de Rei. Tots els drets reservats. |{" "}
-        <Link href="/politica-privacitat">
-          <a style={{ textDecoration: "underline" }}>Política de privacitat</a>
+        <Link href="/politica-privacitat" textDecoration="underline">
+          Política de privacitat
         </Link>{" "}
         |{" "}
-        <Link href="/politica-cookies">
-          <a style={{ textDecoration: "underline" }}>Política de cookies</a>
+        <Link href="/politica-cookies" textDecoration="underline">
+          Política de cookies
         </Link>
       </Box>
     </Box>

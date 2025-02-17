@@ -26,13 +26,13 @@ export const BlocText = function (props) {
           <Box w={{base:"100%", xl:"64%"}} mr={{base:"0", xl:"2%"}}>
             <Text color="blanc" mb="20px">
               Els Matossers de Molins de Rei, som una colla castellera fundada
-              l'any 2002 i la nostra raó de ser és alçar castells i promocionar
+              l&apos;any 2002 i la nostra raó de ser és alçar castells i promocionar
               el món casteller arreu.
             </Text>
             <Text color="blanc" mb="20px">
               El color de la nostra camisa és marró argila, com el pont de
               Carles III que fins els anys 70 unia les dues ribes del riu
-              Llobregat a l'alçada de Molins de Rei. El nom "Matossers" és una
+              Llobregat a l&apos;alçada de Molins de Rei. El nom &apos;Matossers&apos; és una
               barreja dels mots: matusser com a sinònim de sapastre o maldestre;
               i matoser, habitant de la vila de Matoses, nom primigeni de Molins
               de Rei.
@@ -50,7 +50,7 @@ export const BlocText = function (props) {
               mb="20px"
             />
             <Text color="blanc" mb="20px">
-              L'escut de la colla, creat per Mercè Anducas, simbolitza una
+              L&apos;escut de la colla, creat per Mercè Anducas, simbolitza una
               enxaneta enfilant-se a una roda de molí, escut i símbol invequívoc
               de la vila de Molins de Rei.
             </Text>

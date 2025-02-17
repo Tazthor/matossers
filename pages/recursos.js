@@ -47,12 +47,14 @@ export default function Recursos() {
   }, []);
 
   useEffect(() => {
-    dataRecurs = dataRecurs.sort((a, b) =>
+    let dataRecursprov = dataRecurs.sort((a, b) =>
       a.ordre > b.ordre ? 1 : b.ordre > a.ordre ? -1 : 0
     );
-    dataAct = dataAct.sort((a, b) =>
+    let dataActprov = dataAct.sort((a, b) =>
       a.data > b.data ? 1 : b.data > a.data ? -1 : 0
     );
+    setDataRecurs(dataRecursprov)
+    setDataAct(dataActprov)
     setIsSorted(true);
   }, [dataRecurs, dataAct]);
 

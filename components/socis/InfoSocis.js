@@ -20,20 +20,20 @@ export const InfoSocis = function ({ quotes }) {
       <Title header="2" text="Per què tenim socis?"></Title>
       <Text mb="20px">
         Els Matossers de Molins de Rei tenim diferents vies de finançament per
-        aconseguir mantenir l'activitat castellera a Molins de Rei i oferir els
-        nostres castells arreu, una de les més importants és l'aportació de
+        aconseguir mantenir l&apos;activitat castellera a Molins de Rei i oferir els
+        nostres castells arreu, una de les més importants és l&apos;aportació de
         persones compromeses amb el fet casteller i amb la la vila de Molins de
         Rei, en forma de <strong>quotes anuals</strong>.
       </Text>
       <Text mb="20px">
-        Per tal d'oferir la possibilitat que qualsevol persona pugui ser sòcia
-        de l'entitat,{" "}
+        Per tal d&apos;oferir la possibilitat que qualsevol persona pugui ser sòcia
+        de l&apos;entitat,{" "}
         <strong>
-          hem establert diferents trams de quotes mínimes segons l'edat o
-          l'estat laboral de la persona
+          hem establert diferents trams de quotes mínimes segons l&apos;edat o
+          l&apos;estat laboral de la persona
         </strong>
         , així, tot i que la quota estàndard és per adults, els joves menors de
-        25 anys i les persones jubilades gaudeixen d'una quota reduïda. Així
+        25 anys i les persones jubilades gaudeixen d&apos;una quota reduïda. Així
         mateix, establim també una <strong>quota familiar</strong>, que podran
         gaudir els membres que convisquin sota un mateix sostre, aquesta quota
         és{" "}
@@ -57,13 +57,13 @@ export const InfoSocis = function ({ quotes }) {
         gap={8}
       >
         {quotes.map((quota, i) => {
-          return <CardQuota item={quota} />;
+          return <CardQuota key={i} item={quota} />;
         })}
       </Grid>
       <Text my="20px">
         Necessites ajuda o més informació?{" "}
         <Link href="/contacte" color="argila">
-          Contacta'ns i resoldrem els teus dubtes.
+          Contacta&apos;ns i resoldrem els teus dubtes.
         </Link>
       </Text>
     </Box>
