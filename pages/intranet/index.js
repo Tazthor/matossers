@@ -36,7 +36,7 @@ export const Login = function () {
 
   useEffect(() => {
     if (context.user?.role === "espera") {
-      setError("L'usuari encara no ha estat validat.");
+      setError("L'usuari ha estat creat correctament, però la colla encara l'ha de validar.");
     } else if (
       context.user?.role === "admin" ||
       context.user?.role === "casteller" ||

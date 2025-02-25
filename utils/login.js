@@ -5,11 +5,12 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, serverTimestamp } from "firebase/firestore";
 import {
   doc,
   setDoc,
   getDoc,
+  updateDoc,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -36,16 +37,20 @@ const db = getFirestore(app);
       const userRef = doc(db, "usuaris", user.uid);
       const userSnap = await getDoc(userRef);
   
-      let role = "default"; // Valor per defecte
+      let role = "espera"; // Valor per defecte
       if (!userSnap.exists()) {
         await setDoc(userRef, {
           uid: user.uid,
           email: user.email,
           name: user.displayName,
           role: "espera",
-          createdAt: new Date(),
-        });
+          createdAt: serverTimestamp(),
+          lastLogin: serverTimestamp()
+                });
       } else {
+        await updateDoc(userRef, {
+          lastLogin: serverTimestamp(),
+        });
         role = userSnap.data().role;
       }
   

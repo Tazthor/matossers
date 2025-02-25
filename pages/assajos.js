@@ -53,7 +53,7 @@ export default function Calendari() {
             mr={{ base: "0", xl: "2%" }}
             mb={{ base: "40px", xl: "0" }}
           >
-            <Title header="2" text="on assagem?"></Title>
+            <Title header="2" text="on assagem?"/>
             <Margin desktop="20px" mobile="6px" />
             <Text>
               Els Matossers assagem a Molins de Rei, a la Federació Obrera, un
