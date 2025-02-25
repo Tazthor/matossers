@@ -6,10 +6,11 @@ import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../theme";
 
 function Matossers({ Component, pageProps }) {
-  const [role, setRole] = useState('default')
+  const [user, setUser] = useState({ uid: "", email: "", name: "", role: "default" }); 
+  //const [role, setRole] = useState('default')
   return (
     <ChakraProvider theme={theme}>
-      <userContext.Provider value={{role, setRole}}>
+      <userContext.Provider value={{user, setUser}}>
         <Component {...pageProps} />
       </userContext.Provider>
     </ChakraProvider>

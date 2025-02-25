@@ -10,14 +10,18 @@ export const Footer = function (props) {
   const router = useRouter();
   return (
     <Box w="100%" maxW="2500px" m="auto" bg="argila" color="#fff" py="50px">
-      <Flex w="90%" m="auto" display={{base:"block", lg:"flex"}}>
-        <Box w={{base:"100%", lg:"30%"}} mr={{base:"0", xl:"2%"}}>
-              <Image maxW="250px" src="/images/logos/logo_blanc.png" alt="Matossers" />
+      <Flex w="90%" m="auto" display={{ base: "block", lg: "flex" }}>
+        <Box w={{ base: "100%", lg: "30%" }} mr={{ base: "0", xl: "2%" }}>
+          <Image
+            maxW="250px"
+            src="/images/logos/logo_blanc.png"
+            alt="Matossers"
+          />
         </Box>
         <Box
-          w={{base:"100%", lg:"40%"}}
-          mx={{base:"0", xl:"3%"}}
-          mt={{base:"30px", xl:"0"}}
+          w={{ base: "100%", lg: "40%" }}
+          mx={{ base: "0", xl: "3%" }}
+          mt={{ base: "30px", xl: "0" }}
         >
           <Box mb="15px">
             <Text fontSize="lg" fontWeight={600}>
@@ -43,24 +47,18 @@ export const Footer = function (props) {
           <Box mt="15px">
             <Button
               mr="5px"
-              border="1px solid #fff"
-              borderRadius="6px"
-              bg="transparent"
-              color="white"
-              _hover={{ bg: "white", color: "argila" }}
-              _focus={{ boxShadow: "none" }}
+              variant="secondary"
+              size="auto"
+              fontSize="md"
               onClick={() => router.push("/#contacte")}
             >
               Contacta&apos;ns
             </Button>
             <Button
               ml="5px"
-              border="1px solid #fff"
-              borderRadius="6px"
-              bg="transparent"
-              color="white"
-              _hover={{ bg: "white", color: "argila" }}
-              _focus={{ boxShadow: "none" }}
+              variant="secondary"
+              size="auto"
+              fontSize="md"
               onClick={() => router.push("/fes-te-soci")}
             >
               Fes-te&apos;n soci
@@ -68,9 +66,9 @@ export const Footer = function (props) {
           </Box>
         </Box>
         <Box
-          w={{base:"100%", lg:"30%"}}
-          ml={{base:"0", xl:"2%"}}
-          mt={{base:"30px", xl:"0"}}
+          w={{ base: "100%", lg: "30%" }}
+          ml={{ base: "0", xl: "2%" }}
+          mt={{ base: "30px", xl: "0" }}
         >
           <Box mb="15px">
             <Text fontSize="lg" fontWeight={600}>
@@ -98,11 +96,11 @@ export const Footer = function (props) {
                   alt="Ajuntament de Molins de Rei"
                 />
               </Box>
-           </Flex>
+            </Flex>
           </Box>
         </Box>
       </Flex>
-      <Box my="20px" w="40%" borderBottom="1px solid white"  mx="auto"/>
+      <Box my="20px" w="40%" borderBottom="1px solid white" mx="auto" />
       <Box textAlign="center" fontSize="sm">
         Copyright © 2022 Matossers de Molins de Rei. Tots els drets reservats. |{" "}
         <Link href="/politica-privacitat" textDecoration="underline">

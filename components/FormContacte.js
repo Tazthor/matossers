@@ -7,7 +7,7 @@ import {
   Text,
   Textarea,
   Checkbox,
-  Spinner
+  Spinner,
 } from "@chakra-ui/react";
 import Title from "./Title";
 import Link from "next/link";
@@ -32,16 +32,16 @@ export const FormContacte = function (props) {
   const [gdpr, setGdpr] = useState(false);
   const [error, setError] = useState({ isError: false, msgError: "" });
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   const resetForm = function () {
-    setNom("")
-    setCognom("")
-    setEmail("")
-    setPhone("")
-    setMsg("")
-    setGdpr(false)
-  }
+    setNom("");
+    setCognom("");
+    setEmail("");
+    setPhone("");
+    setMsg("");
+    setGdpr(false);
+  };
 
   const openError = function (msg, milisegons) {
     if (!milisegons) milisegons = 5000;
@@ -124,16 +124,25 @@ export const FormContacte = function (props) {
       cognom,
       email,
       phone,
-      msg
-    }
+      msg,
+    };
     if (!validate.error) {
-      emailjs.send('service_6wb1ojn', 'template_rvvppa9', emailParams, "uwYpYFAtDFBm8Tr39")
-    .then(function(response) {
-      onOpen()
-      resetForm()
-    }, function(error) {
-       console.log('FAILED...', error);
-    });
+      emailjs
+        .send(
+          "service_6wb1ojn",
+          "template_rvvppa9",
+          emailParams,
+          "uwYpYFAtDFBm8Tr39"
+        )
+        .then(
+          function (response) {
+            onOpen();
+            resetForm();
+          },
+          function (error) {
+            console.log("FAILED...", error);
+          }
+        );
     } else {
       openError(validate.message, validate.ref, 3000);
     }
@@ -244,7 +253,7 @@ export const FormContacte = function (props) {
               mb="10px"
               color={props.negatiu ? "groc.mat" : "argila"}
             >
-              Telèfon 
+              Telèfon
             </Text>
             <Input
               w="90%"
@@ -289,8 +298,12 @@ export const FormContacte = function (props) {
             value={gdpr}
           >
             Accepto la{" "}
-            <Link href="/politica-privacitat" color={props.negatiu ? "blanc" :"#663b30"} textDecoration="underline">
-                política de privacitat
+            <Link
+              href="/politica-privacitat"
+              color={props.negatiu ? "blanc" : "#663b30"}
+              textDecoration="underline"
+            >
+              política de privacitat
             </Link>
           </Checkbox>
 
@@ -304,20 +317,8 @@ export const FormContacte = function (props) {
             </Text>
           )}
         </Box>
-        <Button
-          w="200px"
-          fontSize="normal"
-          py="20px"
-          border="1px solid"
-          borderColor={props.negatiu ? "blanc" : "argila"}
-          borderRadius="6px"
-          bg={props.negatiu ? "blanc" : "argila"}
-          color={props.negatiu ? "negre" : "blanc"}
-          _hover={{ bg: "white", color: "argila" }}
-          _focus={{ boxShadow: "none" }}
-          onClick={submit}
-        >
-          {(isLoading) ? <Spinner/> : "Envia"}
+        <Button variant="primary" size="normal" onClick={submit}>
+          {isLoading ? <Spinner /> : "Envia"}
         </Button>
       </form>
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -339,7 +340,6 @@ export const FormContacte = function (props) {
           </ModalBody>
         </ModalContent>
       </Modal>
-
     </Box>
   );
 };

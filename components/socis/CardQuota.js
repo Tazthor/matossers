@@ -30,16 +30,8 @@ export const CardQuota = function ({ item }) {
         {item.quota} €
       </Text>
       <Button
-        w="200px"
-        fontSize="normal"
-        py="20px"
-        border="1px solid"
-        borderColor="argila"
-        borderRadius="6px"
-        bg="argila"
-        color="blanc"
-        _hover={{ bg: "white", color: "argila" }}
-        _focus={{ boxShadow: "none" }}
+        variant="primary"
+        size="normal"
         onClick={() => window.open(item.url)}
       >
         Vull fer-me soci {item.tipus}

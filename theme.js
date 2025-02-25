@@ -48,6 +48,62 @@ const theme = extendTheme({
     huge: "80px",
   },
   breakpoints,
+  components: {
+    Button: {
+      baseStyle: {
+        textAlign: "center",
+        borderRadius: "6px",
+        border: "1px solid",
+      },
+      sizes: {
+        auto: {
+          h: "45px",
+          w: "auto",
+          px: "30px",
+        },
+        normal: {
+          h: "45px",
+          minW: "198px",
+          px: "30px",
+        },
+        large: {
+          h: "45px",
+          minW: "280px",
+          px: "70px",
+        },
+        circle: {
+          h: "76px",
+          w: "76px",
+          px: "10px",
+        },
+        full: {
+          h: "45px",
+          w: "100%",
+          px: "30px",
+        },
+      },
+      variants: {
+        primary: {
+          bg: "argila",
+          color: "blanc",
+          borderColor: "argila",
+          _hover:{ bg: "white", color: "argila" },
+          _focus:{ boxShadow: "none" }
+          },
+        secondary: {
+          bg: "transparent",
+          color: "blanc",
+          borderColor: "blanc",
+          _hover:{ bg: "white", color: "argila" },
+          _focus:{ boxShadow: "none" }
+        }
+      },
+      defaultProps: {
+        variant: "solidPrimary",
+        colorScheme: "green",
+      },
+    },
+  },
 })
 
 export default theme

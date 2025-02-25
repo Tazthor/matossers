@@ -62,39 +62,16 @@ export const ActuacioCard = function ({ act, type }) {
       {type == "futures" && (
         <Box>
           <Text fontWeight={600}>Colles:</Text>
-          {(act.colles != "" && act.colles!=undefined)
-          && act.colles.map((colla, i) => (
-            <Box key={i} ml="15px">
-              {colla}
-            </Box>
-          ))}
+          {act.colles != "" &&
+            act.colles != undefined &&
+            act.colles.map((colla, i) => (
+              <Box key={i} ml="15px">
+                {colla}
+              </Box>
+            ))}
         </Box>
       )}
 
-      {type == "futures" &&
-        act.llista &&
-        (context.role == "casteller" ||
-          context.role == "junta" ||
-          context.role == "admin") && (
-          <Box>
-            <Button
-              w="200px"
-              my="15px"
-              px="10px"
-              borderRadius="8px"
-              borderColor="argila"
-              border="1px solid"
-              bg="argila"
-              color="#fff"
-              fontSize="md"
-              fontWeight={400}
-              _hover={{ backgroundColor: "transparent", color: "argila" }}
-              onClick={() => window.open(act.llista, "_blank")}
-            >
-              Apunta&apos;t
-            </Button>
-          </Box>
-        )}
       {type == "passades" && (
         <Box w="90%">
           {act.resultat && (
@@ -131,15 +108,9 @@ export const ActuacioCard = function ({ act, type }) {
             <Box>
               <Button
                 my="15px"
-                px="10px"
-                borderRadius="8px"
-                borderColor="argila"
-                border="1px solid"
-                bg="argila"
-                color="#fff"
+                variant="primary"
+                size="normal"
                 fontSize="md"
-                fontWeight={400}
-                _hover={{ backgroundColor: "transparent", color: "argila" }}
                 onClick={() => window.open(act.galeria, "_blank")}
                 leftIcon={<MdPhotoCamera size="20px" />}
               >
