@@ -37,23 +37,25 @@ export async function loginWithGoogle() {
     let role = "espera"; // Valor per defecte
     if (!userSnap.exists()) {
       await setDoc(userRef, {
-        uid: user.uid, /* valorar si treure-ho */
+        uid: user.uid /* valorar si treure-ho */,
         email: user.email,
         name: user.displayName,
         role: "espera",
         createdAt: serverTimestamp(),
         lastLogin: serverTimestamp(),
       });
-      await setDoc(castellerRef, {
-        uid: user.uid, /* valorar si treure-ho */
-        email: user.email,
-        name: user.displayName,
-      });
     } else {
+      role = userSnap.data().role;
+      if (!castellerSnap.exists() && role !== "espera") {
+        await setDoc(castellerRef, {
+          uid: user.uid /* valorar si treure-ho */,
+          email: user.email,
+          name: user.displayName,
+        });
+      }
       await updateDoc(userRef, {
         lastLogin: serverTimestamp(),
       });
-      role = userSnap.data().role;
     }
 
     return {

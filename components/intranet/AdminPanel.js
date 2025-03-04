@@ -1,7 +1,9 @@
 import { Box, Grid, Flex, Text } from "@chakra-ui/react";
 import Title from "../Title";
+import { useRouter } from "next/router";
 
 export default function AdminPanel() {
+  const router = useRouter();
   return (
     <Box w={{ base: "90%", md: "80%", xl: "75%" }} m="auto" mt="40px">
       <Title header="3" text="Panell d'administració" color="argila" />
@@ -25,7 +27,7 @@ export default function AdminPanel() {
           border="1px rgba(0, 0, 0, 0.3)"
           boxShadow="0 6px 6px rgba(0, 0, 0, 0.3)"
           cursor="pointer"
-          //onClick={() => router.push("/calendari")}
+          onClick={() => router.push("/intranet/admin/user-list")}
           borderTop="3px solid #663b30"
           textAlign="center"
         >

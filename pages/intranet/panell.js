@@ -23,19 +23,7 @@ export default function Panell() {
     } else {
       setIsLoading(false);
     }
-  }, []);
-
-  /*   const getData = async (app) => {
-    const dades = await getRealDB(app, "users");
-    setData(dades);
-  };
-
-  useEffect(() => {
-    if (app == undefined) {
-      setApp(initApp());
-    }
-    getData(app);
-  }, []); */
+  }, [context.user.role, router, router.isReady]);
 
   return (
     <Container>
