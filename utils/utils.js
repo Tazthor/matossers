@@ -69,6 +69,19 @@ export async function getImages(image) {
   return(urlImage)
 }
 
+export async function setCollection(data, collection) {
+  const app = initApp()
+  const db = getFirestore(app);
+  const dbRef = doc(db, collection);
+  console.log(data)
+/*   try {
+    await setDoc(dbRef, data);
+    return true;
+  } catch (error) {
+    return { error: error };
+  }
+ */}
+
 /* export async function setXatCollection(nom, msg) {
   const app = initApp()
   const db = getFirestore(app);

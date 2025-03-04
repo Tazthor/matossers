@@ -20,6 +20,7 @@ const theme = extendTheme({
     negre: '#000',
     marro: {100: "#f7d9c5", 300: '#d0a499',500: '#663b30'},
     argila: '#663b30',
+    gris: {100: "#f5f5f5", 300: "#e0e0e0", 500: "#9e9e9e", 700: "#616161", 900: "#212121"},
     groc: {
         brillant: "#f8e93b",
         mat: "#f7da65"
@@ -81,6 +82,11 @@ const theme = extendTheme({
           w: "100%",
           px: "30px",
         },
+        short: {
+          h: "30px",
+          w: "auto",
+          px: "10px",
+        }
       },
       variants: {
         primary: {

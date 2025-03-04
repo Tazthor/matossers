@@ -46,13 +46,6 @@ export async function loginWithGoogle() {
       });
     } else {
       role = userSnap.data().role;
-      if (!castellerSnap.exists() && role !== "espera") {
-        await setDoc(castellerRef, {
-          uid: user.uid /* valorar si treure-ho */,
-          email: user.email,
-          name: user.displayName,
-        });
-      }
       await updateDoc(userRef, {
         lastLogin: serverTimestamp(),
       });
@@ -67,6 +60,22 @@ export async function loginWithGoogle() {
   } catch (error) {
     return { error: error.message };
   }
+}
+
+export async function validateUser(uid) {
+  const userRef = doc(db, "usuaris", uid);
+  const userSnap = await getDoc(userRef);
+  const castellerRef = doc(db, "castellers", uid);
+  const castellerSnap = await getDoc(castellerRef);
+  await updateDoc(userRef, { role: "casteller" });
+  if (!castellerSnap.exists()) {
+    await setDoc(castellerRef, {
+      uid: uid,
+      email: userSnap.data().email,
+      name: userSnap.data().name,
+    });
+  }
+  return true;
 }
 
 export async function logoOut() {
