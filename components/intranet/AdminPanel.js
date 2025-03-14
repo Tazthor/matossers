@@ -31,10 +31,10 @@ export default function AdminPanel() {
           borderTop="3px solid #663b30"
           textAlign="center"
         >
-            <Text fontWeight="bold">Administració d&apos;usuaris</Text>
-            <Text mt="20px" color="argila" fontSize="md">
-              Edició de permisos i baixes d&apos;usuaris
-            </Text>
+          <Text fontWeight="bold">Administració d&apos;usuaris</Text>
+          <Text mt="20px" color="argila" fontSize="md">
+            Edició de permisos i baixes d&apos;usuaris
+          </Text>
         </Flex>
         <Flex
           w="100%"
@@ -47,14 +47,14 @@ export default function AdminPanel() {
           border="1px rgba(0, 0, 0, 0.3)"
           boxShadow="0 6px 6px rgba(0, 0, 0, 0.3)"
           cursor="pointer"
-          //onClick={() => router.push("/calendari")}
+          onClick={() => router.push("/intranet/admin/casteller-list")}
           borderTop="3px solid #663b30"
           textAlign="center"
         >
-            <Text fontWeight="bold">Administració de pagaments</Text>
-            <Text mt="20px" color="argila" fontSize="md">
-              Properament
-            </Text>
+          <Text fontWeight="bold">Administració de castellers</Text>
+          <Text mt="20px" color="argila" fontSize="md">
+            Properament
+          </Text>
         </Flex>
       </Grid>
     </Box>
