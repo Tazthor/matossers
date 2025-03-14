@@ -3,11 +3,11 @@ import userContext from "../../../context/userContext";
 import { Container } from "../../../components/Container";
 import Margin from "../../../components/Margin";
 import { initApp, getDataCollection } from "../../../utils/utils";
-import { Flex, Spinner, Text } from "@chakra-ui/react";
+import { Flex, Spinner, Text, useToast, useDisclosure } from "@chakra-ui/react";
 import Title from "../../../components/Title";
 import { useRouter } from "next/router";
 import UserGrid from "../../../components/intranet/UserGrid";
-import { validateUser } from "../../../utils/login";
+import { validateUser, deleteUser, updateRoles } from "../../../utils/login";
 import { MdArrowBack } from "react-icons/md";
 
 export default function UserList() {
@@ -16,6 +16,9 @@ export default function UserList() {
   const context = useContext(userContext);
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
+  const toast = useToast();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [editRoles, setEditRoles] = useState(false);
 
   useEffect(() => {
     if (context.user.role == "default") {
@@ -42,6 +45,43 @@ export default function UserList() {
       getData(app);
       setIsLoading(false);
     }
+  };
+
+  const rmUser = async (uid, removeCasteller) => {
+    setIsLoading(true);
+    const response = await deleteUser(uid, removeCasteller);
+    getData(app);
+    if (response == "okRmAll") {
+      onClose();
+      toast({
+        title: "L'usuari ha estat eliminat correctament.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+    } else if (response == "okRmUser") {
+      onClose();
+      toast({
+        title: "S'ha donat de baixa un casteller.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+    } else {
+      onClose();
+      toast({
+        title: response,
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
+    setIsLoading(false);
+  };
+
+  const changeRole = (uid, newRole) => {
+    updateRoles(uid, newRole);
+    getData(app);
   };
 
   return (
@@ -75,7 +115,15 @@ export default function UserList() {
             color={"argila"}
             textTransform={"uppercase"}
           />
-          <UserGrid data={data} handleValidateUser={handleValidateUser} />
+          <UserGrid
+            data={data}
+            handleValidateUser={handleValidateUser}
+            rmUser={rmUser}
+            onOpen={onOpen}
+            onClose={onClose}
+            isOpen={isOpen}
+            changeRole={changeRole}
+          />
         </>
       )}
     </Container>

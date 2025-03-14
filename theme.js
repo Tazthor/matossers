@@ -96,6 +96,13 @@ const theme = extendTheme({
           _hover:{ bg: "white", color: "argila" },
           _focus:{ boxShadow: "none" }
           },
+          outline: {
+            bg: "transparent",
+            color: "argila",
+            borderColor: "argila",
+            _hover:{ bg: "argila", color: "blanc" },
+            _focus:{ boxShadow: "none" }
+            },
         secondary: {
           bg: "transparent",
           color: "blanc",
