@@ -64,9 +64,9 @@ const Home = function ({}) {
         imgMbl=""
         titleVisible={true}
       />
-      <Margin desktop="40px" tablet="50px" mobile="20px" />
+{/*       <Margin desktop="40px" tablet="50px" mobile="20px" />
        <BlocXarxes/>
-      <Footer />
+ */}      <Footer />
     </Container>
   );
 }
