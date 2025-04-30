@@ -17,7 +17,6 @@ export default function CastellerList() {
   const context = useContext(userContext);
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
     if (context.user.role == "default") {

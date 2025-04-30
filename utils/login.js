@@ -48,8 +48,8 @@ export async function loginWithGoogle() {
         email: user.email,
         name: user.displayName,
         role: "espera",
-        createdAt: new Date().toLocaleDateString("ca-ES", dateOptions),
-        lastLogin: new Date().toLocaleDateString("ca-ES", dateOptions),
+        createdAt: serverTimestamp(),
+        lastLogin: serverTimestamp(),
       });
     } else if (!userSnap.exists() && castellerSnap.exists()) {
       await setDoc(userRef, {
@@ -57,15 +57,15 @@ export async function loginWithGoogle() {
         email: user.email,
         name: user.displayName,
         role: "casteller",
-        createdAt: new Date().toLocaleDateString("ca-ES", dateOptions),
-        lastLogin: new Date().toLocaleDateString("ca-ES", dateOptions),
+        createdAt: serverTimestamp(),
+        lastLogin: serverTimestamp(),
       });
       role = "casteller";
       await updateDoc(castellerRef, { actiu: true });
     } else {
       role = userSnap.data().role;
       await updateDoc(userRef, {
-        lastLogin: new Date().toLocaleDateString("ca-ES", dateOptions),
+        lastLogin: serverTimestamp(),
       });
     }
 

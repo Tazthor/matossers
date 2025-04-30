@@ -27,6 +27,7 @@ import { useState } from "react";
 
 export default function UserGrid({
   data,
+  setData,
   handleValidateUser,
   rmUser,
   isOpen,
@@ -44,8 +45,7 @@ export default function UserGrid({
   };
 
   const roleAdmin = (user) => {
-    if (user.role === "admin") return <Text>{user.role} </Text>;
-    else if (user.role === "espera")
+    if (user.role === "espera")
       return (
         <Button
           onClick={async () => await handleValidateUser(user.uid)}
@@ -61,6 +61,8 @@ export default function UserGrid({
         <Select
           defaultValue={user.role}
           onChange={(e) => changeRole(user.uid, e.target.value)}
+          borderColor="negre"
+          disabled={user.role === "admin"}
         >
           {permisos.map((permis, i) => {
             return (
@@ -74,11 +76,20 @@ export default function UserGrid({
   };
 
 
+  const optionsShort = {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  };
+
   return (
     <Flex flexDir="column" w="100%" alignItems="center">
       <Box w={{ base: "90%", md: "80%", xl: "75%" }} m="auto" mt="40px">
         <TableContainer>
-          <Table variant="striped" colorScheme="marro" fontSize="md">
+          <Table variant="striped" colorScheme="marro" fontSize={{base:"md", md:"sm", xl:"md"}}>
             <Thead>
               <Tr>
                 <Th>Nom</Th>
@@ -99,9 +110,9 @@ export default function UserGrid({
                       {roleAdmin(user)}
                     </Flex>
                   </Td>
-                  <Td>{user.createdAt}</Td>
-                  <Td>{user.lastLogin}</Td>
-
+                   <Td>{user.createdAt.toDate().toLocaleDateString("ca-ES", optionsShort)}</Td>
+                  <Td>{user.lastLogin.toDate().toLocaleDateString("ca-ES", optionsShort)}</Td>
+ 
                   <Td>
                     <Flex
                       gap="2"

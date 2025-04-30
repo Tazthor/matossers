@@ -34,13 +34,16 @@ export default function UserList() {
 
   const getData = async (app) => {
     const dades = await getDataCollection(app, "usuaris");
-    setData(dades);
+    console.log(dades)
+    const dataSorted = [...dades].sort(
+      (a, b) => b.createdAt.seconds - a.createdAt.seconds
+    );
+    setData(dataSorted);
   };
 
   const handleValidateUser = async (uid) => {
     setIsLoading(true);
     let trigger = await validateUser(uid);
-    console.log(trigger);
     if (trigger) {
       getData(app);
       setIsLoading(false);
@@ -117,6 +120,7 @@ export default function UserList() {
           />
           <UserGrid
             data={data}
+            setData={setData}
             handleValidateUser={handleValidateUser}
             rmUser={rmUser}
             onOpen={onOpen}

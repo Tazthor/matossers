@@ -4,24 +4,35 @@ import Margin from "./Margin";
 import Title from "./Title";
 import ActuacioCard from "./ActuacioCard";
 
-export const GridCalendari = function ({ actuacions, properaOnly }) {
+export const GridCalendari = function ({ dataAct, properaOnly }) {
+  const [actuacionsFutures, setActuacionsFutures] = useState(dataAct);
+  const [actuacionsPassades, setActuacionsPassades] = useState(dataAct);
   var dateNow = new Date();
   const [isSorted, setIsSorted] = useState(false);
-
-  var properaAct = actuacions.find(
+  var properaAct = dataAct.find(
     (actuacio) => actuacio.data.toDate() >= dateNow
   );
-  
+
   useEffect(() => {
-    actuacions = actuacions.sort((a, b) =>
-      a.data > b.data ? 1 : b.data > a.data ? -1 : 0
-    );
-    setIsSorted(true);
-  }, [actuacions]);
+    if (dataAct && dataAct.length > 0) {
+      const sortedActuacionsFutures = [...dataAct].sort(
+        (a, b) => a.data.seconds - b.data.seconds
+      );
+      const sortedActuacionsPassades = [...dataAct].sort(
+        (a, b) => b.data.seconds - a.data.seconds
+      );
+      setActuacionsFutures(sortedActuacionsFutures);
+      setActuacionsPassades(sortedActuacionsPassades);
+      setIsSorted(true);
+    }
+  }, [dataAct]);
 
   return (
-    <Box w={{base:"90%", md:"80%", xl:"75%"}} m="auto">
-      <Title header="2" text={(properaOnly) ? "Propera actuació" : "Properes actuacions"}></Title>
+    <Box w={{ base: "90%", md: "80%", xl: "75%" }} m="auto">
+      <Title
+        header="2"
+        text={properaOnly ? "Propera actuació" : "Properes actuacions"}
+      ></Title>
       <Margin desktop="40px" mobile="10px" />
       {(properaAct == undefined && (
         <Text>Actualment no hi ha actuacions previstes al calendari</Text>
@@ -36,7 +47,7 @@ export const GridCalendari = function ({ actuacions, properaOnly }) {
             gap={4}
           >
             {isSorted &&
-              actuacions.map((act, index) => {
+              actuacionsFutures.map((act, index) => {
                 if (act.data.toDate() >= dateNow) {
                   return <ActuacioCard key={index} act={act} type="futures" />;
                 }
@@ -57,7 +68,7 @@ export const GridCalendari = function ({ actuacions, properaOnly }) {
             gap={4}
           >
             {isSorted &&
-              actuacions.map((act, index2) => {
+              actuacionsPassades.map((act, index2) => {
                 if (act.data.toDate() < dateNow) {
                   return (
                     <ActuacioCard key={index2} act={act} type="passades" />

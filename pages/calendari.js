@@ -30,7 +30,7 @@ export default function Calendari() {
 
   return (
     <Container>
-      <Navbar page="calendari" role={context.role} setRole={context.setRole}/>
+      <Navbar page="calendari"/>
       <Margin desktop="100px" />
       <HeaderPages
         img="/images/headers/headercalendari.jpg"
@@ -46,7 +46,7 @@ export default function Calendari() {
           thickness="4px"
         />
       ) : (
-        <GridCalendari actuacions={dataAct} role={context.role}/>
+        <GridCalendari dataAct={dataAct}/>
       )}
       <Margin desktop="80px" mobile="40px" />
       <Footer />
