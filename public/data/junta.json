@@ -1,0 +1,119 @@
+[
+    {
+        "id":"1",
+        "equip" : "cap",
+        "carrec":"President",
+        "nom": "Adrià Rius",
+        "img": "/images/junta/adria.jpg"
+    },
+    {
+        "id":"2",
+        "equip" : "cap",
+        "carrec":"Cap de colla",
+        "nom": "Júlia Aregall",
+        "img": "/images/junta/julia.jpg"
+    },
+    {
+        "id":"3",
+        "equip" : "cap",
+        "carrec":"Cap de colla",
+        "nom": "Cristian Barroso",
+        "img": "/images/junta/cristian.jpg"
+    },
+    {
+        "id":"4",
+        "equip" : "directiva",
+        "carrec":"Tresoreria",
+        "nom": "Pol Amat",
+        "img": "/images/junta/michel.jpg"
+    },
+    {
+        "id":"6",
+        "equip" : "directiva",
+        "carrec":"Secretaria",
+        "nom": "Elena Basteiro",
+        "img": "/images/junta/elena.jpg"
+    },
+    {
+        "id":"7",
+        "equip" : "directiva",
+        "carrec":"Relacions públiques",
+        "nom": "Michel Zabalza",
+        "img": "/images/junta/michel.jpg"
+    },
+    {
+        "id":"8",
+        "equip" : "directiva",
+        "carrec":"Relacions públiques",
+        "nom": "Arnau Raventós",
+        "img": "/images/junta/michel.jpg"
+    },
+    {
+        "id":"10",
+        "equip" : "directiva",
+        "carrec":"Músics",
+        "nom": "Ariadna Fernández",
+        "img": "/images/junta/michel.jpg"
+    },
+    {
+        "id":"11",
+        "equip" : "tecnica",
+        "carrec":"Equip de canalla",
+        "nom": "Laura Bosch",
+        "img": "/images/junta/michel.jpg"
+    },
+    {
+        "id":"12",
+        "equip" : "tecnica",
+        "carrec":"Equip de canalla",
+        "nom": "Adriana Segura",
+        "img": "/images/junta/michel.jpg"
+    },
+    {
+        "id":"5",
+        "equip" : "tecnica",
+        "carrec":"Equip de canalla",
+        "nom": "Octavi Rojas",
+        "img": "/images/junta/michel.jpg"
+    },
+    {
+        "id":"13",
+        "equip" : "tecnica",
+        "carrec":"Equip de canalla",
+        "nom": "Ivet Aregall",
+        "img": "/images/junta/michel.jpg"
+    },
+    {
+        "id":"14",
+        "equip" : "tecnica",
+        "carrec":"Equip de canalla",
+        "nom": "Isabel Toll",
+        "img": "/images/junta/michel.jpg"
+    },
+    {
+        "id":"15",
+        "equip" : "tecnica",
+        "carrec":"Equip de pinyes",
+        "nom": "Carlota Riaza",
+        "img": "/images/junta/michel.jpg"
+    },
+    {
+        "id":"16",
+        "equip" : "tecnica",
+        "carrec":"Equip de pinyes",
+        "nom": "Carlos Fernández",
+        "img": "/images/junta/michel.jpg"
+    },
+    {
+        "id":"17",
+        "equip" : "tecnica",
+        "carrec":"Equip de pinyes",
+        "nom": "Jordi Claret",
+        "img": "/images/junta/michel.jpg"
+    }
+
+
+
+
+
+]

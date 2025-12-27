@@ -3,15 +3,15 @@ import { buttonRecipe } from "./recipes/button.recipe";
 import { headingRecipe } from "./recipes/heading.recipe";
 import { inputRecipe } from "./recipes/input.recipe";
 import { selectRecipe } from "./recipes/select.recipe";
-import { Merriweather_Sans } from "next/font/google";
+import { Merriweather_Sans, Oswald } from "next/font/google";
 
 const MerriweatherMedium = Merriweather_Sans({
   weight: "300",
   subsets: ["latin"],
 });
 
-const MerriweatherBold = Merriweather_Sans({
-  weight: "600",
+const OswaldBold = Oswald({
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -51,7 +51,7 @@ const config = defineConfig({
       },
       fonts: {
         body: MerriweatherMedium.style.fontFamily,
-        heading: MerriweatherBold.style.fontFamily,
+        heading: OswaldBold.style.fontFamily,
       },
       breakpoints: {
         sm: "450px",
