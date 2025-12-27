@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import { Box, Text, Flex, Image, Button } from "@chakra-ui/react";
 //import { XXSS } from "./xxss";
@@ -6,15 +6,16 @@ import { MdOutlinePlace } from "react-icons/md";
 import { BiTime } from "react-icons/bi";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { XXSS } from "./xxss";
 
 export const Footer = function (props) {
   const router = useRouter();
   return (
     <Box w="100%" maxW="2500px" m="auto" bg="argila" color="#fff" py="50px">
-      <Flex w="90%" m="auto" display={{ base: "block", lg: "flex" }}>
+      <Flex w="90%" m="auto" flexDir={{ base: "column", lg: "row" }}>
         <Box w={{ base: "100%", lg: "30%" }} mr={{ base: "0", xl: "2%" }}>
           <Image
-            maxW="250px"
+            maxW="230px"
             src="/images/logos/logo_blanc.png"
             alt="Matossers"
           />
@@ -25,7 +26,7 @@ export const Footer = function (props) {
           mt={{ base: "30px", xl: "0" }}
         >
           <Box mb="15px">
-            <Text fontSize="lg" fontWeight={600}>
+            <Text fontFamily="heading" fontSize="lg_xl">
               Assajos
             </Text>
             <Flex mt="10px">
@@ -48,7 +49,7 @@ export const Footer = function (props) {
           <Box mt="15px">
             <Button
               mr="5px"
-              variant="secondary"
+              visual="primary_outline"
               size="auto"
               fontSize="md"
               onClick={() => router.push("/#contacte")}
@@ -57,7 +58,7 @@ export const Footer = function (props) {
             </Button>
             <Button
               ml="5px"
-              variant="secondary"
+              visual="primary_outline"
               size="auto"
               fontSize="md"
               onClick={() => router.push("/fes-te-soci")}
@@ -72,16 +73,16 @@ export const Footer = function (props) {
           mt={{ base: "30px", xl: "0" }}
         >
           <Box mb="15px">
-            <Text fontSize="lg" fontWeight={600}>
+            <Text fontFamily="heading" fontSize="lg_xl">
               Segueix-nos
             </Text>
             <Box mt="10px">
-              {/* <XXSS fb tw yt ig /> */}
+              <XXSS type="white"/>
             </Box>
           </Box>
           <Box w="90%" borderBottom="1px solid white" />
           <Box mt="15px">
-            <Text fontSize="lg" fontWeight={600}>
+            <Text fontFamily="heading" fontSize="lg_xl">
               Col·laboren
             </Text>
             <Flex w="100%" alignItems="center">

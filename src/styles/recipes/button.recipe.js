@@ -9,84 +9,29 @@ export const buttonRecipe = defineRecipe({
   },
   variants: {
     visual: {
-      brand: {
-        backgroundColor: "brand",
-        color: "white",
-        borderColor: "brand",
-        border: "0",
-        _hover: {
-          backgroundColor: "transparent",
-          color: "brand",
-          border: "1px solid",
-          borderColor: "brand",
-        },
-      },
-      brand_static: {
-        backgroundColor: "brand",
-        color: "white",
-        borderColor: "brand",
-        border: "0",
-      },
-      brand_outline: {
-        backgroundColor: "secondary",
-        color: "brand",
-        border: "1px solid",
-        borderColor: "brand",
-        _hover: {
-          backgroundColor: "brand",
-          borderColor: "brand",
-          color: "white",
-        },
-      },
       primary: {
-        border: "0",
-        backgroundColor: "primary",
+        border: "1px solid",
+        borderColor: "argila",
+        backgroundColor: "argila",
+        borderRadius: "6px",
         color: "white",
         _hover: {
-          backgroundColor: "brand",
+          backgroundColor: "argila",
         },
       },
       primary_outline: {
         backgroundColor: "transparent",
-        color: "primary",
-        border: "1px solid",
-        borderColor: "primary",
-        _hover: {
-          backgroundColor: "primary",
-          borderColor: "primary",
-          color: "white",
-        },
-      },
-      transparent: {
-        backgroundColor: "transparent",
-        color: "primary",
-        border: "none",
-        _hover: {
-          backgroundColor: "transparent",
-          color: "secondary_normal",
-        },
-      },
-      danger: {
-        backgroundColor: "danger",
         color: "white",
-        borderColor: "danger",
-        _hover: {
-          backgroundColor: "transparent",
-          color: "danger",
-          border: "1px solid",
-        },
-      },
-      danger_outline: {
-        backgroundColor: "transparent",
-        color: "danger",
         border: "1px solid",
-        borderColor: "danger",
+        borderColor: "white",
+        borderRadius: "6px",
         _hover: {
-          backgroundColor: "danger",
-          borderColor: "danger",
+          backgroundColor: "argila",
+          borderColor: "argila",
           color: "white",
         },
       },
+
     },
     size: {
       auto: {
