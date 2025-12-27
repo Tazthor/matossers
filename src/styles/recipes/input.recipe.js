@@ -1,5 +1,4 @@
 import { defineRecipe, RecipeVariantProps } from "@chakra-ui/react";
-import { FormTextInputProps } from "@omniumcultural/form-tools";
 
 export const inputRecipe = defineRecipe({
   base: {
@@ -34,7 +33,3 @@ export const inputRecipe = defineRecipe({
   },
 });
 
-type CustomInputTextVariantProps = RecipeVariantProps<typeof inputRecipe>;
-
-export type CustomInputTextProps = FormTextInputProps &
-  CustomInputTextVariantProps;

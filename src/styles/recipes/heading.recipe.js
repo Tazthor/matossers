@@ -1,8 +1,4 @@
 import { defineRecipe } from "@chakra-ui/react";
-import type {
-  RecipeVariantProps,
-  HeadingProps as ChakraHeadingProps,
-} from "@chakra-ui/react";
 
 export const headingRecipe = defineRecipe({
   base: {
@@ -52,8 +48,3 @@ export const headingRecipe = defineRecipe({
     },
   },
 });
-
-type CustomHeadingVariantProps = RecipeVariantProps<typeof headingRecipe>;
-
-export type HeadingProps = Omit<ChakraHeadingProps, "type"> &
-  CustomHeadingVariantProps;

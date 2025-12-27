@@ -5,8 +5,6 @@ import { inputRecipe } from "./recipes/input.recipe";
 import { selectRecipe } from "./recipes/select.recipe";
 import { Merriweather_Sans } from "next/font/google";
 
-
-
 const MerriweatherMedium = Merriweather_Sans({
   weight: "300",
   subsets: ["latin"],
@@ -16,7 +14,6 @@ const MerriweatherBold = Merriweather_Sans({
   weight: "600",
   subsets: ["latin"],
 });
-
 
 const config = defineConfig({
   strictTokens: true,
@@ -35,17 +32,23 @@ const config = defineConfig({
       heading: headingRecipe,
     },
     tokens: {
-       colors: {
-    blanc: '#fff',
-    negre: '#000',
-    marro: {100: "#f7d9c5", 300: '#d0a499',500: '#663b30'},
-    argila: '#663b30',
-    gris: {100: "#f5f5f5", 300: "#e0e0e0", 500: "#9e9e9e", 700: "#616161", 900: "#212121"},
-    groc: {
-        brillant: "#f8e93b",
-        mat: "#f7da65"
-      }
-  },
+      colors: {
+        blanc: "#fff",
+        negre: "#000",
+        marro: { 100: "#f7d9c5", 300: "#d0a499", 500: "#663b30" },
+        argila: "#663b30",
+        gris: {
+          100: "#f5f5f5",
+          300: "#e0e0e0",
+          500: "#9e9e9e",
+          700: "#616161",
+          900: "#212121",
+        },
+        groc: {
+          brillant: "#f8e93b",
+          mat: "#f7da65",
+        },
+      },
       fonts: {
         body: MerriweatherMedium.style.fontFamily,
         heading: MerriweatherBold.style.fontFamily,
@@ -78,7 +81,7 @@ const config = defineConfig({
         xxl: "40px",
         xxxl: "50px",
         big: "80px",
-        superbig:"150px",
+        superbig: "150px",
         huge: "200px",
       },
       lineHeights: {

@@ -1,8 +1,4 @@
-import { defineRecipe } from "@chakra-ui/react";
-import type {
-  RecipeVariantProps,
-  ButtonProps as ChakraButtonProps,
-} from "@chakra-ui/react";
+import { defineRecipe } from "@chakra-ui/react"
 
 export const buttonRecipe = defineRecipe({
   base: {
@@ -137,8 +133,3 @@ export const buttonRecipe = defineRecipe({
     size: "auto",
   },
 });
-
-type CustomButtonVariantProps = RecipeVariantProps<typeof buttonRecipe>;
-
-export type ButtonProps = Omit<ChakraButtonProps, "visual" | "size"> &
-  CustomButtonVariantProps;

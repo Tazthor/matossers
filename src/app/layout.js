@@ -2,8 +2,8 @@
 import { Provider } from "@/components/providers/ChakraProvider";
 
 export const metadata = {
-  title: "Òmnium Cultural, Catalunya Nord",
-  description: "Òmnium Cultural | Catalunya Nord",
+  title: "Matossers de Molins de Rei",
+  description: "Pàgina web oficial de la Colla castellera Matossers de Molins de Rei",
   icons: {
     icon: [{ url: "/favicon.ico" }],
     shortcut: "/favicon.ico",
