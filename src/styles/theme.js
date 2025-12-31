@@ -10,6 +10,16 @@ const MerriweatherMedium = Merriweather_Sans({
   subsets: ["latin"],
 });
 
+const MerriweatherSemibold = Merriweather_Sans({
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const MerriweatherBold = Merriweather_Sans({
+  weight: "700",
+  subsets: ["latin"],
+});
+
 const OswaldBold = Oswald({
   weight: "400",
   subsets: ["latin"],
