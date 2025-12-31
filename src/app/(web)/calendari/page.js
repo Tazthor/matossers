@@ -6,9 +6,9 @@ import Header from "@/components/sections/Header";
 export default function Page() {
   return (
   <>
-    <Navbar page="" />
+    <Navbar page="calendari" />
     <Margin desktop="120px" />
-    <Header img="url('/images/home/header.jpg')" home />
+    <Header img="url('/images/headers/headercalendari.jpg')" title="Calendari d'actuacions" />
   </>
   )
 }

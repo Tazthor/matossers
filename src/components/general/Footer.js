@@ -82,7 +82,7 @@ export const Footer = function (props) {
           </Box>
           <Box w="90%" borderBottom="1px solid white" />
           <Box mt="15px">
-            <Text fontFamily="heading" fontSize="lg_xl">
+            <Text fontFamily="heading" fontSize="lg_xl" mb="10px">
               Col·laboren
             </Text>
             <Flex w="100%" alignItems="center">

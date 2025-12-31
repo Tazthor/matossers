@@ -6,9 +6,9 @@ import Header from "@/components/sections/Header";
 export default function Page() {
   return (
   <>
-    <Navbar page="" />
+    <Navbar page="musics" />
     <Margin desktop="120px" />
-    <Header img="url('/images/home/header.jpg')" home />
+    <Header img="url('/images/headers/headermusics.jpg')" title="Musics" />
   </>
   )
 }
