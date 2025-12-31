@@ -38,12 +38,9 @@ export const Topics = function () {
         {topcsList.map((topic, index) => (
           <Flex
             key={index}
-            my="30px"
             p="10px 20px"
             w={{ base: "100%", md: "31%" }}
-            mr={{ base: "0", md: "2%" }}
-            ml={{ base: "0", md: "2%" }}
-            mt={{ base: "30px", md: "0" }}
+            mx={{ base: "0", md: "2%" }}
             border="1px rgba(0, 0, 0, 0.3)"
             boxShadow="0 6px 6px rgba(0, 0, 0, 0.3)"
             cursor="pointer"
@@ -51,10 +48,9 @@ export const Topics = function () {
             borderTop="3px solid #663b30"
           >
             <Box mx="auto" my="20px" textAlign="center">
-              <Box w="40px" mx="auto">
+              <Box w="40px" mx="auto" mb="20px">
                 <topic.icon color="#663b30" size="36px" />
               </Box>
-              <br />
               <Text color="argila" fontWeight={700} fontSize="md">
                 {topic.title}
               </Text>
