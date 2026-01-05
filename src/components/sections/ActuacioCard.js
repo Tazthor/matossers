@@ -23,8 +23,8 @@ export const ActuacioCard = function ({ act, type }) {
   };
 
   return (
-    <Box fontSize="medium" lineHeight="28px" my="16px">
-      <Text mb="5px" fontSize="xl" fontWeight={600}>
+    <Box fontSize="md" lineHeight="28px" my="16px">
+      <Text mb="5px" fontSize="medium" fontWeight={600}>
         {act.actuacio}
       </Text>
       <Box w="80%" my="10px" borderTop="3px dashed #663b30"></Box>
@@ -33,7 +33,7 @@ export const ActuacioCard = function ({ act, type }) {
           Data:
         </Box>
         <Box ml="5px">
-          <Text>
+          <Text >
             {type == "futures"
               ? act.data.toDate().toLocaleString("ca-ES", optionsLarge)
               : act.data.toDate().toLocaleString("ca-ES", optionsShort)}
@@ -103,18 +103,18 @@ export const ActuacioCard = function ({ act, type }) {
             </>
           )}
           {act.galeria && (
-            <Box>
+            <Flex mt="10px">
               <Button
                 my="15px"
                 variant="primary"
-                size="normal"
+                size="full"
                 fontSize="md"
                 onClick={() => window.open(act.galeria, "_blank")}
                 leftIcon={<MdPhotoCamera size="20px" />}
               >
                 Fotografies
               </Button>
-            </Box>
+            </Flex>
           )}
         </Box>
       )}

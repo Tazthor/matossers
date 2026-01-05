@@ -5,9 +5,10 @@ import BlocText from "@/components/sections/BlocText";
 import Header from "@/components/sections/Header";
 import Topics from "@/components/sections/Topics";
 import { initApp, getDataCollection } from "../utils/utils";
-import { Spinner } from "@chakra-ui/react";
+import { Spinner, Flex } from "@chakra-ui/react";
 import GridCalendari from "@/components/sections/GridCalendari";
 import { useState, useEffect } from "react";
+import Flickr from "@/components/sections/Flickr";
 
 export default function Page() {
   const app = initApp();
@@ -26,7 +27,7 @@ export default function Page() {
     };
 
     getData();
-  }, []);
+  }, [app]);
 
 
   return (
@@ -38,6 +39,15 @@ export default function Page() {
       <Topics />
       <Margin desktop="60px" />
       <BlocText />
+       <Flex
+        w="100%"
+        maxW="2000px"
+        m="auto"
+        flexDir={{base:"column", md:"row"}}
+        justifyContent="center"
+        gap="50px"
+      >
+      <Flickr />
       {isLoading ? (
         <Spinner
           color="argila"
@@ -46,8 +56,8 @@ export default function Page() {
           thickness="4px"
         />
       ) : (
-        <GridCalendari dataAct={dataAct} properaOnly />
-      )}
+        <GridCalendari dataAct={dataAct} isHome />
+      )}</Flex>
     </>
   );
 }

@@ -4,7 +4,7 @@ import { Grid, Box, Text, Button, Flex, Heading } from "@chakra-ui/react";
 import Margin from "@/components/general/Margin";
 import ActuacioCard from "./ActuacioCard";
 
-export const GridCalendari = function ({ dataAct, properaOnly }) {
+export const GridCalendari = function ({ dataAct, isHome }) {
   const [actuacionsFutures, setActuacionsFutures] = useState(dataAct);
   const [actuacionsPassades, setActuacionsPassades] = useState(dataAct);
   var dateNow = new Date();
@@ -12,6 +12,7 @@ export const GridCalendari = function ({ dataAct, properaOnly }) {
   var properaAct = dataAct.find(
     (actuacio) => actuacio.data.toDate() >= dateNow
   );
+  var ultimaAct = dataAct.find((actuacio) => actuacio.data.toDate() <= dateNow);
 
   useEffect(() => {
     if (dataAct && dataAct.length > 0) {
@@ -29,37 +30,67 @@ export const GridCalendari = function ({ dataAct, properaOnly }) {
 
   return (
     <Box w={{ base: "90%", md: "80%", xl: "75%" }} m="auto">
-      <Heading
-        fontSize={{ base: "xl", md: "xxl" }}
-        lineHeight="normal"
-        color="argila"
-        textTransform="uppercase"
-      >
-        {properaOnly ? "Propera actuació" : "Properes actuacions"}
-      </Heading>
-      <Margin desktop="40px" mobile="10px" />
-      {(properaAct == undefined && (
-        <Text>Actualment no hi ha actuacions previstes al calendari</Text>
-      )) ||
-        (properaOnly && <ActuacioCard act={properaAct} type="futures" />) || (
-          <Grid
-            templateColumns={{
-              base: "repeat(1, 1fr)",
-              md: "repeat(2, 1fr)",
-              xl: "repeat(3, 1fr)",
-            }}
-            gap={4}
-          >
-            {isSorted &&
-              actuacionsFutures.map((act, index) => {
-                if (act.data.toDate() >= dateNow) {
-                  return <ActuacioCard key={index} act={act} type="futures" />;
-                }
-              })}
-          </Grid>
-        )}
-      {!properaOnly && (
+      {isHome ? (
         <>
+          <Heading
+            fontSize={{ base: "xl", md: "xxl" }}
+            lineHeight="normal"
+            color="argila"
+            textTransform="uppercase"
+          >
+            Última actuació
+          </Heading>
+          <Margin desktop="10px" />
+          <ActuacioCard act={ultimaAct} type="passades" />
+          <Margin desktop="30px" />
+          <Heading
+            fontSize={{ base: "xl", md: "xxl" }}
+            lineHeight="normal"
+            color="argila"
+            textTransform="uppercase"
+          >
+            Propera actuació
+          </Heading>
+          <Margin desktop="10px" />
+          {properaAct == undefined ? (
+            <Text>Actualment no hi ha actuacions previstes al calendari</Text>
+          ) : (
+            <ActuacioCard act={properaAct} type="futures" />
+          )}
+        </>
+      ) : (
+        <>
+          <Heading
+            fontSize={{ base: "xl", md: "xxl" }}
+            lineHeight="normal"
+            color="argila"
+            textTransform="uppercase"
+          >
+            Properes actuacions
+          </Heading>
+          <Margin desktop="20px" mobile="10px" />
+
+          {properaAct == undefined ? (
+            <Text>Actualment no hi ha actuacions previstes al calendari</Text>
+          ) : (
+            <Grid
+              templateColumns={{
+                base: "repeat(1, 1fr)",
+                md: "repeat(2, 1fr)",
+                xl: "repeat(3, 1fr)",
+              }}
+              gap={4}
+            >
+              {isSorted &&
+                actuacionsFutures.map((act, index) => {
+                  if (act.data.toDate() >= dateNow) {
+                    return (
+                      <ActuacioCard key={index} act={act} type="futures" />
+                    );
+                  }
+                })}
+            </Grid>
+          )}
           <Margin desktop="40px" mobile="30px" />
           <Heading
             fontSize={{ base: "xl", md: "xxl" }}
@@ -67,9 +98,9 @@ export const GridCalendari = function ({ dataAct, properaOnly }) {
             color="argila"
             textTransform="uppercase"
           >
-            Darreres actuacions
+            Ultimes actuacions
           </Heading>
-          <Margin desktop="40px" mobile="10px" />
+          <Margin desktop="20px" mobile="10px" />
           <Grid
             templateColumns={{
               base: "repeat(1, 1fr)",
