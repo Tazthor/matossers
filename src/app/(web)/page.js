@@ -32,7 +32,7 @@ export default function Page() {
 
   return (
     <>
-{/*       <Navbar page="" />
+      <Navbar page="" />
       <Margin desktop="120px" />
       <Header img="url('/images/home/header.jpg')" home />
       <Margin desktop="60px" />
@@ -58,7 +58,7 @@ export default function Page() {
         ) : (
           <GridCalendari dataAct={dataAct} isHome />
         )}
-      </Flex> */}
+      </Flex>
       <BannerContacte
         img="/images/home/contacte.jpg"
         imgMbl=""
