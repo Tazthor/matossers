@@ -24,7 +24,7 @@ export default function Page() {
       };
   
       getData();
-    }, []);
+    }, [app]);
   return (
   <>
     <Navbar page="calendari" />

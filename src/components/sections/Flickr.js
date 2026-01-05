@@ -88,6 +88,7 @@ export const Flickr = () => {
       {slides.length > 0 && (
         <>
           <AliceCarousel
+            width="100%"
             mouseTracking
             items={slides}
             disableDotsControls

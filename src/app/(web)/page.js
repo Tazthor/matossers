@@ -9,6 +9,7 @@ import { Spinner, Flex } from "@chakra-ui/react";
 import GridCalendari from "@/components/sections/GridCalendari";
 import { useState, useEffect } from "react";
 import Flickr from "@/components/sections/Flickr";
+import BannerContacte from "@/components/sections/BannerContacte";
 
 export default function Page() {
   const app = initApp();
@@ -29,35 +30,40 @@ export default function Page() {
     getData();
   }, [app]);
 
-
   return (
     <>
-      <Navbar page="" />
+{/*       <Navbar page="" />
       <Margin desktop="120px" />
       <Header img="url('/images/home/header.jpg')" home />
       <Margin desktop="60px" />
       <Topics />
       <Margin desktop="60px" />
       <BlocText />
-       <Flex
+      <Flex
         w="100%"
         maxW="2000px"
         m="auto"
-        flexDir={{base:"column", md:"row"}}
+        flexDir={{ base: "column", md: "row" }}
         justifyContent="center"
         gap="50px"
       >
-      <Flickr />
-      {isLoading ? (
-        <Spinner
-          color="argila"
-          size="xl"
-          emptyColor="gray.200"
-          thickness="4px"
-        />
-      ) : (
-        <GridCalendari dataAct={dataAct} isHome />
-      )}</Flex>
+        <Flickr />
+        {isLoading ? (
+          <Spinner
+            color="argila"
+            size="xl"
+            emptyColor="gray.200"
+            thickness="4px"
+          />
+        ) : (
+          <GridCalendari dataAct={dataAct} isHome />
+        )}
+      </Flex> */}
+      <BannerContacte
+        img="/images/home/contacte.jpg"
+        imgMbl=""
+        titleVisible={true}
+      />
     </>
   );
 }
