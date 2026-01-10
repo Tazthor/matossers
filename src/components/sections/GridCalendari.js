@@ -32,8 +32,9 @@ export const GridCalendari = function ({ dataAct, isHome }) {
     <Box w={{ base: "90%", md: "80%", xl: "75%" }} m="auto">
       {isHome ? (
         <>
+
           <Heading
-            fontSize={{ base: "xl", md: "xxl" }}
+            fontSize={{ base: "xl", md: "xl" }}
             lineHeight="normal"
             color="argila"
             textTransform="uppercase"
@@ -44,7 +45,7 @@ export const GridCalendari = function ({ dataAct, isHome }) {
           <ActuacioCard act={ultimaAct} type="passades" />
           <Margin desktop="30px" />
           <Heading
-            fontSize={{ base: "xl", md: "xxl" }}
+            fontSize={{ base: "xl", md: "xl" }}
             lineHeight="normal"
             color="argila"
             textTransform="uppercase"

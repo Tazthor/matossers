@@ -1,3 +1,4 @@
+'use client';
 import {
   Box,
   Button,
@@ -14,13 +15,6 @@ import {
   CloseButton,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import {
-  DialogRoot,
-  DialogBackdrop,
-  DialogContent,
-  DialogBody,
-  DialogCloseTrigger,
-} from "@chakra-ui/react";
 import { FiCheck } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
 
@@ -119,7 +113,11 @@ export const FormContacte = function (props) {
   };
 
   const submit = async function () {
+    setIsLoading(true);
     var validate = await validateForm();
+    if(validate.error){
+      setIsLoading(false);
+    }
     var emailParams = {
       nom,
       cognom,
@@ -139,6 +137,7 @@ export const FormContacte = function (props) {
           function (response) {
             setOpen(!open);
             resetForm();
+            setIsLoading(false);
           },
           function (error) {
             console.log("FAILED...", error);
@@ -322,7 +321,7 @@ export const FormContacte = function (props) {
             </Text>
           )}
         </Box>
-        <Button variant="primary" size="normal" onClick={submit}>
+        <Button variant="primary" size="normal" onClick={submit} disabled={isLoading}>
           {isLoading ? <Spinner /> : "Envia"}
         </Button>
       </form>

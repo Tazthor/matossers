@@ -1,3 +1,4 @@
+'use client';
 import { Box, Text, Flex, Link, Heading } from "@chakra-ui/react";
 import FormContacte from "../forms/FormContacte";
 
