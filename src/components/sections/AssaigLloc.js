@@ -54,6 +54,15 @@ const AssaigLloc = () => {
           />
         </Box>
       </Flex>
+      <Flex w="100%" mt="60px" mx="auto" justifyContent="center">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.115936322827!2d2.016609415648985!3d41.415001902245244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49a8515762f01%3A0xb70aac8ef32ff68f!2sCentre+Cultural+de+la+Federaci%C3%B3+Obrera!5e0!3m2!1sca!2sus!4v1483448235410"
+          width="100%"
+          height="450"
+          style={{ border: "0" }}
+          allowFullScreen=""
+        ></iframe>
+      </Flex>
     </Box>
   );
 };
