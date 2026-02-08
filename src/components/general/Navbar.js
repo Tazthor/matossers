@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Image, Flex, Text } from "@chakra-ui/react";
 import NaviconStyles from "@/styles/navicon.module.css";
 import { useRouter } from "next/navigation";
@@ -18,7 +18,7 @@ export const Navbar = function (props) {
     { name: "Fes-te'n soci", link: "/fes-te-soci", key: "socis" },
     { name: "Contacte", link: "/#contacte", key: "contacte" },
   ];
-
+  
   return (
     <Box
       w="100%"

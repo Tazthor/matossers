@@ -1,20 +1,4 @@
 
-.taronja{
-  color: #EF7D55!important
-}
-
-.gradientTaronja{
-  background : linear-gradient(90.07deg, #FF4D00 0.1%, rgba(255, 77, 0, 0) 99.98%);
-}
-
-.strokeText{
-  color: #ED6E34;
-  opacity: 0.5;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #ED6E34;
-}
-
 .anchor {
   display: block;
   position: relative;
@@ -38,17 +22,13 @@
   left: 0;
 }
 
-.selected{
-  background-color: #979797!important;
-  color: #fff!important;
-}
-
-.buttonSelected{
-  background-color: #FF4D00!important;
-  color: #fff!important;
-  border-color: #FF4D00!important;
-}
-
 .darkLayer {
   background: rgba(0, 0, 0, 0.30);
+}
+
+.isParagraph{
+  margin: 30px 0;
+}
+.listnotnumber{
+  list-style-type: none;
 }

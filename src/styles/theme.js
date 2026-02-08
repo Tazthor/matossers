@@ -91,7 +91,7 @@ const config = defineConfig({
         xxl: "40px",
         xxxl: "50px",
         big: "80px",
-        superbig: "150px",
+        superbig: "100px",
         huge: "200px",
       },
       lineHeights: {
