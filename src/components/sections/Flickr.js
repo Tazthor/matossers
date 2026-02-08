@@ -15,7 +15,6 @@ const getFlickrImageURL = (photo, size = "b") =>
 export const Flickr = () => {
   const [fotos, setFotos] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
-console.log("fotos", fotos);
   useEffect(() => {
     const controller = new AbortController();
 
