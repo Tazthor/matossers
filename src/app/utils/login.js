@@ -1,4 +1,5 @@
-import { initializeApp } from "firebase/app";
+'use client';
+/*import { initializeApp } from "firebase/app";
 import {
   getAuth,
   signOut,
@@ -127,3 +128,4 @@ export async function logoOut() {
   await signOut(auth);
   return "signOut";
 }
+*/

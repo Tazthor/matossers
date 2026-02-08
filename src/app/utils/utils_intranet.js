@@ -1,9 +1,8 @@
 'use client';
-import { initializeApp } from "firebase/app";
-/*import { getFirestore } from "firebase/firestore";
+/*import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 import { collection, doc, getDocs, setDoc, Timestamp} from "firebase/firestore";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
- */
 import { getDatabase, get, set, ref } from "firebase/database";
 
 const firebaseConfig = {
