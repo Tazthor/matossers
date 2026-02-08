@@ -24,7 +24,6 @@ jobs:
           echo NEXT_PUBLIC_FIREBASE_measurementId=${{ vars.FIREBASE_MEASUREMENT_ID }} >> .env.local
           echo NEXT_PUBLIC_INSTAGRAM_KEY=${{ vars.INSTAGRAM_KEY }} >> .env.local
           echo NEXT_PUBLIC_FLICKR_KEY=${{ vars.FLICKR_KEY }} >> .env.local
-          cat .env.local
       - run:
           npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
