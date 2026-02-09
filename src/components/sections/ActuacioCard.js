@@ -33,6 +33,7 @@ export const ActuacioCard = function ({ act, type }) {
           Data:
         </Box>
         <Box ml="5px">
+          
           <Text >
             {type == "futures"
               ? act.data.toDate().toLocaleString("ca-ES", optionsLarge)
