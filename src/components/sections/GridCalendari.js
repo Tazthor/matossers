@@ -42,7 +42,11 @@ export const GridCalendari = function ({ dataAct, isHome }) {
             Última actuació
           </Heading>
           <Margin desktop="10px" />
-          <ActuacioCard act={ultimaAct} type="passades" />
+          {ultimaAct == undefined ? (
+            <Text>Encara no hem començat la temporada</Text>
+          ) : (
+            <ActuacioCard act={ultimaAct} type="passades" />
+          )}
           <Margin desktop="30px" />
           <Heading
             fontSize={{ base: "xl", md: "xl" }}
