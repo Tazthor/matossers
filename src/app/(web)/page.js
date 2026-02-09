@@ -13,10 +13,9 @@ import BannerContacte from "@/components/sections/BannerContacte";
 
 export default function Page() {
   const app = initApp();
-  console.log(app)
   const [dataAct, setDataAct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
+/*   useEffect(() => {
     const getData = async () => {
       const object = await getDataCollection(app, "actuacions");
 
@@ -30,7 +29,7 @@ export default function Page() {
 
     getData();
   }, [app]);
-
+ */
   return (
     <>
       <Navbar page="" />
@@ -49,7 +48,7 @@ export default function Page() {
         gap="50px"
       >
         <Flickr />
-        {isLoading ? (
+       {/* {isLoading ? (
           <Spinner
             color="argila"
             size="xl"
@@ -57,8 +56,8 @@ export default function Page() {
             thickness="4px"
           />
         ) : (
-          <GridCalendari dataAct={dataAct} isHome />
-        )}
+           <GridCalendari dataAct={dataAct} isHome /> 
+        )}*/}
       </Flex>
       <BannerContacte
         img="/images/home/contacte.jpg"
