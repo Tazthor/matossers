@@ -11,7 +11,7 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
   const app = initApp();
   const [data, setData] = useState([]);
-/* 
+
   useEffect(() => {
     const getData = async () => {
       const object = await getDataCollection(app, "musics");
@@ -22,7 +22,7 @@ export default function Page() {
 
     getData();
   }, [app]);
- */
+
   return (
     <>
       <Navbar page="musics" />

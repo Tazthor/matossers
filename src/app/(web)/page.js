@@ -13,6 +13,7 @@ import BannerContacte from "@/components/sections/BannerContacte";
 
 export default function Page() {
   const app = initApp();
+  console.log(app)
   const [dataAct, setDataAct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
