@@ -292,12 +292,11 @@ export const FormContacte = function (props) {
             value={msg}
           />
           <Checkbox.Root
-            colorPalette={props.negatiu ? "yellow" : "black"}
             onCheckedChange={() => setGdpr(!gdpr)}
             style={{ marginTop: "25px", marginBottom: "10px" }}
           >
             <Checkbox.HiddenInput />
-            <Checkbox.Control />
+            <Checkbox.Control border="1px solid" borderColor="argila" _checked={{backgroundColor: "argila"}}/>
             <Checkbox.Label color={props.negatiu ? "blanc" : "negre"}>
               {" "}
               Accepto la{" "}
