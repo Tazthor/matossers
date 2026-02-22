@@ -19,6 +19,8 @@ import {
 import { useState } from "react";
 import { FiCheck } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
+import { SingleDatepicker } from "chakra-dayzed-datepicker";
+import { ca } from "date-fns/locale";
 
 export const FormAlta = function () {
   const [nom, setNom] = useState("");
@@ -31,7 +33,7 @@ export const FormAlta = function () {
   const [cp, setCp] = useState("");
   const [dni, setDni] = useState("");
   const [professio, setProfessio] = useState("");
-  const [dataNaixement, setDataNaixement] = useState("");
+  const [dataNaixement, setDataNaixement] = useState(new Date());
   const [majorEdat, setMajorEdat] = useState("");
   const [msg, setMsg] = useState("");
   const [genere, setGenere] = useState("");
@@ -62,7 +64,7 @@ export const FormAlta = function () {
     setCp("");
     setDni("");
     setProfessio("");
-    setDataNaixement("");
+    setDataNaixement(new Date());
     setGenere("");
     setMajorEdat("");
     setMsg("");
@@ -216,48 +218,71 @@ export const FormAlta = function () {
           </Box>
           <Box w="100%">
             <Text fontWeight={600} mb="10px" color="argila">
-              Sóc major d&apos;edat? *
-            </Text>
-            <RadioGroup.Root
-              value={majorEdat}
-              onValueChange={(e) => setMajorEdat(e.value)}
-            >
-              <HStack gap="6">
-                {SiList.map((item) => (
-                  <RadioGroup.Item key={item.value} value={item.value}>
-                    <RadioGroup.ItemHiddenInput />
-                    <RadioGroup.ItemIndicator
-                      border="1px solid"
-                      borderColor="argila"
-                      _checked={{ backgroundColor: "argila" }}
-                    />
-                    <RadioGroup.ItemText>{item.label}</RadioGroup.ItemText>
-                  </RadioGroup.Item>
-                ))}
-              </HStack>
-            </RadioGroup.Root>
-          </Box>
-        </Flex>
-        <Flex
-          flexDir={{ base: "column", md: "row" }}
-          justifyContent="space-between"
-          mb={{ base: "20px", xl: "50px" }}
-          gap="20px"
-        >
-          <Box w="100%">
-            <Text fontWeight={600} mb="10px" color="argila">
               Data de naixement *
             </Text>
-            <Input
-              w="90%"
-              fontSize="normal"
-              color="negre"
-              border="0"
-              borderBottom="1px solid"
-              borderBottomColor="argila"
-              _focus={{ boxShadow: "none" }}
-              onChange={(e) => setDatanaixement(e.target.value)}
-              value={dataNaixement}
+            <SingleDatepicker
+              w="100%"
+              name="date-input"
+              date={dataNaixement}
+              onDateChange={setDataNaixement}
+              configs={{
+                firstDayOfWeek: 1,
+                locale: ca,
+                dateFormat: "dd/MM/yyyy",
+                dayNames: ["Dg", "Dl", "Dt", "Dc", "Dj", "Dv", "Ds"],
+                monthNames: [
+                  "Gener",
+                  "Febrer",
+                  "Març",
+                  "Abril",
+                  "Maig",
+                  "Juny",
+                  "Juliol",
+                  "Agost",
+                  "Setembre",
+                  "Octubre",
+                  "Novembre",
+                  "Desembre",
+                ],
+              }}
+              propsConfigs={{
+                dayOfMonthBtnProps: {
+                  defaultBtnProps: {
+                    background: "transparent",
+                    color: "argila",
+                    _hover: {
+                      background: "argila",
+                      color: "white",
+                    },
+                  },
+                  selectedBtnProps: {
+                    background: "argila",
+                    color: "white",
+                  },
+                },
+                dateNavBtnProps: {
+                  background: "transparent",
+                  color: "argila",
+
+                  _hover: {
+                    background: "argila",
+                    color: "white",
+                  },
+                },
+                popoverCompProps: {
+                  popoverContentProps: {
+                    borderColor: "argila",
+                    border: "1px solid",
+                    color: "argila",
+                    boxShadow: "var(--chakra-shadows-base)",
+                  },
+                },
+                calendarPanelProps: {
+                  wrapperProps: {
+                    borderColor: "argila",
+                  },
+                },
+              }}
             />
           </Box>
           <Box w="100%">
@@ -455,12 +480,9 @@ export const FormAlta = function () {
             />
           </Box>
           <Box w="100%" mr={{ base: "0", xl: "2%" }} mb={"50px"}>
-            <Text
-              fontWeight={600}
-              mb="10px"
-              color="argila"
-            >
-              Altres informacions que ens puguin ser útils (al·lèrgies, malalties...) *
+            <Text fontWeight={600} mb="10px" color="argila">
+              Altres informacions que ens puguin ser útils (al·lèrgies,
+              malalties, habilitats...) *
             </Text>
             <Textarea
               w="95%"
