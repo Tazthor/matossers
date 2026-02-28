@@ -2,7 +2,7 @@
 import Margin from "@/components/general/Margin";
 import Navbar from "@/components/general/Navbar";
 import Header from "@/components/sections/Header";
-//import FormAlta from "@/components/forms/FormAlta";
+import FormAlta from "@/components/forms/FormAlta";
 
 export default function Page() {
   return (
@@ -11,9 +11,8 @@ export default function Page() {
       <Margin desktop="120px" />
       <Header img="url('/images/headers/headerassajos.jpg')" title="Assajos" />
       <Margin desktop="30px" />
-      Hola
-{/*       <FormAlta />
- */}      <Margin desktop="60px" />
+      <FormAlta />
+      <Margin desktop="60px" />
     </>
   );
 }
