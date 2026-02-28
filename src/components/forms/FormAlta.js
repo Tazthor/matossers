@@ -16,11 +16,12 @@ import {
   CloseButton,
   Textarea,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiCheck } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
 import { SingleDatepicker } from "chakra-dayzed-datepicker";
 import { ca } from "date-fns/locale";
+import { validateAltaForm } from "@/app/utils/utilsform";
 
 export const FormAlta = function () {
   const [nom, setNom] = useState("");
@@ -33,14 +34,31 @@ export const FormAlta = function () {
   const [cp, setCp] = useState("");
   const [dni, setDni] = useState("");
   const [professio, setProfessio] = useState("");
-  const [dataNaixement, setDataNaixement] = useState(new Date());
+  const [centreEducatiu, setCentreEducatiu] = useState("");
+  const [dataNaixement, setDataNaixement] = useState(undefined);
   const [majorEdat, setMajorEdat] = useState("");
   const [msg, setMsg] = useState("");
   const [genere, setGenere] = useState("");
+  const [tutor, setTutor] = useState("");
   const [gdpr, setGdpr] = useState(false);
   const [error, setError] = useState({ isError: false, msgError: "" });
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const monthNames = [
+    "Gener",
+    "Febrer",
+    "Març",
+    "Abril",
+    "Maig",
+    "Juny",
+    "Juliol",
+    "Agost",
+    "Setembre",
+    "Octubre",
+    "Novembre",
+    "Desembre",
+  ];
 
   const genereList = [
     { label: "Dona", value: "dona" },
@@ -48,10 +66,24 @@ export const FormAlta = function () {
     { label: "No binari", value: "nobinari" },
   ];
 
-  const SiList = [
-    { label: "Sí", value: "si" },
-    { label: "No", value: "no" },
-  ];
+  useEffect(() => {
+    if (!dataNaixement) return;
+
+    const avui = new Date();
+    const naixement = new Date(dataNaixement);
+
+    let edat = avui.getFullYear() - naixement.getFullYear();
+    const mes = avui.getMonth() - naixement.getMonth();
+
+    if (mes < 0 || (mes === 0 && avui.getDate() < naixement.getDate())) {
+      edat--;
+    }
+    if (edat >= 18) {
+      setMajorEdat(true);
+    } else {
+      setMajorEdat(false);
+    }
+  }, [dataNaixement]);
 
   const resetForm = function () {
     setNom("");
@@ -64,9 +96,11 @@ export const FormAlta = function () {
     setCp("");
     setDni("");
     setProfessio("");
-    setDataNaixement(new Date());
+    setCentreEducatiu("");
+    setDataNaixement("");
     setGenere("");
     setMajorEdat("");
+    setTutor("");
     setMsg("");
     setGdpr(false);
   };
@@ -81,78 +115,31 @@ export const FormAlta = function () {
     setError({ isError: false, msgError: "" });
   };
 
-  const validateForm = async function () {
-    var errors = [];
-    if (nom == "") {
-      errors.push({
-        error: true,
-        message: "El camp Nom és obligatori",
-      });
-    }
-    if (cognom == "") {
-      errors.push({
-        error: true,
-        message: "El camp Cognom és obligatori",
-      });
-    }
-    if (email == "") {
-      errors.push({
-        error: true,
-        message: "El correu electrònic és obligatori",
-      });
-    }
-    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-    if (!emailRegex.test(email)) {
-      errors.push({
-        error: true,
-        message: "El correu electrònic no té un format correcte",
-      });
-    }
-    const phoneRegex = /^\+?(6\d{2}|7[1-9]\d{1})\d{6}$/;
-    const phoneRegex2 = /^\+?(7\d{2}|7[1-9]\d{1})\d{6}$/;
-    const phoneRegex3 = /^\+?(9\d{2}|7[1-9]\d{1})\d{6}$/;
-    if (phone != "") {
-      if (
-        !phoneRegex.test(phone) &&
-        !phoneRegex2.test(phone) &&
-        !phoneRegex3.test(phone)
-      ) {
-        errors.push({
-          error: true,
-          message: "El telèfon no té un format correcte",
-        });
-      }
-    }
-    if (errors.length == 0) {
-      if (!gdpr) {
-        return {
-          error: true,
-          message: "Has d'acceptar la política de privacitat",
-        };
-      }
-      return { error: false };
-    } else if (errors.length == 1) return errors[0];
-    else
-      return {
-        error: true,
-        message: "Hi ha camps obligatoris buits al formulari",
-      };
-  };
-
   const submit = async function () {
     setIsLoading(true);
-    var validate = await validateForm();
-    if (validate.error) {
-      setIsLoading(false);
-    }
-    var emailParams = {
+    const dataForm = {
       nom,
       cognom,
       email,
       phone,
-      msg,
-    };
-    if (!validate.error) {
+      adreca,
+      poblacio,
+      cp,
+      dni,
+      professio,
+      centreEducatiu,
+      dataNaixement,
+      genere,
+      tutor,
+      msg
+    }
+    console.log('hola', dataForm)
+    var validate = await validateAltaForm(dataForm, majorEdat);
+    if (validate.error) {
+      setIsLoading(false);
+    }
+
+/*     if (!validate.error) {
       emailjs
         .send(
           "service_6wb1ojn",
@@ -172,7 +159,7 @@ export const FormAlta = function () {
         );
     } else {
       openError(validate.message, validate.ref, 3000);
-    }
+    } */
   };
 
   return (
@@ -220,34 +207,39 @@ export const FormAlta = function () {
             <Text fontWeight={600} mb="10px" color="argila">
               Data de naixement *
             </Text>
-            <SingleDatepicker
-              w="100%"
-              name="date-input"
-              date={dataNaixement}
-              onDateChange={setDataNaixement}
-              configs={{
-                firstDayOfWeek: 1,
-                locale: ca,
-                dateFormat: "dd/MM/yyyy",
-                dayNames: ["Dg", "Dl", "Dt", "Dc", "Dj", "Dv", "Ds"],
-                monthNames: [
-                  "Gener",
-                  "Febrer",
-                  "Març",
-                  "Abril",
-                  "Maig",
-                  "Juny",
-                  "Juliol",
-                  "Agost",
-                  "Setembre",
-                  "Octubre",
-                  "Novembre",
-                  "Desembre",
-                ],
-              }}
-              propsConfigs={{
-                dayOfMonthBtnProps: {
-                  defaultBtnProps: {
+            <Box maxW="220px">
+              <SingleDatepicker
+                name="date-input"
+                date={dataNaixement}
+                onDateChange={setDataNaixement}
+                triggerVariant="input"
+                configs={{
+                  firstDayOfWeek: 1,
+                  locale: ca,
+                  dateFormat: "dd/MM/yyyy",
+                  dayNames: ["Dg", "Dl", "Dt", "Dc", "Dj", "Dv", "Ds"],
+                  monthNames: monthNames,
+                }}
+                propsConfigs={{
+                  triggerIconBtnProps: {
+                    background: "transparent",
+                    color: "argila",
+                  },
+                  dayOfMonthBtnProps: {
+                    defaultBtnProps: {
+                      background: "transparent",
+                      color: "argila",
+                      _hover: {
+                        background: "argila",
+                        color: "white",
+                      },
+                    },
+                    selectedBtnProps: {
+                      background: "argila",
+                      color: "white",
+                    },
+                  },
+                  dateNavBtnProps: {
                     background: "transparent",
                     color: "argila",
                     _hover: {
@@ -255,35 +247,22 @@ export const FormAlta = function () {
                       color: "white",
                     },
                   },
-                  selectedBtnProps: {
-                    background: "argila",
-                    color: "white",
+                  popoverCompProps: {
+                    popoverContentProps: {
+                      borderColor: "argila",
+                      border: "1px solid",
+                      color: "argila",
+                      boxShadow: "var(--chakra-shadows-base)",
+                    },
                   },
-                },
-                dateNavBtnProps: {
-                  background: "transparent",
-                  color: "argila",
-
-                  _hover: {
-                    background: "argila",
-                    color: "white",
+                  calendarPanelProps: {
+                    wrapperProps: {
+                      borderColor: "argila",
+                    },
                   },
-                },
-                popoverCompProps: {
-                  popoverContentProps: {
-                    borderColor: "argila",
-                    border: "1px solid",
-                    color: "argila",
-                    boxShadow: "var(--chakra-shadows-base)",
-                  },
-                },
-                calendarPanelProps: {
-                  wrapperProps: {
-                    borderColor: "argila",
-                  },
-                },
-              }}
-            />
+                }}
+              />
+            </Box>
           </Box>
           <Box w="100%">
             <Text fontWeight={600} mb="10px" color="argila">
@@ -340,22 +319,41 @@ export const FormAlta = function () {
               value={cognom}
             />
           </Box>
-          <Box w="100%">
-            <Text fontWeight={600} mb="10px" color="argila">
-              Malnom
-            </Text>
-            <Input
-              w="90%"
-              fontSize="normal"
-              color="negre"
-              border="0"
-              borderBottom="1px solid"
-              borderBottomColor="argila"
-              _focus={{ boxShadow: "none" }}
-              onChange={(e) => setMalnom(e.target.value)}
-              value={malnom}
-            />
-          </Box>
+          {majorEdat === true ? (
+            <Box w="100%">
+              <Text fontWeight={600} mb="10px" color="argila">
+                Malnom
+              </Text>
+              <Input
+                w="90%"
+                fontSize="normal"
+                color="negre"
+                border="0"
+                borderBottom="1px solid"
+                borderBottomColor="argila"
+                _focus={{ boxShadow: "none" }}
+                onChange={(e) => setMalnom(e.target.value)}
+                value={malnom}
+              />
+            </Box>
+          ) : (
+            <Box w="100%">
+              <Text fontWeight={600} mb="10px" color="argila">
+                Nom del pare/mare/tutor legal *
+              </Text>
+              <Input
+                w="90%"
+                fontSize="normal"
+                color="negre"
+                border="0"
+                borderBottom="1px solid"
+                borderBottomColor="argila"
+                _focus={{ boxShadow: "none" }}
+                onChange={(e) => setTutor(e.target.value)}
+                value={tutor}
+              />
+            </Box>
+          )}
         </Flex>
         <Flex
           flexDir={{ base: "column", md: "row" }}
@@ -463,26 +461,45 @@ export const FormAlta = function () {
           gap="20px"
           my={{ base: "20px", xl: "50px" }}
         >
-          <Box w="100%">
-            <Text fontWeight={600} mb="10px" color="argila">
-              Professió
-            </Text>
-            <Input
-              w="90%"
-              color="negre"
-              fontSize="normal"
-              border="0"
-              borderBottom="1px solid"
-              borderBottomColor="argila"
-              _focus={{ boxShadow: "none" }}
-              onChange={(e) => setProfessio(e.target.value)}
-              value={professio}
-            />
-          </Box>
+          {majorEdat === true ? (
+            <Box w="100%">
+              <Text fontWeight={600} mb="10px" color="argila">
+                Professió
+              </Text>
+              <Input
+                w="90%"
+                color="negre"
+                fontSize="normal"
+                border="0"
+                borderBottom="1px solid"
+                borderBottomColor="argila"
+                _focus={{ boxShadow: "none" }}
+                onChange={(e) => setProfessio(e.target.value)}
+                value={professio}
+              />
+            </Box>
+          ) : (
+            <Box w="100%">
+              <Text fontWeight={600} mb="10px" color="argila">
+                Centre educatiu
+              </Text>
+              <Input
+                w="90%"
+                color="negre"
+                fontSize="normal"
+                border="0"
+                borderBottom="1px solid"
+                borderBottomColor="argila"
+                _focus={{ boxShadow: "none" }}
+                onChange={(e) => setCentreEducatiu(e.target.value)}
+                value={centreEducatiu}
+              />
+            </Box>
+          )}
           <Box w="100%" mr={{ base: "0", xl: "2%" }} mb={"50px"}>
             <Text fontWeight={600} mb="10px" color="argila">
               Altres informacions que ens puguin ser útils (al·lèrgies,
-              malalties, habilitats...) *
+              malalties, habilitats...)
             </Text>
             <Textarea
               w="95%"
