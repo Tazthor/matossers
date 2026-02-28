@@ -5,7 +5,7 @@ import BlocText from "@/components/sections/BlocText";
 import Header from "@/components/sections/Header";
 import Topics from "@/components/sections/Topics";
 import { initApp, getDataCollection } from "../utils/utils";
-import { Spinner, Flex } from "@chakra-ui/react";
+import { Spinner, Flex, Box } from "@chakra-ui/react";
 import GridCalendari from "@/components/sections/GridCalendari";
 import { useState, useEffect } from "react";
 import Flickr from "@/components/sections/Flickr";
@@ -59,6 +59,7 @@ export default function Page() {
           <GridCalendari dataAct={dataAct} isHome />
         )}
       </Flex>
+      <Box id="contacte" />
       <BannerContacte
         img="/images/home/contacte.jpg"
         imgMbl=""

@@ -1,4 +1,5 @@
-import { Box, Text, Flex, Heading } from "@chakra-ui/react";
+'use client';
+import { Box, Flex, Heading } from "@chakra-ui/react";
 
 export const Header = function (props) {
   return (
