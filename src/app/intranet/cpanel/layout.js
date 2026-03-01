@@ -63,8 +63,8 @@ export default function IntranetLayout({ children }) {
         flexDirection="column"
         p={5}
       >
-        <Text fontSize="xl" fontWeight="bold" mb={10} color="argila">
-          CPanel Matossers
+        <Text fontSize="lg" fontWeight="bold" mb={10} color="argila" >
+          Tauler de control <br/> Matossers
         </Text>
 
         <VStack align="stretch" gap={2} flex="1">
@@ -79,8 +79,6 @@ export default function IntranetLayout({ children }) {
           </NavItem>
         </VStack>
 
-        {/* Substituim el Divider per un Box amb borderTop */}
-        <Box mt="auto" pt={4} borderTop="1px solid" borderColor="gray.100">
           <Button
             variant="ghost"
             width="full"
@@ -91,7 +89,6 @@ export default function IntranetLayout({ children }) {
             <Icon as={FiLogOut} mr={3} />
             Tancar Sessió
           </Button>
-        </Box>
       </Box>
 
       {/* CONTINGUT PRINCIPAL */}
