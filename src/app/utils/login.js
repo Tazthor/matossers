@@ -1,13 +1,14 @@
 'use client';
-/*import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
 import {
-  getAuth,
   signOut,
   GoogleAuthProvider,
   signInWithPopup,
+  getAuth,
 } from "firebase/auth";
 import { getFirestore, serverTimestamp } from "firebase/firestore";
-import { doc, setDoc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_apiKey,
@@ -20,67 +21,46 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_measurementId,
 };
 
-const app = initializeApp(firebaseConfig);
+const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
+
+export { app, db, storage };
 
 export async function loginWithGoogle() {
   const googleProvider = new GoogleAuthProvider();
-  const dateOptions = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  };
+  
   try {
     const userCredential = await signInWithPopup(auth, googleProvider);
     const user = userCredential.user;
     const userRef = doc(db, "usuaris", user.uid);
     const userSnap = await getDoc(userRef);
-    const castellerRef = doc(db, "castellers", user.uid);
-    const castellerSnap = await getDoc(castellerRef);
-    let role = "espera"; // Valor per defecte
-
-    if (!userSnap.exists() && !castellerSnap.exists()) {
-      await setDoc(userRef, {
-        uid: user.uid,
-        email: user.email,
-        name: user.displayName,
-        role: "espera",
-        createdAt: serverTimestamp(),
-        lastLogin: serverTimestamp(),
-      });
-    } else if (!userSnap.exists() && castellerSnap.exists()) {
-      await setDoc(userRef, {
-        uid: user.uid,
-        email: user.email,
-        name: user.displayName,
-        role: "casteller",
-        createdAt: serverTimestamp(),
-        lastLogin: serverTimestamp(),
-      });
-      role = "casteller";
-      await updateDoc(castellerRef, { actiu: true });
-    } else {
-      role = userSnap.data().role;
+    if (userSnap.exists()) {
+      const userData = userSnap.data();
+      
       await updateDoc(userRef, {
         lastLogin: serverTimestamp(),
+        name: user.displayName,
       });
+
+      return {
+        uid: user.uid,
+        email: user.email,
+        name: user.displayName,
+        role: userData.role, 
+      };
+    } else {
+      await signOut(auth); 
+      return { error: { code: "custom/not-authorized", message: "Aquest usuari no té permís d'accés." } };
     }
 
-    return {
-      uid: user.uid,
-      email: user.email,
-      name: user.displayName,
-      role: role,
-    };
   } catch (error) {
-    return { error: error.message };
+    console.error("Error Login:", error);
+    return { error: error };
   }
 }
-
+/*
 export async function validateUser(uid) {
   const userRef = doc(db, "usuaris", uid);
   const userSnap = await getDoc(userRef);
@@ -123,9 +103,8 @@ export async function updateRoles (uid, newRole) {
   await updateDoc(userRef, { role: newRole });
 
 }
-
+*/
 export async function logoOut() {
   await signOut(auth);
   return "signOut";
 }
-*/

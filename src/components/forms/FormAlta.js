@@ -116,53 +116,58 @@ export const FormAlta = function () {
     setError({ isError: false, msgError: "" });
   };
 
-const submit = async function () {
-  const dataForm = {
-    nom,
-    cognom,
-    malnom: malnom || "",
-    email,
-    phone,
-    adreca,
-    poblacio,
-    cp,
-    dni: dni.trim().toUpperCase(),
-    professio: professio || "",
-    centreEducatiu: centreEducatiu || "",
-    dataNaixement: dataNaixement.toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric" }),
-    genere,
-    tutor: tutor || "",
-    msg: msg || "",
-    gdpr,
+  const submit = async function () {
+    const dataForm = {
+      nom,
+      cognom,
+      malnom: malnom || "",
+      email,
+      phone,
+      adreca,
+      poblacio,
+      cp,
+      dni: dni.trim().toUpperCase(),
+      professio: professio || "",
+      centreEducatiu: centreEducatiu || "",
+      dataNaixement: dataNaixement
+        ? dataNaixement.toLocaleDateString("es-ES", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          })
+        : undefined,
+      genere,
+      tutor: tutor || "",
+      msg: msg || "",
+      gdpr,
+    };
+
+    const validate = await validateAltaForm(dataForm, majorEdat);
+    if (validate.error) {
+      console.error("Validació fallida:", validate.message);
+      openError(validate.message);
+      return;
+    }
+    setIsLoading(true);
+
+    try {
+      const success = await setCollection(dataForm, "castellers");
+      if (success) {
+        // Si tens l'EmailJS actiu, el cridaríes aquí:
+        // await sendEmail(dataForm);
+        setOpen(!open);
+        resetForm();
+        // Aquí podries posar un openSuccess("Casteller guardat correctament!");
+      }
+    } catch (error) {
+      console.error("Error durant el procés de guardat:", error);
+      openError("No s'ha pogut guardar a la base de dades.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const validate = await validateAltaForm(dataForm, majorEdat);
-  if (validate.error) {
-    console.error("Validació fallida:", validate.message);
-    openError(validate.message);
-    return; 
-  }
-  setIsLoading(true);
-
-  try {
-    const success = await setCollection(dataForm, "castellers");
-    if (success) {
-      // Si tens l'EmailJS actiu, el cridaríes aquí:
-      // await sendEmail(dataForm); 
-      setOpen(!open);
-      resetForm();
-      // Aquí podries posar un openSuccess("Casteller guardat correctament!");
-    }
-  } catch (error) {
-    console.error("Error durant el procés de guardat:", error);
-    openError("No s'ha pogut guardar a la base de dades.");
-  } finally {
-    setIsLoading(false);
-  }
-};
-
-
-/*     if (!validate.error) {
+  /*     if (!validate.error) {
       emailjs
         .send(
           "service_6wb1ojn",
@@ -598,12 +603,17 @@ const submit = async function () {
                   mb="20px"
                 >
                   <FiCheck color="green" size="30px" />
-                  <Box>
-                    <Text fontWeight={600} fontSize="base" lineHeight="30px">
-                      El teu correu electrònic ha estat enviat correctament
+                  <Box w="80%">
+                    <Text
+                      mb="20px"
+                      fontWeight={600}
+                      fontSize="lg"
+                      lineHeight="30px"
+                    >
+                      Gràcies per formar part dels Matossers de Molins de Rei
                     </Text>
                     <Text fontSize="md" lineHeight="20px">
-                      Ens posarem en contacte amb tu el més aviat possible
+                      Les teves dades s&apos;han enviat correctament!
                     </Text>
                   </Box>
                 </Flex>
