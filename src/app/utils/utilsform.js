@@ -1,4 +1,5 @@
   export const validateAltaForm = async function (data, majorEdat) {
+    console.log("validate data", data, majorEdat);
     var errors = [];
     if (data.genere == "" || data.genere == undefined) {
       errors.push({
@@ -12,7 +13,7 @@
         message: "La data de naixement no pot estar buida",
       });
     }
-    if (data.nif == "" || data.nif == undefined) {
+    if (data.dni == "" || data.dni == undefined) {
       errors.push({
         error: true,
         message: "El camp DNI és obligatori",
@@ -30,7 +31,7 @@
         message: "El camp Cognom és obligatori",
       });
     }
-    if (majorEdat === true) {
+    if (majorEdat === false) {
         if (data.tutor == "" || data.tutor == undefined) {
           errors.push({
             error: true,
@@ -69,7 +70,7 @@
             message: "Has de posar la teva població",
         });
     } 
-    if (data.codiPostal == "" || data.codiPostal == undefined) {
+    if (data.cp == "" || data.cp == undefined) {
         errors.push({
           error: true,
             message: "Has de posar el teu codi postal",

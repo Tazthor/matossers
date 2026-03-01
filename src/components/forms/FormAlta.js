@@ -22,6 +22,7 @@ import emailjs from "@emailjs/browser";
 import { SingleDatepicker } from "chakra-dayzed-datepicker";
 import { ca } from "date-fns/locale";
 import { validateAltaForm } from "@/app/utils/utilsform";
+import { setCollection } from "@/app/utils/utils";
 
 export const FormAlta = function () {
   const [nom, setNom] = useState("");
@@ -97,7 +98,7 @@ export const FormAlta = function () {
     setDni("");
     setProfessio("");
     setCentreEducatiu("");
-    setDataNaixement("");
+    setDataNaixement(undefined);
     setGenere("");
     setMajorEdat("");
     setTutor("");
@@ -115,29 +116,51 @@ export const FormAlta = function () {
     setError({ isError: false, msgError: "" });
   };
 
-  const submit = async function () {
-    setIsLoading(true);
-    const dataForm = {
-      nom,
-      cognom,
-      email,
-      phone,
-      adreca,
-      poblacio,
-      cp,
-      dni,
-      professio,
-      centreEducatiu,
-      dataNaixement: dataNaixement.toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric" }),
-      genere,
-      tutor,
-      msg
+const submit = async function () {
+  const dataForm = {
+    nom,
+    cognom,
+    malnom: malnom || "",
+    email,
+    phone,
+    adreca,
+    poblacio,
+    cp,
+    dni: dni.trim().toUpperCase(),
+    professio: professio || "",
+    centreEducatiu: centreEducatiu || "",
+    dataNaixement: dataNaixement.toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric" }),
+    genere,
+    tutor: tutor || "",
+    msg: msg || "",
+    gdpr,
+  };
+
+  const validate = await validateAltaForm(dataForm, majorEdat);
+  if (validate.error) {
+    console.error("Validació fallida:", validate.message);
+    openError(validate.message);
+    return; 
+  }
+  setIsLoading(true);
+
+  try {
+    const success = await setCollection(dataForm, "castellers");
+    if (success) {
+      // Si tens l'EmailJS actiu, el cridaríes aquí:
+      // await sendEmail(dataForm); 
+      setOpen(!open);
+      resetForm();
+      // Aquí podries posar un openSuccess("Casteller guardat correctament!");
     }
-    console.log('hola', dataForm)
-    var validate = await validateAltaForm(dataForm, majorEdat);
-    if (validate.error) {
-      setIsLoading(false);
-    }
+  } catch (error) {
+    console.error("Error durant el procés de guardat:", error);
+    openError("No s'ha pogut guardar a la base de dades.");
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
 /*     if (!validate.error) {
       emailjs
@@ -160,7 +183,6 @@ export const FormAlta = function () {
     } else {
       openError(validate.message, validate.ref, 3000);
     } */
-  };
 
   return (
     <Box w="94%" mx="auto" py="40px" px="30px">

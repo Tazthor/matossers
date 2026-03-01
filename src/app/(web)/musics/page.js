@@ -5,23 +5,22 @@ import Navbar from "@/components/general/Navbar";
 import Header from "@/components/sections/Header";
 import InfoMusics from "@/components/sections/InfoMusics";
 import { useState, useEffect } from "react";
-import { initApp, getDataCollection } from "../../utils/utils";
+import { getDataCollection } from "../../utils/utils";
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
-  const app = initApp();
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
-      const object = await getDataCollection(app, "musics");
+      const object = await getDataCollection("musics");
 
       setData(object[0]);
       setIsLoading(false);
     };
 
     getData();
-  }, [app]);
+  }, []);
 
   return (
     <>

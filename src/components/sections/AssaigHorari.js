@@ -24,7 +24,7 @@ const AssaigHorari = () => {
               Dimecres
             </Heading>
             <Text>
-              <strong>Canalla:</strong> de 20 h a 21 h
+              <strong>Canalla i tecnifació:</strong> de 19:30 h a 21 h
             </Text>
             <Text>
               <strong>Assaig general:</strong> de 21 h a 22:30 h
@@ -40,7 +40,7 @@ const AssaigHorari = () => {
               Divendres
             </Heading>
             <Text>
-              <strong>Canalla:</strong> de 20 h a 21 h
+              <strong>Canalla i tecnifació:</strong> de 19:30 h a 21 h
             </Text>
             <Text>
               <strong>Assaig general:</strong> de 21 h a 23 h

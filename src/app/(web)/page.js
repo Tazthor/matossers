@@ -4,7 +4,7 @@ import Navbar from "@/components/general/Navbar";
 import BlocText from "@/components/sections/BlocText";
 import Header from "@/components/sections/Header";
 import Topics from "@/components/sections/Topics";
-import { initApp, getDataCollection } from "../utils/utils";
+import { getDataCollection } from "../utils/utils";
 import { Spinner, Flex, Box } from "@chakra-ui/react";
 import GridCalendari from "@/components/sections/GridCalendari";
 import { useState, useEffect } from "react";
@@ -12,12 +12,11 @@ import Flickr from "@/components/sections/Flickr";
 import BannerContacte from "@/components/sections/BannerContacte";
 
 export default function Page() {
-  const app = initApp();
   const [dataAct, setDataAct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const getData = async () => {
-      const object = await getDataCollection(app, "actuacions");
+      const object = await getDataCollection("actuacions");
 
       const sorted = object.sort((a, b) =>
         a.data > b.data ? 1 : b.data > a.data ? -1 : 0
@@ -28,7 +27,7 @@ export default function Page() {
     };
 
     getData();
-  }, [app]);
+  }, []);
 
   return (
     <>

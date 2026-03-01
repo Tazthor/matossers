@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Flex, Box, Spinner } from "@chakra-ui/react";
-import { initApp, getDataCollection } from "../../utils/utils";
+import { getDataCollection } from "../../utils/utils";
 import Margin from "@/components/general/Margin";
 import Navbar from "@/components/general/Navbar";
 import Header from "@/components/sections/Header";
@@ -9,7 +9,6 @@ import InfoSocis from "@/components/sections/InfoSocis";
 import GridDadesVertical from "@/components/sections/GridDadesvVertical";
 
 export default function Page() {
-  const app = initApp();
   const [dataQuota, setDataQuota] = useState([]);
   const [dataQueFarem, setDataQueFarem] = useState([]);
   const [dataQueOferim, setDataQueOferim] = useState([]);
@@ -17,9 +16,9 @@ export default function Page() {
 
   useEffect(() => {
     const getData = async () => {
-      const dadesQuota = await getDataCollection(app, "socis");
-      const dadesQueFarem = await getDataCollection(app, "socisquefarem");
-      const dadesQueOferim = await getDataCollection(app, "socisqueoferim");
+      const dadesQuota = await getDataCollection("socis");
+      const dadesQueFarem = await getDataCollection("socisquefarem");
+      const dadesQueOferim = await getDataCollection("socisqueoferim");
 
       setDataQuota(
         dadesQuota.sort((a, b) =>
@@ -40,7 +39,7 @@ export default function Page() {
     };
 
     getData();
-  }, [app]);
+  }, []);
 
   return (
     <>
