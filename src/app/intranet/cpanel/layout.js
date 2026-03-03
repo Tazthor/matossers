@@ -71,11 +71,8 @@ export default function IntranetLayout({ children }) {
           <NavItem icon={FiHome} onClick={() => router.push("/intranet/cpanel")}>
             Inici
           </NavItem>
-          <NavItem icon={FiUsers} onClick={() => router.push("/intranet/castellers")}>
+          <NavItem icon={FiUsers} onClick={() => router.push("/intranet/cpanel/castellers")}>
             Castellers
-          </NavItem>
-          <NavItem icon={FiSettings} onClick={() => router.push("/intranet/configuracio")}>
-            Configuració
           </NavItem>
         </VStack>
 

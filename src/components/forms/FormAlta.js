@@ -139,6 +139,7 @@ export const FormAlta = function () {
       genere,
       tutor: tutor || "",
       msg: msg || "",
+      actiu: true,
       gdpr,
     };
 

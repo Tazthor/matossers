@@ -33,6 +33,7 @@ export async function loginWithGoogle() {
   
   try {
     const userCredential = await signInWithPopup(auth, googleProvider);
+    //console.log("Login:", userCredential);
     const user = userCredential.user;
     const userRef = doc(db, "usuaris", user.uid);
     const userSnap = await getDoc(userRef);
