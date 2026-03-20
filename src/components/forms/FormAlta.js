@@ -45,6 +45,7 @@ export const FormAlta = function () {
   const [error, setError] = useState({ isError: false, msgError: "" });
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [noNIF, setNoNIF] = useState(false);
 
   const monthNames = [
     "Gener",
@@ -104,6 +105,7 @@ export const FormAlta = function () {
     setTutor("");
     setMsg("");
     setGdpr(false);
+    setNoNIF(false);
   };
 
   const openError = function (msg, milisegons) {
@@ -116,6 +118,19 @@ export const FormAlta = function () {
     setError({ isError: false, msgError: "" });
   };
 
+  const randomId = function (cognom) {
+    const prefix = "noNIF"+cognom.trim().toUpperCase();
+    let numRandom = "";
+
+    for (let i = 0; i < 21; i++) {
+      numRandom += Math.floor(Math.random() * 10);
+    }
+    const resultat = prefix + numRandom;
+        console.log(resultat);
+
+    return resultat;
+  };
+
   const submit = async function () {
     const dataForm = {
       nom,
@@ -126,7 +141,7 @@ export const FormAlta = function () {
       adreca,
       poblacio,
       cp,
-      dni: dni.trim().toUpperCase(),
+      dni: noNIF ? randomId(cognom) : dni.trim().toUpperCase(),
       professio: professio || "",
       centreEducatiu: centreEducatiu || "",
       dataNaixement: dataNaixement
@@ -308,6 +323,25 @@ export const FormAlta = function () {
               value={dni}
             />
           </Box>
+          {majorEdat === false && (
+            <Box w="100%">
+              <Text fontWeight={600} mb="10px" color="argila"></Text>
+              <Checkbox.Root
+                onCheckedChange={() => setNoNIF(!noNIF)}
+                style={{ marginTop: "25px", marginBottom: "10px" }}
+              >
+                <Checkbox.HiddenInput />
+                <Checkbox.Control
+                  border="1px solid"
+                  borderColor="argila"
+                  _checked={{ backgroundColor: "argila" }}
+                />
+                <Checkbox.Label color="negre">
+                  No tinc DNI / NIE *
+                </Checkbox.Label>
+              </Checkbox.Root>{" "}
+            </Box>
+          )}
         </Flex>
         <Flex
           flexDir={{ base: "column", md: "row" }}
