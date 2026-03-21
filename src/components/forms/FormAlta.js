@@ -119,14 +119,14 @@ export const FormAlta = function () {
   };
 
   const randomId = function (cognom) {
-    const prefix = "noNIF"+cognom.trim().toUpperCase();
+    const prefix = "noNIF" + cognom.trim().toUpperCase();
     let numRandom = "";
 
     for (let i = 0; i < 21; i++) {
       numRandom += Math.floor(Math.random() * 10);
     }
     const resultat = prefix + numRandom;
-        console.log(resultat);
+    console.log(resultat);
 
     return resultat;
   };
@@ -322,27 +322,26 @@ export const FormAlta = function () {
               onChange={(e) => setDni(e.target.value)}
               value={dni}
             />
-                      {majorEdat === false && (
-            <Box w="100%">
-              <Checkbox.Root
-                onCheckedChange={() => setNoNIF(!noNIF)}
-                mt="25px"
-                mb="10px"
-              >
-                <Checkbox.HiddenInput />
-                <Checkbox.Control
-                  border="1px solid"
-                  borderColor="argila"
-                  _checked={{ backgroundColor: "argila" }}
-                />
-                <Checkbox.Label color="negre">
-                  No tinc DNI / NIE *
-                </Checkbox.Label>
-              </Checkbox.Root>{" "}
-            </Box>
-          )}
+            {majorEdat === false && (
+              <Box w="100%">
+                <Checkbox.Root
+                  onCheckedChange={() => setNoNIF(!noNIF)}
+                  mt="25px"
+                  mb="10px"
+                >
+                  <Checkbox.HiddenInput />
+                  <Checkbox.Control
+                    border="1px solid"
+                    borderColor="argila"
+                    _checked={{ backgroundColor: "argila" }}
+                  />
+                  <Checkbox.Label color="negre">
+                    No tinc DNI / NIE *
+                  </Checkbox.Label>
+                </Checkbox.Root>{" "}
+              </Box>
+            )}
           </Box>
-
         </Flex>
         <Flex
           flexDir={{ base: "column", md: "row" }}
