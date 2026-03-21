@@ -322,13 +322,12 @@ export const FormAlta = function () {
               onChange={(e) => setDni(e.target.value)}
               value={dni}
             />
-          </Box>
-          {majorEdat === false && (
+                      {majorEdat === false && (
             <Box w="100%">
-              <Text fontWeight={600} mb="10px" color="argila"></Text>
               <Checkbox.Root
                 onCheckedChange={() => setNoNIF(!noNIF)}
-                style={{ marginTop: "25px", marginBottom: "10px" }}
+                mt="25px"
+                mb="10px"
               >
                 <Checkbox.HiddenInput />
                 <Checkbox.Control
@@ -342,6 +341,8 @@ export const FormAlta = function () {
               </Checkbox.Root>{" "}
             </Box>
           )}
+          </Box>
+
         </Flex>
         <Flex
           flexDir={{ base: "column", md: "row" }}
