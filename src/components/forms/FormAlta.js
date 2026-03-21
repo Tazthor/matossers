@@ -65,7 +65,7 @@ export const FormAlta = function () {
   const genereList = [
     { label: "Dona", value: "dona" },
     { label: "Home", value: "home" },
-    { label: "No binari", value: "nobinari" },
+    { label: "Altres", value: "altres" },
   ];
 
   useEffect(() => {
@@ -384,7 +384,7 @@ export const FormAlta = function () {
           {majorEdat === true ? (
             <Box w="100%">
               <Text fontWeight={600} mb="10px" color="argila">
-                Malnom
+                Sobrenom
               </Text>
               <Input
                 w="90%"
