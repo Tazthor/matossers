@@ -126,11 +126,10 @@ export const FormAlta = function () {
       numRandom += Math.floor(Math.random() * 10);
     }
     const resultat = prefix + numRandom;
-    console.log(resultat);
 
     return resultat;
   };
-
+console.log(gdpr);
   const submit = async function () {
     const dataForm = {
       nom,
@@ -173,7 +172,6 @@ export const FormAlta = function () {
         // await sendEmail(dataForm);
         setOpen(!open);
         resetForm();
-        // Aquí podries posar un openSuccess("Casteller guardat correctament!");
       }
     } catch (error) {
       console.error("Error durant el procés de guardat:", error);
@@ -325,6 +323,7 @@ export const FormAlta = function () {
             {majorEdat === false && (
               <Box w="100%">
                 <Checkbox.Root
+                checked={noNIF}
                   onCheckedChange={() => setNoNIF(!noNIF)}
                   mt="25px"
                   mb="10px"
@@ -579,6 +578,7 @@ export const FormAlta = function () {
         <Box w="100%" mb={"50px"}>
           <Checkbox.Root
             onCheckedChange={() => setGdpr(!gdpr)}
+            checked={gdpr}
             style={{ marginTop: "25px", marginBottom: "10px" }}
           >
             <Checkbox.HiddenInput />
