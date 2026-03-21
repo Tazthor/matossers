@@ -384,7 +384,7 @@ export const FormAlta = function () {
           {majorEdat === true ? (
             <Box w="100%">
               <Text fontWeight={600} mb="10px" color="argila">
-                Malnom
+                Sobrenom
               </Text>
               <Input
                 w="90%"
