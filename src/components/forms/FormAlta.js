@@ -65,7 +65,7 @@ export const FormAlta = function () {
   const genereList = [
     { label: "Dona", value: "dona" },
     { label: "Home", value: "home" },
-    { label: "No binari", value: "nobinari" },
+    { label: "Altres", value: "altres" },
   ];
 
   useEffect(() => {
