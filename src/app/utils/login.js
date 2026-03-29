@@ -82,7 +82,6 @@ export async function validateUser(uid) {
 export async function deleteUser(uid, removeCasteller) {
   const userRef = doc(db, "usuaris", uid);
   const userSnap = await getDoc(userRef);
-  console.log(userSnap.data().role);
   if (userSnap.data().role === "admin") {
     return "No es pot esborrar un altre administrador";
   } else {
