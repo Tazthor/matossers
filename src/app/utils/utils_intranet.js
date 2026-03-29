@@ -28,3 +28,14 @@ export async function deleteCasteller(dni) {
     return { success: false, error: error.message };
   }
 }
+
+export async function updateCasteller(dni, updatedData) {
+  try {
+    const castellerRef = doc(db, "castellers", dni);
+    await setDoc(castellerRef, updatedData, { merge: true });
+    return { success: true };
+  } catch (error) {
+    console.error("Error actualitzant el casteller:", error);
+    return { success: false, error: error.message };
+  }
+}
