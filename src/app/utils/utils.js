@@ -1,6 +1,5 @@
-'use client';
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getFirestore, collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { getFirestore, collection, doc, getDocs, getDoc, setDoc } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 const firebaseConfig = {
@@ -27,6 +26,27 @@ export async function getDataCollection(colleccio) {
   } catch (error) {
     console.error("Error obtenint dades:", error);
     return [];
+  }
+}
+
+export async function getData(colleccio, dni) {
+  if (!colleccio || !dni || typeof dni !== 'string') {
+    console.error("getData: colleccio o dni invàlids", { colleccio, dni });
+    return null;
+  }
+
+  const docRef = doc(db, colleccio, dni.toString().trim().toUpperCase());
+  try {
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      return { id: docSnap.id, ...docSnap.data() };
+    } else {
+      console.warn("Document no trobat:", dni);
+      return null;
+    }
+  } catch (error) {
+    console.error("Error obtenint document:", error);
+    return null;
   }
 }
 

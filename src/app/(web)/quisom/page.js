@@ -15,7 +15,6 @@ export default function Page() {
     const getData = async () => {
       const dades = await getDataCollection("dada");
       const juntes = await getDataCollection("juntes");
-console.log(dades)
       setJunta(juntes);
       setData(dades);
       setIsLoading(false);

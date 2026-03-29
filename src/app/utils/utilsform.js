@@ -1,5 +1,4 @@
   export const validateAltaForm = async function (data, majorEdat) {
-    console.log("validate data", data, majorEdat);
     var errors = [];
     if (data.genere == "" || data.genere == undefined) {
       errors.push({

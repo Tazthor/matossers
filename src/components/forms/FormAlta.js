@@ -119,7 +119,7 @@ export const FormAlta = function () {
   };
 
   const randomId = function (cognom) {
-    const prefix = "noNIF" + cognom.trim().toUpperCase();
+    const prefix = "NONIF" + cognom.trim().toUpperCase();
     let numRandom = "";
 
     for (let i = 0; i < 21; i++) {
@@ -129,7 +129,6 @@ export const FormAlta = function () {
 
     return resultat;
   };
-console.log(gdpr);
   const submit = async function () {
     const dataForm = {
       nom,
