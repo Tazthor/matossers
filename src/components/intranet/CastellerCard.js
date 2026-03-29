@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Button,
@@ -13,6 +13,7 @@ import {
   Textarea,
   Separator,
   Grid,
+  RadioGroup,
 } from "@chakra-ui/react";
 import { Switch } from "@/components/ui/switch"; // Snippet de Chakra v3
 import { LuSave, LuArrowLeft } from "react-icons/lu";
@@ -25,6 +26,11 @@ export default function CastellerCard({ initialData }) {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
+  const genereList = [
+    { label: "Dona", value: "dona" },
+    { label: "Home", value: "home" },
+    { label: "Altres", value: "altres" },
+  ];
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -49,7 +55,6 @@ export default function CastellerCard({ initialData }) {
 
   return (
     <Box
-      maxW="800px"
       mx="auto"
       p={6}
       bg="white"
@@ -68,14 +73,6 @@ export default function CastellerCard({ initialData }) {
               </Text>
             </Flex>
           </Link>
-          <Box>
-            <Heading size="lg">
-              {formData.nom} {formData.cognom}
-            </Heading>
-            <Text color="gray.500" fontSize="sm">
-              DNI: {formData.dni}
-            </Text>
-          </Box>
         </HStack>
         <HStack gap={3}>
           <Text
@@ -97,11 +94,54 @@ export default function CastellerCard({ initialData }) {
 
       <form onSubmit={handleSubmit}>
         <Stack gap={8}>
+          <Flex alignItems="center" justifyContent="space-between">
+            <Box>
+              <Text fontSize="lg" color="argila" fontWeight="bold" mb="5px">
+                {formData.nom} {formData.cognom}
+              </Text>
+              <Text color="gray.500" fontSize="sm">
+                DNI: {formData.dni}
+              </Text>
+            </Box>
+            <Button
+              type="submit"
+              size="lg"
+              loading={loading}
+              width="140px"
+              mt={4}
+            >
+              <LuSave /> Actualitza
+            </Button>
+          </Flex>
+
           {/* SECCIÓ DADES PERSONALS */}
           <Box>
-            <Heading size="sm" mb={4} color="teal.700">
+            <Heading size="lg" mb={4} color="argila">
               Dades Personals
             </Heading>
+            <Field.Root label="genere">
+              <RadioGroup.Root
+                my="20px"
+                value={formData.genere}
+                onValueChange={(e) =>
+                  setFormData((prev) => ({ ...prev, genere: e.value }))
+                }
+              >
+                <HStack gap="4">
+                  {genereList.map((item) => (
+                    <RadioGroup.Item key={item.value} value={item.value}>
+                      <RadioGroup.ItemHiddenInput />
+                      <RadioGroup.ItemIndicator
+                        border="1px solid"
+                        borderColor="argila"
+                        _checked={{ backgroundColor: "argila" }}
+                      />
+                      <RadioGroup.ItemText>{item.label}</RadioGroup.ItemText>
+                    </RadioGroup.Item>
+                  ))}
+                </HStack>
+              </RadioGroup.Root>
+            </Field.Root>
             <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={4}>
               <Field.Root label="Nom">
                 <Input
@@ -133,19 +173,12 @@ export default function CastellerCard({ initialData }) {
                   placeholder="DD/MM/AAAA"
                 />
               </Field.Root>
-              <Field.Root label="Gènere">
-                <Input
-                  name="genere"
-                  value={formData.genere}
-                  onChange={handleChange}
-                />
-              </Field.Root>
             </Grid>
           </Box>
 
           {/* SECCIÓ CONTACTE */}
           <Box>
-            <Heading size="sm" mb={4} color="teal.700">
+            <Heading size="lg" mb={4} color="argila">
               Contacte i Localització
             </Heading>
             <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={4}>
@@ -186,7 +219,7 @@ export default function CastellerCard({ initialData }) {
 
           {/* SECCIÓ ALTRES */}
           <Box>
-            <Heading size="sm" mb={4} color="teal.700">
+            <Heading size="lg" mb={4} color="argila">
               Informació Addicional
             </Heading>
             <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={4}>
@@ -195,6 +228,7 @@ export default function CastellerCard({ initialData }) {
                   name="professio"
                   value={formData.professio}
                   onChange={handleChange}
+                  placeholder="Professió"
                 />
               </Field.Root>
               <Field.Root label="Centre Educatiu">
@@ -202,6 +236,7 @@ export default function CastellerCard({ initialData }) {
                   name="centreEducatiu"
                   value={formData.centreEducatiu}
                   onChange={handleChange}
+                  placeholder="Centre educatiu"
                 />
               </Field.Root>
               <Field.Root label="Tutor (si és menor)">
@@ -209,6 +244,7 @@ export default function CastellerCard({ initialData }) {
                   name="tutor"
                   value={formData.tutor}
                   onChange={handleChange}
+                  placeholder="Nom del tutor"
                 />
               </Field.Root>
               <Field.Root label="Missatges/Notes" span={2}>
@@ -216,20 +252,19 @@ export default function CastellerCard({ initialData }) {
                   name="msg"
                   value={formData.msg}
                   onChange={handleChange}
+                    placeholder="Notes addicionals sobre el casteller"
                 />
               </Field.Root>
             </Grid>
           </Box>
-
           <Button
             type="submit"
-            colorPalette="teal"
             size="lg"
             loading={loading}
-            width="full"
+            width="140px"
             mt={4}
           >
-            <LuSave /> Guardar Canvis
+            <LuSave /> Actualitza
           </Button>
         </Stack>
       </form>

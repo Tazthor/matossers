@@ -25,9 +25,6 @@ export default async function EditCastellerPage({ params }) {
 
   return (
     <Box>
-      <Heading mb={6} size="lg" color="gray.700">
-        Fitxa de Casteller
-      </Heading>
       <CastellerCard initialData={castellerData} />
     </Box>
   );
