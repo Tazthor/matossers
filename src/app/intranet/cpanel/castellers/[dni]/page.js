@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { getDataCollection, getData } from "@/app/utils/utils";
 import CastellerCard from "@/components/intranet/CastellerCard";
 
@@ -13,7 +13,7 @@ export default async function EditCastellerPage({ params }) {
   const resolvedParams = await params;
   const dni = resolvedParams.dni;
   const castellerData = await getData("castellers", dni);
-
+console.log("Casteller Data:", castellerData); // Debugging log
   if (!castellerData) {
     return (
       <Box p={8}>

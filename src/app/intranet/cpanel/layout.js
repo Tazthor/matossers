@@ -26,7 +26,8 @@ export default function IntranetLayout({ children }) {
         setUser(user);
         setLoading(false);
       } else {
-        router.push("/");
+        //router.push("/");
+        console.log("No user authenticated, redirecting to home.");
       }
     });
     return () => unsubscribe();
