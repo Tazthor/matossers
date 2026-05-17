@@ -40,8 +40,8 @@ export const Footer = function (props) {
                 <BiTime size="1.5em" />
               </Box>
               <Text lineHeight="20px">
-                Dimecres de 20 h a 22:30 h <br />
-                Divendres de 20 h a 23 h
+                Dimecres de 19:30 h a 22:30 h <br />
+                Divendres de 19:30 h a 23 h
               </Text>
             </Flex>
           </Box>
