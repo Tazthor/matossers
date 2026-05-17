@@ -13,7 +13,7 @@ export default async function EditCastellerPage({ params }) {
   const resolvedParams = await params;
   const dni = resolvedParams.dni;
   const castellerData = await getData("castellers", dni);
-console.log("Casteller Data:", castellerData); // Debugging log
+//console.log("Casteller Data:", castellerData); // Debugging log
   if (!castellerData) {
     return (
       <Box p={8}>
