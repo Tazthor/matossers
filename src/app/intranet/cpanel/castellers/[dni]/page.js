@@ -2,8 +2,6 @@ import { Box, Text } from "@chakra-ui/react";
 import { getDataCollection, getData } from "@/app/utils/utils";
 import CastellerCard from "@/components/intranet/CastellerCard";
 
-export const dynamicParams = true;
-
 export async function generateStaticParams() {
   const castellers = await getDataCollection("castellers");
   return castellers.map((casteller) => {
