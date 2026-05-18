@@ -3,11 +3,9 @@
     {
       "public": "out",
       "site": "matossers-web",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "cleanUrls": true,
+      "trailingSlash": true,
       "rewrites": [
         {
           "source": "**",
@@ -18,11 +16,9 @@
     {
       "public": "out",
       "site": "webmatossers",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "cleanUrls": true,
+      "trailingSlash": true,
       "rewrites": [
         {
           "source": "**",
