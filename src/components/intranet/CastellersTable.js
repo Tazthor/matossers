@@ -283,8 +283,6 @@ export default function CastellersTable({ data }) {
   );
 }
 
-// ... El component CastellerRow es manté exactament igual que abans ...
-
 // COMPONENT DE FILA SEPARAT
 function CastellerRow({ casteller }) {
   const [loading, setLoading] = useState(false);
@@ -320,10 +318,10 @@ function CastellerRow({ casteller }) {
       <Table.Cell textAlign="end">
         <HStack gap={2} justify="flex-end">
           <Link href={`/intranet/cpanel/castellers/${casteller.dni}`}>
-          <Button size="xs" variant="ghost">
-            <LuFilePen />
-            Editar
-          </Button></Link>
+            <Button size="xs" variant="ghost">
+              <LuFilePen />
+              Editar
+            </Button></Link>
 
           <Dialog.Root
             open={open}
