@@ -317,7 +317,7 @@ function CastellerRow({ casteller }) {
       </Table.Cell>
       <Table.Cell textAlign="end">
         <HStack gap={2} justify="flex-end">
-          <Link href={`/intranet/cpanel/castellers/${casteller.dni}`}>
+          <Link href={`/intranet/cpanel/castellers/edita?dni=${casteller.dni}`}>
             <Button size="xs" variant="ghost">
               <LuFilePen />
               Editar
