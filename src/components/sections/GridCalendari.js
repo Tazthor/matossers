@@ -12,7 +12,7 @@ export const GridCalendari = function ({ dataAct, isHome }) {
   var properaAct = dataAct.find(
     (actuacio) => actuacio.data.toDate() >= dateNow
   );
-  var ultimaAct = dataAct.find((actuacio) => actuacio.data.toDate() <= dateNow);
+  var ultimaAct = dataAct.findLast((actuacio) => actuacio.data.toDate() <= dateNow);
 
   useEffect(() => {
     if (dataAct && dataAct.length > 0) {
@@ -31,8 +31,7 @@ export const GridCalendari = function ({ dataAct, isHome }) {
   return (
     <Box w={{ base: "90%", md: "80%", xl: "75%" }} m="auto">
       {isHome ? (
-        <>
-
+        <Box py="30px">
           <Heading
             fontSize={{ base: "xl", md: "xl" }}
             lineHeight="normal"
@@ -62,7 +61,7 @@ export const GridCalendari = function ({ dataAct, isHome }) {
           ) : (
             <ActuacioCard act={properaAct} type="futures" />
           )}
-        </>
+        </Box>
       ) : (
         <>
           <Heading
