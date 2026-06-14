@@ -1,5 +1,5 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getFirestore, collection, doc, getDocs, getDoc, setDoc } from "firebase/firestore";
+import { getFirestore, collection, doc, getDoc, setDoc, writeBatch, getDocs, query, where } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 const firebaseConfig = {
@@ -95,3 +95,38 @@ export async function transformDataWithIcon(data) {
 }
 
 
+export async function migrarDatesCastellers() {
+  const dataDefecte = "01/01/2026";
+  const batch = writeBatch(db);
+  const castellersRef = collection(db, "castellers");
+  
+  try {
+    const querySnapshot = await getDocs(castellersRef);
+    let comptador = 0;
+
+    querySnapshot.forEach((docSnap) => {
+      const dada = docSnap.data();
+      
+      // Només actuem si NO té el camp alta definit
+      if (!dada.alta) {
+        const docRef = doc(db, "castellers", docSnap.id);
+        // Fem un update només d'aquest camp
+        batch.update(docRef, { alta: dataDefecte });
+        comptador++;
+      }
+    });
+
+    if (comptador > 0) {
+      // Executem tots els canvis junts de cop
+      await batch.commit();
+      console.log(`✅ Migració completada! S'han actualitzat ${comptador} castellers.`);
+      return comptador;
+    } else {
+      console.log("ℹ️ No s'ha trobat cap casteller sense data d'alta.");
+      return 0;
+    }
+  } catch (error) {
+    console.error("❌ Error durant la migració de dates:", error);
+    throw error;
+  }
+}

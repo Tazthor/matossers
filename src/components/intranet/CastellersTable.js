@@ -46,14 +46,28 @@ export default function CastellersTable({ data }) {
           .includes(searchStr),
       );
     }
-    if (sortConfig.key) {
+if (sortConfig.key) {
       result.sort((a, b) => {
+        if (sortConfig.key === "alta") {
+          // Intentem obtenir els mil·lisegons de la data. Si no existeix, posem 0 o Infinity depenent de si vols els buits al final
+          const timeA = a.alta ? new Date(a.alta).getTime() : 0;
+          const timeB = b.alta ? new Date(b.alta).getTime() : 0;
+
+          if (sortConfig.direction === "asc") {
+            return timeA - timeB; // De més antiga a més nova
+          } else {
+            return timeB - timeA; // De més nova a més antiga
+          }
+        }
+
         let valA = a[sortConfig.key]?.toString().toLowerCase() || "";
         let valB = b[sortConfig.key]?.toString().toLowerCase() || "";
+        
         if (sortConfig.key === "nom") {
           valA = `${a.nom} ${a.cognom}`.toLowerCase();
           valB = `${b.nom} ${b.cognom}`.toLowerCase();
         }
+        
         if (valA < valB) return sortConfig.direction === "asc" ? -1 : 1;
         if (valA > valB) return sortConfig.direction === "asc" ? 1 : -1;
         return 0;
@@ -230,6 +244,30 @@ export default function CastellersTable({ data }) {
               </Table.ColumnHeader>
               <Table.ColumnHeader>Telèfon</Table.ColumnHeader>
               <Table.ColumnHeader>Població</Table.ColumnHeader>
+              <Table.ColumnHeader
+                cursor="pointer"
+                onClick={() => {
+                  setSortConfig({
+                    key: "alta",
+                    direction: sortConfig.direction === "asc" ? "desc" : "asc",
+                  });
+                  setCurrentPage(1);
+                }}
+                userSelect="none"
+              >
+                <HStack gap={1}>
+                  <Text>Data d&apos;alta</Text>{" "}
+                  {sortConfig.key === "alta" ? (
+                    sortConfig.direction === "asc" ? (
+                      <LuArrowUp />
+                    ) : (
+                      <LuArrowDown />
+                    )
+                  ) : (
+                    <LuArrowUpDown style={{ opacity: 0.3 }} />
+                  )}
+                </HStack>
+              </Table.ColumnHeader>
               <Table.ColumnHeader>Estat</Table.ColumnHeader>
               <Table.ColumnHeader textAlign="end">Accions</Table.ColumnHeader>
             </Table.Row>
@@ -283,7 +321,6 @@ export default function CastellersTable({ data }) {
   );
 }
 
-// COMPONENT DE FILA SEPARAT
 function CastellerRow({ casteller }) {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
@@ -310,6 +347,7 @@ function CastellerRow({ casteller }) {
       </Table.Cell>
       <Table.Cell>{casteller.phone}</Table.Cell>
       <Table.Cell>{casteller.poblacio}</Table.Cell>
+      <Table.Cell>{casteller.alta}</Table.Cell>
       <Table.Cell>
         <Badge variant="solid" colorPalette={casteller.actiu ? "green" : "red"}>
           {casteller.actiu ? "Actiu" : "No actiu"}

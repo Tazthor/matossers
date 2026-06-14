@@ -1,7 +1,8 @@
 "use client";
-import { Box, Heading, SimpleGrid,  } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, Button } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { getDataCollection } from "@/app/utils/utils";
+import { migrarDatesCastellers } from "@/app/utils/utils";
 
 export default function CPanel() {
     const [castellers, setCastellers] = useState([]);
@@ -30,7 +31,17 @@ export default function CPanel() {
       ) : (
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
           Total Castellers: {" "}{castellers.length}
-        </SimpleGrid>
+<Button 
+  colorScheme="orange" 
+  onClick={async () => {
+    if (confirm("Vols posar la data per defecte a tots els castellers antics?")) {
+      const n = await migrarDatesCastellers();
+      alert(`S'han actualitzat ${n} castellers!`);
+    }
+  }}
+>
+  Executar Migració de Dates
+</Button>        </SimpleGrid>
       )}
     </Box>
   );

@@ -153,6 +153,11 @@ export const FormAlta = function () {
       tutor: tutor || "",
       msg: msg || "",
       actiu: true,
+      alta: new Date().toLocaleDateString("es-ES", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      }),
       gdpr,
     };
 
