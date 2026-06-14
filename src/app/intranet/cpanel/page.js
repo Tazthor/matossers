@@ -45,9 +45,6 @@ export default function CPanel() {
             <Text color="argila" fontSize="3xl" fontWeight="extrabold">
               {castellers.length}
             </Text>
-            <Text fontSize="xs" color="gris.700">
-              Percentatges respecte el total de la colla
-            </Text>
           </Box>
           <Flex
             w="100%"
