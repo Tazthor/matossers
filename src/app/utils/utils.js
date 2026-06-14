@@ -1,5 +1,5 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getFirestore, collection, doc, getDoc, setDoc, writeBatch, getDocs, query, where } from "firebase/firestore";
+import { getFirestore, collection, doc, getDoc, setDoc, getDocs, writeBatch, query, where } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 const firebaseConfig = {
@@ -95,7 +95,7 @@ export async function transformDataWithIcon(data) {
 }
 
 
-export async function migrarDatesCastellers() {
+/* export async function migrarDatesCastellers() {
   const dataDefecte = "01/01/2026";
   const batch = writeBatch(db);
   const castellersRef = collection(db, "castellers");
@@ -129,4 +129,4 @@ export async function migrarDatesCastellers() {
     console.error("❌ Error durant la migració de dates:", error);
     throw error;
   }
-}
+} */
