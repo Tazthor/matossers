@@ -45,7 +45,18 @@ const config = defineConfig({
       colors: {
         blanc: "#fff",
         negre: "#000",
-        marro: { 100: "#f7d9c5", 300: "#d0a499", 500: "#663b30" },
+        marro: {
+          50: { value: "#fbf0e8" },
+          100: { value: "#f7d9c5" },
+          200: { value: "#ebd4ca" },
+          300: { value: "#d0a499" },
+          400: { value: "#9f6e62" },
+          500: { value: "#663b30" },
+          600: { value: "#563128" },
+          700: { value: "#46271f" },
+          800: { value: "#351d17" },
+          900: { value: "#22120e" },
+        },        
         argila: "#663b30",
         gris: {
           100: "#f5f5f5",
