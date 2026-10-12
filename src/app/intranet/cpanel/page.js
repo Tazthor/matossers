@@ -31,7 +31,15 @@ export default function CPanel() {
         <Box>Carregant dades...</Box>
       ) : (
         <>
-          <Box
+          <Flex
+            w="100%"
+            justifyContent="space-between"
+            direction={{ base: "column", md: "row" }}
+            gap={6}
+            mt={6}
+          >
+            <Box w="100%">
+                        <Box
             bg="marro.50"
             p={4}
             borderRadius="md"
@@ -45,14 +53,7 @@ export default function CPanel() {
               {castellers.length}
             </Text>
           </Box>
-          <Flex
-            w="100%"
-            justifyContent="space-between"
-            direction={{ base: "column", md: "row" }}
-            gap={6}
-            mt={6}
-          >
-            <Box w="100%">
+
               <EstadistiquesGenere castellers={castellers} />
               <EstadistiquesEdat castellers={castellers} />
             </Box>

@@ -44,7 +44,7 @@ export default function EstadistiquesPoblacio({ castellers = [] }) {
   }, [castellers]);
 
   return (
-    <Box my="20px">
+    <Box>
       <Heading size="md" mb={4} color="black">
         📊 Distribució Geogràfica de la Colla
       </Heading>
