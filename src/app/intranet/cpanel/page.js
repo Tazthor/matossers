@@ -21,7 +21,6 @@ export default function CPanel() {
         setLoading(false);
       }
     };
-
     fetchCastellers();
   }, []);
 

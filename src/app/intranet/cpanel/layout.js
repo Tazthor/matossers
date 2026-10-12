@@ -13,6 +13,7 @@ import {
   Spinner
 } from "@chakra-ui/react";
 import { FiHome, FiUsers, FiLogOut, FiSettings } from "react-icons/fi";
+import { ImStatsBars2 } from "react-icons/im";
 
 export default function IntranetLayout({ children }) {
   const [loading, setLoading] = useState(true);
@@ -75,6 +76,10 @@ export default function IntranetLayout({ children }) {
           <NavItem icon={FiUsers} onClick={() => router.push("/intranet/cpanel/castellers")}>
             Castellers
           </NavItem>
+                    <NavItem icon={ImStatsBars2} onClick={() => router.push("/intranet/cpanel/temporada")}>
+            Temporada
+          </NavItem>
+
         </VStack>
 
           <Button
