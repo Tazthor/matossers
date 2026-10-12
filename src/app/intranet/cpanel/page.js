@@ -39,21 +39,20 @@ export default function CPanel() {
             mt={6}
           >
             <Box w="100%">
-                        <Box
-            bg="marro.50"
-            p={4}
-            borderRadius="md"
-            borderWidth="1px"
-            borderColor="marro.100"
-          >
-            <Text color="gris.900" fontWeight="bold" fontSize="sm">
-              Total Castellers Actius
-            </Text>
-            <Text color="argila" fontSize="3xl" fontWeight="extrabold">
-              {castellers.length}
-            </Text>
-          </Box>
-
+              <Box
+                bg="marro.50"
+                p={4}
+                borderRadius="md"
+                borderWidth="1px"
+                borderColor="marro.100"
+              >
+                <Text color="gris.900" fontWeight="bold" fontSize="sm">
+                  Total Castellers Actius
+                </Text>
+                <Text color="argila" fontSize="3xl" fontWeight="extrabold">
+                  {castellers.length}
+                </Text>
+              </Box>
               <EstadistiquesGenere castellers={castellers} />
               <EstadistiquesEdat castellers={castellers} />
             </Box>

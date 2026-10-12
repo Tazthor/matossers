@@ -200,11 +200,11 @@ export default function EstadistiquesCastells({ actuacions = [] }) {
               {isOpen && (
                 <Box mt={3} pt={3} borderTopWidth="1px" borderColor="marro.100">
                   <Text fontSize="xs" fontWeight="bold" color="marro.500" mb={2}>
-                    HISTORIAL D&apos;INTENTS:
+                    HISTORIAL:
                   </Text>
                   <VStack align="stretch" spacing={2}>
                     {castell.aparicions.map((ap, index) => (
-                      <HStack key={index} justify="space-between" bg="white" p={2} borderRadius="sm" borderWidth="1px" borderColor="gray.100">
+                      <HStack key={index} justify="space-between" bg="white" p={2} borderRadius="sm" borderWidth="1px" borderColor="gray.300">
                         <HStack spacing={2}>
                           <Icon as={FiCalendar} color="gray.400" boxSize={3.5} />
                           <Text fontSize="xs" color="gray.600" fontWeight="medium">
