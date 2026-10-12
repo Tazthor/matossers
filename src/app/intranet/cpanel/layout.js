@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { app, logoOut } from "../../utils/login";
-import { 
-  Box, 
-  Flex, 
-  Icon, 
-  Text, 
-  Button, 
-  VStack, 
-  Spinner
+import {
+  Box,
+  Flex,
+  Icon,
+  Text,
+  Button,
+  VStack,
+  Spinner,
 } from "@chakra-ui/react";
 import { FiHome, FiUsers, FiLogOut, FiSettings } from "react-icons/fi";
 import { ImStatsBars2 } from "react-icons/im";
@@ -65,33 +65,41 @@ export default function IntranetLayout({ children }) {
         flexDirection="column"
         p={5}
       >
-        <Text fontSize="lg" fontWeight="bold" mb={10} color="argila" >
-          Tauler de control <br/> Matossers
+        <Text fontSize="lg" fontWeight="bold" mb={10} color="argila">
+          Tauler de control <br /> Matossers
         </Text>
 
         <VStack align="stretch" gap={2} flex="1">
-          <NavItem icon={FiHome} onClick={() => router.push("/intranet/cpanel")}>
+          <NavItem
+            icon={FiHome}
+            onClick={() => router.push("/intranet/cpanel")}
+          >
             Inici
           </NavItem>
-          <NavItem icon={FiUsers} onClick={() => router.push("/intranet/cpanel/castellers")}>
+          <NavItem
+            icon={FiUsers}
+            onClick={() => router.push("/intranet/cpanel/castellers")}
+          >
             Castellers
           </NavItem>
-                    <NavItem icon={ImStatsBars2} onClick={() => router.push("/intranet/cpanel/temporada")}>
+          <NavItem
+            icon={ImStatsBars2}
+            onClick={() => router.push("/intranet/cpanel/temporada")}
+          >
             Temporada
           </NavItem>
-
         </VStack>
 
-          <Button
-            variant="ghost"
-            width="full"
-            justifyContent="flex-start"
-            colorScheme="red"
-            onClick={handleLogout}
-          >
-            <Icon as={FiLogOut} mr={3} />
-            Tancar Sessió
-          </Button>
+        <Button
+          variant="ghost"
+          width="full"
+          justifyContent="flex-start"
+          colorScheme="red"
+          onClick={handleLogout}
+        >
+          <Icon as={FiLogOut} mr={3} />
+          Tancar Sessió
+        </Button>
       </Box>
 
       {/* CONTINGUT PRINCIPAL */}

@@ -51,9 +51,9 @@ export default function EstadistiquesCastells({ actuacions = [] }) {
     actuacions.forEach((actuacio) => {
       // 🌟 Apliquem la conversió de Timestamp aquí:
       const dataActuacio = formatarDataTimestamp(actuacio.data);
-      const nomActuacio = actuacio.titol || actuacio.nom || actuacio.lloc || "Actuació sense nom";
+      const nomActuacio = actuacio.actuacio || "Actuació sense nom";
       
-      const resultats = actuacio.resultat || actuacio.castells || [];
+      const resultats = actuacio.resultat || [];
 
       resultats.forEach((item) => {
         const textBrut = (typeof item === "string" ? item : item.nom || item.castell || "").trim();
