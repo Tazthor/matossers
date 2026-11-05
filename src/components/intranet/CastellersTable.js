@@ -12,7 +12,7 @@ import {
   Text,
   Dialog,
   Portal,
-  Link
+  Link,
 } from "@chakra-ui/react";
 import {
   LuSearch,
@@ -23,9 +23,49 @@ import {
   LuTrash2,
   LuChevronLeft,
   LuChevronRight,
-  LuFilePen
+  LuFilePen,
 } from "react-icons/lu";
 import { deleteCasteller } from "../../app/utils/utils_intranet";
+
+function getAltaTimestamp(alta) {
+  if (alta instanceof Date) {
+    const timestamp = alta.getTime();
+    return Number.isNaN(timestamp) ? null : timestamp;
+  }
+
+  if (typeof alta !== "string") return null;
+
+  const value = alta.trim();
+  const localDateMatch = value.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  const isoDateMatch = value.match(/^(\d{4})-(\d{2})-(\d{2})(?:T.*)?$/);
+  const match = localDateMatch
+    ? [value, localDateMatch[3], localDateMatch[2], localDateMatch[1]]
+    : isoDateMatch;
+
+  if (!match) return null;
+
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  const date = new Date(0);
+  date.setUTCHours(0, 0, 0, 0);
+  date.setUTCFullYear(year, month - 1, day);
+
+  if (
+    date.getUTCFullYear() !== year ||
+    date.getUTCMonth() !== month - 1 ||
+    date.getUTCDate() !== day
+  ) {
+    return null;
+  }
+
+  if (isoDateMatch && value.includes("T")) {
+    const timestamp = Date.parse(value);
+    return Number.isNaN(timestamp) ? null : timestamp;
+  }
+
+  return date.getTime();
+}
 
 export default function CastellersTable({ data }) {
   const [filter, setFilter] = useState("");
@@ -46,28 +86,26 @@ export default function CastellersTable({ data }) {
           .includes(searchStr),
       );
     }
-if (sortConfig.key) {
+    if (sortConfig.key) {
       result.sort((a, b) => {
         if (sortConfig.key === "alta") {
-          // Intentem obtenir els mil·lisegons de la data. Si no existeix, posem 0 o Infinity depenent de si vols els buits al final
-          const timeA = a.alta ? new Date(a.alta).getTime() : 0;
-          const timeB = b.alta ? new Date(b.alta).getTime() : 0;
+          const timeA = getAltaTimestamp(a.alta);
+          const timeB = getAltaTimestamp(b.alta);
 
-          if (sortConfig.direction === "asc") {
-            return timeA - timeB; // De més antiga a més nova
-          } else {
-            return timeB - timeA; // De més nova a més antiga
-          }
+          if (timeA === null) return timeB === null ? 0 : 1;
+          if (timeB === null) return -1;
+
+          return sortConfig.direction === "asc" ? timeA - timeB : timeB - timeA;
         }
 
         let valA = a[sortConfig.key]?.toString().toLowerCase() || "";
         let valB = b[sortConfig.key]?.toString().toLowerCase() || "";
-        
+
         if (sortConfig.key === "nom") {
           valA = `${a.nom} ${a.cognom}`.toLowerCase();
           valB = `${b.nom} ${b.cognom}`.toLowerCase();
         }
-        
+
         if (valA < valB) return sortConfig.direction === "asc" ? -1 : 1;
         if (valA > valB) return sortConfig.direction === "asc" ? 1 : -1;
         return 0;
@@ -170,14 +208,7 @@ if (sortConfig.key) {
               Només actius
             </Checkbox.Label>
           </Checkbox.Root>
-          <HStack
-            gap={2}
-            maxW="350px"
-            flex="1"
-            px={3}
-            py={1}
-            borderRadius="md"
-          >
+          <HStack gap={2} maxW="350px" flex="1" px={3} py={1} borderRadius="md">
             <LuSearch color="gray" />
             <Input
               placeholder="Cerca..."
@@ -359,7 +390,8 @@ function CastellerRow({ casteller }) {
             <Button size="xs" variant="ghost">
               <LuFilePen />
               Editar
-            </Button></Link>
+            </Button>
+          </Link>
 
           <Dialog.Root
             open={open}
