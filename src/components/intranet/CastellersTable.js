@@ -142,6 +142,7 @@ export default function CastellersTable({ data }) {
     setPageSize(e.target.value);
     setCurrentPage(1);
   };
+  
 
   const downloadJSON = () => {
     const fileName = `llistat_castellers_${new Date().toISOString().slice(0, 10)}.json`;

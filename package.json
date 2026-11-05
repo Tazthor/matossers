@@ -25,7 +25,8 @@
     "react-player": "^3.4.0"
   },
   "devDependencies": {
-    "eslint": "^9",
+    "baseline-browser-mapping": "^2.11.35",
+    "eslint": "^10.14.0",
     "eslint-config-next": "16.0.3"
   }
 }
