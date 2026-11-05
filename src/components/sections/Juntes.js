@@ -18,7 +18,7 @@ export const Juntes = function ({ junta }) {
           color="argila"
           textTransform="uppercase"
         >
-          Presidenti i cap de colla
+          Presidento i cap de colla
         </Heading>
       </Box>
       <Grid
